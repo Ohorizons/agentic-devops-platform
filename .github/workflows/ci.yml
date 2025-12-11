@@ -399,7 +399,7 @@ jobs:
         continue-on-error: true
 
       - name: Check Links
-        uses: lycheeverse/lychee-action@v1
+        uses: lycheeverse/lychee-action@v2
         with:
           args: --verbose --no-progress --exclude-all-private './**/*.md'
           fail: false
