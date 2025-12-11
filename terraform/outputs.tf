@@ -66,26 +66,6 @@ output "kube_config" {
 }
 
 # -----------------------------------------------------------------------------
-# CONTAINER REGISTRY
-# -----------------------------------------------------------------------------
-
-output "acr_name" {
-  description = "Name of the Azure Container Registry"
-  value       = module.container_registry.acr_name
-}
-
-output "acr_login_server" {
-  description = "Login server URL for ACR"
-  value       = module.container_registry.login_server
-}
-
-output "acr_admin_username" {
-  description = "Admin username for ACR"
-  value       = module.container_registry.admin_username
-  sensitive   = true
-}
-
-# -----------------------------------------------------------------------------
 # DATABASE
 # -----------------------------------------------------------------------------
 
@@ -128,11 +108,6 @@ output "argocd_url" {
   value       = var.enable_argocd ? module.argocd[0].argocd_url : null
 }
 
-output "rhdh_url" {
-  description = "Red Hat Developer Hub URL"
-  value       = var.enable_rhdh ? module.rhdh[0].rhdh_url : null
-}
-
 output "grafana_url" {
   description = "Grafana dashboard URL"
   value       = var.enable_observability ? module.observability[0].grafana_url : null
@@ -148,24 +123,6 @@ output "ai_foundry_endpoint" {
 }
 
 # -----------------------------------------------------------------------------
-# DEFENDER (if enabled)
-# -----------------------------------------------------------------------------
-
-output "defender_workspace_id" {
-  description = "Defender for Cloud workspace ID"
-  value       = var.enable_defender ? module.defender[0].workspace_id : null
-}
-
-# -----------------------------------------------------------------------------
-# GITHUB RUNNERS (if enabled)
-# -----------------------------------------------------------------------------
-
-output "github_runner_scale_set_id" {
-  description = "GitHub Runner Scale Set ID"
-  value       = var.enable_github_runners ? module.github_runners[0].scale_set_id : null
-}
-
-# -----------------------------------------------------------------------------
 # SUMMARY
 # -----------------------------------------------------------------------------
 
@@ -175,22 +132,17 @@ output "deployment_summary" {
     project     = var.project_name
     environment = var.environment
     location    = var.location
-    platform    = var.kubernetes_platform
 
     endpoints = {
-      aks_fqdn   = module.aks.cluster_fqdn
-      acr_server = module.container_registry.login_server
-      keyvault   = module.security.keyvault_uri
-      argocd     = var.enable_argocd ? module.argocd[0].argocd_url : "Not deployed"
-      rhdh       = var.enable_rhdh ? module.rhdh[0].rhdh_url : "Not deployed"
-      grafana    = var.enable_observability ? module.observability[0].grafana_url : "Not deployed"
+      aks_fqdn = module.aks.cluster_fqdn
+      keyvault = module.security.keyvault_uri
+      argocd   = var.enable_argocd ? module.argocd[0].argocd_url : "Not deployed"
+      grafana  = var.enable_observability ? module.observability[0].grafana_url : "Not deployed"
     }
 
     features = {
-      defender       = var.enable_defender
-      purview        = var.enable_purview
-      ai_foundry     = var.enable_ai_foundry
-      github_runners = var.enable_github_runners
+      ai_foundry = var.enable_ai_foundry
+      argocd     = var.enable_argocd
     }
   }
 }
