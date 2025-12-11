@@ -11,7 +11,7 @@
 # -----------------------------------------------------------------------------
 
 module "naming" {
-  source = "./modules/naming"
+  source = "../modules/naming"
 
   project_name = var.project_name
   environment  = var.environment
@@ -35,7 +35,7 @@ resource "azurerm_resource_group" "main" {
 # -----------------------------------------------------------------------------
 
 module "networking" {
-  source = "./modules/networking"
+  source = "../modules/networking"
 
   resource_group_name = azurerm_resource_group.main.name
   location            = var.location
@@ -56,7 +56,7 @@ module "networking" {
 # -----------------------------------------------------------------------------
 
 module "aks_cluster" {
-  source = "./modules/aks-cluster"
+  source = "../modules/aks-cluster"
 
   resource_group_name = azurerm_resource_group.main.name
   location            = var.location
@@ -75,7 +75,7 @@ module "aks_cluster" {
 # -----------------------------------------------------------------------------
 
 module "container_registry" {
-  source = "./modules/container-registry"
+  source = "../modules/container-registry"
 
   resource_group_name = azurerm_resource_group.main.name
   location            = var.location
@@ -107,7 +107,7 @@ resource "azurerm_storage_account" "main" {
 # -----------------------------------------------------------------------------
 
 module "security" {
-  source = "./modules/security"
+  source = "../modules/security"
 
   resource_group_name = azurerm_resource_group.main.name
   location            = var.location
@@ -125,7 +125,7 @@ module "security" {
 # -----------------------------------------------------------------------------
 
 module "databases" {
-  source = "./modules/databases"
+  source = "../modules/databases"
 
   resource_group_name = azurerm_resource_group.main.name
   location            = var.location
@@ -143,7 +143,7 @@ module "databases" {
 # -----------------------------------------------------------------------------
 
 module "observability" {
-  source = "./modules/observability"
+  source = "../modules/observability"
 
   resource_group_name = azurerm_resource_group.main.name
   location            = var.location
@@ -162,7 +162,7 @@ module "observability" {
 # -----------------------------------------------------------------------------
 
 module "ai_foundry" {
-  source = "./modules/ai-foundry"
+  source = "../modules/ai-foundry"
   count  = var.enable_ai_foundry ? 1 : 0
 
   resource_group_name = azurerm_resource_group.main.name
@@ -182,7 +182,7 @@ module "ai_foundry" {
 # -----------------------------------------------------------------------------
 
 module "purview" {
-  source = "./modules/purview"
+  source = "../modules/purview"
   count  = var.enable_purview ? 1 : 0
 
   resource_group_name = azurerm_resource_group.main.name
@@ -196,7 +196,7 @@ module "purview" {
 }
 
 module "defender" {
-  source = "./modules/defender"
+  source = "../modules/defender"
   count  = var.enable_defender ? 1 : 0
 
   # Defender is subscription-level, not resource group
