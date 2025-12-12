@@ -73,9 +73,9 @@ jobs:
           fetch-depth: 0
 
       - name: Check PR title format
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
         run: |
-          PR_TITLE="${{ github.event.pull_request.title }}"
-
           # Check for conventional commit format
           if [[ ! "$PR_TITLE" =~ ^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)(\(.+\))?: ]]; then
             echo "::warning::PR title should follow conventional commit format"
@@ -83,18 +83,19 @@ jobs:
           fi
 
       - name: Check PR description
+        env:
+          PR_BODY: ${{ github.event.pull_request.body }}
         run: |
-          PR_BODY="${{ github.event.pull_request.body }}"
-
           if [[ -z "$PR_BODY" || ${#PR_BODY} -lt 50 ]]; then
             echo "::warning::PR description is too short. Please provide more details."
           fi
 
       - name: Check for WIP
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          IS_DRAFT: ${{ github.event.pull_request.draft }}
         run: |
-          PR_TITLE="${{ github.event.pull_request.title }}"
-
-          if [[ "$PR_TITLE" =~ ^(WIP|wip|Wip) ]] || [[ "${{ github.event.pull_request.draft }}" == "true" ]]; then
+          if [[ "$PR_TITLE" =~ ^(WIP|wip|Wip) ]] || [[ "$IS_DRAFT" == "true" ]]; then
             echo "::notice::This PR is marked as Work in Progress"
           fi
 
