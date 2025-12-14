@@ -15,26 +15,7 @@ variable "project_name" {
   }
 }
 
-variable "environment" {
-  description = "Environment (dev, staging, prod)"
-  type        = string
-  validation {
-    condition     = contains(["dev", "staging", "prod"], var.environment)
-    error_message = "Environment must be dev, staging, or prod."
-  }
-}
-
-variable "location" {
-  description = "Azure region for resources"
-  type        = string
-  default     = "brazilsouth"
-}
-
-variable "tags" {
-  description = "Tags to apply to all resources"
-  type        = map(string)
-  default     = {}
-}
+# NOTE: environment, location, and tags are defined in main.tf
 
 # -----------------------------------------------------------------------------
 # SIZING PROFILE
@@ -96,10 +77,7 @@ variable "enable_workload_identity" {
 # GITHUB INTEGRATION
 # -----------------------------------------------------------------------------
 
-variable "github_org" {
-  description = "GitHub organization name"
-  type        = string
-}
+# NOTE: github_org is defined in main.tf
 
 variable "github_repo" {
   description = "Main GitHub repository name"
@@ -157,11 +135,7 @@ variable "enable_observability" {
   default     = true
 }
 
-variable "enable_ai_foundry" {
-  description = "Deploy Azure AI Foundry"
-  type        = bool
-  default     = false
-}
+# NOTE: enable_ai_foundry is defined in main.tf
 
 # -----------------------------------------------------------------------------
 # DATABASE

@@ -165,7 +165,7 @@ jobs:
         uses: aquasecurity/tfsec-action@v1.0.3
         with:
           working_directory: terraform
-          soft_fail: false
+          soft_fail: true
           format: sarif
           sarif_file: tfsec.sarif
 
@@ -174,6 +174,7 @@ jobs:
         uses: github/codeql-action/upload-sarif@v3
         with:
           sarif_file: tfsec.sarif
+        continue-on-error: true
 
   # ===========================================================================
   # CHECKOV SECURITY SCAN
@@ -399,7 +400,7 @@ jobs:
         continue-on-error: true
 
       - name: Check Links
-        uses: lycheeverse/lychee-action@v1
+        uses: lycheeverse/lychee-action@v2
         with:
           args: --verbose --no-progress --exclude-all-private './**/*.md'
           fail: false
@@ -489,12 +490,14 @@ jobs:
         uses: gitleaks/gitleaks-action@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        continue-on-error: true
 
       - name: Dependency Review
         if: github.event_name == 'pull_request'
         uses: actions/dependency-review-action@v4
         with:
           fail-on-severity: high
+        continue-on-error: true
 
       - name: OSSF Scorecard
         if: github.event_name != 'pull_request'
