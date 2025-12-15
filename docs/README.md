@@ -23,7 +23,6 @@
 | Document | Description | Audience |
 |----------|-------------|----------|
 | [README](../README.md) | Project overview and quick start | Everyone |
-| [QUICKSTART](../QUICKSTART.md) | 15-minute deployment guide | Developers |
 | [CONTRIBUTING](../CONTRIBUTING.md) | How to contribute | Contributors |
 
 ### Comprehensive Guides
@@ -200,8 +199,7 @@ docs/
 ### New to the Project?
 
 1. Read the [README](../README.md) for an overview
-2. Follow the [QUICKSTART](../QUICKSTART.md) for a quick deployment
-3. Study the [Architecture Guide](guides/ARCHITECTURE_GUIDE.md) to understand the system
+2. Study the [Architecture Guide](guides/ARCHITECTURE_GUIDE.md) to understand the system
 
 ### Deploying for Production?
 
