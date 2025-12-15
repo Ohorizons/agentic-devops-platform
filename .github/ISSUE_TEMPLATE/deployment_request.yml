@@ -145,5 +145,5 @@ body:
           required: true
         - label: Budget is approved for estimated costs
           required: true
-        - label: I have read the QUICKSTART guide
+        - label: I have read the README and Deployment Guide
           required: true

@@ -210,9 +210,9 @@ jobs:
 
             ## Documentation
 
-            - [QUICKSTART.md](docs/QUICKSTART.md) - Getting started guide
-            - [INVENTORY_v4.md](docs/INVENTORY_v4.md) - Complete component inventory
-            - [AGENT_CATALOG.md](docs/AGENT_CATALOG.md) - AI Agent specifications
+            - [Deployment Guide](docs/guides/DEPLOYMENT_GUIDE.md) - Step-by-step deployment instructions
+            - [Architecture Guide](docs/guides/ARCHITECTURE_GUIDE.md) - Three Horizons architecture
+            - [Agent Documentation](agents/README.md) - 23 AI agents for deployment automation
 
             ${{ needs.changelog.outputs.changelog }}
           files: |
