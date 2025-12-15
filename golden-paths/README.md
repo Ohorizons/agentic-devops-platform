@@ -1,5 +1,7 @@
 # Golden Paths Templates
 
+> **A solution created in partnership with Microsoft, GitHub, and Red Hat**
+
 This directory contains self-service templates for Red Hat Developer Hub (RHDH/Backstage) that enable developers to quickly scaffold new projects following platform standards.
 
 ## Directory Structure

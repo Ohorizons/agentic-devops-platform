@@ -1,5 +1,7 @@
 # Three Horizons Agents
 
+> **A solution created in partnership with Microsoft, GitHub, and Red Hat**
+>
 > Intelligent deployment orchestration for the Three Horizons Platform
 
 ## Quick Reference

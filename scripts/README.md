@@ -1,5 +1,7 @@
 # Automation Scripts
 
+> **A solution created in partnership with Microsoft, GitHub, and Red Hat**
+
 This directory contains automation scripts for the Three Horizons Platform.
 
 ## Script Inventory
