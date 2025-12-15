@@ -63,9 +63,9 @@ After reading this guide, you'll understand:
 
 > 💡 **Origin of the Model**
 >
-> The Three Horizons framework comes from McKinsey's work on managing innovation.
-> It helps organizations balance maintaining current operations (H1) while developing
-> improvements (H2) and exploring future opportunities (H3).
+> The Three Horizons Accelerator is a solution created in partnership with **Microsoft**,
+> **GitHub**, and **Red Hat**. It helps organizations balance maintaining current operations
+> (H1) while developing improvements (H2) and exploring future opportunities (H3).
 
 The Three Horizons model organizes the platform into three layers with different purposes:
 
