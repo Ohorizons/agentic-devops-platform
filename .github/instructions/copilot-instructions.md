@@ -85,7 +85,65 @@ Skills provide CLI reference documentation for Copilot context. Available skills
 | `terraform-cli` | Terraform CLI for infrastructure as code |
 | `kubectl-cli` | Kubernetes kubectl commands |
 | `argocd-cli` | ArgoCD GitOps operations |
+| `oc-cli` | OpenShift CLI commands |
+| `helm-cli` | Helm package management |
+| `github-cli` | GitHub CLI operations |
 | `validation-scripts` | Reusable validation patterns |
+| `aro-deployment` | ARO cluster deployment |
+| `openshift-operations` | OpenShift operations |
+| `prerequisites` | CLI tool requirements |
+
+## Agent-Skills-MCP Integration
+
+The accelerator uses a hierarchical implicit integration pattern:
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                      Agent (e.g., aro.agent.md)                 │
+│  skills: [aro-deployment, openshift-operations, azure-cli]     │
+└───────────────────────────┬─────────────────────────────────────┘
+                            │ references
+                            ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                   Skills (e.g., aro-deployment)                 │
+│  - CLI commands and patterns documented                         │
+│  - Related Scripts section                                      │
+│  - MCP server suggestions                                       │
+└───────────────────────────┬─────────────────────────────────────┘
+                            │ discovered via
+                            ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                      MCP Servers (.vscode/mcp.json)             │
+│  - Loaded dynamically via tool_search_tool_regex                │
+│  - Provide actual tool execution                                │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### Instructions (Auto-loaded by file pattern)
+
+Instructions in `.github/instructions/` use `applyTo` patterns:
+
+| Instruction | Files |
+|-------------|-------|
+| terraform.instructions.md | `**/*.tf` |
+| kubernetes.instructions.md | `**/*.yaml` |
+| python.instructions.md | `**/*.py` |
+| shell.instructions.md | `**/*.sh` |
+| aro.instructions.md | `**/aro/**/*.yaml` |
+
+### How Components Work Together
+
+1. **Agents** declare `skills:` in frontmatter → Copilot loads skill docs
+2. **Skills** document CLI patterns + reference scripts → Copilot has context
+3. **MCP servers** are discovered via `tool_search_tool_regex` → actual execution
+4. **Instructions** auto-apply by `applyTo` file patterns → coding standards
+
+### Key Patterns
+
+- Agents DON'T need to explicitly reference MCP servers (implicit via skills)
+- Agents DON'T need to reference instructions (auto-applied by file pattern)
+- Skills SHOULD document which scripts to use for common tasks
+- Skills SHOULD note which MCP servers provide relevant tools
 
 ## Security Requirements
 
@@ -124,10 +182,20 @@ terraform apply
 
 ## Agent System
 
-The platform uses 23 AI agents organized by horizon for deployment orchestration. There are also 16 Terraform modules, 22 Golden Path templates, and 28 Issue templates. When generating code for agents:
-- Follow the agent specification format in `agents/`
-- Include proper YAML frontmatter
-- Define clear inputs, outputs, and steps
+The platform uses 30 AI agents in a flat structure at `.github/agents/`. Agents are organized by horizon:
+
+| Horizon | Agents | Purpose |
+|---------|--------|---------|
+| H1 Foundation | 8 | Core infrastructure (AKS/ARO, networking, security) |
+| H2 Enhancement | 5 | Platform services (GitOps, RHDH, observability) |
+| H3 Innovation | 4 | AI capabilities (AI Foundry, MLOps, multi-agent) |
+| Cross-Cutting | 7 | Shared concerns (validation, migration, rollback) |
+| Specialized | 6 | Domain-specific (deployment, terraform, GitHub) |
+
+When generating code for agents:
+- Follow the agent specification format with YAML frontmatter
+- Required fields: `name`, `description`, `skills`
+- Include clear inputs, outputs, and steps
 - Reference existing modules and scripts
 
 ## Golden Paths

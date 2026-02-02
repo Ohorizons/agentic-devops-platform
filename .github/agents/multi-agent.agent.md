@@ -1,8 +1,7 @@
 ---
-name: multi-agent-agent
+name: multi-agent
+description: 'Multi-agent AI orchestration specialist - configures semantic kernel and AutoGen based multi-agent systems'
 version: 1.0.0
-horizon: H3-Innovation
-task: Configure multi-agent AI systems
 skills:
   - ai-foundry-operations
   - validation-scripts

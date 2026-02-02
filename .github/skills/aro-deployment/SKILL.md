@@ -896,6 +896,16 @@ az ad app update \
 
 ---
 
+## Related Scripts
+
+| Script | Purpose |
+|--------|---------|
+| [scripts/deploy-aro.sh](../../scripts/deploy-aro.sh) | Full ARO cluster deployment automation |
+| [scripts/setup-github-app.sh](../../scripts/setup-github-app.sh) | GitHub App for RHDH integration |
+| [scripts/bootstrap.sh](../../scripts/bootstrap.sh) | Platform bootstrap with ARO support |
+
+---
+
 ## References
 
 - [Azure Red Hat OpenShift Documentation](https://learn.microsoft.com/en-us/azure/openshift/)

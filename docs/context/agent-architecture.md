@@ -4,24 +4,87 @@
 
 ## Overview
 
-The Three Horizons Accelerator uses **23 AI agents** for intelligent deployment orchestration. These agents are organized by horizon and designed to work both independently and as part of coordinated workflows.
+The Three Horizons Accelerator uses **30 AI agents** in a flat structure for intelligent deployment orchestration. Agents are designed to work both independently and as part of coordinated workflows, leveraging skills, MCP servers, and automation scripts.
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
 │                         AGENT ARCHITECTURE                               │
 ├─────────────────────────────────────────────────────────────────────────┤
-│  ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐     │
-│  │  Chat Agents    │    │ Workflow Agents │    │   MCP Servers   │     │
-│  │  (14 agents)    │◄──►│  (23 specs)     │◄──►│  (15 servers)   │     │
-│  │  .github/agents │    │  agents/        │    │  mcp-servers/   │     │
-│  └─────────────────┘    └─────────────────┘    └─────────────────┘     │
-│          │                      │                      │               │
-│          ▼                      ▼                      ▼               │
 │  ┌─────────────────────────────────────────────────────────────────┐   │
-│  │                         CLI SKILLS                               │   │
-│  │   azure-cli │ terraform-cli │ kubectl-cli │ argocd-cli │ helm   │   │
+│  │                     AGENTS (30 total)                            │   │
+│  │                   .github/agents/*.agent.md                      │   │
+│  │   skills: [azure-cli, terraform-cli, kubectl-cli, ...]          │   │
+│  └─────────────────────────────────┬───────────────────────────────┘   │
+│                                    │ references                         │
+│                          ┌─────────┴─────────┐                         │
+│                          ▼                   ▼                         │
+│  ┌──────────────────────────┐   ┌──────────────────────────────┐       │
+│  │   SKILLS (17 total)      │   │   INSTRUCTIONS (8 files)     │       │
+│  │  .github/skills/SKILL.md │   │  applyTo: **/*.tf, **/*.yaml │       │
+│  │  CLI docs + script refs  │   │  Auto-loaded by file pattern │       │
+│  └──────────────────────────┘   └──────────────────────────────┘       │
+│                    │                                                    │
+│                    ▼                                                    │
+│  ┌─────────────────────────────────────────────────────────────────┐   │
+│  │                    MCP SERVERS (15 servers)                      │   │
+│  │                 .vscode/mcp.json + mcp-servers/                  │   │
+│  │    azure | terraform | kubernetes | github | argocd | helm       │   │
+│  │    Discovered via tool_search_tool_regex (deferred loading)      │   │
+│  └─────────────────────────────────────────────────────────────────┘   │
+│                    │                                                    │
+│                    ▼                                                    │
+│  ┌─────────────────────────────────────────────────────────────────┐   │
+│  │                    SCRIPTS (12 scripts)                          │   │
+│  │                      scripts/*.sh                                │   │
+│  │    bootstrap | deploy-aro | validate-* | setup-*                 │   │
 │  └─────────────────────────────────────────────────────────────────┘   │
 └─────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## Integration Flow
+
+### Hierarchical Implicit System
+
+Agents integrate with skills, MCP, and scripts through an implicit hierarchical pattern:
+
+```
+Agent                    Skill                      MCP Server
+┌────────────────┐      ┌────────────────────┐     ┌─────────────────────┐
+│ aro.agent.md   │──────│ aro-deployment     │─ ─ ─│ mcp_azure (az aro)  │
+│                │      │ openshift-operations│     │ mcp_openshift (oc)  │
+│ skills:        │      │ azure-cli          │     │                     │
+│ - aro-deployment      └────────────────────┘     └─────────────────────┘
+│ - openshift-ops│               │
+│ - azure-cli    │               │ Related Scripts
+└────────────────┘               ▼
+                        ┌────────────────────┐
+                        │ deploy-aro.sh      │
+                        │ bootstrap.sh       │
+                        │ validate-deployment│
+                        └────────────────────┘
+```
+
+### Key Integration Patterns
+
+| Component | Discovery Method | Example |
+|-----------|------------------|---------|
+| **Skills** | Agent `skills:` frontmatter | `skills: [azure-cli, terraform-cli]` |
+| **MCP Servers** | `tool_search_tool_regex` (deferred) | Pattern: `mcp_azure\|mcp_terraform` |
+| **Instructions** | Auto-applied via `applyTo:` | `applyTo: **/*.tf` |
+| **Scripts** | Referenced in skill `## Related Scripts` | `scripts/validate-deployment.sh` |
+
+### Agent Frontmatter Standard
+
+```yaml
+---
+name: agent-name
+description: 'Keywords for discovery - what this agent does'
+skills:
+  - skill-1
+  - skill-2
+---
 ```
 
 ---
@@ -64,41 +127,15 @@ Agent: I'll deploy the H1 Foundation. Let me validate prerequisites first...
 
 ## Agent Inventory
 
-### Chat Agents (14 Total)
+All 30 agents are in a flat structure at `.github/agents/`:
 
-Located in `.github/agents/`:
-
-| Agent | File | Purpose |
-|-------|------|---------|
-| Architect | `architect.agent.md` | System design and architecture decisions |
-| DevOps | `devops.agent.md` | CI/CD pipeline configuration |
-| Platform | `platform.agent.md` | Platform engineering tasks |
-| Deployment | `deployment.agent.md` | Three Horizons deployment orchestration |
-| Terraform | `terraform.agent.md` | Infrastructure as Code operations |
-| Security | `security.agent.md` | Security configuration and compliance |
-| Observability | `observability.agent.md` | Monitoring and alerting setup |
-| SRE | `sre.agent.md` | Site reliability engineering |
-| Reviewer | `reviewer.agent.md` | Code review assistance |
-| Documentation | `documentation.agent.md` | Documentation generation |
-| AI Foundry | `ai-foundry.agent.md` | Azure AI integration |
-| GitOps | `gitops.agent.md` | ArgoCD and GitOps patterns |
-| Cost | `cost.agent.md` | Cost optimization |
-| Migration | `migration.agent.md` | ADO to GitHub migration |
-
-### All Agents (30 Total)
-
-All agents are located in `.github/agents/` with a flat structure:
-
-| Agent | File | Purpose |
-|-------|------|---------|
-| AI Foundry | `ai-foundry.agent.md` | Azure AI Foundry, models, RAG |
-| Architect | `architect.agent.md` | System architecture design |
-| ARO | `aro.agent.md` | Azure Red Hat OpenShift |
-| Container Registry | `container-registry.agent.md` | ACR deployment |
-| Cost | `cost.agent.md` | FinOps, cost optimization |
-| Database | `database.agent.md` | PostgreSQL/Cosmos DB |
-| Defender Cloud | `defender-cloud.agent.md` | Microsoft Defender |
-| Deployment | `deployment.agent.md` | Interactive deployment |
+| Category | Count | Agents |
+|----------|-------|--------|
+| **H1 Foundation** | 8 | infrastructure, networking, security, defender-cloud, database, container-registry, aro, purview-governance |
+| **H2 Enhancement** | 5 | gitops, rhdh-portal, github-runners, golden-paths, observability |
+| **H3 Innovation** | 4 | ai-foundry, mlops-pipeline, multi-agent, sre |
+| **Cross-Cutting** | 7 | validation, migration, rollback, cost, github-app, identity-federation |
+| **Specialized** | 6 | deployment, terraform, architect, devops, platform, reviewer, documentation |
 | DevOps | `devops.agent.md` | CI/CD pipelines |
 | Documentation | `documentation.agent.md` | Doc creation/updates |
 | GitHub App | `github-app.agent.md` | GitHub App config |

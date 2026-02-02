@@ -1,8 +1,7 @@
 ---
-name: defender-cloud-agent
+name: defender-cloud
+description: 'Microsoft Defender for Cloud specialist - configures security policies, threat protection, and compliance monitoring'
 version: 1.0.0
-horizon: H1-Foundation
-task: Configure Microsoft Defender for Cloud
 skills:
   - azure-infrastructure
   - terraform-cli

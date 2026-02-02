@@ -373,3 +373,11 @@ Or use the bootstrap script:
 - [argocd-cli](../argocd-cli/SKILL.md) - ArgoCD commands
 - [github-cli](../github-cli/SKILL.md) - GitHub CLI commands
 - [mcp-cli](../mcp-cli/SKILL.md) - MCP configuration
+
+## Related Scripts
+
+| Script | Purpose |
+|--------|---------|
+| [scripts/validate-cli-prerequisites.sh](../../scripts/validate-cli-prerequisites.sh) | Validate all CLI tools are properly installed |
+| [scripts/bootstrap.sh](../../scripts/bootstrap.sh) | Bootstrap platform and install prerequisites |
+| [scripts/setup-pre-commit.sh](../../scripts/setup-pre-commit.sh) | Setup pre-commit hooks for development |

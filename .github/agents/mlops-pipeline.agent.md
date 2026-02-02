@@ -1,8 +1,7 @@
 ---
-name: mlops-pipeline-agent
+name: mlops-pipeline
+description: 'MLOps pipeline specialist - configures model training, deployment, and monitoring pipelines with Azure ML and AI Foundry'
 version: 1.0.0
-horizon: H3-Innovation
-task: Configure MLOps pipelines
 skills:
   - ai-foundry-operations
   - github-cli

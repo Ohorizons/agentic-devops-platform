@@ -765,6 +765,16 @@ export VNET_NAME="vnet-threehorizons-prod"
 7. **Clear output**: Use consistent icons and messages
 8. **Return codes**: Use proper exit codes for automation
 
+## Related Scripts
+
+| Script | Purpose |
+|--------|---------|
+| [scripts/validate-agents.sh](../../scripts/validate-agents.sh) | Validate all agent YAML frontmatter and structure |
+| [scripts/validate-cli-prerequisites.sh](../../scripts/validate-cli-prerequisites.sh) | Validate required CLI tools are installed |
+| [scripts/validate-config.sh](../../scripts/validate-config.sh) | Validate platform configuration files |
+| [scripts/validate-deployment.sh](../../scripts/validate-deployment.sh) | Post-deployment validation suite |
+| [scripts/validate-naming.sh](../../scripts/validate-naming.sh) | Validate Azure resource naming conventions |
+
 ## References
 
 - [Azure Validation Best Practices](https://learn.microsoft.com/en-us/azure/architecture/best-practices/)

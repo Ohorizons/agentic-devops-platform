@@ -1,8 +1,7 @@
 ---
-name: github-app-agent
+name: github-app
+description: 'GitHub App configuration specialist - creates and manages GitHub Apps for repository automation and integrations'
 version: 1.0.0
-horizon: Cross-Cutting
-task: Configure GitHub App for automation
 skills:
   - github-cli
   - validation-scripts

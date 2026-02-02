@@ -525,6 +525,17 @@ export KEYVAULT_NAME="kv-${PROJECT}-${ENV}"
 
 ---
 
+## Related Scripts
+
+| Script | Purpose |
+|--------|---------|
+| [scripts/bootstrap.sh](../../scripts/bootstrap.sh) | Bootstrap Azure infrastructure |
+| [scripts/platform-bootstrap.sh](../../scripts/platform-bootstrap.sh) | Full platform deployment |
+| [scripts/validate-deployment.sh](../../scripts/validate-deployment.sh) | Post-deployment validation |
+| [scripts/setup-identity-federation.sh](../../scripts/setup-identity-federation.sh) | Configure workload identity |
+
+---
+
 ## References
 
 - [Azure AKS Best Practices](https://learn.microsoft.com/en-us/azure/aks/best-practices)

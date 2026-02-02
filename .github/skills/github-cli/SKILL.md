@@ -657,6 +657,16 @@ gh api /app
 
 ---
 
+## Related Scripts
+
+| Script | Purpose |
+|--------|---------|
+| [scripts/setup-github-app.sh](../../scripts/setup-github-app.sh) | Create and configure GitHub App for automation |
+| [scripts/setup-branch-protection.sh](../../scripts/setup-branch-protection.sh) | Configure branch protection rules |
+| [scripts/setup-identity-federation.sh](../../scripts/setup-identity-federation.sh) | Setup OIDC identity federation with Azure |
+
+---
+
 ## References
 
 - [GitHub CLI Documentation](https://cli.github.com/manual/)

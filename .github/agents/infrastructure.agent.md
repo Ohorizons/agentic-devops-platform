@@ -1,8 +1,7 @@
 ---
-name: infrastructure-agent
+name: infrastructure
+description: 'Azure Kubernetes Service (AKS) specialist - deploys and configures enterprise AKS clusters with security best practices'
 version: 1.0.0
-horizon: H1-Foundation
-task: Deploy AKS Kubernetes cluster
 skills:
   - azure-infrastructure
   - kubectl-cli

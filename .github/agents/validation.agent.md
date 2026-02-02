@@ -1,8 +1,7 @@
 ---
-name: validation-agent
+name: validation
+description: 'Deployment validation specialist - verifies infrastructure, Kubernetes, and application configurations'
 version: 1.0.0
-horizon: Cross-Cutting
-task: Validate deployments and configurations
 skills:
   - validation-scripts
   - terraform-cli
