@@ -2,6 +2,12 @@
 name: create-service
 description: Create a new microservice using Golden Path templates
 mode: agent
+tools:
+  - codebase
+  - edit/editFiles
+  - terminalCommand
+  - search
+  - githubRepo
 ---
 
 # Create New Microservice

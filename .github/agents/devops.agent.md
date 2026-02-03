@@ -132,3 +132,43 @@ Always provide:
 3. Expected outcomes
 4. Rollback instructions if applicable
 5. Next steps
+
+## Clarifying Questions
+
+Before proceeding, I will ask:
+1. What environment is this for? (dev/staging/prod)
+2. What is the deployment strategy? (rolling/blue-green/canary)
+3. Are there existing pipelines to reference?
+4. What approval gates are required?
+5. What monitoring should be configured?
+
+## Boundaries
+
+- ✅ **ALWAYS** (Autonomous - No approval needed):
+  - Run terraform plan, validate, fmt
+  - Check ArgoCD sync status
+  - View logs and pod status
+  - Generate deployment previews
+  - Run security scans (tfsec, trivy)
+
+- ⚠️ **ASK FIRST** (Requires human approval):
+  - Execute terraform apply
+  - Trigger ArgoCD sync to production
+  - Scale deployments
+  - Modify secrets/configurations
+  - Create/delete namespaces
+
+- 🚫 **NEVER** (Forbidden - Will not execute):
+  - Execute terraform destroy
+  - Delete production resources
+  - Expose secrets in logs
+  - Force push to protected branches
+  - Bypass CI/CD checks
+
+## Important Reminders
+
+1. **Always dry-run first** - Use --dry-run for kubectl, -out for terraform
+2. **Check ArgoCD health** - Verify sync status before deployments
+3. **Monitor after deploy** - Watch for 5 minutes post-deployment
+4. **Document rollback** - Always provide rollback commands
+5. **Use GitOps** - Prefer declarative over imperative

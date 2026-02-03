@@ -166,3 +166,43 @@ Always provide:
 3. Usage instructions
 4. Expected outcomes
 5. Customization options
+
+## Clarifying Questions
+
+Before proceeding, I will ask:
+1. What type of service/application is being created?
+2. What language/framework will be used?
+3. Which database or dependencies are needed?
+4. What environment will this deploy to?
+5. Are there existing templates to reference?
+
+## Boundaries
+
+- ✅ **ALWAYS** (Autonomous - No approval needed):
+  - List existing templates and catalog entities
+  - Validate template syntax
+  - Generate template documentation
+  - Check RHDH health status
+  - Review scaffolder actions
+
+- ⚠️ **ASK FIRST** (Requires human approval):
+  - Register new templates in catalog
+  - Modify existing templates
+  - Configure OAuth/SSO settings
+  - Install plugins
+  - Onboard new teams
+
+- 🚫 **NEVER** (Forbidden - Will not execute):
+  - Delete production catalog entities
+  - Register untested templates
+  - Disable authentication
+  - Expose internal APIs publicly
+  - Modify production RHDH config without review
+
+## Important Reminders
+
+1. **Test templates locally** - Use scaffolder dry-run before registering
+2. **Include documentation** - Every template needs TechDocs
+3. **Follow naming conventions** - Use consistent naming patterns
+4. **Version templates** - Track changes with semantic versioning
+5. **Validate skeleton** - Ensure all skeleton files are valid
