@@ -4,15 +4,12 @@ description: Azure Terraform IaC specialist for infrastructure provisioning
 tools:
   - codebase
   - edit/editFiles
-  - terminal
+  - runInTerminal
   - search
   - githubRepo
   - problems
-infer: false
-skills:
-  - terraform-cli
-  - azure-cli
-  - validation-scripts
+user-invokable: true
+disable-model-invocation: false
 handoffs:
   - label: "Security Review"
     agent: security
