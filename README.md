@@ -426,21 +426,6 @@ metadata:
 
 ---
 
-## Estimated Costs (USD/month)
-
-| Resource | Dev | Staging | Production |
-|----------|-----|---------|------------|
-| AKS (3-5 nodes) | $300 | $600 | $1,500 |
-| PostgreSQL | $50 | $100 | $300 |
-| Redis | $30 | $60 | $150 |
-| ACR | $20 | $40 | $100 |
-| AI Foundry | $100 | $300 | $1,000+ |
-| Monitoring | $50 | $100 | $250 |
-| **Total** | **~$550** | **~$1,200** | **~$3,300+** |
-
-*Note: AI Foundry costs vary with token usage*
-
----
 
 ## Deploy Times
 
