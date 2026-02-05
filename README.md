@@ -11,7 +11,7 @@ The **Three Horizons Implementation Accelerator** is a complete kit of Infrastru
 | Component | Quantity | Description |
 |-----------|----------|-------------|
 | **Terraform Modules** | 16 | Complete Azure infrastructure |
-| **AI Agents** | 23 | Intelligent deployment orchestration |
+| **AI Agents** | 23+ | **[Unified Agent Strategy](./AGENTS.md)** (Copilot + Automation) |
 | **Golden Path Templates** | 22 | Self-service templates for RHDH |
 | **Issue Templates** | 28 | GitHub Issues templates |
 | **Automation Scripts** | 14 | Bootstrap and operations |
@@ -186,6 +186,7 @@ terraform apply tfplan
 ```
 
 **Resources created in H1:**
+
 - AKS Cluster (3 nodes)
 - VNet with 3 subnets
 - Azure Container Registry
@@ -204,6 +205,7 @@ terraform apply -var-file=environments/dev.tfvars -var="enable_h2=true"
 ```
 
 **Resources created in H2:**
+
 - ArgoCD with ApplicationSets
 - Red Hat Developer Hub
 - Prometheus + Grafana + Loki
@@ -217,6 +219,7 @@ terraform apply -var-file=environments/dev.tfvars -var="enable_h3=true"
 ```
 
 **Resources created in H3:**
+
 - Azure AI Foundry
 - Azure OpenAI (GPT-4o, o1)
 - AI Search (Vector)
@@ -253,6 +256,7 @@ kubectl apply -f golden-paths/h1-foundation/basic-cicd/template.yaml
 ### Available Templates by Horizon
 
 #### H1 Foundation (Getting Started)
+
 | Template | Use Case |
 |----------|----------|
 | `basic-cicd` | Simple CI/CD pipeline |
@@ -263,6 +267,7 @@ kubectl apply -f golden-paths/h1-foundation/basic-cicd/template.yaml
 | `infrastructure-provisioning` | Terraform modules |
 
 #### H2 Enhancement (Production)
+
 | Template | Use Case |
 |----------|----------|
 | `gitops-deployment` | ArgoCD applications |
@@ -274,6 +279,7 @@ kubectl apply -f golden-paths/h1-foundation/basic-cicd/template.yaml
 | `reusable-workflows` | GitHub workflows |
 
 #### H3 Innovation (AI/Agents)
+
 | Template | Use Case |
 |----------|----------|
 | `foundry-agent` | AI Foundry agents |
@@ -327,6 +333,7 @@ spec:
 ### Notifications
 
 Configured to send to:
+
 - **Microsoft Teams** - Formatted cards
 - **Slack** - Colored attachments
 - **Email** - HTML templates
@@ -517,6 +524,7 @@ After reviewing this README:
 ## Support
 
 For questions, issues, or suggestions, open an issue on GitHub:
+
 - **GitHub Issues:** [Create Issue](https://github.com/paulanunes85/three-horizons-accelerator-v4/issues)
 
 ---
@@ -524,6 +532,7 @@ For questions, issues, or suggestions, open an issue on GitHub:
 ## References
 
 ### Official Documentation
+
 - [Azure AKS](https://docs.microsoft.com/azure/aks/)
 - [ArgoCD](https://argo-cd.readthedocs.io/)
 - [Red Hat Developer Hub](https://developers.redhat.com/rhdh)
@@ -536,6 +545,7 @@ For questions, issues, or suggestions, open an issue on GitHub:
 ## Version History
 
 ### v4.0.0 (December 2025)
+
 - 16 Terraform modules (including Defender, Purview, Naming, Disaster Recovery)
 - 23 AI agents for intelligent deployment orchestration
 - 28 GitHub Issues templates
