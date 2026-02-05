@@ -11,7 +11,7 @@ The **Three Horizons Implementation Accelerator** is a complete kit of Infrastru
 | Component | Quantity | Description |
 |-----------|----------|-------------|
 | **Terraform Modules** | 16 | Complete Azure infrastructure |
-| **AI Agents** | 23 | Intelligent deployment orchestration |
+| **AI Agents** | 23+ | **[Unified Agent Strategy](./AGENTS.md)** (Copilot + Automation) |
 | **Golden Path Templates** | 22 | Self-service templates for RHDH |
 | **Issue Templates** | 28 | GitHub Issues templates |
 | **Automation Scripts** | 14 | Bootstrap and operations |
@@ -61,9 +61,13 @@ helm version      # >= 3.12
 gh --version      # >= 2.30
 
 # Authentication
+# Authentication
 az login
 gh auth login
 ```
+
+> 📘 **New to this accelerator?**
+> We strongly recommend following the **[Step-by-Step Deployment Guide](docs/guides/DEPLOYMENT_GUIDE.md)** for a detailed walkthrough.
 
 ### Quick Deploy
 
@@ -186,6 +190,7 @@ terraform apply tfplan
 ```
 
 **Resources created in H1:**
+
 - AKS Cluster (3 nodes)
 - VNet with 3 subnets
 - Azure Container Registry
@@ -204,6 +209,7 @@ terraform apply -var-file=environments/dev.tfvars -var="enable_h2=true"
 ```
 
 **Resources created in H2:**
+
 - ArgoCD with ApplicationSets
 - Red Hat Developer Hub
 - Prometheus + Grafana + Loki
@@ -217,6 +223,7 @@ terraform apply -var-file=environments/dev.tfvars -var="enable_h3=true"
 ```
 
 **Resources created in H3:**
+
 - Azure AI Foundry
 - Azure OpenAI (GPT-4o, o1)
 - AI Search (Vector)
@@ -253,6 +260,7 @@ kubectl apply -f golden-paths/h1-foundation/basic-cicd/template.yaml
 ### Available Templates by Horizon
 
 #### H1 Foundation (Getting Started)
+
 | Template | Use Case |
 |----------|----------|
 | `basic-cicd` | Simple CI/CD pipeline |
@@ -263,6 +271,7 @@ kubectl apply -f golden-paths/h1-foundation/basic-cicd/template.yaml
 | `infrastructure-provisioning` | Terraform modules |
 
 #### H2 Enhancement (Production)
+
 | Template | Use Case |
 |----------|----------|
 | `gitops-deployment` | ArgoCD applications |
@@ -274,6 +283,7 @@ kubectl apply -f golden-paths/h1-foundation/basic-cicd/template.yaml
 | `reusable-workflows` | GitHub workflows |
 
 #### H3 Innovation (AI/Agents)
+
 | Template | Use Case |
 |----------|----------|
 | `foundry-agent` | AI Foundry agents |
@@ -327,6 +337,7 @@ spec:
 ### Notifications
 
 Configured to send to:
+
 - **Microsoft Teams** - Formatted cards
 - **Slack** - Colored attachments
 - **Email** - HTML templates
@@ -415,21 +426,6 @@ metadata:
 
 ---
 
-## Estimated Costs (USD/month)
-
-| Resource | Dev | Staging | Production |
-|----------|-----|---------|------------|
-| AKS (3-5 nodes) | $300 | $600 | $1,500 |
-| PostgreSQL | $50 | $100 | $300 |
-| Redis | $30 | $60 | $150 |
-| ACR | $20 | $40 | $100 |
-| AI Foundry | $100 | $300 | $1,000+ |
-| Monitoring | $50 | $100 | $250 |
-| **Total** | **~$550** | **~$1,200** | **~$3,300+** |
-
-*Note: AI Foundry costs vary with token usage*
-
----
 
 ## Deploy Times
 
@@ -517,6 +513,7 @@ After reviewing this README:
 ## Support
 
 For questions, issues, or suggestions, open an issue on GitHub:
+
 - **GitHub Issues:** [Create Issue](https://github.com/paulanunes85/three-horizons-accelerator-v4/issues)
 
 ---
@@ -524,6 +521,7 @@ For questions, issues, or suggestions, open an issue on GitHub:
 ## References
 
 ### Official Documentation
+
 - [Azure AKS](https://docs.microsoft.com/azure/aks/)
 - [ArgoCD](https://argo-cd.readthedocs.io/)
 - [Red Hat Developer Hub](https://developers.redhat.com/rhdh)
@@ -536,6 +534,7 @@ For questions, issues, or suggestions, open an issue on GitHub:
 ## Version History
 
 ### v4.0.0 (December 2025)
+
 - 16 Terraform modules (including Defender, Purview, Naming, Disaster Recovery)
 - 23 AI agents for intelligent deployment orchestration
 - 28 GitHub Issues templates
