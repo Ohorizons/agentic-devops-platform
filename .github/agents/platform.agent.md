@@ -2,10 +2,11 @@
 name: platform
 description: Specialist in IDP (Internal Developer Platform), Golden Paths, and RHDH/Backstage.
 tools:
-  - view_file
-  - run_command
-  - grep_search
-  - list_dir
+  - search/codebase
+  - edit/editFiles
+  - terminalCommand
+  - read/problems
+infer: false
 handoffs:
   - label: "GitOps Deployment"
     agent: devops

@@ -2,11 +2,11 @@
 name: test
 description: Specialist in Testing, QA, TDD, and coverage analysis.
 tools:
-  - codebase
+  - search/codebase
   - edit/editFiles
   - terminalCommand
-  - search
-  - problems
+  - read/problems
+infer: false
 handoffs:
   - label: "Code Review"
     agent: reviewer

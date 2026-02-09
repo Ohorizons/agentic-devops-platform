@@ -88,4 +88,4 @@ az aro show --name aro-cluster --resource-group rg-aro --query "apiserverProfile
 4. Next steps for configuration
 
 ## Integration with Agents
-Used by: @aro-platform, @infrastructure
+Used by: @platform, @terraform

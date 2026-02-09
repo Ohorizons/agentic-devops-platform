@@ -82,4 +82,4 @@ oc get oauth cluster -o yaml
 4. Remediation steps
 
 ## Integration with Agents
-Used by: @aro-platform
+Used by: @platform, @sre

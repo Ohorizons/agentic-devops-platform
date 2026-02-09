@@ -98,4 +98,4 @@ kubectl top nodes
 4. Recommended actions
 
 ## Integration with Agents
-Used by: @platform, @devops, @sre, @validation
+Used by: @platform, @devops, @sre, @test

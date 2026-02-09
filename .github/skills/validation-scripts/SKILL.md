@@ -63,4 +63,4 @@ tools_required: ["bash"]
 4. Remediation recommendations
 
 ## Integration with Agents
-Used by: @validation, @devops, @sre
+Used by: @test, @devops, @sre

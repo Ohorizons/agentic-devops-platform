@@ -101,7 +101,7 @@ terraform apply
 
 ## Agent System
 
-The platform uses 10 Copilot Chat Agents in `.github/agents/` for interactive development assistance, plus 17 skills for specialized CLI operations. There are also 18 Terraform modules, 22 Golden Path templates, and 28 Issue templates.
+The platform uses 10 Copilot Chat Agents in `.github/agents/` for interactive development assistance, plus 17 skills for specialized CLI operations. There are also 16 Terraform modules, 22 Golden Path templates, and 28 Issue templates.
 
 ### Agent Organization
 - **@architect**: System architecture, AI Foundry, multi-agent design

@@ -94,4 +94,4 @@ az acr repository show-tags -n <acr> --repository <repo> --orderby time_desc
 4. Next steps
 
 ## Integration with Agents
-Used by: @infrastructure, @security, @sre, @validation
+Used by: @terraform, @security, @sre, @test

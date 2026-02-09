@@ -74,4 +74,4 @@ helm rollback <release> <revision> -n <namespace>
 4. Next steps
 
 ## Integration with Agents
-Used by: @gitops, @platform, @devops
+Used by: @devops, @platform, @sre

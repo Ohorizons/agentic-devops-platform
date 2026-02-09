@@ -2,8 +2,9 @@
 name: reviewer
 description: Specialist in Code Quality, Best Practices, and Constructive Feedback.
 tools:
-  - view_file
-  - grep_search
+  - search/codebase
+  - read/problems
+infer: false
 handoffs:
   - label: "Security Deep Dive"
     agent: security

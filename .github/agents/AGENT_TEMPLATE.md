@@ -2,12 +2,11 @@
 name: "agent-name"
 description: "Specialist in [Task Domain] and [Key Responsibility]."
 tools:
-  - codebase
+  - search/codebase
   - edit/editFiles
   - terminalCommand
-  - search
-  - githubRepo
-  - problems
+  - read/problems
+infer: false
 user-invokable: true
 disable-model-invocation: false
 handoffs:

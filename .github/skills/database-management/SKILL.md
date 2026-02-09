@@ -67,4 +67,4 @@ psql -c "SELECT schemaname, tablename, pg_size_pretty(pg_total_relation_size(sch
 4. Recommendations
 
 ## Integration with Agents
-Used by: @database, @sre, @validation
+Used by: @terraform, @sre, @test

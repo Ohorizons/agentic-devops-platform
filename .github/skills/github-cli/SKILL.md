@@ -96,4 +96,4 @@ gh issue close <number>
 4. Next steps
 
 ## Integration with Agents
-Used by: @devops, @migration, @reviewer
+Used by: @devops, @reviewer

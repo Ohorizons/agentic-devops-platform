@@ -2,18 +2,19 @@
 name: terraform
 description: Specialist in Azure Infrastructure as Code (IaC) using Terraform.
 tools:
-  - view_file
-  - run_command
-  - grep_search
-  - list_dir
+  - search/codebase
+  - edit/editFiles
+  - terminalCommand
+  - read/problems
+infer: false
 handoffs:
   - label: "Security Deep Dive"
     agent: security
     prompt: "Review these changes specifically for security vulnerabilities."
     send: false
-  - label: "Deploy (IssueOps)"
+  - label: "Deploy via DevOps"
     agent: devops
-    prompt: "Ready for deployment? Open an issue for the DevOps Agent."
+    prompt: "Ready for deployment. Please set up the CI/CD pipeline."
     send: false
 ---
 
@@ -59,7 +60,7 @@ terraform/
 | **Write/Edit .tf files** | ✅ **ALWAYS** | Focus on modularity. |
 | **Run `fmt` / `validate`** | ✅ **ALWAYS** | Keep code clean. |
 | **Run `plan`** | ⚠️ **ASK FIRST** | Ensure read-only access. |
-| **Run `apply` / `destroy`** | 🚫 **NEVER** | Stick to IssueOps. |
+| **Run `apply` / `destroy`** | 🚫 **NEVER** | Use CI/CD pipelines for state changes. |
 | **Read Secrets** | 🚫 **NEVER** | Use Key Vault references. |
 
 ## 📝 Output Style

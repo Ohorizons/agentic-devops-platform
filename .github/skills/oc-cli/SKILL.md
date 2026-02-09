@@ -79,4 +79,4 @@ oc get route <route-name> -o jsonpath='{.spec.host}'
 4. Next steps
 
 ## Integration with Agents
-Used by: @aro-platform, @devops
+Used by: @platform, @devops

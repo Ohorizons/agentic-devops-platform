@@ -10,7 +10,7 @@ The **Three Horizons Implementation Accelerator** is a complete kit of Infrastru
 
 | Component | Quantity | Description |
 |-----------|----------|-------------|
-| **Terraform Modules** | 18 | Complete Azure infrastructure |
+| **Terraform Modules** | 16 | Complete Azure infrastructure |
 | **AI Agents** | 10 | **[Copilot Chat Agents](./AGENTS.md)** (VS Code) |
 | **Golden Path Templates** | 22 | Self-service templates for RHDH |
 | **Issue Templates** | 28 | GitHub Issues templates |
@@ -112,7 +112,7 @@ three-horizons-accelerator-v4/
 │   ├── terraform.agent.md          # Infrastructure as Code
 │   └── test.agent.md               # Testing, validation
 │
-├── terraform/                      # 18 Infrastructure as Code modules
+├── terraform/                      # 16 Infrastructure as Code modules
 │   ├── main.tf                     # Root module
 │   └── modules/
 │       ├── aks-cluster/            # Azure Kubernetes Service
@@ -539,7 +539,7 @@ For questions, issues, or suggestions, open an issue on GitHub:
 
 ### v4.0.0 (December 2025)
 
-- 18 Terraform modules (including Defender, Purview, Naming, Disaster Recovery, Dev Center)
+- 16 Terraform modules (including Defender, Purview, Naming, Disaster Recovery)
 - 10 Copilot Chat Agents for interactive development assistance
 - 28 GitHub Issues templates
 - 22 Golden Path templates for RHDH (including ADO to GitHub migration)

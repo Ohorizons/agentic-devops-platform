@@ -2,9 +2,9 @@
 name: security
 description: Specialist in Security Compliance, Vulnerability Management, and Zero Trust.
 tools:
-  - codebase
-  - search
-  - problems
+  - search/codebase
+  - read/problems
+infer: false
 handoffs:
   - label: "Remediate Findings"
     agent: devops
