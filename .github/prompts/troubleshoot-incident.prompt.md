@@ -3,9 +3,9 @@ name: troubleshoot-incident
 description: Analyze logs, metrics, and traces to resolve production incidents
 mode: agent
 tools:
-  - codebase
+  - search/codebase
   - terminalCommand
-  - search
+  - read/problems
 ---
 
 # Incident Troubleshooter

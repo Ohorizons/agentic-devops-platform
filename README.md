@@ -11,7 +11,7 @@ The **Three Horizons Implementation Accelerator** is a complete kit of Infrastru
 | Component | Quantity | Description |
 |-----------|----------|-------------|
 | **Terraform Modules** | 16 | Complete Azure infrastructure |
-| **AI Agents** | 23+ | **[Unified Agent Strategy](./AGENTS.md)** (Copilot + Automation) |
+| **AI Agents** | 10 | **[Copilot Chat Agents](./AGENTS.md)** (VS Code) |
 | **Golden Path Templates** | 22 | Self-service templates for RHDH |
 | **Issue Templates** | 28 | GitHub Issues templates |
 | **Automation Scripts** | 14 | Bootstrap and operations |
@@ -100,11 +100,17 @@ cp terraform/terraform.tfvars.example terraform/terraform.tfvars
 ```
 three-horizons-accelerator-v4/
 │
-├── agents/                         # 23 AI agent specifications
-│   ├── h1-foundation/              # 8 agents (infra, network, security, ACR, DB, defender, purview, ARO)
-│   ├── h2-enhancement/             # 5 agents (gitops, golden-paths, observability, rhdh, runners)
-│   ├── h3-innovation/              # 4 agents (ai-foundry, sre, mlops, multi-agent)
-│   └── cross-cutting/              # 6 agents (migration, validation, rollback, cost, github-app, identity)
+├── .github/agents/                 # 10 Copilot Chat Agents
+│   ├── architect.agent.md          # System architecture, AI Foundry
+│   ├── devops.agent.md             # CI/CD, GitOps, MLOps, pipelines
+│   ├── docs.agent.md               # Documentation generation
+│   ├── onboarding.agent.md         # Team onboarding guidance
+│   ├── platform.agent.md           # RHDH portal, platform services
+│   ├── reviewer.agent.md           # Code review, quality checks
+│   ├── security.agent.md           # Security policies, compliance
+│   ├── sre.agent.md                # Reliability, incident response
+│   ├── terraform.agent.md          # Infrastructure as Code
+│   └── test.agent.md               # Testing, validation
 │
 ├── terraform/                      # 16 Infrastructure as Code modules
 │   ├── main.tf                     # Root module
@@ -159,11 +165,9 @@ three-horizons-accelerator-v4/
 
 | Document | Description |
 |----------|-------------|
-| [Agent Overview](./agents/README.md) | Introduction to 23 AI deployment agents |
-| [Agent Index](./agents/INDEX.md) | Complete agent catalog by horizon |
-| [Deployment Sequence](./agents/DEPLOYMENT_SEQUENCE.md) | Step-by-step agent deployment order |
-| [MCP Servers Guide](./agents/MCP_SERVERS_GUIDE.md) | Model Context Protocol server setup |
-| [Dependency Graph](./agents/DEPENDENCY_GRAPH.md) | Visual agent dependencies |
+| [Agent System](./AGENTS.md) | Copilot Chat Agents (10 agents) |
+| [MCP Servers Guide](./mcp-servers/USAGE.md) | Model Context Protocol server setup |
+| [Agent Best Practices](./docs/guides/copilot-agents-best-practices.md) | Copilot agents usage guide |
 
 ### Reference
 
@@ -496,9 +500,9 @@ After reviewing this README:
    - Follow the [Deployment Guide](./docs/guides/DEPLOYMENT_GUIDE.md) step by step
 
 2. **Using AI agents?**
-   - Start with [Agent Overview](./agents/README.md)
-   - Follow the [Deployment Sequence](./agents/DEPLOYMENT_SEQUENCE.md)
-   - Setup [MCP Servers](./agents/MCP_SERVERS_GUIDE.md)
+   - Start with the [Agent System](./AGENTS.md) overview
+   - See [MCP Servers Usage](./mcp-servers/USAGE.md) for tool access
+   - Read [Agent Best Practices](./docs/guides/copilot-agents-best-practices.md)
 
 3. **Operating the platform?**
    - Use the [Administrator Guide](./docs/guides/ADMINISTRATOR_GUIDE.md) for day-2 operations
@@ -536,7 +540,7 @@ For questions, issues, or suggestions, open an issue on GitHub:
 ### v4.0.0 (December 2025)
 
 - 16 Terraform modules (including Defender, Purview, Naming, Disaster Recovery)
-- 23 AI agents for intelligent deployment orchestration
+- 10 Copilot Chat Agents for interactive development assistance
 - 28 GitHub Issues templates
 - 22 Golden Path templates for RHDH (including ADO to GitHub migration)
 - 14 automation scripts

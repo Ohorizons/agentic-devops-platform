@@ -42,19 +42,24 @@
 | Document | Description |
 |----------|-------------|
 | [Branching Strategy](BRANCHING_STRATEGY.md) | Git workflow and branch protection |
-| [Copilot Agents Playbook](../AGENTS.md) | **Interactive Chat Agents** (VS Code) |
-| [Deployment Agents Index](../agents/README.md) | **Automation Agents** (IssueOps) |
+| [Agent System](../AGENTS.md) | **Copilot Chat Agents** (10 agents in VS Code) |
 
 ### Agent Documentation
 
-Located in `/agents/`:
+The 10 Copilot Chat Agents are located in `.github/agents/`. See [AGENTS.md](../AGENTS.md) for full details.
 
-| Horizon | Agents |
-|---------|--------|
-| H1 Foundation | infrastructure, networking, database, security, defender, purview, container-registry, aro-platform |
-| H2 Enhancement | gitops, RHDH-portal, golden-paths, observability, GitHub-runners |
-| H3 Innovation | ai-foundry, mlops-pipeline, sre-agent, multi-agent-setup |
-| Cross-Cutting | GitHub-app, identity-federation, validation, migration, rollback, cost-optimization |
+| Agent | Role |
+|-------|------|
+| @architect | System architecture, AI Foundry, multi-agent design |
+| @devops | CI/CD, GitOps, MLOps, Golden Paths, pipelines |
+| @docs | Documentation generation and maintenance |
+| @onboarding | New team member onboarding and guidance |
+| @platform | RHDH portal, platform services, developer experience |
+| @reviewer | Code review, PR analysis, quality checks |
+| @security | Security policies, scanning, compliance |
+| @sre | Reliability engineering, incident response, monitoring |
+| @terraform | Infrastructure as Code, Terraform modules |
+| @test | Test generation, validation, quality assurance |
 
 ---
 
@@ -216,7 +221,7 @@ docs/
 
 1. Use the [Administrator Guide](guides/ADMINISTRATOR_GUIDE.md) daily
 2. Reference the [Troubleshooting Guide](guides/TROUBLESHOOTING_GUIDE.md) for issues
-3. Check [Agent Documentation](../agents/README.md) for automation
+3. Check [Agent Documentation](../AGENTS.md) for automation
 
 ### Contributing
 

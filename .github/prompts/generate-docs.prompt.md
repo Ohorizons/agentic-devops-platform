@@ -3,9 +3,9 @@ name: generate-docs
 description: Create standardized technical documentation (ADRs, RFCs, READMEs)
 mode: agent
 tools:
-  - codebase
+  - search/codebase
   - edit/editFiles
-  - search
+  - read/problems
 ---
 
 # Documentation Generator

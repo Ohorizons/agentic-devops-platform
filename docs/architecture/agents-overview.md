@@ -2,14 +2,11 @@
 
 ## Overview
 
-This repository utilizes a **Dual-Agent Architecture** to accelerate both development and operations:
-
-1. **Copilot Agents (Assistant Layer):** Conversational agents in your IDE that help you plan, code, and configure.
-2. **Deployment Agents (Automation Layer):** IssueOps agents that execute infrastructure changes via GitHub Actions.
+This repository uses **Copilot Chat Agents** to accelerate development and operations. These are conversational agents in your IDE that help you plan, code, configure, and deploy.
 
 ---
 
-## 1. Copilot Agents (Assistant Layer)
+## Copilot Chat Agents
 
 These agents live in GitHub Copilot (Chat). Use them to accelerate your daily tasks.
 
@@ -34,26 +31,6 @@ In VS Code or GitHub.com, type `@agent-name` in the Copilot Chat window.
 
 ---
 
-## 2. Deployment Agents (Automation Layer)
-
-These agents are autonomous robots triggered by **GitHub Issues**. They perform the heavy lifting of provisioning infrastructure.
-
-| Agent | Trigger | Purpose |
-| :--- | :--- | :--- |
-| **Infrastructure** | `agent:infrastructure` | Deploys AKS, VNet, ACR, Key Vault (H1). |
-| **GitOps** | `agent:gitops` | Installs ArgoCD and configures clusters (H2). |
-| **AI Foundry** | `agent:ai-foundry` | Provisions Azure AI Studio & Models (H3). |
-| **Golden Paths** | `agent:golden-paths` | Registers templates in RHDH. |
-
-### How to use
-
-1. Go to the **Issues** tab.
-2. Click **New Issue**.
-3. Select a template (e.g., "Deploy H1 Foundation").
-4. Submit the issue. The **Agent Router** will pick it up and execute the deployment.
-
----
-
 ## Workflow Patterns
 
 ### The "Fork-to-Deploy" Journey
@@ -61,8 +38,8 @@ These agents are autonomous robots triggered by **GitHub Issues**. They perform 
 1. **Start:** User forks repo.
 2. **Guide:** User asks `@onboarding`: "Help me get started".
 3. **Config:** `@onboarding` helps user create `.tfvars`.
-4. **Deploy:** User opens "Deploy H1" Issue.
-5. **Action:** `Infrastructure Agent` runs Terraform.
+4. **Deploy:** User runs `./scripts/platform-bootstrap.sh --environment dev`.
+5. **Action:** Terraform provisions Azure infrastructure.
 6. **Result:** Foundation layer is live.
 
 ### New Feature Implementation
@@ -79,9 +56,8 @@ These agents are autonomous robots triggered by **GitHub Issues**. They perform 
 
 ## Agent Directories
 
-- **Copilot Agents:** Definitions located in [`.github/agents/`](./.github/agents/).
-- **Deployment Agents:** Specifications located in [`agents/`](./agents/). See [Deployment Agent Index](./agents/README.md) for details.
-- **Skills:** Reusable tools located in [`.github/skills/`](./.github/skills/).
+- **Copilot Agents:** Definitions located in [`.github/agents/`](../../.github/agents/).
+- **Skills:** Reusable tools located in [`.github/skills/`](../../.github/skills/).
 
 ---
 
@@ -96,5 +72,5 @@ These agents are autonomous robots triggered by **GitHub Issues**. They perform 
 
 ## Related Documentation
 
-- [Deployment Guide](docs/guides/DEPLOYMENT_GUIDE.md)
-- [Copilot Agents Best Practices](github-copilot-agents-best-practices.md)
+- [Deployment Guide](../guides/DEPLOYMENT_GUIDE.md)
+- [Copilot Agents Best Practices](../guides/copilot-agents-best-practices.md)

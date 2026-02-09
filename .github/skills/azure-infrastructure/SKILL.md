@@ -69,4 +69,4 @@ locals {
 5. Use managed identities
 
 ## Integration with Agents
-Used by: @infrastructure, @terraform, @security
+Used by: @terraform, @security, @devops

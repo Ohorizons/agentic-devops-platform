@@ -86,4 +86,4 @@ Provide structured output:
 5. Recommendations for next steps
 
 ## Integration with Agents
-Used by: @terraform, @infrastructure, @security, @validation
+Used by: @terraform, @security, @test

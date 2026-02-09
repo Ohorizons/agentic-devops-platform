@@ -3,10 +3,10 @@ name: generate-tests
 description: Generate comprehensive test suites for code
 mode: agent
 tools:
-  - codebase
+  - search/codebase
   - edit/editFiles
   - terminalCommand
-  - search
+  - read/problems
 ---
 
 # Test Generation Agent
