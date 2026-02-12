@@ -4,7 +4,7 @@ description: Specialist in DevOps operations, CI/CD pipelines, and Kubernetes or
 tools:
   - search/codebase
   - edit/editFiles
-  - runInTerminal
+  - execute/runInTerminal
   - read/problems
 user-invokable: true
 handoffs:

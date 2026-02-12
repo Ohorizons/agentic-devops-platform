@@ -4,7 +4,7 @@ description: Specialist in Testing, QA, TDD, and coverage analysis.
 tools:
   - search/codebase
   - edit/editFiles
-  - runInTerminal
+  - execute/runInTerminal
   - read/problems
 user-invokable: true
 handoffs:

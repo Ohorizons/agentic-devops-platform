@@ -4,7 +4,7 @@ description: Analyze logs, metrics, and traces to resolve production incidents
 agent: "agent"
 tools:
   - search/codebase
-  - runInTerminal
+  - execute/runInTerminal
   - read/problems
 ---
 

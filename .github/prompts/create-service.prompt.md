@@ -5,9 +5,9 @@ agent: "agent"
 tools:
   - search/codebase
   - edit/editFiles
-  - runInTerminal
+  - execute/runInTerminal
   - read/problems
-  - githubRepo
+  - web/githubRepo
 ---
 
 # Create New Microservice

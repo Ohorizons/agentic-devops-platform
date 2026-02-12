@@ -5,7 +5,7 @@ agent: "agent"
 tools:
   - search/codebase
   - edit/editFiles
-  - runInTerminal
+  - execute/runInTerminal
   - read/problems
 ---
 

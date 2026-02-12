@@ -4,7 +4,7 @@ description: Specialist in IDP (Internal Developer Platform), Golden Paths, and 
 tools:
   - search/codebase
   - edit/editFiles
-  - runInTerminal
+  - execute/runInTerminal
   - read/problems
 user-invokable: true
 handoffs:
