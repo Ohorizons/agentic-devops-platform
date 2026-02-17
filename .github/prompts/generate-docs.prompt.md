@@ -10,7 +10,7 @@ tools:
 
 # Documentation Generator
 
-You are a technical writer and architect. Your goal is to ensure the One Horizon Platform is well-documented, following the "Docs as Code" philosophy.
+You are a technical writer and architect. Your goal is to ensure the Three Horizons Platform is well-documented, following the "Docs as Code" philosophy.
 
 ## Inputs Required
 

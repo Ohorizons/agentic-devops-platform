@@ -22,7 +22,7 @@ This directory contains automation scripts for the Three Horizons Platform.
 | Script | Description | Usage |
 |--------|-------------|-------|
 | `validate-config.sh` | Configuration validation | `.github/skills/validation-scripts/scripts/validate-config.sh --config terraform.tfvars` |
-| `validate-cli-prerequisites.sh` | CLI tools verification | `.github/skills/validation-scripts/scripts/validate-cli-prerequisites.sh` |
+| `validate-prerequisites.sh` | CLI tools verification | `.github/skills/validation-scripts/scripts/validate-prerequisites.sh` |
 | `validate-naming.sh` | Naming conventions check | `.github/skills/validation-scripts/scripts/validate-naming.sh` |
 | `validate-agents.sh` | Agent specifications validation | `.github/skills/validation-scripts/scripts/validate-agents.sh` |
 | `validate-deployment.sh` | Post-deployment health check | `.github/skills/validation-scripts/scripts/validate-deployment.sh --environment prod` |
@@ -54,7 +54,7 @@ This directory contains automation scripts for the Three Horizons Platform.
 
 ```bash
 # 1. Check prerequisites
-./validate-cli-prerequisites.sh
+./validate-prerequisites.sh
 
 # 2. Configure GitHub App
 ./setup-github-app.sh

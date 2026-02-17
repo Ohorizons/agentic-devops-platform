@@ -8,11 +8,11 @@ The Three Horizons Accelerator uses **GitHub Copilot Chat Agents** — a role-ba
 
 ```text
 .github/
-├── agents/          # 10 role-based chat agents (.agent.md)
+├── agents/          # 11 role-based chat agents (.agent.md)
 ├── chatmodes/       # 3 chat modes (.chatmode.md)
 ├── instructions/    # 3 code-generation instructions (.instructions.md)
-├── prompts/         # 6 reusable prompts (.prompt.md)
-├── skills/          # 17 operational skill sets
+├── prompts/         # 7 reusable prompts (.prompt.md)
+├── skills/          # 18 operational skill sets
 └── ISSUE_TEMPLATE/  # 28 issue templates
 ```
 
@@ -75,7 +75,7 @@ In VS Code with GitHub Copilot Chat, mention an agent by name:
 
 ## Skills
 
-The 17 skills in [.github/skills/](.github/skills/) provide domain-specific knowledge that agents can reference:
+The 18 skills in [.github/skills/](.github/skills/) provide domain-specific knowledge that agents can reference:
 
 | Skill | Description |
 |-------|-------------|
@@ -96,6 +96,7 @@ The 17 skills in [.github/skills/](.github/skills/) provide domain-specific know
 | `rhdh-portal` | Red Hat Developer Hub portal |
 | `terraform-cli` | Terraform CLI for Azure infra |
 | `validation-scripts` | Validation scripts for deployments |
+| `deploy-orchestration` | End-to-end platform deployment orchestration |
 
 ## Related Documentation
 

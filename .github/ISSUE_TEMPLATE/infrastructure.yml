@@ -164,7 +164,7 @@ body:
         
         Before submitting, ensure:
         
-        - [ ] Run `scripts/validate-cli-prerequisites.sh` to verify tools
+        - [ ] Run `scripts/validate-prerequisites.sh` to verify tools
         - [ ] Run `scripts/validate-naming.sh --all {project} {env} {region}` to verify naming
         - [ ] Verify Azure subscription permissions (Contributor + User Access Admin)
         - [ ] Review `terraform/terraform.tfvars.example` for configuration options
@@ -175,7 +175,7 @@ body:
         
         ```bash
         # 1. Validate prerequisites
-        ./scripts/validate-cli-prerequisites.sh
+        ./scripts/validate-prerequisites.sh
         
         # 2. Validate naming
         ./scripts/validate-naming.sh --all $PROJECT $ENV $REGION

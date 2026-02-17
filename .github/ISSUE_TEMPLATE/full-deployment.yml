@@ -19,7 +19,7 @@ body:
         ┌─────────────────────────────────────────────────────────────┐
         │ PHASE 1: Prerequisites                                      │
         ├─────────────────────────────────────────────────────────────┤
-        │ ☐ validate-cli-prerequisites.sh                             │
+        │ ☐ validate-prerequisites.sh                                 │
         │ ☐ validate-naming.sh --all {project} {env} {region}         │
         │ ☐ setup-identity-federation.sh                              │
         └─────────────────────────────────────────────────────────────┘
@@ -60,7 +60,7 @@ body:
         
         | Phase | Agent | Terraform Module | Script | Issue Template |
         |-------|-------|------------------|--------|----------------|
-        | Setup | - | - | `validate-cli-prerequisites.sh` | - |
+        | Setup | - | - | `validate-prerequisites.sh` | - |
         | Setup | - | `modules/naming/` | `validate-naming.sh` | - |
         | Setup | identity-federation | - | `setup-identity-federation.sh` | `identity-federation.yml` |
         | H1 | networking | `modules/networking/` | - | `networking.yml` |
@@ -176,7 +176,7 @@ body:
         cd three-horizons-accelerator
         
         # 2. Validate prerequisites
-        ./scripts/validate-cli-prerequisites.sh
+        ./scripts/validate-prerequisites.sh
         
         # 3. Validate naming
         ./scripts/validate-naming.sh --all $PROJECT $ENV $REGION

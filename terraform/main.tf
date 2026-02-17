@@ -386,7 +386,7 @@ module "ai_foundry" {
 
   customer_name       = var.customer_name
   environment         = var.environment
-  location            = var.location
+  location            = var.ai_foundry_location
   resource_group_name = azurerm_resource_group.main.name
 
   subnet_id = module.networking.subnet_ids.private_endpoints
@@ -440,7 +440,7 @@ module "ai_foundry" {
   }
 
   key_vault_id               = module.security.key_vault_id
-  log_analytics_workspace_id = module.observability.log_analytics_workspace_id
+  log_analytics_workspace_id = module.observability[0].log_analytics_workspace_id
 
   tags = local.common_tags
 

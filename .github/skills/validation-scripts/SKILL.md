@@ -16,10 +16,10 @@ description: Validation scripts for deployment and configuration verification
 
 ## Available Scripts
 
-### validate-cli-prerequisites.sh
+### validate-prerequisites.sh
 ```bash
 # Validates all required CLI tools are installed
-./scripts/validate-cli-prerequisites.sh
+./scripts/validate-prerequisites.sh
 ```
 
 ### validate-config.sh
@@ -34,16 +34,16 @@ description: Validation scripts for deployment and configuration verification
 ./scripts/validate-deployment.sh --environment <env>
 ```
 
-### validate-naming.sh
-```bash
-# Validates Azure resource naming conventions
-./scripts/validate-naming.sh --resource-group <rg>
-```
-
 ### validate-agents.sh
 ```bash
 # Validates agent configuration files
 ./scripts/validate-agents.sh
+```
+
+### validate-docs.sh
+```bash
+# Validates documentation files
+./scripts/validate-docs.sh
 ```
 
 ## Best Practices

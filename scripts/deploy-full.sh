@@ -229,7 +229,7 @@ fi
 # --- Phase 4: Verify H1 ------------------------------------------------------
 if [[ "$LAST_PHASE" -lt 5 ]] && [[ "$HORIZON" == "h1" || "$HORIZON" == "all" ]] && ! $DRY_RUN; then
   phase 4 "Verify H1 Foundation"
-  "$SCRIPT_DIR/validate-deployment.sh" --phase h1 || warn "H1 verification had warnings"
+  "$SCRIPT_DIR/validate-deployment.sh" --phase h1 || echo -e "  ${YELLOW}⚠ H1 verification had warnings${NC}"
   save_checkpoint 5
 fi
 

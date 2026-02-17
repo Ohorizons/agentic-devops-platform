@@ -355,7 +355,7 @@ git version 2.42.0
 ## Step 1: Azure Environment Setup
 
 **⏱️ Time Required:** 30 minutes
-**📁 Related Files:** `scripts/validate-cli-prerequisites.sh`
+**📁 Related Files:** `scripts/validate-prerequisites.sh`
 
 In this step, we'll:
 
@@ -958,7 +958,7 @@ ls -la scripts/*.sh | head -5
 
 ```
 -rwxr-xr-x  1 user  staff  2048 Dec 10 10:00 scripts/bootstrap.sh
--rwxr-xr-x  1 user  staff  1024 Dec 10 10:00 scripts/validate-cli-prerequisites.sh
+-rwxr-xr-x  1 user  staff  1024 Dec 10 10:00 scripts/validate-prerequisites.sh
 -rwxr-xr-x  1 user  staff  3072 Dec 10 10:00 scripts/validate-deployment.sh
 ...
 ```
@@ -967,7 +967,7 @@ ls -la scripts/*.sh | head -5
 
 ```bash
 # Run the prerequisites check script
-./scripts/validate-cli-prerequisites.sh
+./scripts/validate-prerequisites.sh
 ```
 
 **Expected output:**

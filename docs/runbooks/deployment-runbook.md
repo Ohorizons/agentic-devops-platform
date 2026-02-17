@@ -16,7 +16,7 @@ This runbook provides procedures for deploying the Three Horizons Platform. Use 
 
 ```bash
 # Verify all tools are installed
-./scripts/validate-cli-prerequisites.sh
+./scripts/validate-prerequisites.sh
 ```
 
 Required versions:
