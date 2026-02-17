@@ -49,7 +49,7 @@ Before diving into specific issues, understand the general approach:
 > 💡 **Understanding Severity Levels**
 >
 > | Severity | Description | Response Time | Example |
-> |----------|-------------|---------------|---------|
+> | ---------- | ------------- | --------------- | --------- |
 > | **SEV1** | Production down, all users affected | 15 minutes | Cluster unreachable |
 > | **SEV2** | Significant impact, workaround exists | 1 hour | Deployment failing |
 > | **SEV3** | Minor impact, one user/feature | 4 hours | Dashboard not loading |
@@ -183,7 +183,7 @@ echo "╚═══════════════════════�
 ### 2.2 Quick Diagnostic Commands Reference
 
 | What to Check | Command | What It Shows |
-|---------------|---------|---------------|
+| --------------- | --------- | --------------- |
 | Cluster access | `kubectl cluster-info` | API server connectivity |
 | Node status | `kubectl get nodes -o wide` | Node health and IPs |
 | All pods | `kubectl get pods -A` | Pod status across namespaces |
@@ -203,6 +203,7 @@ echo "╚═══════════════════════�
 >
 > Terraform maintains a **state file** that tracks what resources exist.
 > When you run `terraform apply`, it:
+>
 > 1. Reads the state file
 > 2. Compares with your `.tf` files
 > 3. Plans changes (create, update, delete)
@@ -210,6 +211,7 @@ echo "╚═══════════════════════�
 > 5. Updates state file
 >
 > Most Terraform errors fall into these categories:
+>
 > - **State issues**: State file out of sync with reality
 > - **Auth issues**: Can't authenticate to Azure
 > - **Conflict issues**: Resource already exists outside Terraform
@@ -217,7 +219,7 @@ echo "╚═══════════════════════�
 
 ### 3.2 "Failed to Get Existing Workspaces" Error
 
-```
+```text
 Error: Failed to get existing workspaces: storage: service returned error
 StatusCode=403, ErrorCode=AuthorizationFailure
 ```
@@ -252,7 +254,7 @@ az role assignment list \
 **Solutions:**
 
 | Cause | Solution |
-|-------|----------|
+| ------- | ---------- |
 | Not logged in | `az login && az account set -s $SUBSCRIPTION_ID` |
 | Wrong subscription | `az account set --subscription $CORRECT_SUBSCRIPTION` |
 | Missing permissions | Request "Storage Blob Data Contributor" role |
@@ -271,7 +273,7 @@ terraform init -reconfigure
 
 ### 3.3 "Error Acquiring the State Lock" Error
 
-```
+```text
 Error: Error acquiring the state lock
 
 Error message: state blob is already locked
@@ -284,6 +286,7 @@ Lock Info:
 > 💡 **What This Means**
 >
 > Terraform uses locks to prevent concurrent modifications. This error occurs when:
+>
 > - Another `terraform apply` is running
 > - A previous run crashed without releasing the lock
 > - Someone else is running Terraform on the same state
@@ -327,7 +330,7 @@ terraform init
 
 ### 3.4 "Resource Already Exists" Error
 
-```
+```text
 Error: A resource with the ID "/subscriptions/.../resourceGroups/rg-contoso-dev"
 already exists - to be managed via Terraform this resource needs to be imported
 into the State.
@@ -373,7 +376,7 @@ terraform import module.security.azurerm_key_vault.main \
 
 ### 3.5 "Quota Exceeded" Error
 
-```
+```text
 Error: creating/updating Kubernetes Cluster: compute.VirtualMachineScaleSetsClient#CreateOrUpdate:
 Code="QuotaExceeded" Message="Quota for resource StandardDSv3Family exceeded."
 ```
@@ -396,7 +399,7 @@ az vm list-usage --location brazilsouth --output table | grep "Standard DSv3"
 **Solutions:**
 
 | Option | Steps |
-|--------|-------|
+| -------- | ------- |
 | Request quota increase | Azure Portal → Subscriptions → Usage + quotas → Request increase |
 | Use different VM size | Change `vm_size` in Terraform to a family with available quota |
 | Use different region | Deploy to a region with more capacity |
@@ -421,17 +424,21 @@ system_node_pool = {
 ### 4.1 Cannot Connect to Cluster
 
 **Symptoms:**
-```
+
+```text
 Unable to connect to the server: dial tcp: lookup aks-xxx.hcp.brazilsouth.azmk8s.io: no such host
 ```
+
 or
-```
+
+```text
 Unable to connect to the server: dial tcp 10.0.0.1:443: i/o timeout
 ```
 
 > 💡 **Understanding Cluster Access**
 >
 > When you run `kubectl`, it:
+>
 > 1. Reads `~/.kube/config` for cluster information
 > 2. Connects to the AKS API server
 > 3. Authenticates using Azure AD (for managed clusters)
@@ -471,7 +478,8 @@ az aks get-credentials \
 ### 4.2 Nodes Not Ready
 
 **Symptom:**
-```
+
+```text
 NAME                              STATUS     ROLES   AGE   VERSION
 aks-system-12345678-vmss000000    Ready      agent   10d   v1.29.0
 aks-system-12345678-vmss000001    NotReady   agent   10d   v1.29.0
@@ -483,7 +491,7 @@ aks-system-12345678-vmss000002    Ready      agent   10d   v1.29.0
 > Kubernetes nodes report various "conditions" that affect their Ready status:
 >
 > | Condition | What It Means |
-> |-----------|---------------|
+> | ----------- | --------------- |
 > | Ready | Node is healthy and can accept pods |
 > | MemoryPressure | Node is running low on memory |
 > | DiskPressure | Node is running low on disk space |
@@ -545,7 +553,8 @@ az vmss delete-instances \
 ### 4.3 AKS Upgrade Issues
 
 **Symptom:**
-```
+
+```text
 Error: UpgradeFailed: Upgrade operation failed. Please check that your cluster
 is healthy before retrying the upgrade operation.
 ```
@@ -553,6 +562,7 @@ is healthy before retrying the upgrade operation.
 > 💡 **Understanding AKS Upgrades**
 >
 > AKS upgrades work by:
+>
 > 1. Upgrading control plane (API server, etc.)
 > 2. Creating new nodes with new version (one at a time by default)
 > 3. Cordoning and draining old nodes
@@ -605,7 +615,7 @@ az aks upgrade \
 
 > 💡 **Understanding Pod Statuses**
 >
-> ```
+> ```text
 > Pod Lifecycle:
 >
 > Pending ─────► Running ─────► Succeeded
@@ -626,7 +636,8 @@ az aks upgrade \
 ### 5.2 Pods Stuck in Pending
 
 **Symptom:**
-```
+
+```text
 NAME           READY   STATUS    RESTARTS   AGE
 my-app-xxx     0/1     Pending   0          15m
 ```
@@ -650,7 +661,8 @@ kubectl describe pod my-app-xxx -n my-namespace
 ### 5.3 ImagePullBackOff
 
 **Symptom:**
-```
+
+```text
 NAME           READY   STATUS             RESTARTS   AGE
 my-app-xxx     0/1     ImagePullBackOff   0          5m
 ```
@@ -712,7 +724,8 @@ kubectl run debug --rm -it --image=busybox -- \
 ### 5.4 CrashLoopBackOff
 
 **Symptom:**
-```
+
+```text
 NAME           READY   STATUS             RESTARTS     AGE
 my-app-xxx     0/1     CrashLoopBackOff   5 (2m ago)   10m
 ```
@@ -721,6 +734,7 @@ my-app-xxx     0/1     CrashLoopBackOff   5 (2m ago)   10m
 >
 > The container starts but then crashes. Kubernetes keeps restarting it,
 > but with increasing delays (the "backoff" part):
+>
 > - 1st crash: wait 10s
 > - 2nd crash: wait 20s
 > - 3rd crash: wait 40s
@@ -776,7 +790,8 @@ kubectl set env deployment/my-app --list -n my-namespace
 ### 5.5 Pods Stuck in Terminating
 
 **Symptom:**
-```
+
+```text
 NAME           READY   STATUS        RESTARTS   AGE
 my-app-xxx     0/1     Terminating   0          30m
 ```
@@ -784,6 +799,7 @@ my-app-xxx     0/1     Terminating   0          30m
 > 💡 **What This Means**
 >
 > When you delete a pod, Kubernetes:
+>
 > 1. Sends SIGTERM to containers
 > 2. Waits for graceful shutdown (default 30s)
 > 3. Sends SIGKILL if still running
@@ -828,7 +844,7 @@ kubectl delete node <unreachable-node>
 
 > 💡 **ArgoCD Status Meanings**
 >
-> ```
+> ```text
 > ┌─────────────────────────────────────────────────────────────────┐
 > │                    ARGOCD STATUS MATRIX                         │
 > ├─────────────────────────────────────────────────────────────────┤
@@ -862,7 +878,8 @@ kubectl delete node <unreachable-node>
 ### 6.2 Application OutOfSync
 
 **Symptom:**
-```
+
+```text
 NAME     SYNC STATUS   HEALTH STATUS
 my-app   OutOfSync     Healthy
 ```
@@ -926,6 +943,7 @@ kubectl get pods -n production -l app=my-app
 ### 6.4 Cannot Login to ArgoCD
 
 **Symptom:**
+
 - Web UI shows "403 Forbidden"
 - CLI shows "rpc error: code = Unauthenticated"
 
@@ -956,7 +974,8 @@ kubectl get cm argocd-cm -n argocd -o yaml | grep -A 20 "dex.config"
 ### 6.5 Sync Failed with Hook Error
 
 **Symptom:**
-```
+
+```text
 ComparisonError: hook failed: Job ... failed
 ```
 
@@ -998,7 +1017,7 @@ argocd app sync my-app --skip-hooks
 
 > 💡 **Kubernetes Network Model**
 >
-> ```
+> ```text
 > ┌─────────────────────────────────────────────────────────────────────┐
 > │                 KUBERNETES NETWORKING LAYERS                        │
 > ├─────────────────────────────────────────────────────────────────────┤
@@ -1113,7 +1132,7 @@ kubectl exec -it $(kubectl get pod -n namespace-a -l app=my-service-a -o name | 
 
 > 💡 **How Private Endpoints Work**
 >
-> ```
+> ```text
 > WITHOUT Private Endpoint:
 >   Pod → Internet → Azure Service (public IP)
 >   Traffic leaves your VNet!
@@ -1184,7 +1203,7 @@ az network private-dns record-set a list \
 
 > 💡 **How External Secrets Operator (ESO) Works**
 >
-> ```
+> ```text
 > ┌─────────────────────────────────────────────────────────────────────┐
 > │                 EXTERNAL SECRETS FLOW                               │
 > ├─────────────────────────────────────────────────────────────────────┤
@@ -1212,7 +1231,8 @@ az network private-dns record-set a list \
 ### 8.2 ExternalSecret Not Syncing
 
 **Symptom:**
-```
+
+```text
 kubectl get externalsecret my-secret -n my-namespace
 NAME        STORE              REFRESH    STATUS
 my-secret   azure-keyvault     1h         SecretSyncedError
@@ -1277,6 +1297,7 @@ kubectl delete secret my-secret -n my-namespace
 ### 8.4 Workload Identity Not Working
 
 **Symptoms:**
+
 - "AADSTS70021: No matching federated identity record found"
 - "failed to acquire token"
 
@@ -1400,7 +1421,7 @@ kubectl port-forward svc/prometheus-kube-prometheus-prometheus -n observability 
 **Solutions:**
 
 | Issue | Solution |
-|-------|----------|
+| ------- | ---------- |
 | Data source test fails | Check Prometheus URL in data source settings |
 | Query returns empty | Run query in Prometheus first to verify data exists |
 | Dashboard variables broken | Check variable queries at top of dashboard |
@@ -1447,7 +1468,8 @@ kubectl get configmap container-azm-ms-agentconfig -n kube-system -o yaml
 ### 10.1 Rate Limit Exceeded (429)
 
 **Symptom:**
-```
+
+```text
 Error: 429 Too Many Requests - Rate limit exceeded. Retry after X seconds.
 ```
 
@@ -1457,6 +1479,7 @@ Error: 429 Too Many Requests - Rate limit exceeded. Retry after X seconds.
 > When you exceed your quota, requests are rejected with 429.
 >
 > TPM is shared across:
+>
 > - All requests to a deployment
 > - Both input and output tokens count
 
@@ -1497,7 +1520,8 @@ az cognitiveservices account deployment update \
 ### 10.2 Model Not Available in Region
 
 **Symptom:**
-```
+
+```text
 Error: Model 'gpt-4o' is not available in region 'brazilsouth'
 ```
 
@@ -1518,7 +1542,8 @@ module "ai_foundry" {
 ### 10.3 Content Filter Blocked Request
 
 **Symptom:**
-```
+
+```text
 Error: The response was filtered due to the prompt triggering Azure OpenAI's content management policy.
 ```
 
@@ -1527,6 +1552,7 @@ Error: The response was filtered due to the prompt triggering Azure OpenAI's con
 > 💡 **Azure OpenAI Content Filtering**
 >
 > Azure OpenAI automatically filters:
+>
 > - Hate speech
 > - Violence
 > - Sexual content
@@ -1547,7 +1573,8 @@ Error: The response was filtered due to the prompt triggering Azure OpenAI's con
 ### 11.1 Azure CLI Session Expired
 
 **Symptom:**
-```
+
+```text
 AADSTS700082: The refresh token has expired due to inactivity.
 ```
 
@@ -1566,7 +1593,8 @@ az account show
 ### 11.2 kubectl Permission Denied
 
 **Symptom:**
-```
+
+```text
 Error from server (Forbidden): pods is forbidden: User "user@example.com" cannot list resource "pods" in API group "" in the namespace "default"
 ```
 
@@ -1602,7 +1630,8 @@ az ad group member list --group "AKS-Admins" --output table
 ### 11.3 Service Principal Expired
 
 **Symptom:**
-```
+
+```text
 AADSTS7000215: Invalid client secret provided
 ```
 
@@ -1644,7 +1673,7 @@ kubectl get --raw /metrics | grep apiserver_request_duration
 **Solutions:**
 
 | Cause | Solution |
-|-------|----------|
+| ------- | ---------- |
 | Too many watchers | Reduce custom controllers, use informers |
 | Large objects | Don't store large data in ConfigMaps/Secrets |
 | etcd pressure | Upgrade to Premium tier AKS |
@@ -1710,7 +1739,7 @@ resources:
 ### Quick Error Lookup Table
 
 | Error Message | Likely Cause | Section |
-|---------------|--------------|---------|
+| --------------- | -------------- | --------- |
 | "connection refused" | Service not running, wrong port | 7.3 |
 | "no such host" | DNS resolution failed | 7.2 |
 | "timeout" | Network policy blocking, firewall | 7.2 |
@@ -1783,7 +1812,7 @@ echo "Support bundle created: $BUNDLE_DIR.tar.gz"
 ### 14.3 Support Channels
 
 | Channel | Use Case | Response Time |
-|---------|----------|---------------|
+| --------- | ---------- | --------------- |
 | **GitHub Issues** | Bug reports, feature requests | Best effort |
 | **Slack #platform-help** | Quick questions, guidance | Business hours |
 | **PagerDuty** | SEV1/SEV2 incidents | 15 min (SEV1), 1 hr (SEV2) |
@@ -1891,14 +1920,16 @@ az keyvault secret list --vault-name $KV   # Key Vault secrets
 
 Before diving into manual troubleshooting, try asking a Copilot Agent:
 
+<!-- markdownlint-disable MD044 -->
 | Problem Area | Agent | Example Prompt |
-|-------------|-------|---------------|
+| ------------- | ------- | --------------- |
 | Pod crashes & errors | `@sre` | "Pods in namespace X are CrashLoopBackOff, help me diagnose" |
 | Terraform errors | `@terraform` | "My terraform plan fails with error Y, help me fix" |
 | ArgoCD sync failures | `@devops` | "ArgoCD app is stuck in Progressing, what should I check?" |
 | Network connectivity | `@sre` | "Service A can't reach Service B, help me debug" |
 | Security findings | `@security` | "tfsec found High severity issues, help me remediate" |
 | Performance issues | `@sre` | "Latency is above SLO, help me find the bottleneck" |
+<!-- markdownlint-enable MD044 -->
 
 > **Tip:** `@sre` follows a systematic approach: **Triage → Observe → Hypothesize → Investigate → Mitigate → Root Cause**. It will walk you through each step.
 
