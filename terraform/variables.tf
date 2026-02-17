@@ -1,120 +1,125 @@
 # =============================================================================
-# THREE HORIZONS PLATFORM - GLOBAL VARIABLES
+# THREE HORIZONS ACCELERATOR - VARIABLES
+# =============================================================================
+#
+# All input variables for the platform. Use a .tfvars file to set values:
+#   terraform plan -var-file=environments/dev.tfvars
+#
 # =============================================================================
 
 # -----------------------------------------------------------------------------
-# COMMON VARIABLES
+# REQUIRED — Must be provided via .tfvars or -var flags
 # -----------------------------------------------------------------------------
 
-variable "project_name" {
-  description = "Project name used for resource naming"
+variable "customer_name" {
+  description = "Customer name for resource naming (lowercase, no spaces, 3-20 chars)"
   type        = string
+
   validation {
-    condition     = can(regex("^[a-z0-9-]{3,24}$", var.project_name))
-    error_message = "Project name must be 3-24 lowercase alphanumeric characters or hyphens."
+    condition     = can(regex("^[a-z][a-z0-9-]{1,18}[a-z0-9]$", var.customer_name))
+    error_message = "Customer name must be 3-20 lowercase alphanumeric characters or hyphens."
   }
 }
 
-# NOTE: environment, location, and tags are defined in main.tf
-
-# -----------------------------------------------------------------------------
-# SIZING PROFILE
-# -----------------------------------------------------------------------------
-
-variable "sizing_profile" {
-  description = "Sizing profile (small, medium, large, xlarge)"
+variable "environment" {
+  description = "Environment (dev, staging, prod)"
   type        = string
-  default     = "medium"
+
   validation {
-    condition     = contains(["small", "medium", "large", "xlarge"], var.sizing_profile)
-    error_message = "Sizing profile must be small, medium, large, or xlarge."
+    condition     = contains(["dev", "staging", "prod"], var.environment)
+    error_message = "Environment must be dev, staging, or prod."
   }
 }
 
-# -----------------------------------------------------------------------------
-# NETWORKING
-# -----------------------------------------------------------------------------
-
-variable "vnet_address_space" {
-  description = "Address space for the virtual network"
-  type        = list(string)
-  default     = ["10.0.0.0/16"]
-}
-
-variable "enable_private_endpoints" {
-  description = "Enable private endpoints for PaaS services"
-  type        = bool
-  default     = true
-}
-
-# -----------------------------------------------------------------------------
-# KUBERNETES (AKS/ARO)
-# -----------------------------------------------------------------------------
-
-variable "kubernetes_platform" {
-  description = "Kubernetes platform (aks or aro)"
+variable "azure_subscription_id" {
+  description = "Azure subscription ID"
   type        = string
-  default     = "aks"
+}
+
+variable "azure_tenant_id" {
+  description = "Azure AD / Entra ID tenant ID"
+  type        = string
+}
+
+variable "admin_group_id" {
+  description = "Azure AD group ID for platform administrators"
+  type        = string
+}
+
+variable "github_org" {
+  description = "GitHub organization name"
+  type        = string
+}
+
+variable "github_token" {
+  description = "GitHub personal access token (set via TF_VAR_github_token or -var)"
+  type        = string
+  sensitive   = true
+}
+
+variable "domain_name" {
+  description = "Base domain name for the platform (e.g. platform.contoso.com)"
+  type        = string
+  default     = "internal.local"
+}
+
+# -----------------------------------------------------------------------------
+# DEPLOYMENT MODE — Controls sizing and feature defaults
+# -----------------------------------------------------------------------------
+
+variable "deployment_mode" {
+  description = "Deployment mode: express (minimal/dev), standard (production), enterprise (HA/multi-zone)"
+  type        = string
+  default     = "standard"
+
   validation {
-    condition     = contains(["aks", "aro"], var.kubernetes_platform)
-    error_message = "Kubernetes platform must be aks or aro."
+    condition     = contains(["express", "standard", "enterprise"], var.deployment_mode)
+    error_message = "Deployment mode must be express, standard, or enterprise."
   }
 }
 
-variable "kubernetes_version" {
-  description = "Kubernetes version"
+variable "location" {
+  description = "Azure region for deployment"
   type        = string
-  default     = "1.28"
+  default     = "brazilsouth"
 }
 
-variable "enable_workload_identity" {
-  description = "Enable Workload Identity for AKS"
-  type        = bool
-  default     = true
-}
-
-# -----------------------------------------------------------------------------
-# GITHUB INTEGRATION
-# -----------------------------------------------------------------------------
-
-# NOTE: github_org is defined in main.tf
-
-variable "github_repo" {
-  description = "Main GitHub repository name"
-  type        = string
-  default     = "platform-gitops"
-}
-
-variable "enable_github_runners" {
-  description = "Deploy self-hosted GitHub runners"
-  type        = bool
-  default     = true
+variable "tags" {
+  description = "Additional tags applied to all resources"
+  type        = map(string)
+  default     = {}
 }
 
 # -----------------------------------------------------------------------------
-# SECURITY & COMPLIANCE
+# H1 FOUNDATION — Feature flags
 # -----------------------------------------------------------------------------
 
 variable "enable_defender" {
   description = "Enable Microsoft Defender for Cloud"
   type        = bool
-  default     = true
+  default     = false
 }
 
 variable "enable_purview" {
-  description = "Enable Microsoft Purview"
+  description = "Enable Microsoft Purview for data governance"
   type        = bool
   default     = false
 }
 
-variable "defender_plans" {
-  description = "Defender plans to enable"
-  type        = list(string)
-  default     = ["VirtualMachines", "AppServices", "SqlServers", "StorageAccounts", "Containers", "KeyVaults"]
+variable "enable_container_registry" {
+  description = "Enable Azure Container Registry"
+  type        = bool
+  default     = true
+}
+
+variable "enable_databases" {
+  description = "Enable databases (PostgreSQL + Redis)"
+  type        = bool
+  default     = true
 }
 
 # -----------------------------------------------------------------------------
-# PLATFORM COMPONENTS
+# H2 ENHANCEMENT — Feature flags
 # -----------------------------------------------------------------------------
 
 variable "enable_argocd" {
@@ -123,48 +128,112 @@ variable "enable_argocd" {
   default     = true
 }
 
-variable "enable_rhdh" {
-  description = "Deploy Red Hat Developer Hub"
+variable "enable_external_secrets" {
+  description = "Deploy External Secrets Operator"
   type        = bool
   default     = true
 }
 
 variable "enable_observability" {
-  description = "Deploy observability stack (Prometheus, Grafana)"
+  description = "Deploy observability stack (Prometheus, Grafana, Azure Monitor)"
   type        = bool
   default     = true
 }
 
-# NOTE: enable_ai_foundry is defined in main.tf
-
-# -----------------------------------------------------------------------------
-# DATABASE
-# -----------------------------------------------------------------------------
-
-variable "database_type" {
-  description = "Database type (postgresql, mysql, cosmosdb)"
-  type        = string
-  default     = "postgresql"
+variable "enable_github_runners" {
+  description = "Deploy self-hosted GitHub Actions runners on AKS"
+  type        = bool
+  default     = false
 }
 
-variable "database_sku" {
-  description = "Database SKU tier"
-  type        = string
-  default     = "GP_Standard_D2s_v3"
+variable "enable_rhdh" {
+  description = "Deploy Red Hat Developer Hub (Backstage-based portal)"
+  type        = bool
+  default     = false
+}
+
+variable "enable_cost_management" {
+  description = "Enable cost management module (budgets and alerts)"
+  type        = bool
+  default     = false
 }
 
 # -----------------------------------------------------------------------------
-# IDENTITY & AUTH
+# H3 INNOVATION — Feature flags
 # -----------------------------------------------------------------------------
 
-variable "entra_tenant_id" {
-  description = "Microsoft Entra ID tenant ID"
+variable "enable_ai_foundry" {
+  description = "Enable Azure AI Foundry (OpenAI, AI Search, Content Safety)"
+  type        = bool
+  default     = false
+}
+
+variable "ai_foundry_location" {
+  description = "Azure region for AI Foundry (use eastus2 for best model availability)"
+  type        = string
+  default     = "eastus2"
+}
+
+# -----------------------------------------------------------------------------
+# PLATFORM — Disaster Recovery
+# -----------------------------------------------------------------------------
+
+variable "enable_disaster_recovery" {
+  description = "Enable disaster recovery configuration"
+  type        = bool
+  default     = false
+}
+
+variable "dr_location" {
+  description = "Azure region for disaster recovery"
+  type        = string
+  default     = "eastus2"
+}
+
+# -----------------------------------------------------------------------------
+# ArgoCD — Required when enable_argocd = true
+# -----------------------------------------------------------------------------
+
+variable "argocd_admin_password" {
+  description = "ArgoCD admin password (bcrypt hash). Generate: htpasswd -nbBC 10 '' 'password' | tr -d ':'"
   type        = string
   default     = ""
+  sensitive   = true
 }
 
-variable "entra_admin_group_id" {
-  description = "Entra ID group ID for cluster admins"
+variable "github_app_id" {
+  description = "GitHub App ID for ArgoCD/RHDH authentication"
   type        = string
   default     = ""
+  sensitive   = true
+}
+
+variable "github_app_client_id" {
+  description = "GitHub App Client ID"
+  type        = string
+  default     = ""
+  sensitive   = true
+}
+
+variable "github_app_client_secret" {
+  description = "GitHub App Client Secret"
+  type        = string
+  default     = ""
+  sensitive   = true
+}
+
+# -----------------------------------------------------------------------------
+# Cost Management — Required when enable_cost_management = true
+# -----------------------------------------------------------------------------
+
+variable "budget_amount" {
+  description = "Monthly budget in USD"
+  type        = number
+  default     = 5000
+}
+
+variable "alert_emails" {
+  description = "Email addresses for cost and platform alerts"
+  type        = list(string)
+  default     = []
 }

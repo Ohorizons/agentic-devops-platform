@@ -1,153 +1,72 @@
 # =============================================================================
-# THREE HORIZONS PLATFORM - EXAMPLE CONFIGURATION
+# THREE HORIZONS ACCELERATOR — CONFIGURATION TEMPLATE
 # =============================================================================
 #
-# Copy this file to terraform.tfvars and customize for your deployment
-#
-# Usage:
+# Copy this file and fill in your values:
 #   cp terraform.tfvars.example terraform.tfvars
-#   # Edit terraform.tfvars with your values
-#   terraform init
-#   terraform plan
-#   terraform apply
+#
+# Or use an environment-specific file:
+#   terraform plan -var-file=environments/dev.tfvars
+#
+# Sensitive values (github_token, argocd_admin_password, github_app_*) should
+# be set via environment variables:
+#   export TF_VAR_github_token="ghp_xxxx"
+#   export TF_VAR_azure_subscription_id="xxxx-xxxx"
 #
 # =============================================================================
 
-# -----------------------------------------------------------------------------
-# REQUIRED - Must be customized
-# -----------------------------------------------------------------------------
+# --- REQUIRED -----------------------------------------------------------------
 
-project_name = "threehorizons"
-environment  = "prod"  # dev, staging, prod
-location     = "brazilsouth"
+customer_name         = "contoso"           # Your company/project name (lowercase)
+environment           = "dev"               # dev | staging | prod
+location              = "brazilsouth"       # Azure region
+azure_subscription_id = ""                  # az account show --query id -o tsv
+azure_tenant_id       = ""                  # az account show --query tenantId -o tsv
+admin_group_id        = ""                  # Azure AD group for admins
+github_org            = ""                  # GitHub organization name
+domain_name           = "internal.local"    # Base domain for platform services
 
-# GitHub Organization
-github_org  = "your-github-org"
-github_repo = "platform-gitops"
+# --- DEPLOYMENT MODE ----------------------------------------------------------
+# express   = Minimal (dev/testing, ~$50-100/month)
+# standard  = Production-ready (HA, monitoring, ~$500-1000/month)
+# enterprise = Full HA + multi-zone + DR (~$3000+/month)
 
-# Microsoft Entra ID (Azure AD) - for authentication
-entra_tenant_id      = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-entra_admin_group_id = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+deployment_mode = "express"
 
-# -----------------------------------------------------------------------------
-# SIZING - Choose based on workload
-# -----------------------------------------------------------------------------
+# --- H1 FOUNDATION (always deployed: networking, aks, security) ---------------
 
-# Options: small, medium, large, xlarge
-# See config/sizing-profiles.yaml for details
-sizing_profile = "medium"
+enable_container_registry = true
+enable_databases          = true
+enable_defender            = false
+enable_purview             = false
 
-# -----------------------------------------------------------------------------
-# PLATFORM SELECTION
-# -----------------------------------------------------------------------------
+# --- H2 ENHANCEMENT -----------------------------------------------------------
 
-# Kubernetes platform: aks or aro
-kubernetes_platform = "aks"
-kubernetes_version  = "1.28"
+enable_argocd           = true
+enable_external_secrets  = true
+enable_observability     = true
+enable_github_runners    = false
+enable_rhdh              = false
+enable_cost_management   = false
 
-# -----------------------------------------------------------------------------
-# FEATURE FLAGS
-# -----------------------------------------------------------------------------
+# --- H3 INNOVATION ------------------------------------------------------------
 
-# Core platform
-enable_argocd        = true
-enable_rhdh          = true
-enable_observability = true
+enable_ai_foundry   = false
+ai_foundry_location = "eastus2"    # Best model availability
 
-# GitHub integration
-enable_github_runners = true
+# --- CROSS-CUTTING ------------------------------------------------------------
 
-# Security & Compliance
-enable_defender = true
-enable_purview  = false  # Enable for data governance
+enable_disaster_recovery = false
+dr_location              = "eastus2"
 
-# AI/ML
-enable_ai_foundry = false  # Enable for AI workloads
+# --- COST ALERTS (when enable_cost_management = true) -------------------------
 
-# Networking
-enable_private_endpoints = true
+budget_amount = 5000
+alert_emails  = []
 
-# AKS specific
-enable_workload_identity = true
-
-# -----------------------------------------------------------------------------
-# NETWORKING
-# -----------------------------------------------------------------------------
-
-vnet_address_space = ["10.0.0.0/16"]
-
-# Subnet CIDRs (must be within vnet_address_space)
-# aks_subnet_cidr      = "10.0.0.0/22"
-# services_subnet_cidr = "10.0.4.0/24"
-# database_subnet_cidr = "10.0.5.0/24"
-
-# -----------------------------------------------------------------------------
-# DATABASE
-# -----------------------------------------------------------------------------
-
-database_type = "postgresql"  # postgresql, mysql, cosmosdb
-database_sku  = "GP_Standard_D2s_v3"
-
-# -----------------------------------------------------------------------------
-# DEFENDER PLANS
-# -----------------------------------------------------------------------------
-
-defender_plans = [
-  "VirtualMachines",
-  "AppServices",
-  "SqlServers",
-  "StorageAccounts",
-  "Containers",
-  "KeyVaults",
-  "Arm",
-  "Dns"
-]
-
-# -----------------------------------------------------------------------------
-# TAGS
-# -----------------------------------------------------------------------------
+# --- TAGS ---------------------------------------------------------------------
 
 tags = {
-  Project     = "Three Horizons"
-  Environment = "Production"
-  ManagedBy   = "Terraform"
-  Team        = "Platform Engineering"
-  CostCenter  = "IT-Platform"
+  Project   = "three-horizons"
+  ManagedBy = "terraform"
 }
-
-# =============================================================================
-# ADVANCED CONFIGURATION (Optional)
-# =============================================================================
-
-# AKS Node Pools - Override defaults from sizing profile
-# aks_system_node_count = 3
-# aks_system_node_size  = "Standard_D4s_v3"
-# aks_user_node_count   = 5
-# aks_user_node_size    = "Standard_D8s_v3"
-
-# ACR Configuration
-# acr_sku               = "Premium"
-# acr_admin_enabled     = false
-# acr_zone_redundancy   = true
-
-# Key Vault Configuration
-# keyvault_sku          = "premium"
-# keyvault_soft_delete  = true
-# keyvault_purge_protection = true
-
-# PostgreSQL Configuration
-# postgresql_version    = "16"
-# postgresql_storage_mb = 32768
-# postgresql_backup_retention_days = 7
-
-# Observability Configuration
-# prometheus_retention_days = 15
-# grafana_admin_password = ""  # Leave empty to auto-generate
-
-# ArgoCD Configuration
-# argocd_version        = "v2.9.3"
-# argocd_ha_enabled     = true
-
-# RHDH Configuration
-# rhdh_replicas         = 2
-# rhdh_postgres_external = true
