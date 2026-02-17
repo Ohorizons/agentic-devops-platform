@@ -114,113 +114,8 @@ provider "kubectl" {
 }
 
 # =============================================================================
-# VARIABLES
+# VARIABLES — defined in variables.tf
 # =============================================================================
-
-variable "customer_name" {
-  description = "Customer name for resource naming (lowercase, no spaces)"
-  type        = string
-
-  validation {
-    condition     = can(regex("^[a-z][a-z0-9-]*[a-z0-9]$", var.customer_name))
-    error_message = "Customer name must be lowercase alphanumeric with hyphens only."
-  }
-}
-
-variable "environment" {
-  description = "Environment (dev, staging, prod)"
-  type        = string
-  default     = "prod"
-
-  validation {
-    condition     = contains(["dev", "staging", "prod"], var.environment)
-    error_message = "Environment must be dev, staging, or prod."
-  }
-}
-
-variable "location" {
-  description = "Azure region for deployment"
-  type        = string
-  default     = "brazilsouth"
-}
-
-variable "azure_subscription_id" {
-  description = "Azure subscription ID"
-  type        = string
-}
-
-variable "azure_tenant_id" {
-  description = "Azure tenant ID"
-  type        = string
-}
-
-variable "github_org" {
-  description = "GitHub organization name"
-  type        = string
-}
-
-variable "github_token" {
-  description = "GitHub personal access token or app token"
-  type        = string
-  sensitive   = true
-}
-
-variable "domain_name" {
-  description = "Base domain name for the platform"
-  type        = string
-}
-
-variable "admin_group_id" {
-  description = "Azure AD group ID for platform administrators"
-  type        = string
-}
-
-variable "deployment_mode" {
-  description = "Deployment mode (express, standard, enterprise)"
-  type        = string
-  default     = "standard"
-
-  validation {
-    condition     = contains(["express", "standard", "enterprise"], var.deployment_mode)
-    error_message = "Deployment mode must be express, standard, or enterprise."
-  }
-}
-
-variable "enable_ai_foundry" {
-  description = "Enable Azure AI Foundry services (H3)"
-  type        = bool
-  default     = true
-}
-
-variable "github_app_id" {
-  description = "GitHub App ID for authentication"
-  type        = string
-  sensitive   = true
-}
-
-variable "github_app_client_id" {
-  description = "GitHub App Client ID"
-  type        = string
-  sensitive   = true
-}
-
-variable "github_app_client_secret" {
-  description = "GitHub App Client Secret"
-  type        = string
-  sensitive   = true
-}
-
-variable "argocd_admin_password" {
-  description = "ArgoCD admin password (bcrypt hash)"
-  type        = string
-  sensitive   = true
-}
-
-variable "tags" {
-  description = "Additional tags to apply to all resources"
-  type        = map(string)
-  default     = {}
-}
 
 # =============================================================================
 # LOCALS
@@ -438,6 +333,7 @@ module "aks" {
 
 module "databases" {
   source = "./modules/databases"
+  count  = var.enable_databases ? 1 : 0
 
   customer_name       = var.customer_name
   environment         = var.environment
@@ -452,7 +348,7 @@ module "databases" {
   }
 
   postgresql_config = {
-    enabled               = local.config.enable_databases
+    enabled               = true
     sku_name              = var.deployment_mode == "express" ? "B_Standard_B1ms" : "GP_Standard_D2s_v3"
     storage_mb            = 32768
     version               = "16"
@@ -464,7 +360,7 @@ module "databases" {
   }
 
   redis_config = {
-    enabled             = local.config.enable_databases
+    enabled             = true
     sku_name            = var.deployment_mode == "express" ? "Basic" : "Standard"
     family              = "C"
     capacity            = var.deployment_mode == "express" ? 0 : 1
@@ -557,6 +453,7 @@ module "ai_foundry" {
 
 module "observability" {
   source = "./modules/observability"
+  count  = var.enable_observability ? 1 : 0
 
   customer_name       = var.customer_name
   environment         = var.environment
@@ -571,7 +468,7 @@ module "observability" {
   enable_container_insights = true
   retention_days            = var.environment == "prod" ? 90 : 30
 
-  alert_email_receivers = [] # Configure as needed
+  alert_email_receivers = var.alert_emails
 
   tags = local.common_tags
 
@@ -584,6 +481,7 @@ module "observability" {
 
 module "argocd" {
   source = "./modules/argocd"
+  count  = var.enable_argocd ? 1 : 0
 
   customer_name = var.customer_name
   environment   = var.environment
@@ -612,51 +510,155 @@ module "argocd" {
 }
 
 # =============================================================================
-# NOTE: Outputs are defined in outputs.tf
+# MODULE: CONTAINER REGISTRY (H1)
 # =============================================================================
 
-output "dns_name_servers" {
-  description = "DNS name servers (configure at your registrar)"
-  value       = module.networking.public_dns_zone_name_servers
+module "container_registry" {
+  source = "./modules/container-registry"
+  count  = var.enable_container_registry ? 1 : 0
+
+  customer_name       = var.customer_name
+  environment         = var.environment
+  location            = var.location
+  resource_group_name = azurerm_resource_group.main.name
+
+  sku                       = var.deployment_mode == "express" ? "Standard" : "Premium"
+  zone_redundancy_enabled   = var.deployment_mode == "enterprise"
+  admin_enabled             = false
+  public_network_access_enabled = var.deployment_mode == "express"
+
+  subnet_id           = module.networking.subnet_ids.private_endpoints
+  private_dns_zone_id = module.networking.private_dns_zone_ids.acr
+
+  aks_kubelet_identity_id = module.aks.kubelet_identity.object_id
+
+  tags = local.common_tags
+
+  depends_on = [module.networking, module.aks]
 }
 
-output "platform_urls" {
-  description = "Platform service URLs"
-  value = {
-    argocd           = "https://argocd.${var.domain_name}"
-    rhdh             = "https://rhdh.${var.domain_name}"
-    grafana          = module.observability.grafana_endpoint
-    prometheus_query = module.observability.prometheus_query_endpoint
-  }
+# =============================================================================
+# MODULE: EXTERNAL SECRETS (H2)
+# =============================================================================
+
+module "external_secrets" {
+  source = "./modules/external-secrets"
+  count  = var.enable_external_secrets ? 1 : 0
+
+  namespace        = "external-secrets"
+  chart_version    = "0.9.9"
+  key_vault_name   = module.security.keyvault_name
+  tenant_id        = var.azure_tenant_id
+
+  tags = local.common_tags
+
+  depends_on = [module.aks, module.security]
 }
 
-output "next_steps" {
-  description = "Post-deployment instructions"
-  value       = <<-EOT
-    
-    ✅ THREE HORIZONS PLATFORM DEPLOYED SUCCESSFULLY!
-    
-    📋 Next Steps:
-    
-    1. Configure DNS:
-       Update your domain registrar with these name servers:
-       ${join("\n       ", module.networking.public_dns_zone_name_servers != null ? module.networking.public_dns_zone_name_servers : ["(DNS zone not created)"])}
-    
-    2. Get AKS credentials:
-       az aks get-credentials --resource-group ${azurerm_resource_group.main.name} --name ${module.aks.cluster_name}
-    
-    3. Access ArgoCD:
-       URL: https://argocd.${var.domain_name}
-       Username: admin
-       Password: (use the password you provided)
-    
-    4. Deploy Golden Path templates:
-       Apply the GitOps manifests from your configuration repository.
-    
-    5. Onboard teams:
-       Use the onboard-team.sh script to add teams to the platform.
-    
-    📚 Documentation: https://github.com/${var.github_org}/three-horizons-docs
-    
-  EOT
+# =============================================================================
+# MODULE: GITHUB RUNNERS (H2)
+# =============================================================================
+
+module "github_runners" {
+  source = "./modules/github-runners"
+  count  = var.enable_github_runners ? 1 : 0
+
+  namespace                   = "github-runners"
+  github_org                  = var.github_org
+  github_app_id               = var.github_app_id
+  github_app_installation_id  = ""
+  github_app_private_key      = ""
+  runner_scale_set_name       = "arc-runners"
+  min_runners                 = 1
+  max_runners                 = var.deployment_mode == "enterprise" ? 10 : 5
+
+  tags = local.common_tags
+
+  depends_on = [module.aks]
 }
+
+# =============================================================================
+# MODULE: DEFENDER (H1 — Optional)
+# =============================================================================
+
+module "defender" {
+  source = "./modules/defender"
+  count  = var.enable_defender ? 1 : 0
+
+  customer_name       = var.customer_name
+  environment         = var.environment
+  location            = var.location
+  resource_group_name = azurerm_resource_group.main.name
+
+  enable_container_plan     = true
+  enable_servers_plan       = var.deployment_mode == "enterprise"
+  enable_storage_plan       = var.deployment_mode == "enterprise"
+  enable_key_vault_plan     = true
+  enable_dns_plan           = false
+
+  tags = local.common_tags
+}
+
+# =============================================================================
+# MODULE: PURVIEW (H1 — Optional)
+# =============================================================================
+
+module "purview" {
+  source = "./modules/purview"
+  count  = var.enable_purview ? 1 : 0
+
+  customer_name       = var.customer_name
+  environment         = var.environment
+  location            = var.location
+  resource_group_name = azurerm_resource_group.main.name
+
+  subnet_id           = module.networking.subnet_ids.private_endpoints
+  admin_group_id      = var.admin_group_id
+
+  tags = local.common_tags
+
+  depends_on = [module.networking]
+}
+
+# =============================================================================
+# MODULE: COST MANAGEMENT (Cross-cutting)
+# =============================================================================
+
+module "cost_management" {
+  source = "./modules/cost-management"
+  count  = var.enable_cost_management ? 1 : 0
+
+  resource_group_name = azurerm_resource_group.main.name
+  subscription_id     = var.azure_subscription_id
+  budget_amount       = var.budget_amount
+  alert_thresholds    = [50, 75, 90, 100]
+  alert_emails        = var.alert_emails
+
+  tags = local.common_tags
+}
+
+# =============================================================================
+# MODULE: DISASTER RECOVERY (Cross-cutting)
+# =============================================================================
+
+module "disaster_recovery" {
+  source = "./modules/disaster-recovery"
+  count  = var.enable_disaster_recovery ? 1 : 0
+
+  customer_name       = var.customer_name
+  environment         = var.environment
+  resource_group_name = azurerm_resource_group.main.name
+
+  primary_location   = var.location
+  secondary_location = var.dr_location
+
+  enable_aks_dr               = var.deployment_mode == "enterprise"
+  enable_database_replication = true
+  enable_storage_replication  = true
+
+  tags = local.common_tags
+}
+
+# =============================================================================
+# OUTPUTS — defined in outputs.tf
+# =============================================================================
