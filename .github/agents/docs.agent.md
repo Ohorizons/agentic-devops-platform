@@ -5,7 +5,7 @@ tools:
   - search/codebase
   - edit/editFiles
   - read/problems
-  - githubRepo
+  - web/githubRepo
 user-invokable: true
 handoffs:
   - label: "Technical Review"

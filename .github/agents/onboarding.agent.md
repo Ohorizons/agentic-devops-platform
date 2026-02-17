@@ -3,7 +3,7 @@ name: onboarding
 description: Project adoption specialist who guides new users through prerequisites, configuration, and their first deployment.
 tools:
   - search/codebase
-  - runInTerminal
+  - execute/runInTerminal
   - read/problems
 user-invokable: true
 handoffs:

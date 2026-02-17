@@ -3,7 +3,7 @@ name: sre
 description: Specialist in SRE, Observability, SLOs, and Incident Response.
 tools:
   - search/codebase
-  - runInTerminal
+  - execute/runInTerminal
   - read/problems
 user-invokable: true
 handoffs:

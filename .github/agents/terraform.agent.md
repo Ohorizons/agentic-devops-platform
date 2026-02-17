@@ -4,7 +4,7 @@ description: Specialist in Azure Infrastructure as Code (IaC) using Terraform.
 tools:
   - search/codebase
   - edit/editFiles
-  - runInTerminal
+  - execute/runInTerminal
   - read/problems
 user-invokable: true
 handoffs:
