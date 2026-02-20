@@ -116,14 +116,68 @@ kubectl port-forward svc/prometheus-grafana -n observability 3000:80
 
 | Environment | Mode | Estimated Cost | Features |
 |-------------|------|----------------|----------|
+| **local** | **demo** | **$0/month** | **kind cluster + ArgoCD + Observability + Databases (no Azure)** |
 | dev | express | $50-100/month | Minimal: AKS + ACR + ArgoCD + Observability |
 | staging | standard | $500-1000/month | Production-like: + Databases + ESO + Defender + AI |
 | prod | enterprise | $3000+/month | Full HA: + DR + Purview + Runners + RHDH + Cost Mgmt |
+
+## Local Demo Deployment
+
+Deploy the platform locally on **kind** (Kubernetes in Docker) — no Azure subscription required.
+
+### Prerequisites (local only)
+```bash
+# Required tools
+brew install kind kubectl helm jq yq
+# Docker Desktop running with 16GB RAM, 6 CPUs
+```
+
+### Deploy
+```bash
+make -C local up
+```
+
+### Validate
+```bash
+make -C local validate
+```
+
+### Access Services
+```bash
+make -C local argocd      # ArgoCD    → https://localhost:8443
+make -C local grafana      # Grafana   → http://localhost:3000 (admin/admin)
+make -C local prometheus   # Prometheus → http://localhost:9090
+make -C local rhdh         # RHDH      → http://localhost:7007 (optional)
+```
+
+### Teardown
+```bash
+make -C local down
+```
+
+### What's Included Locally
+- kind cluster (1 control-plane + 2 workers)
+- ArgoCD (GitOps)
+- Prometheus + Grafana + Alertmanager (observability)
+- cert-manager (self-signed TLS)
+- ingress-nginx (routing)
+- Gatekeeper/OPA (policy enforcement, audit mode)
+- PostgreSQL 16 + Redis 7 (databases)
+- RHDH (optional — requires Red Hat registry credentials)
+- All 11 Copilot Chat Agents (via VS Code)
+
+### What's NOT Available Locally
+- Azure PaaS services (Key Vault, Managed Identity, ACR)
+- AI Foundry / Azure OpenAI
+- Terraform (not needed — Helm/kubectl only)
+- External Secrets Operator (no Key Vault)
+- Defender, Purview, Cost Management
 
 ## Deployment Modes
 
 | Mode | Nodes | HA | GPU | Best For |
 |------|-------|----|-----|----------|
+| **demo** | **3 × kind** | **No** | **No** | **Local demonstrations, no Azure** |
 | express | 3 × D4s | No | No | Development, testing |
 | standard | 5 × D4s | Yes | No | Production workloads |
 | enterprise | 10 × D8s + workload pool | Yes (3 zones) | Optional | Enterprise, multi-tenant |

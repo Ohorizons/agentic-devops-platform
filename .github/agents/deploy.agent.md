@@ -88,6 +88,28 @@ Follow docs/guides/DEPLOYMENT_GUIDE.md
 ```
 Complete manual guide with copy-paste commands for each step.
 
+### Option D: Local Demo (No Azure Required)
+```bash
+make -C local up
+```
+Deploys the full platform on a local **kind** cluster (Kubernetes in Docker). Includes ArgoCD, Prometheus, Grafana, cert-manager, ingress-nginx, Gatekeeper, PostgreSQL, and Redis — no Azure subscription or Terraform needed. See `local/README.md` for details.
+
+**When to use Option D:**
+- Demonstrations and presentations
+- Local development and testing
+- Evaluating the platform before Azure deployment
+- Environments without Azure access
+
+**Local demo commands:**
+```bash
+make -C local up         # Deploy everything
+make -C local status     # Check pod health
+make -C local validate   # Run validation suite
+make -C local down       # Tear down cluster
+make -C local argocd     # Port-forward ArgoCD → https://localhost:8443
+make -C local grafana    # Port-forward Grafana → http://localhost:3000
+```
+
 ## ⛔ Boundaries
 
 | Action | Policy | Note |
@@ -110,7 +132,7 @@ Complete manual guide with copy-paste commands for each step.
 When user requests a deployment, follow this exact sequence:
 
 1. **Ask** — Which environment? Which horizons? Any specific options?
-2. **Recommend** — Suggest the best deployment option (A/B/C) based on user experience
+2. **Recommend** — Suggest the best deployment option (A/B/C/D) based on user experience. If the user mentions "local", "demo", "kind", or "no Azure", recommend **Option D**.
 3. **Validate Prerequisites** — Run `./scripts/validate-prerequisites.sh`
 4. **Validate Configuration** — Run `./scripts/validate-config.sh --environment <env>`
 5. **Terraform Init** — `cd terraform && terraform init`

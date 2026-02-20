@@ -12,6 +12,71 @@
 # | XLarge  | 200+      | Critical  | Mission critical, multi-region |
 
 profiles:
+  demo:
+    profile: demo
+    description: "Local demonstration — kind cluster on Docker, no Azure required ($0/month)"
+
+    infrastructure:
+      cluster:
+        type: "kind"
+        name: "three-horizons-demo"
+        nodes:
+          control_plane: 1
+          workers: 2
+        resources:
+          ram: "16Gi"
+          cpus: 6
+          disk: "20Gi"
+
+    databases:
+      postgresql:
+        enabled: true
+        type: "in-cluster"
+        version: "16"
+        storage_gb: 5
+        ha_enabled: false
+
+      redis:
+        enabled: true
+        type: "in-cluster"
+        persistence: false
+
+    ai_foundry:
+      enabled: false
+
+    observability:
+      prometheus:
+        retention_days: 1
+        storage_gb: 5
+        replicas: 1
+      grafana:
+        replicas: 1
+        storage_gb: 2
+      alertmanager:
+        replicas: 1
+
+    platform:
+      argocd:
+        replicas: 1
+        ha_enabled: false
+        sso_enabled: false
+      rhdh:
+        enabled: false  # Optional — requires Red Hat registry credentials
+        replicas: 1
+      cert_manager:
+        enabled: true
+        issuer: "self-signed"
+      ingress_nginx:
+        enabled: true
+        type: "hostPort"
+      gatekeeper:
+        enabled: true
+        mode: "audit"
+
+    cost:
+      monthly: 0
+      notes: "Runs on Docker Desktop — no cloud costs"
+
   small:
     profile: small
     description: "Development, POC, Small Teams (< 10 developers)"
@@ -413,6 +478,7 @@ metadata:
         label: T-Shirt Size
         description: Select infrastructure size based on your needs
         options:
+          - "⚪ Demo - Local (kind, $0)"
           - "🟢 Small - Dev/POC"
           - "🟡 Medium - Standard Production"
           - "🔴 Large - Enterprise"

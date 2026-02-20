@@ -49,9 +49,22 @@ gh auth login
 > 📘 **New to this accelerator?**
 > We strongly recommend following the **[Step-by-Step Deployment Guide](docs/guides/DEPLOYMENT_GUIDE.md)** for a detailed walkthrough.
 
-### Quick Deploy — 3 Options
+### Quick Deploy — 4 Options
 
 Choose the deployment method that fits your experience level:
+
+#### Option D: Local Demo (No Azure Required)
+```bash
+# Deploy everything on a local kind cluster
+brew install kind kubectl helm jq yq   # prerequisites
+make -C local up                        # deploy (~5 min)
+
+# Access:
+#   ArgoCD:     https://localhost:8443
+#   Grafana:    http://localhost:3000  (admin/admin)
+#   Prometheus: http://localhost:9090
+```
+Runs the full platform locally on kind — no Azure subscription needed. See [Local Demo Guide](./local/README.md).
 
 #### Option A: Agent-Guided (Easiest — Interactive)
 ```
@@ -491,6 +504,22 @@ kubectl get pods --all-namespaces | grep -v Running
 # Pod logs
 kubectl logs <pod-name> -n <namespace> --previous
 ```
+
+---
+
+## Local Demo & Demonstrations
+
+Run the complete platform locally for demos, evaluations, and development:
+
+```bash
+make -C local up        # Deploy on kind (~5 min)
+make -C local status    # Check health
+make -C local down      # Tear down
+```
+
+- **Demo Script**: [local/DEMO_SCRIPT.md](./local/DEMO_SCRIPT.md) — Full walkthrough (45-60 min)
+- **Demo Prep**: [local/DEMO_PREP.md](./local/DEMO_PREP.md) — Pre-demo checklist
+- **Local Guide**: [local/README.md](./local/README.md) — Setup and troubleshooting
 
 ---
 

@@ -1,0 +1,75 @@
+# =============================================================================
+# THREE HORIZONS ACCELERATOR — RHDH Local Values Override
+# =============================================================================
+# Simplified RHDH for local demo — guest auth, embedded PostgreSQL.
+# Requires: registry.redhat.io pull credentials (free developer account).
+#
+# Enable with: RHDH_ENABLED=true in local/config/local.env
+# =============================================================================
+
+upstream:
+  backstage:
+    replicas: 1
+
+    resources:
+      requests:
+        cpu: 250m
+        memory: 512Mi
+      limits:
+        cpu: 1000m
+        memory: 2Gi
+
+    appConfig:
+      app:
+        title: "Three Horizons — Developer Hub (Local)"
+        baseUrl: http://localhost:7007
+
+      backend:
+        baseUrl: http://localhost:7007
+        database:
+          client: pg
+          connection:
+            host: postgresql.databases.svc.cluster.local
+            port: 5432
+            user: postgres
+            password: demo-postgres-2026
+
+      auth:
+        environment: development
+        providers:
+          guest:
+            dangerouslyAllowOutsideDevelopment: true
+
+      catalog:
+        rules:
+          - allow: [Component, System, API, Resource, Location, Template]
+        locations:
+          - type: url
+            target: https://github.com/paulanunes85/three-horizons-accelerator-v4/blob/main/golden-paths/h1-foundation/*/template.yaml
+            rules:
+              - allow: [Template]
+          - type: url
+            target: https://github.com/paulanunes85/three-horizons-accelerator-v4/blob/main/golden-paths/h2-enhancement/*/template.yaml
+            rules:
+              - allow: [Template]
+          - type: url
+            target: https://github.com/paulanunes85/three-horizons-accelerator-v4/blob/main/golden-paths/h3-innovation/*/template.yaml
+            rules:
+              - allow: [Template]
+
+      techdocs:
+        builder: local
+        generator:
+          runIn: local
+        publisher:
+          type: local
+
+    service:
+      type: NodePort
+      ports:
+        backend: 7007
+        targetPort: 7007
+        nodePort: 30700
+
+  postgresql:
+    enabled: false  # Using external PostgreSQL from databases namespace
