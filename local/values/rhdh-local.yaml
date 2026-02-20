@@ -1,9 +1,21 @@
 # =============================================================================
 # THREE HORIZONS ACCELERATOR — RHDH Local Values Override
 # =============================================================================
-# Simplified RHDH for local demo — guest auth, embedded PostgreSQL.
-# Requires: registry.redhat.io pull credentials (free developer account).
+# Supports TWO authentication modes:
 #
+#   1. GUEST MODE (default) — No GitHub App required, instant access.
+#      Just set RHDH_ENABLED=true in local/config/local.env
+#
+#   2. GITHUB APP MODE — Full GitHub integration with catalog discovery,
+#      scaffolding, and org-based auth.
+#      Set these in local/config/local.env:
+#        RHDH_AUTH_MODE="github"
+#        GITHUB_APP_ID="..."
+#        GITHUB_APP_CLIENT_ID="..."
+#        GITHUB_APP_CLIENT_SECRET="..."
+#        GITHUB_APP_PRIVATE_KEY_FILE="/path/to/private-key.pem"
+#
+# Requires: registry.redhat.io pull credentials (free developer account).
 # Enable with: RHDH_ENABLED=true in local/config/local.env
 # =============================================================================
 
@@ -18,6 +30,33 @@ upstream:
       limits:
         cpu: 1000m
         memory: 2Gi
+
+    # -- Extra environment variables (populated by deploy-local.sh) -----------
+    extraEnvVars:
+      - name: GITHUB_APP_ID
+        valueFrom:
+          secretKeyRef:
+            name: rhdh-github-app
+            key: app-id
+            optional: true
+      - name: GITHUB_APP_CLIENT_ID
+        valueFrom:
+          secretKeyRef:
+            name: rhdh-github-app
+            key: client-id
+            optional: true
+      - name: GITHUB_APP_CLIENT_SECRET
+        valueFrom:
+          secretKeyRef:
+            name: rhdh-github-app
+            key: client-secret
+            optional: true
+      - name: GITHUB_APP_PRIVATE_KEY
+        valueFrom:
+          secretKeyRef:
+            name: rhdh-github-app
+            key: private-key
+            optional: true
 
     appConfig:
       app:
@@ -34,12 +73,30 @@ upstream:
             user: postgres
             password: demo-postgres-2026
 
+      # -- Authentication -----------------------------------------------------
+      # Guest mode is always enabled as fallback.
+      # GitHub App auth activates when the rhdh-github-app secret exists.
       auth:
         environment: development
         providers:
           guest:
             dangerouslyAllowOutsideDevelopment: true
+          github:
+            development:
+              clientId: ${GITHUB_APP_CLIENT_ID}
+              clientSecret: ${GITHUB_APP_CLIENT_SECRET}
 
+      # -- GitHub Integration --------------------------------------------------
+      integrations:
+        github:
+          - host: github.com
+            apps:
+              - appId: ${GITHUB_APP_ID}
+                clientId: ${GITHUB_APP_CLIENT_ID}
+                clientSecret: ${GITHUB_APP_CLIENT_SECRET}
+                privateKey: ${GITHUB_APP_PRIVATE_KEY}
+
+      # -- Catalog -------------------------------------------------------------
       catalog:
         rules:
           - allow: [Component, System, API, Resource, Location, Template]
@@ -57,6 +114,7 @@ upstream:
             rules:
               - allow: [Template]
 
+      # -- TechDocs ------------------------------------------------------------
       techdocs:
         builder: local
         generator:

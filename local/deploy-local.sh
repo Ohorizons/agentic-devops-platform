@@ -305,6 +305,26 @@ if should_run_phase 5; then
     log "Installing Red Hat Developer Hub..."
     warn "Requires registry.redhat.io credentials. If this fails, set RHDH_ENABLED=false"
 
+    # Create GitHub App secret if configured
+    if [[ "$RHDH_AUTH_MODE" == "github" && -n "$GITHUB_APP_CLIENT_ID" ]]; then
+      log "Configuring GitHub App authentication for RHDH..."
+      local private_key=""
+      if [[ -n "$GITHUB_APP_PRIVATE_KEY_FILE" && -f "$GITHUB_APP_PRIVATE_KEY_FILE" ]]; then
+        private_key=$(cat "$GITHUB_APP_PRIVATE_KEY_FILE")
+      fi
+      kubectl create secret generic rhdh-github-app \
+        --namespace "$NS_RHDH" \
+        --from-literal=app-id="$GITHUB_APP_ID" \
+        --from-literal=client-id="$GITHUB_APP_CLIENT_ID" \
+        --from-literal=client-secret="$GITHUB_APP_CLIENT_SECRET" \
+        --from-literal=private-key="$private_key" \
+        --from-literal=webhook-secret="${GITHUB_APP_WEBHOOK_SECRET:-}" \
+        --dry-run=client -o yaml | kubectl apply -f -
+      ok "GitHub App secret created in $NS_RHDH"
+    else
+      log "Using guest authentication (set RHDH_AUTH_MODE=github for GitHub App auth)"
+    fi
+
     helm_install "rhdh" "openshift-helm-charts/redhat-developer-hub" "$NS_RHDH" \
       "$SCRIPT_DIR/values/rhdh-local.yaml"
 

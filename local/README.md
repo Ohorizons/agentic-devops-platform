@@ -124,6 +124,71 @@ RHDH requires credentials for `registry.redhat.io`:
 4. Set `RHDH_ENABLED=true` in `local/config/local.env`
 5. Re-run `make -C local up`
 
+### Authentication Modes
+
+RHDH supports two authentication modes:
+
+#### Guest Mode (default)
+
+No configuration needed — instant access without login. Good for quick demos.
+
+#### GitHub App Mode (recommended for full demo)
+
+Enables GitHub login, catalog auto-discovery, scaffolding to real repos, and org-based permissions.
+
+**Step 1: Create a GitHub App**
+
+Go to https://github.com/settings/apps/new and fill in:
+
+| Field | Value |
+|-------|-------|
+| App name | `three-horizons-rhdh` |
+| Homepage URL | `http://localhost:7007` |
+| Callback URL | `http://localhost:7007/api/auth/github/handler/frame` |
+| Webhook active | **Uncheck** (not needed for local demo) |
+
+**Permissions (Repository):**
+- Contents: Read
+- Metadata: Read
+- Pull requests: Read & Write
+- Actions: Read
+- Issues: Read
+
+**Permissions (Organization):**
+- Members: Read
+
+**Where can this app be installed?** → Only on this account
+
+Click **Create GitHub App**.
+
+**Step 2: Generate credentials**
+
+After creating the app:
+1. Note the **App ID** (number at the top of the app page)
+2. Generate a **Client Secret** → copy it
+3. Generate a **Private Key** → downloads a `.pem` file
+4. Click **Install App** → select your repositories (or all)
+
+**Step 3: Configure in local.env**
+
+Edit `local/config/local.env`:
+
+```bash
+RHDH_AUTH_MODE="github"
+GITHUB_APP_ID="123456"
+GITHUB_APP_CLIENT_ID="Iv1.abc123..."
+GITHUB_APP_CLIENT_SECRET="your-client-secret"
+GITHUB_APP_PRIVATE_KEY_FILE="/Users/you/Downloads/three-horizons-rhdh.pem"
+```
+
+**Step 4: Redeploy RHDH**
+
+```bash
+make -C local up  # or: ./local/deploy-local.sh --phase 5
+```
+
+Login at http://localhost:7007 using your GitHub account.
+
 ## Differences from Azure Deployment
 
 | Feature | Azure (Production) | Local (Demo) |
