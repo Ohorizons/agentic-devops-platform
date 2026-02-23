@@ -25,6 +25,7 @@ import { entityPage } from './components/catalog/EntityPage';
 import { searchPage } from './components/search/SearchPage';
 import { Root } from './components/Root';
 
+import { githubAuthApiRef } from '@backstage/core-plugin-api';
 import {
   AlertDisplay,
   OAuthRequestDialog,
@@ -58,7 +59,22 @@ const app = createApp({
     });
   },
   components: {
-    SignInPage: props => <SignInPage {...props} auto providers={['guest']} />,
+    SignInPage: props => (
+      <SignInPage
+        {...props}
+        auto
+        providers={[
+          {
+            id: 'github-auth-provider',
+            title: 'GitHub',
+            message: 'Sign in with GitHub',
+            apiRef: githubAuthApiRef,
+          },
+          'guest',
+        ]}
+        title="paulasilvatech"
+      />
+    ),
   },
 });
 

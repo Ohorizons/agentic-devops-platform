@@ -60,7 +60,7 @@ upstream:
 
     appConfig:
       app:
-        title: "Three Horizons — Developer Hub (Local)"
+        title: "paulasilvatech — Developer Hub (Local)"
         baseUrl: http://localhost:7007
 
       backend:

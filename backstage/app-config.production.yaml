@@ -1,10 +1,10 @@
-# THREE HORIZONS ACCELERATOR - Backstage Production Config
+# paulasilvatech — Backstage Production Config
 app:
-  title: Three Horizons Developer Portal
+  title: paulasilvatech — Developer Portal
   baseUrl: http://localhost:7007
 
 organization:
-  name: Three Horizons Accelerator
+  name: paulasilvatech
 
 backend:
   baseUrl: http://localhost:7007
@@ -27,6 +27,10 @@ auth:
       development:
         clientId: ${GITHUB_APP_CLIENT_ID}
         clientSecret: ${GITHUB_APP_CLIENT_SECRET}
+        signIn:
+          resolvers:
+            - resolver: usernameMatchingUserEntityName
+              dangerouslyAllowSignInWithoutUserInCatalog: true
 
 integrations:
   github:
