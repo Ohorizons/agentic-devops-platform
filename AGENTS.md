@@ -2,13 +2,13 @@
 
 ## Overview
 
-The Three Horizons Accelerator uses **GitHub Copilot Chat Agents** — a role-based AI assistant system that operates directly within VS Code / GitHub Copilot Chat. The platform includes 13 specialized agents for interactive development assistance.
+The Three Horizons Accelerator uses **GitHub Copilot Chat Agents** — a role-based AI assistant system that operates directly within VS Code / GitHub Copilot Chat. The platform includes 15 specialized agents for interactive development assistance.
 
 ## Architecture
 
 ```text
 .github/
-├── agents/          # 13 role-based chat agents (.agent.md)
+├── agents/          # 15 role-based chat agents (.agent.md)
 ├── chatmodes/       # 3 chat modes (.chatmode.md)
 ├── instructions/    # 3 code-generation instructions (.instructions.md)
 ├── prompts/         # 8 reusable prompts (.prompt.md)
@@ -33,6 +33,10 @@ The Three Horizons Accelerator uses **GitHub Copilot Chat Agents** — a role-ba
 | **Deploy** | [deploy.agent.md](.github/agents/deploy.agent.md) | Deployment orchestration, end-to-end platform deployment |
 | **Backstage Expert** | [backstage-expert.agent.md](.github/agents/backstage-expert.agent.md) | Backstage portal deployment on AKS, GitHub auth, Golden Paths, Codespaces |
 | **RHDH Expert** | [rhdh-expert.agent.md](.github/agents/rhdh-expert.agent.md) | Red Hat Developer Hub on AKS/ARO, GitHub auth, Golden Paths, Codespaces |
+| **Azure Portal Deploy** | [azure-portal-deploy.agent.md](.github/agents/azure-portal-deploy.agent.md) | Azure AKS/ARO provisioning, Key Vault, PostgreSQL, ACR, Helm/Operator |
+| **GitHub Integration** | [github-integration.agent.md](.github/agents/github-integration.agent.md) | GitHub App, org discovery, GHAS, Actions, Packages, supply chain |
+| **ADO Integration** | [ado-integration.agent.md](.github/agents/ado-integration.agent.md) | Azure DevOps PAT, repos, pipelines, boards, Copilot Standalone |
+| **Hybrid Scenarios** | [hybrid-scenarios.agent.md](.github/agents/hybrid-scenarios.agent.md) | GitHub + ADO coexistence scenarios A/B/C, dual auth, hybrid templates |
 
 ### How to Use
 

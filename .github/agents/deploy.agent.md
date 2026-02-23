@@ -28,6 +28,22 @@ handoffs:
     agent: rhdh-expert
     prompt: "Deploy and configure the Red Hat Developer Hub on AKS or ARO."
     send: false
+  - label: "Azure Infrastructure"
+    agent: azure-portal-deploy
+    prompt: "Provision Azure AKS/ARO, Key Vault, PostgreSQL for portal deployment."
+    send: false
+  - label: "GitHub Integration"
+    agent: github-integration
+    prompt: "Configure GitHub App and org discovery for portal."
+    send: false
+  - label: "ADO Integration"
+    agent: ado-integration
+    prompt: "Configure Azure DevOps integration for portal."
+    send: false
+  - label: "Hybrid Scenarios"
+    agent: hybrid-scenarios
+    prompt: "Design and implement hybrid GitHub + ADO scenario."
+    send: false
 ---
 
 # Deploy Agent

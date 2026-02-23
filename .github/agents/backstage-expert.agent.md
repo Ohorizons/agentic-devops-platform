@@ -8,6 +8,22 @@ tools:
   - read/problems
 user-invokable: true
 handoffs:
+  - label: "Azure Infrastructure"
+    agent: azure-portal-deploy
+    prompt: "Provision Azure AKS, Key Vault, PostgreSQL, and ACR for Backstage."
+    send: false
+  - label: "GitHub Integration"
+    agent: github-integration
+    prompt: "Configure GitHub App, org discovery, and GHAS for Backstage."
+    send: false
+  - label: "ADO Integration"
+    agent: ado-integration
+    prompt: "Configure Azure DevOps integration for Backstage."
+    send: false
+  - label: "Hybrid Scenarios"
+    agent: hybrid-scenarios
+    prompt: "Design hybrid GitHub + ADO scenario for Backstage."
+    send: false
   - label: "Deploy Platform"
     agent: deploy
     prompt: "Proceed with full platform deployment including the Backstage portal."

@@ -90,23 +90,11 @@ upstream:
         rules:
           - allow: [Component, System, API, Resource, Location, Template]
         locations:
-          # Valid Golden Path Templates (YAML-compatible)
+          # Golden Path templates from 3horizons/golden-paths repo
           - type: url
-            target: https://github.com/paulanunes85/three-horizons-accelerator/blob/main/golden-paths/h2-enhancement/ado-to-github-migration/template.yaml
+            target: https://github.com/3horizons/golden-paths/blob/main/catalog-info.yaml
             rules:
-              - allow: [Template]
-          - type: url
-            target: https://github.com/paulanunes85/three-horizons-accelerator/blob/main/golden-paths/h2-enhancement/api-microservice/template.yaml
-            rules:
-              - allow: [Template]
-          - type: url
-            target: https://github.com/paulanunes85/three-horizons-accelerator/blob/main/golden-paths/h3-innovation/copilot-extension/template.yaml
-            rules:
-              - allow: [Template]
-          - type: url
-            target: https://github.com/paulanunes85/three-horizons-accelerator/blob/main/golden-paths/h3-innovation/rag-application/template.yaml
-            rules:
-              - allow: [Template]
+              - allow: [Location, Template]
 
       # -- TechDocs ------------------------------------------------------------
       techdocs:

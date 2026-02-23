@@ -8,6 +8,22 @@ tools:
   - read/problems
 user-invokable: true
 handoffs:
+  - label: "Azure Infrastructure"
+    agent: azure-portal-deploy
+    prompt: "Provision Azure AKS or ARO, Key Vault, PostgreSQL for RHDH."
+    send: false
+  - label: "GitHub Integration"
+    agent: github-integration
+    prompt: "Configure GitHub App, org discovery, and GHAS for RHDH."
+    send: false
+  - label: "ADO Integration"
+    agent: ado-integration
+    prompt: "Configure Azure DevOps integration for RHDH."
+    send: false
+  - label: "Hybrid Scenarios"
+    agent: hybrid-scenarios
+    prompt: "Design hybrid GitHub + ADO scenario for RHDH."
+    send: false
   - label: "Deploy Platform"
     agent: deploy
     prompt: "Proceed with full platform deployment including the Developer Hub."
