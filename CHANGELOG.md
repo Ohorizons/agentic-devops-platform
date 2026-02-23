@@ -14,7 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - README files for all Terraform modules
 
 ### Changed
-- Updated agent-router.yml with all 15 Copilot Chat Agents mapped
+- Updated agent-router.yml with all 17 Copilot Chat Agents mapped
 - Fixed soft_fail settings in CI workflow
 - Updated documentation counts to reflect current state
 
@@ -110,7 +110,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 28 Issue templates with T-shirt sizing
 - 6 CI/CD workflows
 - 3 Copilot chat modes (architect, reviewer, sre)
-- 15 Copilot agents (onboarding, architect, platform, terraform, reviewer, devops, security, sre, test, docs, deploy)
+- 17 Copilot agents (onboarding, architect, platform, terraform, reviewer, devops, security, sre, test, docs, deploy)
 - 20 skills (azure-cli, azure-infrastructure, terraform-cli, kubectl-cli, helm-cli, oc-cli, argocd-cli, github-cli, mcp-cli, openshift-operations, aro-deployment, rhdh-portal, database-management, observability-stack, ai-foundry-operations, validation-scripts, deploy-orchestration, prerequisites)
 - 3 instruction files (terraform, kubernetes, python)
 - 7 prompts (create-service, review-code, generate-tests, deploy-service, deploy-platform, troubleshoot-incident, generate-docs)

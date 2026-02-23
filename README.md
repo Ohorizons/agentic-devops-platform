@@ -112,7 +112,7 @@ Follow the detailed **[Deployment Guide](docs/guides/DEPLOYMENT_GUIDE.md)** — 
 ```
 three-horizons-accelerator-v4/
 │
-├── .github/agents/                 # 15 Copilot Chat Agents
+├── .github/agents/                 # 17 Copilot Chat Agents
 │   ├── ado-integration.agent.md     # Azure DevOps integration
 │   ├── architect.agent.md          # System architecture, AI Foundry
 │   ├── azure-portal-deploy.agent.md # Azure AKS/ARO portal deployment
@@ -187,7 +187,7 @@ three-horizons-accelerator-v4/
 
 | Document | Description |
 |----------|-------------|
-| [Agent System](./AGENTS.md) | Copilot Chat Agents (15 agents) |
+| [Agent System](./AGENTS.md) | Copilot Chat Agents (17 agents) |
 | [MCP Servers Guide](./mcp-servers/USAGE.md) | Model Context Protocol server setup |
 | [Agent Best Practices](./docs/guides/copilot-agents-best-practices.md) | Copilot agents usage guide |
 
@@ -580,7 +580,7 @@ For questions, issues, or suggestions, open an issue on GitHub:
 ### v4.0.0 (December 2025)
 
 - 18 Terraform modules (including Defender, Purview, Naming, Disaster Recovery)
-- 15 Copilot Chat Agents for interactive development assistance
+- 17 Copilot Chat Agents for interactive development assistance
 - 28 GitHub Issues templates
 - 22 Golden Path templates for RHDH (including ADO to GitHub migration)
 - 16 automation scripts

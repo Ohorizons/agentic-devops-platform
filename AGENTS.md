@@ -2,13 +2,13 @@
 
 ## Overview
 
-The Three Horizons Accelerator uses **GitHub Copilot Chat Agents** — a role-based AI assistant system that operates directly within VS Code / GitHub Copilot Chat. The platform includes 15 specialized agents for interactive development assistance.
+The Three Horizons Accelerator uses **GitHub Copilot Chat Agents** — a role-based AI assistant system that operates directly within VS Code / GitHub Copilot Chat. The platform includes 17 specialized agents for interactive development assistance.
 
 ## Architecture
 
 ```text
 .github/
-├── agents/          # 15 role-based chat agents (.agent.md)
+├── agents/          # 17 role-based chat agents (.agent.md)
 ├── chatmodes/       # 3 chat modes (.chatmode.md)
 ├── instructions/    # 3 code-generation instructions (.instructions.md)
 ├── prompts/         # 8 reusable prompts (.prompt.md)
