@@ -1,13 +1,13 @@
-# paulasilvatech — Agentic DevOps Platform (Backstage) Production Config
+# Agentic DevOps Platform (Backstage) Production Config
 app:
-  title: paulasilvatech — Agentic DevOps Platform
-  baseUrl: http://localhost:7007
+  title: ${PORTAL_NAME:-paulasilvatech} — Agentic DevOps Platform
+  baseUrl: ${APP_BASE_URL:-http://localhost:7007}
 
 organization:
-  name: paulasilvatech
+  name: ${PORTAL_NAME:-paulasilvatech}
 
 backend:
-  baseUrl: http://localhost:7007
+  baseUrl: ${APP_BASE_URL:-http://localhost:7007}
   listen:
     port: 7007
   auth:
@@ -64,3 +64,10 @@ catalog:
 
 permission:
   enabled: true
+
+kubernetes:
+  serviceLocatorMethod:
+    type: multiTenant
+  clusterLocatorMethods:
+    - type: config
+      clusters: []

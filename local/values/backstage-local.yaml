@@ -30,6 +30,8 @@ backstage:
       memory: 2Gi
 
   extraEnvVars:
+    - name: PORTAL_NAME
+      value: "paulasilvatech"
     - name: APP_BASE_URL
       value: "http://localhost:7007"
     - name: POSTGRES_HOST
