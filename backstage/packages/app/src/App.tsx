@@ -24,6 +24,10 @@ import { apis } from './apis';
 import { entityPage } from './components/catalog/EntityPage';
 import { searchPage } from './components/search/SearchPage';
 import { Root } from './components/Root';
+import HomePage from './components/HomePage/HomePage';
+import LearningPage from './components/LearningPage/LearningPage';
+import { microsoftLightTheme, microsoftDarkTheme } from './theme';
+import { UnifiedThemeProvider } from '@backstage/theme';
 
 import { githubAuthApiRef } from '@backstage/core-plugin-api';
 import {
@@ -41,6 +45,28 @@ import { SignalsDisplay } from '@backstage/plugin-signals';
 
 const app = createApp({
   apis,
+  themes: [
+    {
+      id: 'microsoft-light',
+      title: 'Microsoft Light',
+      variant: 'light',
+      Provider: ({ children }) => (
+        <UnifiedThemeProvider theme={microsoftLightTheme}>
+          {children}
+        </UnifiedThemeProvider>
+      ),
+    },
+    {
+      id: 'microsoft-dark',
+      title: 'Microsoft Dark',
+      variant: 'dark',
+      Provider: ({ children }) => (
+        <UnifiedThemeProvider theme={microsoftDarkTheme}>
+          {children}
+        </UnifiedThemeProvider>
+      ),
+    },
+  ],
   bindRoutes({ bind }) {
     bind(catalogPlugin.externalRoutes, {
       createComponent: scaffolderPlugin.routes.root,
@@ -79,7 +105,8 @@ const app = createApp({
 
 const routes = (
   <FlatRoutes>
-    <Route path="/" element={<Navigate to="catalog" />} />
+    <Route path="/" element={<Navigate to="home" />} />
+    <Route path="/home" element={<HomePage />} />
     <Route path="/catalog" element={<CatalogIndexPage />} />
     <Route
       path="/catalog/:namespace/:kind/:name"
@@ -111,6 +138,7 @@ const routes = (
     </Route>
     <Route path="/settings" element={<UserSettingsPage />} />
     <Route path="/catalog-graph" element={<CatalogGraphPage />} />
+    <Route path="/learning" element={<LearningPage />} />
     <Route path="/notifications" element={<NotificationsPage />} />
   </FlatRoutes>
 );
