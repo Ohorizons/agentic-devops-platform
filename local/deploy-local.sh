@@ -311,6 +311,9 @@ if should_run_phase 5; then
   if [[ "$SKIP_RHDH" == "true" || "$RHDH_ENABLED" != "true" ]]; then
     warn "Developer portal skipped (set RHDH_ENABLED=true to enable)"
   else
+    # Ensure namespace exists before creating secrets
+    kubectl create namespace "$PORTAL_NS" --dry-run=client -o yaml | kubectl apply -f -
+
     # Create GitHub App secret if configured
     if [[ "$RHDH_AUTH_MODE" == "github" && -n "$GITHUB_APP_CLIENT_ID" ]]; then
       log "Configuring GitHub App authentication..."
