@@ -68,10 +68,10 @@ yarn install
 yarn tsc && yarn build:backend
 
 # Build Docker image
-docker build -t <portal-name>-portal:local -f packages/backend/Dockerfile .
+docker build -t <portal-name>-backstage:local -f packages/backend/Dockerfile .
 
 # Load into kind
-kind load docker-image <portal-name>-portal:local --name three-horizons-demo
+kind load docker-image <portal-name>-backstage:local --name three-horizons-demo
 ```
 
 ### Configuration Files
@@ -86,7 +86,7 @@ kind load docker-image <portal-name>-portal:local --name three-horizons-demo
 ```yaml
 backstage:
   image:
-    repository: <portal-name>-portal
+    repository: <portal-name>-backstage
     tag: local
     pullPolicy: Never
   command: ["node", "packages/backend", "--config", "app-config.yaml", "--config", "app-config.production.yaml"]
@@ -96,7 +96,7 @@ backstage:
     - name: GITHUB_APP_CLIENT_ID
       valueFrom:
         secretKeyRef:
-          name: backstage-github-app
+          name: paulasilvatech-backstage-github-app
           key: client-id
 ```
 

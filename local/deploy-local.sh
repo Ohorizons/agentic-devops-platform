@@ -299,6 +299,15 @@ fi
 if should_run_phase 5; then
   echo -e "\n${BOLD}━━━ Phase 5/7: Developer Portal ━━━${NC}"
 
+  # Determine namespace and secret name based on portal type
+  if [[ "${PORTAL_TYPE:-backstage}" == "rhdh" ]]; then
+    PORTAL_NS="${NS_DEVHUB:-devhub}"
+    PORTAL_SECRET="${PORTAL_NAME:-paulasilvatech}-devhub-github-app"
+  else
+    PORTAL_NS="${NS_BACKSTAGE:-backstage}"
+    PORTAL_SECRET="${PORTAL_NAME:-paulasilvatech}-backstage-github-app"
+  fi
+
   if [[ "$SKIP_RHDH" == "true" || "$RHDH_ENABLED" != "true" ]]; then
     warn "Developer portal skipped (set RHDH_ENABLED=true to enable)"
   else
@@ -309,17 +318,15 @@ if should_run_phase 5; then
       if [[ -n "$GITHUB_APP_PRIVATE_KEY_FILE" && -f "$GITHUB_APP_PRIVATE_KEY_FILE" ]]; then
         private_key=$(cat "$GITHUB_APP_PRIVATE_KEY_FILE")
       fi
-      secret_name="backstage-github-app"
-      [[ "$PORTAL_TYPE" == "rhdh" ]] && secret_name="rhdh-github-app"
-      kubectl create secret generic "$secret_name" \
-        --namespace "$NS_RHDH" \
+      kubectl create secret generic "$PORTAL_SECRET" \
+        --namespace "$PORTAL_NS" \
         --from-literal=app-id="$GITHUB_APP_ID" \
         --from-literal=client-id="$GITHUB_APP_CLIENT_ID" \
         --from-literal=client-secret="$GITHUB_APP_CLIENT_SECRET" \
         --from-literal=private-key="$private_key" \
         --from-literal=webhook-secret="${GITHUB_APP_WEBHOOK_SECRET:-}" \
         --dry-run=client -o yaml | kubectl apply -f -
-      ok "GitHub App secret created in $NS_RHDH"
+      ok "GitHub App secret ($PORTAL_SECRET) created in $PORTAL_NS"
     else
       log "Using guest authentication (set RHDH_AUTH_MODE=github for GitHub App auth)"
     fi
@@ -327,17 +334,17 @@ if should_run_phase 5; then
     if [[ "${PORTAL_TYPE:-backstage}" == "rhdh" ]]; then
       log "Installing Red Hat Developer Hub (RHDH)..."
       warn "Requires registry.redhat.io credentials. If this fails, switch to PORTAL_TYPE=backstage"
-      helm_install "rhdh" "openshift-helm-charts/redhat-developer-hub" "$NS_RHDH" \
+      helm_install "${PORTAL_NAME:-paulasilvatech}-devhub" "openshift-helm-charts/redhat-developer-hub" "$PORTAL_NS" \
         "$SCRIPT_DIR/values/rhdh-local.yaml"
     else
       log "Installing Backstage (upstream, open-source)..."
-      helm_install "backstage" "backstage/backstage" "$NS_RHDH" \
+      helm_install "${PORTAL_NAME:-paulasilvatech}-backstage" "backstage/backstage" "$PORTAL_NS" \
         "$SCRIPT_DIR/values/backstage-local.yaml"
     fi
 
     if [[ "$DRY_RUN" == "false" ]]; then
-      wait_for_pods "$NS_RHDH" 300
-      ok "Developer portal ready (${PORTAL_TYPE:-backstage})"
+      wait_for_pods "$PORTAL_NS" 300
+      ok "Developer portal ready (${PORTAL_TYPE:-backstage}) in namespace $PORTAL_NS"
     fi
   fi
 

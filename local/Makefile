@@ -96,8 +96,9 @@ prometheus: ## Port-forward Prometheus → http://localhost:9090
 
 portal: ## Port-forward Developer Portal (Backstage or RHDH) → http://localhost:7007
 	@echo "Developer Portal → http://localhost:7007"
-	@kubectl port-forward svc/backstage -n rhdh 7007:7007 2>/dev/null || \
-		kubectl port-forward svc/rhdh-redhat-developer-hub -n rhdh 7007:7007 2>/dev/null || \
+	@kubectl port-forward svc/paulasilvatech-backstage -n backstage 7007:7007 2>/dev/null || \
+		kubectl port-forward svc/paulasilvatech-devhub-redhat-developer-hub -n devhub 7007:7007 2>/dev/null || \
+		kubectl port-forward svc/backstage -n backstage 7007:7007 2>/dev/null || \
 		echo "Portal not installed. Set RHDH_ENABLED=true in local/config/local.env"
 
 rhdh: portal ## Alias for portal (backward compat)

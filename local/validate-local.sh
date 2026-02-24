@@ -127,10 +127,15 @@ if [[ "$GATEKEEPER_ENABLED" == "true" ]]; then
   fi
 fi
 
-# --- RHDH ---
+# --- Developer Portal ---
 if [[ "$RHDH_ENABLED" == "true" ]]; then
   header "Developer Portal (${PORTAL_TYPE:-backstage})"
-  if kubectl get svc -n "$NS_RHDH" --no-headers 2>/dev/null | grep -qE "rhdh|backstage"; then
+  if [[ "${PORTAL_TYPE:-backstage}" == "rhdh" ]]; then
+    PORTAL_NS="${NS_DEVHUB:-devhub}"
+  else
+    PORTAL_NS="${NS_BACKSTAGE:-backstage}"
+  fi
+  if kubectl get svc -n "$PORTAL_NS" --no-headers 2>/dev/null | grep -qE "devhub|backstage"; then
     pass "Developer portal service exists"
   else
     warn "Developer portal service not found (may not be installed)"

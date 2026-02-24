@@ -5,7 +5,7 @@
 # Upstream open-source Backstage — no Red Hat registry required.
 #
 # Chart: backstage/backstage (https://backstage.github.io/charts)
-# Image: paulasilvatech-portal:local (built from backstage/)
+# Image: ${PORTAL_NAME}-backstage:local (built from backstage/)
 #
 # Use with: PORTAL_TYPE="backstage" in local/config/local.env
 # =============================================================================
@@ -15,7 +15,7 @@ backstage:
 
   image:
     registry: ""
-    repository: paulasilvatech-portal
+    repository: paulasilvatech-backstage
     tag: local
     pullPolicy: Never
 
@@ -45,25 +45,25 @@ backstage:
     - name: GITHUB_APP_ID
       valueFrom:
         secretKeyRef:
-          name: backstage-github-app
+          name: paulasilvatech-backstage-github-app
           key: app-id
           optional: true
     - name: GITHUB_APP_CLIENT_ID
       valueFrom:
         secretKeyRef:
-          name: backstage-github-app
+          name: paulasilvatech-backstage-github-app
           key: client-id
           optional: true
     - name: GITHUB_APP_CLIENT_SECRET
       valueFrom:
         secretKeyRef:
-          name: backstage-github-app
+          name: paulasilvatech-backstage-github-app
           key: client-secret
           optional: true
     - name: GITHUB_APP_PRIVATE_KEY
       valueFrom:
         secretKeyRef:
-          name: backstage-github-app
+          name: paulasilvatech-backstage-github-app
           key: private-key
           optional: true
 

@@ -25,25 +25,25 @@ upstream:
       - name: GITHUB_APP_ID
         valueFrom:
           secretKeyRef:
-            name: rhdh-github-app
+            name: paulasilvatech-devhub-github-app
             key: app-id
             optional: true
       - name: GITHUB_APP_CLIENT_ID
         valueFrom:
           secretKeyRef:
-            name: rhdh-github-app
+            name: paulasilvatech-devhub-github-app
             key: client-id
             optional: true
       - name: GITHUB_APP_CLIENT_SECRET
         valueFrom:
           secretKeyRef:
-            name: rhdh-github-app
+            name: paulasilvatech-devhub-github-app
             key: client-secret
             optional: true
       - name: GITHUB_APP_PRIVATE_KEY
         valueFrom:
           secretKeyRef:
-            name: rhdh-github-app
+            name: paulasilvatech-devhub-github-app
             key: private-key
             optional: true
 
@@ -64,7 +64,7 @@ upstream:
 
       # -- Authentication -----------------------------------------------------
       # Guest mode is always enabled as fallback.
-      # GitHub App auth activates when the rhdh-github-app secret exists.
+      # GitHub App auth activates when the paulasilvatech-devhub-github-app secret exists.
       auth:
         environment: development
         providers:
