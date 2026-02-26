@@ -5,20 +5,20 @@ metadata:
   title: Open Horizons Developer Portal
   description: Enterprise developer portal powered by Backstage — the Open Horizons edition of the Agentic DevOps Platform. Central hub for Golden Path templates, Service Catalog, TechDocs, APIs, and platform services.
   annotations:
-    github.com/project-slug: 3horizons/three-horizons-accelerator
+    github.com/project-slug: paulanunes85/three-horizons-accelerator
     backstage.io/techdocs-ref: dir:.
   tags:
     - backstage
     - developer-portal
     - platform-engineering
   links:
-    - url: https://github.com/3horizons/three-horizons-accelerator
+    - url: https://github.com/paulanunes85/three-horizons-accelerator
       title: GitHub Repository
       icon: github
-    - url: /docs
+    - url: http://devhub.135.18.141.224.nip.io/docs
       title: TechDocs
       icon: docs
-    - url: /create
+    - url: http://devhub.135.18.141.224.nip.io/create
       title: Golden Path Templates
       icon: scaffolder
 spec:
