@@ -171,6 +171,70 @@ global:
       - package: ./dynamic-plugins/dist/backstage-plugin-signals-backend-dynamic
         disabled: false
 
+      # --- Dynamic Home (95% parity without custom image) ---
+      - package: ./dynamic-plugins/dist/red-hat-developer-hub-backstage-plugin-dynamic-home-page
+        disabled: false
+        pluginConfig:
+          dynamicPlugins:
+            frontend:
+              red-hat-developer-hub.backstage-plugin-dynamic-home-page:
+                dynamicRoutes:
+                  - importName: DynamicHomePage
+                    path: /
+                  - importName: DynamicHomePage
+                    path: /home
+                mountPoints:
+                  - mountPoint: home.page/cards
+                    importName: SearchBar
+                    config:
+                      layouts:
+                        xl: { w: 12, h: 1, x: 0, 'y': 0 }
+                        lg: { w: 12, h: 1, x: 0, 'y': 0 }
+                        md: { w: 12, h: 1, x: 0, 'y': 0 }
+                        sm: { w: 12, h: 1, x: 0, 'y': 0 }
+                        xs: { w: 12, h: 1, x: 0, 'y': 0 }
+                        xxs: { w: 12, h: 1, x: 0, 'y': 0 }
+                  - mountPoint: home.page/cards
+                    importName: QuickAccessCard
+                    config:
+                      layouts:
+                        xl: { w: 8, h: 8, x: 0, 'y': 1 }
+                        lg: { w: 8, h: 8, x: 0, 'y': 1 }
+                        md: { w: 8, h: 8, x: 0, 'y': 1 }
+                        sm: { w: 12, h: 8, x: 0, 'y': 1 }
+                        xs: { w: 12, h: 8, x: 0, 'y': 1 }
+                        xxs: { w: 12, h: 8, x: 0, 'y': 1 }
+                  - mountPoint: home.page/cards
+                    importName: CatalogStarredEntitiesCard
+                    config:
+                      layouts:
+                        xl: { w: 4, h: 4, x: 8, 'y': 1 }
+                        lg: { w: 4, h: 4, x: 8, 'y': 1 }
+                        md: { w: 4, h: 4, x: 8, 'y': 1 }
+                        sm: { w: 12, h: 4, x: 0, 'y': 9 }
+                        xs: { w: 12, h: 4, x: 0, 'y': 9 }
+                        xxs: { w: 12, h: 4, x: 0, 'y': 9 }
+                  - mountPoint: home.page/cards
+                    importName: RecentlyVisitedCard
+                    config:
+                      layouts:
+                        xl: { w: 4, h: 4, x: 8, 'y': 5 }
+                        lg: { w: 4, h: 4, x: 8, 'y': 5 }
+                        md: { w: 4, h: 4, x: 8, 'y': 5 }
+                        sm: { w: 12, h: 4, x: 0, 'y': 13 }
+                        xs: { w: 12, h: 4, x: 0, 'y': 13 }
+                        xxs: { w: 12, h: 4, x: 0, 'y': 13 }
+                  - mountPoint: home.page/cards
+                    importName: TopVisitedCard
+                    config:
+                      layouts:
+                        xl: { w: 4, h: 4, x: 8, 'y': 9 }
+                        lg: { w: 4, h: 4, x: 8, 'y': 9 }
+                        md: { w: 4, h: 4, x: 8, 'y': 9 }
+                        sm: { w: 12, h: 4, x: 0, 'y': 17 }
+                        xs: { w: 12, h: 4, x: 0, 'y': 17 }
+                        xxs: { w: 12, h: 4, x: 0, 'y': 17 }
+
 upstream:
   backstage:
     replicas: 1
@@ -229,20 +293,20 @@ upstream:
 
     appConfig:
       app:
-        title: "paulasilvatech — Agentic DevOps Platform (Three Horizons)"
+        title: "Open Horizons"
         baseUrl: http://devhub.135.18.141.224.nip.io
         branding:
           theme:
             light:
-              primaryColor: '#EE0000'
-              headerColor1: '#7A0000'
-              headerColor2: '#EE0000'
-              navigationIndicatorColor: '#EE0000'
+              primaryColor: '#0078D4'
+              headerColor1: '#005A9E'
+              headerColor2: '#0078D4'
+              navigationIndicatorColor: '#0078D4'
             dark:
-              primaryColor: '#FF6666'
-              headerColor1: '#5C0000'
-              headerColor2: '#A30000'
-              navigationIndicatorColor: '#FF6666'
+              primaryColor: '#4AA3FF'
+              headerColor1: '#005A9E'
+              headerColor2: '#0078D4'
+              navigationIndicatorColor: '#4AA3FF'
 
       organization:
         name: paulasilvatech
