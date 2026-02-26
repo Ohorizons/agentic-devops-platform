@@ -4,7 +4,7 @@ description: ArgoCD CLI operations for GitOps workflows — installation, bootst
 ---
 
 ## When to Use
-- Install ArgoCD on AKS/ARO cluster
+- Install ArgoCD on AKS cluster
 - Bootstrap app-of-apps pattern
 - ArgoCD application management
 - Sync status verification and drift detection

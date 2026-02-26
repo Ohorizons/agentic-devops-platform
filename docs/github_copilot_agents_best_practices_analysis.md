@@ -91,7 +91,7 @@ The repository contains specialized agents following the \'one agent, one job\' 
   ----------------------------------------------------------------------------------------------------
   **Agent**               **Purpose**               **Tools/Skills**
   ----------------------- ------------------------- --------------------------------------------------
-  platform                Golden Paths, RHDH, IDP   rhdh-portal, helm-cli, kubectl-cli
+  platform                Golden Paths, Backstage, IDP   backstage-portal, helm-cli, kubectl-cli
 
   terraform               Azure IaC specialist      terraform-cli, azure-cli, validation-scripts
 
@@ -235,7 +235,7 @@ The repository has a comprehensive MCP configuration in mcp-servers/mcp-config.j
 
   kubernetes              K8s cluster ops         kubectl get, apply, delete, logs
 
-  openshift               ARO clusters            oc login, oc project, oc new-app
+  Kubernetes clusters            oc login, oc project, oc new-app
 
   helm                    Helm chart ops          install, upgrade, uninstall, repo
 

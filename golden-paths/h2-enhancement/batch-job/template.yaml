@@ -2,7 +2,7 @@
 # THREE HORIZONS ACCELERATOR - H2 BATCH JOB GOLDEN PATH TEMPLATE
 # =============================================================================
 #
-# RHDH Software Template for creating batch processing jobs.
+# Backstage Software Template for creating batch processing jobs.
 # Supports Kubernetes Jobs, CronJobs, Azure Functions, and Container Apps Jobs.
 #
 # Horizon: H2 - Enhancement

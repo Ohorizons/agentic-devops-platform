@@ -12,13 +12,12 @@ This directory contains configuration for platform-level services that run on to
 
 ```text
 platform/
-└── rhdh/
-    └── values.yaml   # Red Hat Developer Hub Helm values
+└── README.md
 ```
 
-## Red Hat Developer Hub (RHDH)
+## Backstage
 
-RHDH provides the Internal Developer Portal (IDP) based on Backstage. The `values.yaml` file configures:
+Backstage provides the Internal Developer Portal (IDP). Configuration is managed via Helm values and ArgoCD.
 
 - Authentication providers
 - Catalog locations and Golden Path templates
@@ -29,8 +28,8 @@ RHDH provides the Internal Developer Portal (IDP) based on Backstage. The `value
 
 | Document | Description |
 |----------|-------------|
-| [Architecture Guide](../docs/guides/ARCHITECTURE_GUIDE.md) | Platform architecture and RHDH role |
-| [Golden Paths](../golden-paths/README.md) | Available Golden Path templates for RHDH |
+| [Architecture Guide](../docs/guides/ARCHITECTURE_GUIDE.md) | Platform architecture and Backstage role |
+| [Golden Paths](../golden-paths/README.md) | Available Golden Path templates for Backstage |
 | [Administrator Guide](../docs/guides/ADMINISTRATOR_GUIDE.md) | Portal administration procedures |
 
 ---

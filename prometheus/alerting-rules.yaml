@@ -394,21 +394,21 @@ groups:
           description: "ArgoCD application {{ $labels.name }} sync has failed."
 
       # -----------------------------------------------------------------------
-      # RHDH
+      # Backstage
       # -----------------------------------------------------------------------
-      - alert: RHDHNotAvailable
+      - alert: BackstageNotAvailable
         expr: |
-          up{job="rhdh"} == 0
+          up{job="backstage"} == 0
         for: 5m
         labels:
           severity: critical
           horizon: h2
-          component: rhdh
+          component: backstage
         annotations:
-          summary: "Red Hat Developer Hub not available"
-          description: "RHDH has been down for 5 minutes."
+          summary: "Backstage developer portal not available"
+          description: "Backstage has been down for 5 minutes."
 
-      - alert: RHDHHighLatency
+      - alert: BackstageHighLatency
         expr: |
           histogram_quantile(0.95,
             sum(rate(backstage_request_duration_seconds_bucket[5m])) by (le)
@@ -417,10 +417,10 @@ groups:
         labels:
           severity: warning
           horizon: h2
-          component: rhdh
+          component: backstage
         annotations:
-          summary: "RHDH high latency"
-          description: "RHDH P95 request latency is above 5 seconds."
+          summary: "Backstage high latency"
+          description: "Backstage P95 request latency is above 5 seconds."
 
       - alert: GoldenPathCreationFailure
         expr: |

@@ -146,12 +146,6 @@ variable "enable_github_runners" {
   default     = false
 }
 
-variable "enable_rhdh" {
-  description = "Deploy Red Hat Developer Hub (Backstage-based portal)"
-  type        = bool
-  default     = false
-}
-
 variable "enable_cost_management" {
   description = "Enable cost management module (budgets and alerts)"
   type        = bool
@@ -202,7 +196,7 @@ variable "argocd_admin_password" {
 }
 
 variable "github_app_id" {
-  description = "GitHub App ID for ArgoCD/RHDH authentication"
+  description = "GitHub App ID for ArgoCD/Backstage authentication"
   type        = string
   default     = ""
   sensitive   = true

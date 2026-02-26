@@ -127,8 +127,6 @@ body:
       description: "Where will this be deployed?"
       options:
         - "AKS (Azure Kubernetes Service)"
-        - "ARO (Azure Red Hat OpenShift)"
-        - "Both AKS and ARO"
     validations:
       required: true
 

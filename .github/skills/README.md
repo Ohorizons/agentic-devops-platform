@@ -12,15 +12,12 @@ This directory contains skills that extend GitHub Copilot agent capabilities. Sk
 | [argocd-cli](./argocd-cli/) | ArgoCD operations | @gitops, @devops |
 | [helm-cli](./helm-cli/) | Helm chart operations | @gitops, @platform |
 | [github-cli](./github-cli/) | GitHub API operations | @devops, @migration |
-| [oc-cli](./oc-cli/) | OpenShift CLI operations | @aro-platform |
 | [validation-scripts](./validation-scripts/) | Deployment validation | @validation, @devops |
 | [azure-infrastructure](./azure-infrastructure/) | Azure IaC patterns | @infrastructure |
-| [aro-deployment](./aro-deployment/) | ARO cluster deployment | @aro-platform |
-| [openshift-operations](./openshift-operations/) | OpenShift admin tasks | @aro-platform |
 | [database-management](./database-management/) | Database operations | @database, @sre |
 | [observability-stack](./observability-stack/) | Monitoring operations | @observability, @sre |
 | [ai-foundry-operations](./ai-foundry-operations/) | Azure AI operations | @ai-foundry |
-| [rhdh-portal](./rhdh-portal/) | Developer Hub operations | @rhdh-portal |
+| [backstage-deployment](./backstage-deployment/) | Backstage portal operations | @backstage-expert |
 | [mcp-cli](./mcp-cli/) | MCP server reference | All agents |
 | [prerequisites](./prerequisites/) | CLI tool validation | All agents |
 

@@ -12,7 +12,7 @@ official-docs/
 ├── kubernetes/         # Kubernetes / AKS
 ├── openshift/          # OpenShift / ARO
 ├── prometheus-grafana/ # Prometheus, Grafana, Alertmanager
-├── rhdh/               # Red Hat Developer Hub
+├── backstage/               # Red Hat Developer Hub
 └── terraform/          # Terraform / Azure Provider
 ```
 
@@ -31,6 +31,6 @@ PDFs are excluded from Git (`.gitignore`). Download from official sources:
 | **OpenShift / ARO** | https://docs.openshift.com/ |
 | **Prometheus** | https://prometheus.io/docs/ |
 | **Grafana** | https://grafana.com/docs/ |
-| **RHDH** | https://docs.redhat.com/en/documentation/red_hat_developer_hub/1.8 |
+| **Backstage** | https://docs.redhat.com/en/documentation/red_hat_developer_hub/1.8 |
 | **Terraform** | https://developer.hashicorp.com/terraform/docs |
 | **Azure Provider** | https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs |

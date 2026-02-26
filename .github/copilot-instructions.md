@@ -4,14 +4,14 @@
 
 This is the Three Horizons Accelerator v4.0.0 - an enterprise-grade platform accelerator for Azure with AI capabilities. The platform is organized into three horizons:
 
-- **H1 Foundation**: Core infrastructure (AKS/ARO, networking, security, databases)
-- **H2 Enhancement**: Platform services (ArgoCD, RHDH, observability, Golden Paths)
+- **H1 Foundation**: Core infrastructure (AKS, networking, security, databases)
+- **H2 Enhancement**: Platform services (ArgoCD, Backstage, observability, Golden Paths)
 - **H3 Innovation**: AI capabilities (AI Foundry, agents, MLOps)
 
 ## Technology Stack
 
-- **Infrastructure**: Terraform for Azure (AKS, ARO, networking, databases)
-- **Container Platform**: Azure Kubernetes Service (AKS) or Azure Red Hat OpenShift (ARO)
+- **Infrastructure**: Terraform for Azure (AKS, networking, databases)
+- **Container Platform**: Azure Kubernetes Service (AKS)
 - **GitOps**: ArgoCD for continuous deployment
 - **IDP**: Red Hat Developer Hub (Backstage-based)
 - **Observability**: Prometheus, Grafana, Alertmanager, Loki
@@ -116,7 +116,7 @@ terraform apply -var-file=environments/dev.tfvars
 
 ## Agent System
 
-The platform uses 17 Copilot Chat Agents in `.github/agents/` for interactive development assistance, plus 20 skills for specialized CLI operations. There are also 18 Terraform modules, 22 Golden Path templates, and 28 Issue templates.
+The platform uses 16 Copilot Chat Agents in `.github/agents/` for interactive development assistance, plus 16 skills for specialized CLI operations.
 
 ### Agent Organization
 - **@deploy**: Deployment orchestration, end-to-end platform deployment
@@ -124,7 +124,7 @@ The platform uses 17 Copilot Chat Agents in `.github/agents/` for interactive de
 - **@devops**: CI/CD, GitOps, MLOps, Golden Paths, pipelines
 - **@docs**: Documentation generation and maintenance
 - **@onboarding**: New team member onboarding and guidance
-- **@platform**: RHDH portal, platform services, developer experience
+- **@platform**: Backstage portal, platform services, developer experience
 - **@reviewer**: Code review, PR analysis, quality checks
 - **@security**: Security policies, scanning, compliance
 - **@sre**: Reliability engineering, incident response, monitoring
@@ -132,7 +132,7 @@ The platform uses 17 Copilot Chat Agents in `.github/agents/` for interactive de
 - **@test**: Test generation, validation, quality assurance
 
 ### Skills Available
-Agents can use skills from `.github/skills/` including: terraform-cli, kubectl-cli, azure-cli, argocd-cli, helm-cli, github-cli, oc-cli, validation-scripts, and more.
+Agents can use skills from `.github/skills/` including: terraform-cli, kubectl-cli, azure-cli, argocd-cli, helm-cli, github-cli, validation-scripts, and more.
 
 ### Agent Handoffs
 Agents support handoffs for workflow orchestration. Example: @terraform -> @devops -> @security -> @test

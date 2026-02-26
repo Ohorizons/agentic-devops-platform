@@ -18,7 +18,6 @@ terraform/
 │   ├── aks-cluster/          # Azure Kubernetes Service
 │   ├── ai-foundry/           # Azure AI services
 │   ├── argocd/               # GitOps configuration
-│   ├── aro-cluster/          # Azure Red Hat OpenShift
 │   ├── backstage/            # Backstage Developer Portal
 │   ├── container-registry/   # Azure Container Registry
 │   ├── cost-management/      # Cost optimization
@@ -31,7 +30,6 @@ terraform/
 │   ├── networking/           # VNet, subnets, NSGs
 │   ├── observability/        # Monitoring stack
 │   ├── purview/              # Data governance
-│   ├── rhdh/                 # Red Hat Developer Hub
 │   └── security/             # Key Vault, identities
 └── examples/                  # Example configurations
 ```
@@ -73,7 +71,7 @@ terraform plan -out=tfplan
 terraform apply tfplan
 ```
 
-## Module Overview (18 modules)
+## Module Overview (16 modules)
 
 | Module | Horizon | Description |
 |--------|---------|-------------|
@@ -81,14 +79,12 @@ terraform apply tfplan
 | **networking** | H1 | VNet, subnets, NSGs, private DNS |
 | **security** | H1 | Key Vault, managed identities, RBAC |
 | **aks-cluster** | H1 | AKS with workload identity |
-| **aro-cluster** | H1 | Azure Red Hat OpenShift (ARO) |
 | **backstage** | H2 | Backstage Developer Portal on AKS |
 | **container-registry** | H1 | ACR with geo-replication |
 | **databases** | H1 | PostgreSQL, Redis, Cosmos DB |
 | **defender** | H1 | Microsoft Defender for Cloud |
 | **argocd** | H2 | GitOps controller |
 | **observability** | H2 | Prometheus, Grafana, Loki |
-| **rhdh** | H2 | Red Hat Developer Hub |
 | **github-runners** | H2 | Self-hosted CI/CD runners |
 | **external-secrets** | H2 | External Secrets Operator |
 | **ai-foundry** | H3 | Azure OpenAI, AI Search |
@@ -126,7 +122,7 @@ enable_github_runners = true   # Self-hosted runners
 ## Deployment Order
 
 1. **Foundation** (H1): networking → security → aks-cluster → databases
-2. **Enhancement** (H2): argocd → observability → rhdh
+2. **Enhancement** (H2): argocd → observability → backstage
 3. **Innovation** (H3): ai-foundry → purview
 
 ## Related Documentation

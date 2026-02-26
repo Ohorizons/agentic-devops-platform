@@ -70,7 +70,6 @@ body:
       description: Choose your Kubernetes platform
       options:
         - AKS (Azure Kubernetes Service)
-        - ARO (Azure Red Hat OpenShift)
     validations:
       required: true
 
@@ -80,9 +79,9 @@ body:
       label: Horizons to Deploy
       description: Select which horizons to deploy
       options:
-        - label: "H1 - Foundation (AKS/ARO, Networking, Security, ACR, Databases)"
+        - label: "H1 - Foundation (AKS, Networking, Security, ACR, Databases)"
           required: true
-        - label: "H2 - Enhancement (ArgoCD, RHDH, Observability, Golden Paths)"
+        - label: "H2 - Enhancement (ArgoCD, Backstage, Observability, Golden Paths)"
         - label: "H3 - Innovation (AI Foundry, SRE Agent, MLOps)"
 
   - type: checkboxes

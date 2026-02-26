@@ -6,9 +6,9 @@
 # Usage: ./scripts/bootstrap.sh [express|standard|enterprise]
 #
 # This script deploys the complete Three Horizons Platform including:
-#   - Azure infrastructure (AKS/ARO, databases, networking)
+#   - Azure infrastructure (AKS, databases, networking)
 #   - GitOps (ArgoCD)
-#   - Developer Hub (RHDH)
+#   - Developer Portal (Backstage)
 #   - Observability (Prometheus, Grafana, Jaeger)
 #   - GitHub configuration (org settings, runners, GHAS)
 #
@@ -332,11 +332,6 @@ configure_kubernetes() {
             --name "$CLUSTER_NAME" \
             --overwrite-existing
     else
-        # ARO
-        az aro get-admin-kubeconfig \
-            --resource-group "$RESOURCE_GROUP" \
-            --name "$CLUSTER_NAME" \
-            --file ~/.kube/config
     fi
     
     log_success "Credentials configured"
@@ -352,7 +347,7 @@ configure_kubernetes() {
     # Create namespaces
     log_step "Creating platform namespaces..."
     kubectl create namespace argocd --dry-run=client -o yaml | kubectl apply -f -
-    kubectl create namespace rhdh --dry-run=client -o yaml | kubectl apply -f -
+    kubectl create namespace backstage --dry-run=client -o yaml | kubectl apply -f -
     kubectl create namespace observability --dry-run=client -o yaml | kubectl apply -f -
     kubectl create namespace cert-manager --dry-run=client -o yaml | kubectl apply -f -
     kubectl create namespace ingress-nginx --dry-run=client -o yaml | kubectl apply -f -
@@ -428,11 +423,11 @@ deploy_platform_apps() {
         log_success "Observability deployed"
     fi
     
-    # Deploy RHDH
-    log_step "Deploying Red Hat Developer Hub..."
+    # Deploy Backstage
+    log_step "Deploying Backstage developer portal..."
     kubectl wait --for=jsonpath='{.status.health.status}'=Healthy \
-        application/platform-rhdh -n argocd --timeout=600s 2>/dev/null || true
-    log_success "RHDH deployed"
+        application/platform-backstage -n argocd --timeout=600s 2>/dev/null || true
+    log_success "Backstage deployed"
 }
 
 # =============================================================================
@@ -495,12 +490,12 @@ run_health_check() {
         ((checks_failed++))
     fi
     
-    # Check RHDH
-    if kubectl get deployment backstage -n rhdh &> /dev/null; then
-        log_success "✓ RHDH running"
+    # Check Backstage
+    if kubectl get deployment backstage -n backstage &> /dev/null; then
+        log_success "✓ Backstage running"
         ((checks_passed++))
     else
-        log_error "✗ RHDH not running"
+        log_error "✗ Backstage not running"
         ((checks_failed++))
     fi
     
@@ -533,7 +528,7 @@ print_summary() {
     local elapsed=$(elapsed_time)
     
     # Read outputs
-    local rhdh_url=$(jq -r '.rhdh_url.value' "$OUTPUT_DIR/terraform-outputs.json")
+    local backstage_url=$(jq -r '.backstage_url.value' "$OUTPUT_DIR/terraform-outputs.json")
     local argocd_url=$(jq -r '.argocd_url.value' "$OUTPUT_DIR/terraform-outputs.json")
     local grafana_url=$(jq -r '.grafana_url.value' "$OUTPUT_DIR/terraform-outputs.json")
     
@@ -545,7 +540,7 @@ print_summary() {
     echo "Deployment completed in: $elapsed"
     echo ""
     echo "Platform URLs:"
-    echo "  RHDH:     $rhdh_url"
+    echo "  Backstage: $backstage_url"
     echo "  ArgoCD:   $argocd_url"
     echo "  Grafana:  $grafana_url"
     echo ""
@@ -553,7 +548,7 @@ print_summary() {
     echo "  ArgoCD:   cat $OUTPUT_DIR/argocd-credentials.txt"
     echo ""
     echo "Next Steps:"
-    echo "  1. Access RHDH at $rhdh_url"
+    echo "  1. Access Backstage at $backstage_url"
     echo "  2. Login with your GitHub account"
     echo "  3. Explore Golden Path templates"
     echo "  4. Onboard your first team: ./scripts/onboard-team.sh <team-name>"

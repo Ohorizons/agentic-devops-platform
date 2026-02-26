@@ -1,14 +1,14 @@
-name: "🚀 H2: Developer Portal (RHDH)"
-description: "Deploy Red Hat Developer Hub on AKS or ARO"
-title: "[RHDH] Deploy developer portal"
-labels: ["h2-enhancement", "rhdh", "copilot-agent"]
+name: "🚀 H2: Developer Portal (Backstage)"
+description: "Deploy Backstage developer portal on AKS"
+title: "[Backstage] Deploy developer portal"
+labels: ["h2-enhancement", "backstage", "copilot-agent"]
 assignees: []
 body:
   - type: markdown
     attributes:
       value: |
-        ## Red Hat Developer Hub Deployment
-        This issue triggers the **rhdh-portal-agent** for IDP setup.
+        ## Backstage Developer Portal Deployment
+        This issue triggers the **backstage-expert** agent for IDP setup.
 
   - type: dropdown
     id: platform
@@ -16,7 +16,6 @@ body:
       label: "Target Platform"
       options:
         - "AKS - Azure Kubernetes Service"
-        - "ARO - Azure Red Hat OpenShift"
     validations:
       required: true
 
@@ -35,17 +34,17 @@ body:
     attributes:
       label: "T-Shirt Size"
       options:
-        - "small - Basic RHDH, 2 replicas"
-        - "medium - RHDH with plugins, 3 replicas"
-        - "large - RHDH HA, all plugins"
-        - "xlarge - RHDH HA, custom plugins, multi-cluster"
+        - "small - Basic Backstage, 2 replicas"
+        - "medium - Backstage with plugins, 3 replicas"
+        - "large - Backstage HA, all plugins"
+        - "xlarge - Backstage HA, custom plugins, multi-cluster"
     validations:
       required: true
 
   - type: checkboxes
-    id: rhdh_plugins
+    id: backstage_plugins
     attributes:
-      label: "RHDH Plugins to Enable"
+      label: "Backstage Plugins to Enable"
       options:
         - label: "GitHub Integration"
           required: true

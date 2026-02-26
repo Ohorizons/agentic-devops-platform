@@ -120,7 +120,6 @@ output "deployment_summary" {
       external_secrets = var.enable_external_secrets
       observability    = var.enable_observability
       github_runners   = var.enable_github_runners
-      rhdh             = var.enable_rhdh
     }
 
     h3_innovation = {

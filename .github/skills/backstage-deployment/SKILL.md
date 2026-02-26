@@ -149,7 +149,7 @@ variable "location" {
 
 ### Create GitHub App
 ```bash
-./scripts/setup-github-app.sh --target rhdh --org <GITHUB_ORG>
+./scripts/setup-github-app.sh --target backstage --org <GITHUB_ORG>
 ```
 
 ### Manual Creation
@@ -233,30 +233,30 @@ Each Golden Path template skeleton includes a `.devcontainer/devcontainer.json` 
 
 ### Backstage pod not starting
 ```bash
-kubectl logs -n rhdh -l app.kubernetes.io/name=backstage --tail=50
-kubectl describe pod -n rhdh -l app.kubernetes.io/name=backstage
+kubectl logs -n backstage -l app.kubernetes.io/name=backstage --tail=50
+kubectl describe pod -n backstage -l app.kubernetes.io/name=backstage
 ```
 
 ### Templates not loading
 ```bash
 # Check for YAML parse errors
-kubectl logs -n rhdh -l app.kubernetes.io/name=backstage | grep 'YAML error'
+kubectl logs -n backstage -l app.kubernetes.io/name=backstage | grep 'YAML error'
 
 # Verify catalog locations
-kubectl exec -n rhdh deploy/backstage -- cat /app/app-config.production.yaml | grep -A 2 'locations'
+kubectl exec -n backstage deploy/backstage -- cat /app/app-config.production.yaml | grep -A 2 'locations'
 ```
 
 ### GitHub auth not working
 ```bash
 # Test auth endpoint
-kubectl exec -n rhdh deploy/backstage -- \
+kubectl exec -n backstage deploy/backstage -- \
   node -e "fetch('http://localhost:7007/api/auth/github/start?env=development',{redirect:'manual'}).then(r=>console.log(r.status))"
 # Expected: 302
 ```
 
 ### Database connection
 ```bash
-kubectl exec -n rhdh deploy/backstage -- \
+kubectl exec -n backstage deploy/backstage -- \
   node -e "fetch('http://localhost:7007/.backstage/health/v1/readiness').then(r=>console.log(r.status))"
 # Expected: 200
 ```

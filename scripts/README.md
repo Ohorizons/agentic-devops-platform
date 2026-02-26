@@ -13,7 +13,6 @@ This directory contains automation scripts for the Three Horizons Platform.
 | `deploy-full.sh` | **Full automated deployment (recommended)** | `./deploy-full.sh --environment dev` |
 | `platform-bootstrap.sh` | Full platform deployment | `./platform-bootstrap.sh --environment dev` |
 | `bootstrap.sh` | H1 infrastructure setup | `./bootstrap.sh` |
-| `deploy-aro.sh` | Azure Red Hat OpenShift deployment | `./deploy-aro.sh` |
 
 ### Validation Scripts
 

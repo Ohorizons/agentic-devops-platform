@@ -40,8 +40,7 @@ Deploys the full platform locally on Docker Desktop + kind. No Azure subscriptio
 ---
 
 **Before deployment, I need to know:**
-1. **Portal type:** Backstage (upstream, AKS only) or RHDH (enterprise, AKS or ARO)?
-2. **Portal name:** What should the developer portal be called?
+1. **Portal name:** What should the developer portal be called?
 
 Which option would you prefer? If you're not sure, I recommend:
 - **New to the platform** -> Option A (I'll guide you)

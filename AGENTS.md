@@ -2,17 +2,17 @@
 
 ## Overview
 
-The Three Horizons Accelerator uses **GitHub Copilot Chat Agents** — a role-based AI assistant system that operates directly within VS Code / GitHub Copilot Chat. The platform includes 17 specialized agents for interactive development assistance.
+The Three Horizons Accelerator uses **GitHub Copilot Chat Agents** — a role-based AI assistant system that operates directly within VS Code / GitHub Copilot Chat. The platform includes 16 specialized agents for interactive development assistance.
 
 ## Architecture
 
 ```text
 .github/
-├── agents/          # 17 role-based chat agents (.agent.md)
+├── agents/          # 16 role-based chat agents (.agent.md)
 ├── chatmodes/       # 3 chat modes (.chatmode.md)
 ├── instructions/    # 3 code-generation instructions (.instructions.md)
 ├── prompts/         # 8 reusable prompts (.prompt.md)
-├── skills/          # 20 operational skill sets
+├── skills/          # 16 operational skill sets
 └── ISSUE_TEMPLATE/  # 28 issue templates
 ```
 
@@ -24,7 +24,7 @@ The Three Horizons Accelerator uses **GitHub Copilot Chat Agents** — a role-ba
 | **DevOps** | [devops.agent.md](.github/agents/devops.agent.md) | CI/CD, GitOps, MLOps, Golden Paths, pipelines |
 | **Docs** | [docs.agent.md](.github/agents/docs.agent.md) | Documentation generation and maintenance |
 | **Onboarding** | [onboarding.agent.md](.github/agents/onboarding.agent.md) | New team member onboarding and guidance |
-| **Platform** | [platform.agent.md](.github/agents/platform.agent.md) | RHDH portal, platform services, developer experience |
+| **Platform** | [platform.agent.md](.github/agents/platform.agent.md) | Backstage portal, platform services, developer experience |
 | **Reviewer** | [reviewer.agent.md](.github/agents/reviewer.agent.md) | Code review, PR analysis, quality checks |
 | **Security** | [security.agent.md](.github/agents/security.agent.md) | Security policies, scanning, compliance |
 | **SRE** | [sre.agent.md](.github/agents/sre.agent.md) | Reliability engineering, incident response, monitoring |
@@ -32,8 +32,7 @@ The Three Horizons Accelerator uses **GitHub Copilot Chat Agents** — a role-ba
 | **Test** | [test.agent.md](.github/agents/test.agent.md) | Test generation, validation, quality assurance |
 | **Deploy** | [deploy.agent.md](.github/agents/deploy.agent.md) | Deployment orchestration, end-to-end platform deployment |
 | **Backstage Expert** | [backstage-expert.agent.md](.github/agents/backstage-expert.agent.md) | Backstage portal deployment on AKS, GitHub auth, Golden Paths, Codespaces |
-| **RHDH Expert** | [rhdh-expert.agent.md](.github/agents/rhdh-expert.agent.md) | Red Hat Developer Hub on AKS/ARO, GitHub auth, Golden Paths, Codespaces |
-| **Azure Portal Deploy** | [azure-portal-deploy.agent.md](.github/agents/azure-portal-deploy.agent.md) | Azure AKS/ARO provisioning, Key Vault, PostgreSQL, ACR, Helm/Operator |
+| **Azure Portal Deploy** | [azure-portal-deploy.agent.md](.github/agents/azure-portal-deploy.agent.md) | Azure AKS provisioning, Key Vault, PostgreSQL, ACR, Helm |
 | **GitHub Integration** | [github-integration.agent.md](.github/agents/github-integration.agent.md) | GitHub App, org discovery, GHAS, Actions, Packages, supply chain |
 | **ADO Integration** | [ado-integration.agent.md](.github/agents/ado-integration.agent.md) | Azure DevOps PAT, repos, pipelines, boards, Copilot Standalone |
 | **Hybrid Scenarios** | [hybrid-scenarios.agent.md](.github/agents/hybrid-scenarios.agent.md) | GitHub + ADO coexistence scenarios A/B/C, dual auth, hybrid templates |
@@ -65,7 +64,7 @@ In VS Code with GitHub Copilot Chat, mention an agent by name:
 |--------|------|---------|
 | **Deploy Platform** | [deploy-platform.prompt.md](.github/prompts/deploy-platform.prompt.md) | **Deploy the Three Horizons platform** |
 | Create Service | [create-service.prompt.md](.github/prompts/create-service.prompt.md) | Scaffold a new microservice |
-| Deploy Service | [deploy-service.prompt.md](.github/prompts/deploy-service.prompt.md) | Deploy a service to AKS/ARO |
+| Deploy Service | [deploy-service.prompt.md](.github/prompts/deploy-service.prompt.md) | Deploy a service to AKS |
 | Generate Docs | [generate-docs.prompt.md](.github/prompts/generate-docs.prompt.md) | Generate documentation |
 | Generate Tests | [generate-tests.prompt.md](.github/prompts/generate-tests.prompt.md) | Generate test suites |
 | Review Code | [review-code.prompt.md](.github/prompts/review-code.prompt.md) | Perform code review |
@@ -81,13 +80,12 @@ In VS Code with GitHub Copilot Chat, mention an agent by name:
 
 ## Skills
 
-The 20 skills in [.github/skills/](.github/skills/) provide domain-specific knowledge that agents can reference:
+The 16 skills in [.github/skills/](.github/skills/) provide domain-specific knowledge that agents can reference:
 
 | Skill | Description |
 |-------|-------------|
 | `ai-foundry-operations` | Azure AI Foundry and OpenAI operations |
 | `argocd-cli` | ArgoCD CLI for GitOps workflows |
-| `aro-deployment` | Azure Red Hat OpenShift deployment |
 | `azure-cli` | Azure CLI resource management |
 | `azure-infrastructure` | Azure infrastructure patterns |
 | `backstage-deployment` | Backstage portal deployment on AKS and locally |
@@ -95,13 +93,10 @@ The 20 skills in [.github/skills/](.github/skills/) provide domain-specific know
 | `database-management` | Database ops and health monitoring |
 | `github-cli` | GitHub CLI for repos and workflows |
 | `helm-cli` | Helm CLI for Kubernetes packages |
-| `kubectl-cli` | Kubernetes CLI for AKS/ARO |
+| `kubectl-cli` | Kubernetes CLI for AKS |
 | `mcp-cli` | Model Context Protocol server reference |
 | `observability-stack` | Prometheus, Grafana, observability |
-| `oc-cli` | OpenShift CLI for ARO |
-| `openshift-operations` | OpenShift admin operations |
 | `prerequisites` | CLI tool validation and setup |
-| `rhdh-portal` | Red Hat Developer Hub portal |
 | `terraform-cli` | Terraform CLI for Azure infra |
 | `validation-scripts` | Validation scripts for deployments |
 | `deploy-orchestration` | End-to-end platform deployment orchestration |

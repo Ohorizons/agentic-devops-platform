@@ -2,7 +2,7 @@
 
 > **A solution created in partnership with Microsoft, GitHub, and Red Hat**
 
-This directory contains self-service templates for Red Hat Developer Hub (RHDH/Backstage) that enable developers to quickly scaffold new projects following platform standards.
+This directory contains self-service templates for Backstage that enable developers to quickly scaffold new projects following platform standards.
 
 ## Directory Structure
 
@@ -96,9 +96,9 @@ template-name/
 
 ## Using Templates
 
-### Via RHDH Portal
+### Via Backstage Portal
 
-1. Navigate to the RHDH portal
+1. Navigate to the Backstage portal
 2. Click "Create" → "Choose a Template"
 3. Select the desired template
 4. Fill in the parameters

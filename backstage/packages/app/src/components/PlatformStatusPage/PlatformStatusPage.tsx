@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const services = [
-  { name: 'Backstage Portal', ns: 'rhdh', status: 'healthy', ver: 'v1.48.0', rep: '2/2' },
+  { name: 'Backstage Portal', ns: 'backstage', status: 'healthy', ver: 'v1.48.0', rep: '2/2' },
   { name: 'ArgoCD', ns: 'argocd', status: 'healthy', ver: 'v2.13.0', rep: '3/3' },
   { name: 'Prometheus', ns: 'monitoring', status: 'healthy', ver: 'v2.51.0', rep: '2/2' },
   { name: 'Grafana', ns: 'monitoring', status: 'healthy', ver: 'v10.4.0', rep: '1/1' },

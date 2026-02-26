@@ -82,12 +82,11 @@ declare -A EXPECTED_AGENTS=(
     ["h1-foundation/container-registry-agent.md"]="Container Registry Agent"
     ["h1-foundation/database-agent.md"]="Database Agent"
     ["h1-foundation/defender-cloud-agent.md"]="Defender Cloud Agent"
-    ["h1-foundation/aro-platform-agent.md"]="ARO Platform Agent"
     ["h1-foundation/purview-governance-agent.md"]="Purview Governance Agent"
     # H2 Enhancement
     ["h2-enhancement/gitops-agent.md"]="GitOps Agent"
     ["h2-enhancement/observability-agent.md"]="Observability Agent"
-    ["h2-enhancement/rhdh-portal-agent.md"]="RHDH Portal Agent"
+    ["h2-enhancement/backstage-portal-agent.md"]="Backstage Portal Agent"
     ["h2-enhancement/golden-paths-agent.md"]="Golden Paths Agent"
     ["h2-enhancement/github-runners-agent.md"]="GitHub Runners Agent"
     # H3 Innovation

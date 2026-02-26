@@ -42,7 +42,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - networking: VNet, subnets, NSGs, private DNS
   - observability: Prometheus, Grafana, Loki, Alertmanager
   - purview: Microsoft Purview governance
-  - rhdh: Red Hat Developer Hub
+  - backstage: Backstage Developer Portal
   - security: Key Vault, managed identities, RBAC
 
 #### AI Agents (23 total)
@@ -53,14 +53,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - container-registry-agent
   - database-agent
   - defender-cloud-agent
-  - aro-platform-agent
   - purview-governance-agent
 
 - H2 Enhancement (5 agents)
   - gitops-agent
   - golden-paths-agent
   - observability-agent
-  - rhdh-portal-agent
+  - backstage-portal-agent
   - github-runners-agent
 
 - H3 Innovation (4 agents)
@@ -110,8 +109,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 28 Issue templates with T-shirt sizing
 - 6 CI/CD workflows
 - 3 Copilot chat modes (architect, reviewer, sre)
-- 17 Copilot agents (onboarding, architect, platform, terraform, reviewer, devops, security, sre, test, docs, deploy)
-- 20 skills (azure-cli, azure-infrastructure, terraform-cli, kubectl-cli, helm-cli, oc-cli, argocd-cli, github-cli, mcp-cli, openshift-operations, aro-deployment, rhdh-portal, database-management, observability-stack, ai-foundry-operations, validation-scripts, deploy-orchestration, prerequisites)
+- 16 Copilot agents (onboarding, architect, platform, terraform, reviewer, devops, security, sre, test, docs, deploy)
+- 16 skills (azure-cli, azure-infrastructure, terraform-cli, kubectl-cli, helm-cli, argocd-cli, github-cli, mcp-cli, database-management, observability-stack, ai-foundry-operations, validation-scripts, deploy-orchestration, prerequisites, backstage-deployment, codespaces-golden-paths)
 - 3 instruction files (terraform, kubernetes, python)
 - 7 prompts (create-service, review-code, generate-tests, deploy-service, deploy-platform, troubleshoot-incident, generate-docs)
 - Branch protection workflow
@@ -153,7 +152,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Initial Three Horizons architecture
 - Basic Terraform modules
 - ArgoCD integration
-- RHDH portal setup
+- Backstage portal setup
 
 ### Changed
 - Migrated from Azure DevOps to GitHub

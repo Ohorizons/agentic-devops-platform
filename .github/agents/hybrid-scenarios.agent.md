@@ -20,10 +20,6 @@ handoffs:
     agent: backstage-expert
     prompt: "Apply hybrid configuration to Backstage portal."
     send: false
-  - label: "RHDH Config"
-    agent: rhdh-expert
-    prompt: "Apply hybrid configuration to RHDH portal."
-    send: false
 ---
 
 # Hybrid Scenarios Agent
@@ -155,7 +151,7 @@ auth:
             - resolver: emailMatchingUserEntityProfileEmail
 ```
 
-## Hybrid RBAC (RHDH)
+## Hybrid RBAC
 ```csv
 p, role:default/platform-admin, catalog.entity.read, read, allow
 p, role:default/platform-admin, catalog.entity.create, create, allow

@@ -6,7 +6,7 @@
 
 ## Overview
 
-This directory contains Helm values and deployment configurations used to install platform services on AKS/ARO clusters.
+This directory contains Helm values and deployment configurations used to install platform services on AKS clusters.
 
 ## Structure
 

@@ -38,7 +38,6 @@ declare -A CLI_TOOLS=(
     ["gh"]="GitHub CLI|gh --version|brew install gh"
     
     # OpenShift (ARO)
-    ["oc"]="OpenShift CLI|oc version --client|brew install openshift-cli"
     
     # Utilities
     ["jq"]="JSON Processor|jq --version|brew install jq"
@@ -57,7 +56,6 @@ declare -A CLI_TOOLS=(
 declare -A AUTH_CHECKS=(
     ["az"]="az account show"
     ["gh"]="gh auth status"
-    ["oc"]="oc whoami"
     ["docker"]="docker info"
 )
 
@@ -195,7 +193,6 @@ generate_summary() {
             echo "Run authentication commands:"
             echo "  az login"
             echo "  gh auth login"
-            echo "  oc login <cluster-url>"
         fi
         echo ""
         echo "Re-run with --install to auto-install missing tools:"

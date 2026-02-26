@@ -46,7 +46,6 @@ enable_argocd           = true
 enable_external_secrets  = true
 enable_observability     = true
 enable_github_runners    = false
-enable_rhdh              = false
 enable_cost_management   = false
 
 # --- H3 INNOVATION ------------------------------------------------------------

@@ -89,9 +89,9 @@ variable "workload_identities" {
     }))
   }))
   default = {
-    "rhdh" = {
-      namespace                   = "rhdh"
-      service_account             = "rhdh"
+    "backstage" = {
+      namespace                   = "backstage"
+      service_account             = "backstage"
       key_vault_role              = "Key Vault Secrets User"
       additional_role_assignments = []
     }

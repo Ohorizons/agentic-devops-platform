@@ -3,7 +3,7 @@
 # paulasilvatech - Portal Setup Wizard
 # =============================================================================
 # Interactive wizard that collects all configuration needed to deploy
-# a developer portal (Backstage or RHDH) on Azure or locally.
+# a developer portal (Backstage) on Azure or locally.
 #
 # Usage:
 #   ./scripts/setup-portal.sh                  # Interactive mode
@@ -119,29 +119,10 @@ step1_portal() {
   fi
   ok "Portal name: $PORTAL_NAME"
 
-  choose PORTAL_TYPE "Which developer portal?" \
-    "Backstage (upstream, open-source, free)" \
-    "Red Hat Developer Hub (enterprise, requires Red Hat subscription)"
-
-  case "$PORTAL_TYPE" in
-    1) PORTAL_TYPE="backstage"; ok "Portal type: Backstage" ;;
-    2) PORTAL_TYPE="rhdh"; ok "Portal type: Red Hat Developer Hub" ;;
-    *) PORTAL_TYPE="backstage"; ok "Portal type: Backstage (default)" ;;
-  esac
-
-  if [[ "$PORTAL_TYPE" == "rhdh" ]]; then
-    choose PLATFORM_TYPE "Which Kubernetes platform for RHDH?" \
-      "Azure Kubernetes Service (AKS)" \
-      "Azure Red Hat OpenShift (ARO)"
-    case "$PLATFORM_TYPE" in
-      1) PLATFORM_TYPE="aks"; ok "Platform: AKS" ;;
-      2) PLATFORM_TYPE="aro"; ok "Platform: ARO" ;;
-      *) PLATFORM_TYPE="aks"; ok "Platform: AKS (default)" ;;
-    esac
-  else
-    PLATFORM_TYPE="aks"
-    info "Backstage always deploys on AKS"
-  fi
+  PORTAL_TYPE="backstage"
+  ok "Portal type: Backstage"
+  PLATFORM_TYPE="aks"
+  info "Backstage always deploys on AKS"
 }
 
 # =============================================================================
@@ -153,7 +134,7 @@ step2_deploy_mode() {
 
   choose DEPLOY_MODE "Where do you want to deploy?" \
     "Local (Docker Desktop + kind - no Azure needed)" \
-    "Azure (AKS/ARO - requires Azure subscription)"
+    \"Azure (AKS - requires Azure subscription)\"
 
   case "$DEPLOY_MODE" in
     1) DEPLOY_MODE="local"; ok "Deployment: Local (Docker Desktop)" ;;
@@ -249,7 +230,7 @@ generate_local_config() {
     if [[ -n "${GITHUB_APP_PRIVATE_KEY_FILE:-}" ]]; then
       sed -i '' "s|^GITHUB_APP_PRIVATE_KEY_FILE=.*|GITHUB_APP_PRIVATE_KEY_FILE=\"$GITHUB_APP_PRIVATE_KEY_FILE\"|" "$env_file" 2>/dev/null || true
     fi
-    sed -i '' "s/^RHDH_AUTH_MODE=.*/RHDH_AUTH_MODE=\"github\"/" "$env_file" 2>/dev/null || true
+    sed -i '' "s/^BACKSTAGE_AUTH_MODE=.*/BACKSTAGE_AUTH_MODE=\"github\"/" "$env_file" 2>/dev/null || true
     ok "Updated $env_file"
   fi
 

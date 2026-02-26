@@ -21,13 +21,9 @@ handoffs:
     agent: backstage-expert
     prompt: "Deploy and configure the Backstage developer portal on AKS."
     send: false
-  - label: "RHDH Portal Setup"
-    agent: rhdh-expert
-    prompt: "Deploy and configure the Red Hat Developer Hub on AKS or ARO."
-    send: false
   - label: "Azure Infrastructure"
     agent: azure-portal-deploy
-    prompt: "Provision Azure AKS/ARO, Key Vault, PostgreSQL for portal deployment."
+    prompt: "Provision Azure AKS, Key Vault, PostgreSQL for portal deployment."
     send: false
   - label: "GitHub Integration"
     agent: github-integration
@@ -154,7 +150,7 @@ When user requests a deployment, follow this exact sequence:
 
 1. **Portal Setup** — Run `./scripts/setup-portal.sh` wizard to collect:
    - Portal name (client branding)
-   - Portal type: **Backstage** (AKS) or **RHDH** (AKS/ARO)
+   - Portal type: **Backstage** (AKS)
    - Azure subscription + region (Central US or East US)
    - GitHub organization + App credentials
    - Template repository URL
@@ -166,16 +162,13 @@ When user requests a deployment, follow this exact sequence:
 7. **Plan** — `terraform plan -var-file=environments/<env>.tfvars -out=deploy.tfplan`
 8. **Show Plan** — Display the plan summary, ask for confirmation
 9. **Apply** — `terraform apply deploy.tfplan` (only after confirmation)
-10. **Deploy Portal** — Hand off to the appropriate expert:
-    - If Backstage → `@backstage-expert` (builds custom image, deploys on AKS)
-    - If RHDH → `@rhdh-expert` (deploys on AKS or ARO via Helm/Operator)
-    - Both: register Golden Paths, configure GitHub auth, setup Codespaces
+10. **Deploy Portal** — Hand off to `@backstage-expert` (builds custom image, deploys on AKS, registers Golden Paths, configures GitHub auth, sets up Codespaces)
 11. **Verify** — Run `./scripts/validate-deployment.sh --environment <env>` + `@sre`
 12. **Summary** — Show deployed resources, portal URL, template count, access credentials
 
 **Handoff points:**
 - Step 1 → `setup-portal.sh` wizard for interactive data collection
 - Step 9 → `@security` for review (if production)
-- Step 10 → `@backstage-expert` or `@rhdh-expert` for portal deployment
+- Step 10 → `@backstage-expert` for portal deployment
 - Step 11 → `@sre` for advanced verification
 - On TF error → `@terraform` for debugging

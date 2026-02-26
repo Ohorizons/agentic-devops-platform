@@ -29,7 +29,6 @@ Azure CLI operations for cloud resource management.
 - `az keyvault` - Key Vault operations
 - `az network` - Network operations
 - `az ad` - Azure AD operations
-- `az aro` - Azure Red Hat OpenShift
 - `az security` - Security operations
 - `az purview` - Data governance
 
@@ -85,24 +84,6 @@ Kubernetes cluster operations.
 - `kubectl logs` - View logs
 - `kubectl exec` - Execute commands
 - `kubectl port-forward` - Port forwarding
-
-**Environment Variables:**
-```bash
-KUBECONFIG
-```
-
-### openshift
-OpenShift CLI for ARO clusters.
-
-**Capabilities:**
-- `oc login` - Authenticate
-- `oc project` - Switch projects
-- `oc new-app` - Create applications
-- `oc expose` - Expose services
-- `oc get` - List resources
-- `oc apply` - Apply manifests
-- `oc adm` - Admin operations
-- `oc policy` - Policy management
 
 **Environment Variables:**
 ```bash

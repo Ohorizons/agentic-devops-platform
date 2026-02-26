@@ -1,6 +1,6 @@
 ---
 name: kubectl-cli
-description: Kubernetes CLI operations for AKS and ARO cluster management
+description: Kubernetes CLI operations for AKS cluster management
 ---
 
 ## When to Use

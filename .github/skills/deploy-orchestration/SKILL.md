@@ -119,7 +119,7 @@ kubectl port-forward svc/prometheus-grafana -n observability 3000:80
 | **local** | **demo** | **$0/month** | **kind cluster + ArgoCD + Observability + Databases (no Azure)** |
 | dev | express | $50-100/month | Minimal: AKS + ACR + ArgoCD + Observability |
 | staging | standard | $500-1000/month | Production-like: + Databases + ESO + Defender + AI |
-| prod | enterprise | $3000+/month | Full HA: + DR + Purview + Runners + RHDH + Cost Mgmt |
+| prod | enterprise | $3000+/month | Full HA: + DR + Purview + Runners + Backstage + Cost Mgmt |
 
 ## Local Demo Deployment
 
@@ -147,7 +147,7 @@ make -C local validate
 make -C local argocd      # ArgoCD    → https://localhost:8443
 make -C local grafana      # Grafana   → http://localhost:3000 (admin/admin)
 make -C local prometheus   # Prometheus → http://localhost:9090
-make -C local rhdh         # RHDH      → http://localhost:7007 (optional)
+make -C local backstage    # Backstage → http://localhost:7007
 ```
 
 ### Teardown
@@ -163,8 +163,8 @@ make -C local down
 - ingress-nginx (routing)
 - Gatekeeper/OPA (policy enforcement, audit mode)
 - PostgreSQL 16 + Redis 7 (databases)
-- RHDH (optional — requires Red Hat registry credentials)
-- All 17 Copilot Chat Agents (via VS Code)
+- Backstage (developer portal)
+- All 16 Copilot Chat Agents (via VS Code)
 
 ### What's NOT Available Locally
 - Azure PaaS services (Key Vault, Managed Identity, ACR)

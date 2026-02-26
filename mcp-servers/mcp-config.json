@@ -7,7 +7,7 @@
       "env": {
         "AZURE_SUBSCRIPTION_ID": "${AZURE_SUBSCRIPTION_ID}"
       },
-      "capabilities": ["az", "az aks", "az acr", "az keyvault", "az network", "az ad", "az aro", "az security", "az purview"]
+      "capabilities": ["az", "az aks", "az acr", "az keyvault", "az network", "az ad", "az security", "az purview"]
     },
     "github": {
       "command": "npx",
@@ -36,15 +36,6 @@
         "KUBECONFIG": "${KUBECONFIG}"
       },
       "capabilities": ["kubectl get", "kubectl apply", "kubectl delete", "kubectl logs", "kubectl exec", "kubectl port-forward"]
-    },
-    "openshift": {
-      "command": "npx",
-      "args": ["-y", "@anthropic/mcp-openshift"],
-      "description": "OpenShift CLI for ARO clusters",
-      "env": {
-        "KUBECONFIG": "${KUBECONFIG}"
-      },
-      "capabilities": ["oc login", "oc project", "oc new-app", "oc expose", "oc get", "oc apply", "oc adm", "oc policy", "oc create route"]
     },
     "helm": {
       "command": "npx",
@@ -101,13 +92,6 @@
       "description": "Microsoft Entra ID (Azure AD) operations",
       "env": {},
       "capabilities": ["az ad app", "az ad sp", "az ad group", "az ad user", "az role assignment"]
-    },
-    "aro": {
-      "command": "npx",
-      "args": ["-y", "@anthropic/mcp-azure"],
-      "description": "Azure Red Hat OpenShift operations",
-      "env": {},
-      "capabilities": ["az aro create", "az aro delete", "az aro list", "az aro show", "az aro update"]
     },
     "copilot": {
       "command": "npx",

@@ -60,8 +60,8 @@ profiles:
         replicas: 1
         ha_enabled: false
         sso_enabled: false
-      rhdh:
-        enabled: false  # Optional — requires Red Hat registry credentials
+      backstage:
+        enabled: true
         replicas: 1
       cert_manager:
         enabled: true

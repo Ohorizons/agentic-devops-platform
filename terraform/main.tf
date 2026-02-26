@@ -238,9 +238,9 @@ module "security" {
   private_dns_zone_id = module.networking.private_dns_zone_ids.keyvault
 
   workload_identities = {
-    "rhdh" = {
-      namespace                   = "rhdh"
-      service_account             = "rhdh"
+    "backstage" = {
+      namespace                   = "backstage"
+      service_account             = "backstage"
       key_vault_role              = "Key Vault Secrets User"
       additional_role_assignments = []
     }
@@ -356,7 +356,7 @@ module "databases" {
     backup_retention_days = var.environment == "prod" ? 35 : 7
     geo_redundant_backup  = var.environment == "prod"
     high_availability     = local.config.enable_ha
-    databases             = ["rhdh", "backstage"]
+    databases             = ["backstage"]
   }
 
   redis_config = {
@@ -575,33 +575,6 @@ module "github_runners" {
   tags = local.common_tags
 
   depends_on = [module.aks]
-}
-
-# =============================================================================
-# MODULE: RHDH (H2 — Optional)
-# =============================================================================
-
-module "rhdh" {
-  source = "./modules/rhdh"
-  count  = var.enable_rhdh ? 1 : 0
-
-  customer_name       = var.customer_name
-  environment         = var.environment
-  namespace           = "rhdh"
-
-  domain_name         = var.domain_name
-  github_org          = var.github_org
-
-  github_app_id            = var.github_app_id
-  github_app_client_id     = var.github_app_client_id
-  github_app_client_secret = var.github_app_client_secret
-
-  postgresql_host     = var.enable_databases ? module.databases[0].postgresql_host : ""
-  key_vault_id        = module.security.key_vault_id
-
-  tags = local.common_tags
-
-  depends_on = [module.aks, module.security, module.databases]
 }
 
 # =============================================================================

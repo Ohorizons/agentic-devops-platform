@@ -12,7 +12,7 @@ The **Three Horizons Implementation Accelerator** is a complete kit of Infrastru
 |-----------|----------|-------------|
 | **Terraform Modules** | 16 | Complete Azure infrastructure |
 | **AI Agents** | 11 | **[Copilot Chat Agents](./AGENTS.md)** (VS Code) |
-| **Golden Path Templates** | 22 | Self-service templates for RHDH |
+| **Golden Path Templates** | 22 | Self-service templates for Backstage |
 | **Issue Templates** | 28 | GitHub Issues templates |
 | **Automation Scripts** | 14 | Bootstrap and operations |
 | **MCP Servers** | 15 | MCP server configurations |
@@ -115,7 +115,7 @@ three-horizons-accelerator-v4/
 ├── .github/agents/                 # 17 Copilot Chat Agents
 │   ├── ado-integration.agent.md     # Azure DevOps integration
 │   ├── architect.agent.md          # System architecture, AI Foundry
-│   ├── azure-portal-deploy.agent.md # Azure AKS/ARO portal deployment
+│   ├── azure-portal-deploy.agent.md # Azure AKS portal deployment
 │   ├── backstage-expert.agent.md   # Backstage portal on AKS
 │   ├── deploy.agent.md             # Deployment orchestration
 │   ├── devops.agent.md             # CI/CD, GitOps, MLOps, pipelines
@@ -123,9 +123,8 @@ three-horizons-accelerator-v4/
 │   ├── github-integration.agent.md  # GitHub platform integration
 │   ├── hybrid-scenarios.agent.md    # GitHub + ADO hybrid scenarios
 │   ├── onboarding.agent.md         # Team onboarding guidance
-│   ├── platform.agent.md           # RHDH portal, platform services
+│   ├── platform.agent.md           # Backstage portal, platform services
 │   ├── reviewer.agent.md           # Code review, quality checks
-│   ├── rhdh-expert.agent.md        # RHDH portal on AKS/ARO
 │   ├── security.agent.md           # Security policies, compliance
 │   ├── sre.agent.md                # Reliability, incident response
 │   ├── terraform.agent.md          # Infrastructure as Code
@@ -137,7 +136,6 @@ three-horizons-accelerator-v4/
 │       ├── aks-cluster/            # Azure Kubernetes Service
 │       ├── ai-foundry/             # Azure AI Foundry
 │       ├── argocd/                 # ArgoCD GitOps
-│       ├── aro-cluster/            # Azure Red Hat OpenShift
 │       ├── backstage/              # Backstage Developer Portal
 │       ├── container-registry/     # ACR
 │       ├── cost-management/        # Cost analysis and budgets
@@ -150,10 +148,9 @@ three-horizons-accelerator-v4/
 │       ├── networking/             # VNet, Subnets, NSGs
 │       ├── observability/          # Prometheus, Grafana, Loki
 │       ├── purview/                # Microsoft Purview
-│       ├── rhdh/                   # Red Hat Developer Hub
 │       └── security/               # Key Vault, Identities
 │
-├── golden-paths/                   # 22 RHDH templates (Backstage)
+├── golden-paths/                   # 22 Backstage templates
 │   ├── h1-foundation/              # 6 basic templates
 │   ├── h2-enhancement/             # 9 advanced templates (incl. ADO migration)
 │   └── h3-innovation/              # 7 AI/Agent templates
@@ -224,7 +221,7 @@ terraform apply tfplan
 - Managed Identities
 - NSGs and Private Endpoints
 
-### Step 2: Deploy ArgoCD and RHDH (H2)
+### Step 2: Deploy ArgoCD and Backstage (H2)
 
 ```bash
 # After H1 is complete, apply H2
@@ -259,7 +256,7 @@ terraform apply -var-file=environments/dev.tfvars -var="enable_h3=true"
 
 ## Golden Paths
 
-### Register Templates in RHDH
+### Register Templates in Backstage
 
 ```bash
 # Register all templates
@@ -269,9 +266,9 @@ terraform apply -var-file=environments/dev.tfvars -var="enable_h3=true"
 kubectl apply -f golden-paths/h1-foundation/basic-cicd/template.yaml
 ```
 
-### Create Application via RHDH
+### Create Application via Backstage
 
-1. Access the portal: `https://rhdh.your-domain.com`
+1. Access the portal: `https://backstage.your-domain.com`
 2. Navigate to **Create** → **Choose Template**
 3. Select the template (e.g., "H2: Create Microservice")
 4. Fill in the parameters:
@@ -568,7 +565,6 @@ For questions, issues, or suggestions, open an issue on GitHub:
 
 - [Azure AKS](https://docs.microsoft.com/azure/aks/)
 - [ArgoCD](https://argo-cd.readthedocs.io/)
-- [Red Hat Developer Hub](https://developers.redhat.com/rhdh)
 - [Azure AI Foundry](https://azure.microsoft.com/products/ai-foundry/)
 - [GitHub Actions](https://docs.github.com/actions)
 - [External Secrets Operator](https://external-secrets.io/)
@@ -582,7 +578,7 @@ For questions, issues, or suggestions, open an issue on GitHub:
 - 18 Terraform modules (including Defender, Purview, Naming, Disaster Recovery)
 - 17 Copilot Chat Agents for interactive development assistance
 - 28 GitHub Issues templates
-- 22 Golden Path templates for RHDH (including ADO to GitHub migration)
+- 22 Golden Path templates for Backstage (including ADO to GitHub migration)
 - 16 automation scripts
 - 15 MCP Server configurations
 - Complete observability stack
