@@ -30,7 +30,7 @@ make -C local up    # Full deploy (~5 min)
 
 ## T-15 min: Port Forwards
 
-Open 3 terminal tabs for port-forwards:
+Open 5 terminal tabs for port-forwards:
 
 **Tab 1 — ArgoCD:**
 ```bash
@@ -48,6 +48,18 @@ make -C local grafana
 ```bash
 make -C local prometheus
 # Verify: open http://localhost:9090
+```
+
+**Tab 4 — Backstage (Open Horizons):**
+```bash
+kubectl port-forward -n backstage svc/paulasilvatech-backstage 7007:7007
+# Verify: open http://localhost:7007 (Blue theme)
+```
+
+**Tab 5 — Developer Hub (Three Horizons):**
+```bash
+kubectl port-forward -n devhub svc/paulasilvatech-devhub-developer-hub 7008:7007
+# Verify: open http://localhost:7008 (Red theme)
 ```
 
 ---
@@ -73,7 +85,8 @@ Open these tabs in order:
 1. **ArgoCD** — https://localhost:8443 (login: admin / `make argocd-password`)
 2. **Grafana** — http://localhost:3000 (login: admin / admin)
 3. **Prometheus** — http://localhost:9090 (Targets page)
-4. **RHDH** — http://localhost:7007 (if enabled)
+4. **Backstage** — http://localhost:7007 (Open Horizons — Blue theme)
+5. **Developer Hub** — http://localhost:7008 (Three Horizons — Red theme)
 
 ---
 
@@ -85,7 +98,8 @@ Open these tabs in order:
 | Grafana | admin | admin |
 | PostgreSQL | postgres | demo-postgres-2026 |
 | Redis | — | demo-redis-2026 |
-| RHDH | guest | (no password) |
+| Backstage | guest | (no password) |
+| Developer Hub | guest | (no password) |
 
 ---
 
@@ -103,10 +117,56 @@ Open these tabs in order:
 
 ## Final Check
 
-- [ ] All 4 browser tabs loading
+- [ ] All 5 browser tabs loading (ArgoCD, Grafana, Prometheus, Backstage, DevHub)
 - [ ] VS Code Copilot Chat responding to `@deploy`
 - [ ] At least 1 Grafana dashboard showing data
+- [ ] Backstage shows Blue theme at localhost:7007
+- [ ] Developer Hub shows Red theme + MS/GitHub logos at localhost:7008
 - [ ] Presenter display/projector connected
 - [ ] Notifications silenced (Do Not Disturb mode)
+
+---
+
+## GitHub App for Developer Hub
+
+The Developer Hub requires its own GitHub App (separate from Backstage).
+
+### Create the GitHub App
+
+1. Go to https://github.com/settings/apps/new
+2. Fill in:
+   - **Name:** `three-horizons-devhub`
+   - **Homepage URL:** `http://localhost:7008`
+   - **Callback URL:** `http://localhost:7008/api/auth/github/handler/frame`
+   - **Webhook:** Uncheck "Active" (not needed for local)
+3. Permissions:
+   - **Repository:** Contents (Read), Metadata (Read), Pull Requests (Read & Write), Issues (Read & Write), Actions (Read)
+   - **Organization:** Members (Read)
+4. Click "Create GitHub App"
+5. Note the **App ID** and **Client ID**
+6. Generate a **Client Secret** — copy it
+7. Generate a **Private Key** — download the `.pem` file
+
+### Create the Kubernetes Secret
+
+```bash
+kubectl -n devhub delete secret paulasilvatech-devhub-github-app 2>/dev/null
+kubectl -n devhub create secret generic paulasilvatech-devhub-github-app \
+  --from-literal=app-id='YOUR_APP_ID' \
+  --from-literal=client-id='YOUR_CLIENT_ID' \
+  --from-literal=client-secret='YOUR_CLIENT_SECRET' \
+  --from-file=private-key=/path/to/private-key.pem \
+  --from-literal=webhook-secret='optional-webhook-secret'
+```
+
+### Redeploy
+
+```bash
+helm upgrade --install paulasilvatech-devhub \
+  openshift-helm-charts/redhat-developer-hub \
+  -n devhub -f local/values/rhdh-local.yaml --wait=false
+```
+
+Wait for pod to be 1/1 Running, then port-forward on 7008.
 
 **Ready for demo!** Open `local/DEMO_SCRIPT.md` for the walkthrough.

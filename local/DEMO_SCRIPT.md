@@ -108,25 +108,38 @@ make -C local validate
 
 ---
 
-## Ato 3 — Portal RHDH + Developer Experience (10 min)
+## Ato 3 — Dual Portal: Backstage + Developer Hub (10 min)
 
 ### Objetivo
-Mostrar o portal self-service com catálogo de serviços e 22 templates.
+Mostrar dois portais self-service lado a lado — Backstage (upstream/community) e Red Hat Developer Hub (enterprise) — com a mesma plataforma, catálogo e templates.
 
 ### Setup Prévio
-- RHDH rodando: `make -C local rhdh` (ou se não estiver instalado, mostrar screenshots/mockup)
-- Browser aberto em `http://localhost:7007`
+- Backstage rodando: `kubectl port-forward -n backstage svc/paulasilvatech-backstage 7007:7007`
+- Developer Hub rodando: `kubectl port-forward -n devhub svc/paulasilvatech-devhub-developer-hub 7008:7007`
+- 2 browser tabs: `http://localhost:7007` (Blue) e `http://localhost:7008` (Red)
 
-### Sequência (se RHDH estiver rodando)
+### Sequência
 
-#### Passo 1: Catálogo de Software
-1. Abrir `http://localhost:7007` no browser
-2. Mostrar a página inicial — catálogo de componentes
-3. Clicar em um componente — mostrar metadata, owner, dependências
+#### Passo 1: Comparação Visual lado a lado
 
-#### Passo 2: Templates (Software Templates)
+Abrir as 2 tabs no browser lado a lado:
+- **Backstage** (`http://localhost:7007`) — Tema **Azul** (Microsoft branding), custom HomePage com hero section, Three Horizons cards, quick actions
+- **Developer Hub** (`http://localhost:7008`) — Tema **Vermelho** (Red Hat branding), dynamic HomePage com Onboarding, Software Catalog, Templates sections
+
+**Talking Point:**
+> "A mesma plataforma, duas experiências de portal. O Backstage upstream é 100% customizável via React — ideal para organizações com equipe de frontend. O Developer Hub da Red Hat traz plugins dinâmicos, suporte enterprise e zero compilação de código — ideal para produção enterprise."
+
+#### Passo 2: Catálogo de Software (Developer Hub)
+1. Abrir `http://localhost:7008` no browser
+2. Mostrar o catálogo — componentes, APIs, templates
+3. Clicar em um componente — mostrar abas: Overview, CI/CD (GitHub Actions), Kubernetes, Issues, Pull Requests, Docs
+
+**Talking Point:**
+> "O Developer Hub carrega plugins dinamicamente — GitHub Actions, Kubernetes, TechDocs, Notifications — sem recompilar a imagem. Tudo via configuração YAML."
+
+#### Passo 3: Templates (Software Templates)
 1. Navegar para **Create** → **Templates**
-2. Mostrar os templates organizados por horizonte:
+2. Mostrar os 22 templates organizados por horizonte:
    - **H1 Foundation**: Web Application, Basic CI/CD, Security Baseline
    - **H2 Enhancement**: API Microservice, Data Pipeline, ADO Migration, Event-Driven
    - **H3 Innovation**: Foundry Agent, RAG Application, MLOps, Multi-Agent System
@@ -134,26 +147,21 @@ Mostrar o portal self-service com catálogo de serviços e 22 templates.
 **Talking Point:**
 > "22 templates prontos. Um developer escolhe, preenche um formulário, e em 2 minutos tem: repositório GitHub, CI/CD, manifests Kubernetes, ArgoCD Application, e registro no catálogo. Zero configuração manual."
 
-#### Passo 3: Scaffold de um serviço (live demo)
-1. Clicar em **"H2: Create API Microservice"**
+#### Passo 4: Scaffold de um serviço (live demo)
+1. Clicar em **\"H2: Create API Microservice\"**
 2. Preencher: nome (`demo-api`), owner (`platform-team`), language (`Python`)
 3. Mostrar o preview do que será criado
 
-### Sequência alternativa (sem RHDH)
+### Sequência alternativa (sem portais running)
 
-Se RHDH não estiver instalado, usar o **@platform agent**:
+Usar o **@platform agent**:
 
 ```
 @platform Show me all available Golden Path templates and what each one scaffolds
 ```
 
-E mostrar os template.yaml diretamente:
-```
-@platform Explain the API Microservice Golden Path template
-```
-
 **Talking Point:**
-> "Mesmo sem o portal visual, os agents dão acesso completo aos templates. O @platform agent conhece cada um dos 22 Golden Paths."
+> \"Mesmo sem o portal visual, os agents dão acesso completo aos templates. O @platform agent conhece cada um dos 22 Golden Paths.\"
 
 ---
 
@@ -371,7 +379,7 @@ Abrir ArgoCD (`https://localhost:8443`):
 |-----|----------|
 | 1 | `tree -L 2 .github/agents/` |
 | 2 | `@deploy Show deployment status` |
-| 3 | `http://localhost:7007` ou `@platform Show Golden Paths` |
+| 3 | `http://localhost:7007` (Backstage), `http://localhost:7008` (DevHub) |
 | 4 | `@architect` → `@terraform` → `@security` → `@test` → `@reviewer` |
 | 5 | `http://localhost:3000`, `@sre Investigate latency` |
 | 6 | `@platform List H3 templates`, `https://localhost:8443` |

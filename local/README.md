@@ -32,6 +32,8 @@ make -C local up
 | **PostgreSQL 16** | Always | databases namespace |
 | **Redis 7** | Always | databases namespace |
 | **RHDH** (Developer Hub) | Optional | http://localhost:7007 |
+| **Backstage** (Open Horizons) | Optional | http://localhost:7007 |
+| **Developer Hub** (Three Horizons) | Optional | http://localhost:7008 |
 | **17 Copilot Chat Agents** | Always | VS Code Copilot Chat |
 
 ## Architecture
@@ -51,10 +53,17 @@ make -C local up
 │  │   nginx      │  │ (self-signed) │  │  (audit mode)    │ │
 │  └──────────────┘  └───────────────┘  └──────────────────┘ │
 │                                                             │
-│  ┌──────────────┐  ┌───────────────┐  ┌──────────────────┐ │
-│  │ PostgreSQL   │  │    Redis      │  │   RHDH (opt.)    │ │
-│  │ (databases)  │  │  (databases)  │  │  :7007           │ │
-│  └──────────────┘  └───────────────┘  └──────────────────┘ │
+│  ┌──────────────┐  ┌───────────────┐                       │
+│  │ PostgreSQL   │  │    Redis      │                       │
+│  │ (databases)  │  │  (databases)  │                       │
+│  └──────────────┘  └───────────────┘                       │
+│                                                             │
+│  ┌──────────────────────────┐  ┌──────────────────────────┐│
+│  │ 🔵 Backstage (Open)      │  │ 🔴 Developer Hub (RHDH)  ││
+│  │  backstage ns — :7007    │  │  devhub ns — :7008       ││
+│  │  Custom React pages      │  │  Dynamic plugins         ││
+│  │  Blue theme              │  │  Red theme + MS logos    ││
+│  └──────────────────────────┘  └──────────────────────────┘│
 └─────────────────────────────────────────────────────────────┘
 ```
 
@@ -113,6 +122,51 @@ All 17 agents work with the local cluster. Open VS Code with GitHub Copilot Chat
 ```
 
 The agents execute `kubectl`, `helm`, and other CLI commands against the local kind cluster — identical behavior to an Azure AKS cluster.
+
+## Dual Portal: Backstage + Developer Hub
+
+The local demo supports two developer portals running side by side:
+
+| Portal | Namespace | Port | Theme | Approach |
+|--------|-----------|------|-------|----------|
+| **Backstage** (Open Horizons) | `backstage` | 7007 | 🔵 Blue (Microsoft) | Custom React pages, static plugins |
+| **Developer Hub** (Three Horizons) | `devhub` | 7008 | 🔴 Red (Red Hat) | Dynamic plugins, YAML-only config |
+
+### Feature Comparison
+
+| Feature | Backstage | Developer Hub |
+|---------|-----------|---------------|
+| Home Page | Custom React (hero, cards, stats) | Dynamic (Onboarding, Catalog, Templates) |
+| Plugins | 25 static (compiled in image) | 19 dynamic (loaded at runtime) |
+| Theme | TypeScript (`createUnifiedTheme`) | YAML (`app.branding.theme`) |
+| Logos | Compiled assets | Base64 in ConfigMap |
+| GitHub Actions | ✅ | ✅ (dynamic) |
+| Kubernetes | ✅ | ✅ (dynamic) |
+| TechDocs | ✅ | ✅ (dynamic) |
+| Notifications | ✅ | ✅ (dynamic) |
+| Catalog Templates | 22 | 22 |
+| Custom Pages (Learning, Copilot, Status) | ✅ | ❌ (use Quickstart) |
+| GitHub Auto-Discovery | ✅ | ✅ |
+
+### Port-Forward Commands
+
+```bash
+# Backstage
+kubectl port-forward -n backstage svc/paulasilvatech-backstage 7007:7007
+
+# Developer Hub
+kubectl port-forward -n devhub svc/paulasilvatech-devhub-developer-hub 7008:7007
+```
+
+### Developer Hub Dynamic Plugins (19 enabled)
+
+Default + enabled overrides:
+- **GitHub**: Catalog discovery, Org sync, Actions, Issues, Insights, Pull Requests, Scaffolder
+- **Kubernetes**: Frontend dashboard + Backend API
+- **TechDocs**: Frontend + Backend + Addons (ReportIssue)
+- **Notifications**: Frontend + Backend
+- **Signals**: Frontend + Backend (real-time)
+- **RHDH Core**: Dynamic Home Page, Global Header, Extensions, Quickstart, Adoption Insights
 
 ## RHDH (Optional)
 
@@ -253,11 +307,12 @@ local/
 │   └── local.env              # Environment variables
 ├── values/
 │   ├── argocd-local.yaml      # ArgoCD Helm overrides
+│   ├── backstage-local.yaml   # Backstage Helm overrides
 │   ├── monitoring-local.yaml  # Prometheus/Grafana overrides
 │   ├── cert-manager-local.yaml
 │   ├── gatekeeper-local.yaml
 │   ├── ingress-nginx-local.yaml
-│   └── rhdh-local.yaml
+│   └── rhdh-local.yaml        # Developer Hub Helm overrides (plugins, branding, catalog)
 ├── manifests/
 │   ├── namespaces.yaml        # Platform namespaces
 │   ├── postgres.yaml          # PostgreSQL StatefulSet
