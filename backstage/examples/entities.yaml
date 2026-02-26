@@ -66,7 +66,7 @@ metadata:
     - scaffolder
     - templates
   links:
-    - url: /create
+    - url: http://devhub.135.18.141.224.nip.io/create
       title: Browse Templates
       icon: scaffolder
 spec:
@@ -86,7 +86,7 @@ metadata:
     - documentation
     - techdocs
   links:
-    - url: /docs
+    - url: http://devhub.135.18.141.224.nip.io/docs
       title: TechDocs
       icon: docs
 spec:
