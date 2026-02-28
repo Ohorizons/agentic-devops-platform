@@ -1,8 +1,9 @@
-import { Content, Header, Page, InfoCard, StatusOK, StatusWarning } from '@backstage/core-components';
+import { InfoCard, StatusOK, StatusWarning } from '@backstage/core-components';
 import { Grid, makeStyles, Typography, Box, Chip, Table, TableBody, TableCell, TableHead, TableRow } from '@material-ui/core';
 import CloudIcon from '@material-ui/icons/Cloud';
 import StorageIcon from '@material-ui/icons/Storage';
 import SpeedIcon from '@material-ui/icons/Speed';
+import { StandardPage } from '../layout/StandardPage';
 
 const useStyles = makeStyles(theme => ({
   statusBanner: {
@@ -48,9 +49,7 @@ const PlatformStatusPage = () => {
   const classes = useStyles();
   const ok = services.filter(s => s.status === 'healthy').length;
   return (
-    <Page themeId="tool">
-      <Header title="Platform Status" subtitle="Real-time health and status of the Agentic DevOps Platform" />
-      <Content>
+    <StandardPage title="Platform Status" subtitle="Real-time health and status of the Agentic DevOps Platform" themeId="home">
         <div className={classes.statusBanner}>
           <div>
             <Typography variant="h5" style={{ fontWeight: 700 }}>All Systems Operational</Typography>
@@ -128,8 +127,7 @@ const PlatformStatusPage = () => {
             </Grid>
           </Grid>
         </Box>
-      </Content>
-    </Page>
+    </StandardPage>
   );
 };
 

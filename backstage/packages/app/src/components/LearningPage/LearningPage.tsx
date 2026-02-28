@@ -1,6 +1,7 @@
-import { Content, Header, Page } from '@backstage/core-components';
+import { Link as RouterLink } from 'react-router-dom';
 import { Grid, makeStyles, Typography, Card, CardContent, CardActions, Button } from '@material-ui/core';
 import OpenInNewIcon from '@material-ui/icons/OpenInNew';
+import { StandardPage } from '../layout/StandardPage';
 
 import copilotLogo from '../../assets/logo-github-copilot.png';
 import aiCopilotLogo from '../../assets/logo-ai-copilot.png';
@@ -87,9 +88,7 @@ const LearningPage = () => {
   const classes = useStyles();
 
   return (
-    <Page themeId="tool">
-      <Header title="Learning Center" subtitle="Resources, guides, and learning paths for the platform" />
-      <Content>
+    <StandardPage title="Learning Center" subtitle="Resources, guides, and learning paths for the platform" themeId="home">
         <Typography className={classes.sectionTitle} variant="h5">
           AI & Developer Tools
         </Typography>
@@ -136,7 +135,7 @@ const LearningPage = () => {
                   <Typography variant="body2" color="textSecondary">{doc.description}</Typography>
                 </CardContent>
                 <CardActions>
-                  <Button size="small" color="primary" href={doc.url}>
+                  <Button size="small" color="primary" component={RouterLink} to={doc.url}>
                     Explore
                   </Button>
                 </CardActions>
@@ -180,8 +179,7 @@ const LearningPage = () => {
             </Grid>
           ))}
         </Grid>
-      </Content>
-    </Page>
+    </StandardPage>
   );
 };
 

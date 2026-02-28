@@ -25,17 +25,16 @@ import { entityPage } from './components/catalog/EntityPage';
 import { searchPage } from './components/search/SearchPage';
 import { Root } from './components/Root';
 import HomePage from './components/HomePage/HomePage';
+import CustomSignInPage from './components/SignInPage/CustomSignInPage';
 import LearningPage from './components/LearningPage/LearningPage';
 import CopilotMetricsPage from './components/CopilotMetricsPage/CopilotMetricsPage';
 import PlatformStatusPage from './components/PlatformStatusPage/PlatformStatusPage';
 import { microsoftLightTheme, microsoftDarkTheme } from './theme';
 import { UnifiedThemeProvider } from '@backstage/theme';
 
-import { githubAuthApiRef } from '@backstage/core-plugin-api';
 import {
   AlertDisplay,
   OAuthRequestDialog,
-  SignInPage,
 } from '@backstage/core-components';
 import { createApp } from '@backstage/app-defaults';
 import { AppRouter, FlatRoutes } from '@backstage/core-app-api';
@@ -43,7 +42,6 @@ import { CatalogGraphPage } from '@backstage/plugin-catalog-graph';
 import { RequirePermission } from '@backstage/plugin-permission-react';
 import { catalogEntityCreatePermission } from '@backstage/plugin-catalog-common/alpha';
 import { NotificationsPage } from '@backstage/plugin-notifications';
-import { SignalsDisplay } from '@backstage/plugin-signals';
 
 const app = createApp({
   apis,
@@ -87,21 +85,7 @@ const app = createApp({
     });
   },
   components: {
-    SignInPage: props => (
-      <SignInPage
-        {...props}
-        providers={[
-          {
-            id: 'github-auth-provider',
-            title: 'GitHub',
-            message: 'Sign in with GitHub',
-            apiRef: githubAuthApiRef,
-          },
-          'guest',
-        ]}
-        title="Open Horizons"
-      />
-    ),
+    SignInPage: props => <CustomSignInPage {...props} />,
   },
 });
 
@@ -151,7 +135,6 @@ export default app.createRoot(
   <>
     <AlertDisplay />
     <OAuthRequestDialog />
-    <SignalsDisplay />
     <AppRouter>
       <Root>{routes}</Root>
     </AppRouter>

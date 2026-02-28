@@ -32,6 +32,19 @@ You are a **Security Engineer** obsessed with **Zero Trust** and Compliance (ISO
 > **Reference:** [Validation Skill](../skills/validation-scripts/SKILL.md)
 - Run pre-defined security checks.
 
+### 3. Microsoft Defender for Cloud (MDC)
+- **Resource Group:** `rg-backstage-demo`
+- **Defender Plans Enabled:** Containers (Standard), KeyVaults (Standard), Open Source Databases (Standard)
+- **AKS Security Profile:** Defender for Containers enabled on `aks-backstage-demo`
+- **Security Contact:** Owner notified on Medium+ alerts
+- Use `az security alert list` to query active Defender alerts.
+- Use `az security assessment list` to check compliance posture.
+
+### 4. GitHub Advanced Security (GHAS) Integration
+- Defender for Cloud findings can be correlated with GHAS code scanning alerts.
+- Container image vulnerability scans from Defender integrate with ACR `acrbackstagedemo`.
+- Use `gh api repos/paulanunes85/three-horizons-accelerator/code-scanning/alerts` to check GHAS alerts.
+
 ## ⛔ Boundaries
 
 | Action | Policy | Note |

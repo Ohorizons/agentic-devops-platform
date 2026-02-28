@@ -62,8 +62,7 @@ backend.add(import('@backstage/plugin-search-backend-module-techdocs'));
 // kubernetes plugin
 backend.add(import('@backstage/plugin-kubernetes-backend'));
 
-// notifications and signals plugins
+// notifications plugin
 backend.add(import('@backstage/plugin-notifications-backend'));
-backend.add(import('@backstage/plugin-signals-backend'));
 
 backend.start();

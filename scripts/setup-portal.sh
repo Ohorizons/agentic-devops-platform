@@ -11,7 +11,6 @@
 #
 # Output:
 #   - terraform/environments/<env>.auto.tfvars  (Azure deployments)
-#   - local/config/local.env                    (Local deployments)
 #   - Displays summary of collected configuration
 # =============================================================================
 set -euo pipefail
@@ -132,15 +131,8 @@ step2_deploy_mode() {
   echo -e "\n${BOLD}Step 2/5: Deployment Mode${NC}"
   echo -e "${BOLD}-------------------------${NC}\n"
 
-  choose DEPLOY_MODE "Where do you want to deploy?" \
-    "Local (Docker Desktop + kind - no Azure needed)" \
-    \"Azure (AKS - requires Azure subscription)\"
-
-  case "$DEPLOY_MODE" in
-    1) DEPLOY_MODE="local"; ok "Deployment: Local (Docker Desktop)" ;;
-    2) DEPLOY_MODE="azure"; ok "Deployment: Azure" ;;
-    *) DEPLOY_MODE="local"; ok "Deployment: Local (default)" ;;
-  esac
+  DEPLOY_MODE="azure"
+  ok "Deployment: Azure (AKS)"
 }
 
 # =============================================================================
@@ -148,7 +140,7 @@ step2_deploy_mode() {
 # =============================================================================
 step3_azure() {
   if [[ "$DEPLOY_MODE" != "azure" ]]; then
-    info "Skipping Azure config (local deployment)"
+    info "Skipping Azure config (deploy mode: $DEPLOY_MODE)"
     return
   fi
 
@@ -211,36 +203,7 @@ step5_generate() {
   echo -e "\n${BOLD}Step 5/5: Generating Configuration${NC}"
   echo -e "${BOLD}----------------------------------${NC}\n"
 
-  if [[ "$DEPLOY_MODE" == "local" ]]; then
-    generate_local_config
-  else
-    generate_azure_config
-  fi
-}
-
-generate_local_config() {
-  local env_file="$ROOT_DIR/local/config/local.env"
-
-  # Update PORTAL_TYPE in local.env
-  if [[ -f "$env_file" ]]; then
-    sed -i '' "s/^PORTAL_TYPE=.*/PORTAL_TYPE=\"$PORTAL_TYPE\"/" "$env_file" 2>/dev/null || true
-    sed -i '' "s/^GITHUB_APP_ID=.*/GITHUB_APP_ID=\"${GITHUB_APP_ID:-}\"/" "$env_file" 2>/dev/null || true
-    sed -i '' "s/^GITHUB_APP_CLIENT_ID=.*/GITHUB_APP_CLIENT_ID=\"${GITHUB_APP_CLIENT_ID:-}\"/" "$env_file" 2>/dev/null || true
-    sed -i '' "s/^GITHUB_APP_CLIENT_SECRET=.*/GITHUB_APP_CLIENT_SECRET=\"${GITHUB_APP_CLIENT_SECRET:-}\"/" "$env_file" 2>/dev/null || true
-    if [[ -n "${GITHUB_APP_PRIVATE_KEY_FILE:-}" ]]; then
-      sed -i '' "s|^GITHUB_APP_PRIVATE_KEY_FILE=.*|GITHUB_APP_PRIVATE_KEY_FILE=\"$GITHUB_APP_PRIVATE_KEY_FILE\"|" "$env_file" 2>/dev/null || true
-    fi
-    sed -i '' "s/^BACKSTAGE_AUTH_MODE=.*/BACKSTAGE_AUTH_MODE=\"github\"/" "$env_file" 2>/dev/null || true
-    ok "Updated $env_file"
-  fi
-
-  ok "Local configuration ready"
-  echo ""
-  info "To deploy locally:"
-  echo -e "  ${BOLD}make -C local up${NC}"
-  echo ""
-  info "To access the portal:"
-  echo -e "  ${BOLD}make -C local portal${NC}  ->  http://localhost:7007"
+  generate_azure_config
 }
 
 generate_azure_config() {
@@ -301,9 +264,7 @@ summary() {
   echo -e "  ${BOLD}Template Repo:${NC}   ${TEMPLATE_REPO:-not set}"
   echo ""
 
-  if [[ "$DEPLOY_MODE" == "local" ]]; then
-    echo -e "  ${GREEN}Next: make -C local up${NC}"
-  else
+  if [[ "$DEPLOY_MODE" == "azure" ]]; then
     echo -e "  ${GREEN}Next: @deploy Deploy the platform to $ENVIRONMENT${NC}"
   fi
   echo ""

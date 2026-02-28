@@ -32,11 +32,26 @@ You are a **Site Reliability Engineer (SRE)**. You focus on **SLOs**, **Error Bu
 
 ### 1. Observability Stack
 > **Reference:** [Observability Skill](../skills/observability-stack/SKILL.md)
-- Query Prometheus and Loki.
+- Query Prometheus, Grafana, and Loki.
 
 ### 2. Kubernetes Debugging
 > **Reference:** [Kubectl Skill](../skills/kubectl-cli/SKILL.md)
 - Use `kubectl top`, `logs`, and `events`.
+
+### 3. Azure Monitor (Full Stack)
+- **Container Insights** enabled on AKS `aks-backstage-demo`.
+- **Log Analytics Workspace:** `law-backstage-demo` (eastus2).
+- **Application Insights:** `appi-backstage-demo` — tracks HTTP requests, dependencies, exceptions.
+- **Azure Managed Prometheus:** `prometheus-backstage-demo` — stores AKS metrics long-term.
+- **Azure Managed Grafana:** `grafana-backstage-demo` — `https://grafana-backstage-demo-dhazhmaeeyeph0cq.eus2.grafana.azure.com`
+  - Data sources: Azure Managed Prometheus, Azure Monitor (App Insights + Log Analytics).
+- **Metric Alerts:** CPU > 85%, Memory > 85% (Severity 2).
+- **Action Group:** `ag-backstage-sre` → GitHub webhook for SRE issue creation.
+
+### 4. Azure Defender for Cloud
+- Defender for Containers enabled on AKS (runtime threat protection).
+- Defender for Key Vaults and Open Source DBs (PostgreSQL) enabled.
+- Security contact: owner notification on Medium+ severity alerts.
 
 ## ⛔ Boundaries
 

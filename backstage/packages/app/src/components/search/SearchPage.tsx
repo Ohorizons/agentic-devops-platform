@@ -17,12 +17,10 @@ import {
 } from '@backstage/plugin-search-react';
 import {
   CatalogIcon,
-  Content,
   DocsIcon,
-  Header,
-  Page,
 } from '@backstage/core-components';
 import { useApi } from '@backstage/core-plugin-api';
+import { StandardPage } from '../layout/StandardPage';
 
 const useStyles = makeStyles((theme: Theme) => ({
   bar: {
@@ -45,9 +43,7 @@ const SearchPage = () => {
   const catalogApi = useApi(catalogApiRef);
 
   return (
-    <Page themeId="home">
-      <Header title="Search" />
-      <Content>
+    <StandardPage title="Search" themeId="home">
         <Grid container direction="row">
           <Grid item xs={12}>
             <Paper className={classes.bar}>
@@ -115,8 +111,7 @@ const SearchPage = () => {
             </SearchResult>
           </Grid>
         </Grid>
-      </Content>
-    </Page>
+    </StandardPage>
   );
 };
 

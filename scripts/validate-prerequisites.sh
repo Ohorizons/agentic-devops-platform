@@ -76,36 +76,8 @@ echo -e "${BLUE}║       THREE HORIZONS — Prerequisites Validation           
 echo -e "${BLUE}╚══════════════════════════════════════════════════════════════╝${NC}"
 
 if [[ "$MODE" == "local" ]]; then
-  echo -e "  ${YELLOW}Mode: LOCAL DEMO (kind cluster — no Azure required)${NC}"
-  echo ""
-
-  header "Required CLI Tools (Local Demo)"
-  check_tool "kubectl"   "1.28.0"  "Kubernetes CLI"          || true
-  check_tool "helm"      "3.12.0"  "Kubernetes packages"     || true
-  check_tool "jq"        "1.6"     "JSON processor"          || true
-  check_tool "yq"        "4.0.0"   "YAML processor"          || true
-
-  header "Local Demo Tools"
-  if command -v docker &>/dev/null; then
-    pass "docker found"
-    if docker info &>/dev/null; then
-      pass "Docker is running"
-    else
-      fail "Docker is not running — start Docker Desktop"
-    fi
-  else
-    fail "docker not found — install Docker Desktop"
-  fi
-
-  if command -v kind &>/dev/null; then
-    pass "kind found: $(kind version 2>/dev/null)"
-  else
-    fail "kind not found — install with: brew install kind"
-  fi
-
-  header "Optional CLI Tools"
-  check_tool "argocd"    "2.8.0"   "ArgoCD CLI (optional)"   || warn "Install later if using ArgoCD"
-
+  fail "Local demo mode has been removed. Use dev/staging/prod environments."
+  exit 1
 else
   header "Required CLI Tools"
   check_tool "az"        "2.50.0"  "Azure CLI"               || true

@@ -1,350 +1,566 @@
 import {
-  HomePageStarredEntities,
-  HomePageToolkit,
-} from '@backstage/plugin-home';
-import { Content, Header, Page } from '@backstage/core-components';
-import { Grid, makeStyles, Typography, Box, Button, Card, CardContent, CardActionArea } from '@material-ui/core';
-import CategoryIcon from '@material-ui/icons/Category';
-import CodeIcon from '@material-ui/icons/Code';
-import MenuBookIcon from '@material-ui/icons/MenuBook';
-import ExtensionIcon from '@material-ui/icons/Extension';
-import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
-import CloudIcon from '@material-ui/icons/Cloud';
-import TrendingUpIcon from '@material-ui/icons/TrendingUp';
-import AssessmentIcon from '@material-ui/icons/Assessment';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import StorageIcon from '@material-ui/icons/Storage';
-import SecurityIcon from '@material-ui/icons/Security';
-import SettingsEthernetIcon from '@material-ui/icons/SettingsEthernet';
-import EmojiObjectsIcon from '@material-ui/icons/EmojiObjects';
-import BuildIcon from '@material-ui/icons/Build';
-import AutorenewIcon from '@material-ui/icons/Autorenew';
-import BubbleChartIcon from '@material-ui/icons/BubbleChart';
+  Box,
+  Button,
+  Card,
+  CardActionArea,
+  CardContent,
+  Grid,
+  Link as MuiLink,
+  TextField,
+  Typography,
+  makeStyles,
+} from '@material-ui/core';
+import { Page, Content } from '@backstage/core-components';
+import { Link as RouterLink } from 'react-router-dom';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
-
-import logoWhite from '../../assets/logo-msft-github-white.png';
+import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
+import CategoryIcon from '@material-ui/icons/Category';
+import ExtensionIcon from '@material-ui/icons/Extension';
+import DescriptionIcon from '@material-ui/icons/Description';
+import SecurityIcon from '@material-ui/icons/Security';
+import MergeTypeIcon from '@material-ui/icons/MergeType';
+import FlashOnIcon from '@material-ui/icons/FlashOn';
+import LanguageIcon from '@material-ui/icons/Language';
+import AssessmentIcon from '@material-ui/icons/Assessment';
+import MemoryIcon from '@material-ui/icons/Memory';
+import AutorenewIcon from '@material-ui/icons/Autorenew';
+import CloudQueueIcon from '@material-ui/icons/CloudQueue';
+import CloudDoneIcon from '@material-ui/icons/CloudDone';
+import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 
 const useStyles = makeStyles(theme => ({
+  pageRoot: {
+    minHeight: '100%',
+    backgroundColor: '#ffffff',
+    position: 'relative',
+    '&::before': {
+      content: '""',
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      width: '100%',
+      height: 4,
+      zIndex: 1200,
+      background:
+        'linear-gradient(to right, #F25022 0%, #F25022 25%, #7FBA00 25%, #7FBA00 50%, #00A4EF 50%, #00A4EF 75%, #FFB900 75%, #FFB900 100%)',
+    },
+  },
   hero: {
-    background: 'linear-gradient(135deg, #0078D4 0%, #005A9E 40%, #00B7C3 100%)',
-    borderRadius: 20,
-    padding: theme.spacing(6, 5),
-    color: '#fff',
-    position: 'relative' as const,
-    overflow: 'hidden',
-    marginBottom: theme.spacing(4),
+    background: 'linear-gradient(135deg, #00A4EF 0%, #00d4ff 50%, #00A4EF 100%)',
+    color: '#ffffff',
+    padding: theme.spacing(7, 4),
+    textAlign: 'center',
+    borderRadius: 12,
   },
-  heroDecor: {
-    position: 'absolute' as const,
-    right: -40,
-    top: -40,
-    width: 320,
-    height: 320,
-    borderRadius: '50%',
-    background: 'rgba(255,255,255,0.06)',
+  heroContent: {
+    maxWidth: 900,
+    margin: '0 auto',
   },
-  heroDecor2: {
-    position: 'absolute' as const,
-    right: 60,
-    bottom: -60,
-    width: 200,
-    height: 200,
-    borderRadius: '50%',
-    background: 'rgba(255,255,255,0.04)',
+  heroBrand: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 12,
+    marginBottom: theme.spacing(2.5),
   },
-  heroLogo: {
-    height: 40,
-    opacity: 0.9,
-    position: 'relative' as const,
-    zIndex: 1,
-    marginTop: theme.spacing(3),
+  heroGithubBadge: {
+    width: 32,
+    height: 32,
+    borderRadius: 6,
+    background: 'rgba(255,255,255,0.2)',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontSize: 17,
+    fontWeight: 700,
   },
   heroTitle: {
-    fontWeight: 800,
-    fontSize: '2.2rem',
-    lineHeight: 1.2,
-    marginBottom: theme.spacing(1.5),
-    position: 'relative' as const,
-    zIndex: 1,
+    fontSize: '3rem',
+    fontWeight: 700,
+    letterSpacing: -0.5,
+    marginBottom: theme.spacing(1),
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '2.1rem',
+    },
   },
-  heroSub: {
-    fontSize: '1.05rem',
-    opacity: 0.9,
+  heroSubtitle: {
+    fontSize: 18,
+    opacity: 0.95,
+    marginBottom: theme.spacing(2),
+  },
+  heroDesc: {
+    maxWidth: 700,
+    margin: '0 auto',
+    fontSize: 16,
     lineHeight: 1.6,
-    maxWidth: 560,
-    position: 'relative' as const,
-    zIndex: 1,
+    opacity: 0.92,
   },
-  heroCta: {
-    marginTop: theme.spacing(3),
-    position: 'relative' as const,
-    zIndex: 1,
+  heroButtons: {
     display: 'flex',
+    justifyContent: 'center',
     gap: theme.spacing(2),
-  },
-  ctaBtn: {
-    borderRadius: 10,
-    padding: theme.spacing(1.2, 3),
-    fontWeight: 600,
-    textTransform: 'none' as const,
-    fontSize: '0.95rem',
-  },
-  ctaPrimary: {
-    backgroundColor: '#fff',
-    color: '#0078D4',
-    '&:hover': { backgroundColor: '#f0f0f0' },
-  },
-  ctaSecondary: {
-    borderColor: 'rgba(255,255,255,0.6)',
-    color: '#fff',
-    '&:hover': { borderColor: '#fff', backgroundColor: 'rgba(255,255,255,0.1)' },
-  },
-  statsRow: {
-    display: 'flex',
-    gap: theme.spacing(4),
+    flexWrap: 'wrap',
     marginTop: theme.spacing(4),
-    position: 'relative' as const,
-    zIndex: 1,
   },
-  stat: {
-    textAlign: 'center' as const,
+  createBtn: {
+    background: '#ffffff',
+    color: '#00A4EF',
+    textTransform: 'none',
+    padding: theme.spacing(1.5, 3.5),
+    fontWeight: 600,
+    '&:hover': {
+      background: '#f0f9ff',
+      transform: 'translateY(-2px)',
+    },
+  },
+  catalogBtn: {
+    color: '#ffffff',
+    borderColor: '#ffffff',
+    textTransform: 'none',
+    padding: theme.spacing(1.5, 3.5),
+    fontWeight: 600,
+    '&:hover': {
+      borderColor: '#ffffff',
+      backgroundColor: 'rgba(255,255,255,0.1)',
+      transform: 'translateY(-2px)',
+    },
+  },
+  stats: {
+    display: 'flex',
+    justifyContent: 'center',
+    gap: theme.spacing(4),
+    flexWrap: 'wrap',
+    marginTop: theme.spacing(4),
+    paddingTop: theme.spacing(4),
+    borderTop: '1px solid rgba(255,255,255,0.24)',
   },
   statValue: {
-    fontWeight: 800,
-    fontSize: '1.6rem',
-    lineHeight: 1,
+    fontSize: 28,
+    fontWeight: 700,
+    textAlign: 'center',
   },
   statLabel: {
-    fontSize: '0.75rem',
-    opacity: 0.8,
-    marginTop: 4,
+    fontSize: 13,
+    opacity: 0.9,
+    textAlign: 'center',
+  },
+  contentWrap: {
+    paddingTop: theme.spacing(4),
+  },
+  searchField: {
+    maxWidth: 800,
+    '& .MuiOutlinedInput-root': {
+      borderRadius: 8,
+      background: '#ffffff',
+      boxShadow: '0 2px 8px rgba(0,0,0,0.05)',
+    },
+  },
+  sectionTitle: {
+    fontSize: 24,
+    fontWeight: 700,
+    color: '#1a1a1a',
+    marginTop: theme.spacing(5),
+    marginBottom: theme.spacing(3),
   },
   horizonCard: {
-    borderRadius: 16,
+    border: '1px solid #e8e8e8',
+    borderRadius: 12,
+    overflow: 'hidden',
     height: '100%',
-    transition: 'transform 0.2s, box-shadow 0.2s',
+    transition: 'all 0.3s ease',
     '&:hover': {
+      boxShadow: '0 8px 24px rgba(0,0,0,0.08)',
       transform: 'translateY(-4px)',
-      boxShadow: '0 8px 30px rgba(0,0,0,0.12)',
     },
   },
   horizonHeader: {
     padding: theme.spacing(3),
-    color: '#fff',
-    borderRadius: '16px 16px 0 0',
-    display: 'flex',
-    alignItems: 'center',
-    gap: theme.spacing(1.5),
+    color: '#ffffff',
+    fontWeight: 600,
   },
-  horizonIcon: {
-    width: 44,
-    height: 44,
+  foundation: { background: 'linear-gradient(135deg, #00A4EF 0%, #0088d0 100%)' },
+  enhancement: { background: 'linear-gradient(135deg, #7FBA00 0%, #6aa500 100%)' },
+  innovation: { background: 'linear-gradient(135deg, #FFB900 0%, #ff9d00 100%)' },
+  horizonItems: {
+    padding: theme.spacing(2.5, 3),
+    display: 'flex',
+    flexDirection: 'column',
+    gap: theme.spacing(1.2),
+  },
+  horizonItem: {
+    fontSize: 13,
+    color: '#666666',
+    background: '#f8f8f8',
+    borderRadius: 6,
+    padding: theme.spacing(1.2, 1.5),
+  },
+  quickCard: {
+    border: '1px solid #e8e8e8',
     borderRadius: 12,
-    backgroundColor: 'rgba(255,255,255,0.2)',
+    borderLeft: '4px solid #00A4EF',
+    height: '100%',
+    transition: 'all 0.3s ease',
+    '&:hover': {
+      boxShadow: '0 8px 24px rgba(0,0,0,0.08)',
+      transform: 'translateY(-4px)',
+    },
+  },
+  quickCardGreen: { borderLeftColor: '#7FBA00' },
+  quickCardYellow: { borderLeftColor: '#FFB900' },
+  quickCardRed: { borderLeftColor: '#F25022' },
+  quickIcon: {
+    marginBottom: theme.spacing(1.2),
+    color: '#3a3a3a',
+  },
+  quickTitle: {
+    fontSize: 15,
+    fontWeight: 600,
+    marginBottom: theme.spacing(0.8),
+  },
+  quickDesc: {
+    fontSize: 12,
+    color: '#888888',
+  },
+  templatesRow: {
     display: 'flex',
-    alignItems: 'center',
+    overflowX: 'auto',
+    gap: theme.spacing(2),
+    paddingBottom: theme.spacing(1),
+  },
+  templateCard: {
+    minWidth: 200,
+    border: '1px solid #e8e8e8',
+    borderRadius: 8,
+    textAlign: 'center',
+    transition: 'all 0.3s ease',
+    '&:hover': {
+      boxShadow: '0 8px 24px rgba(0,0,0,0.08)',
+      transform: 'translateY(-4px)',
+    },
+  },
+  templateIcon: {
+    fontSize: 30,
+    marginBottom: theme.spacing(1),
+  },
+  activityFeed: {
+    border: '1px solid #e8e8e8',
+    borderRadius: 12,
+    padding: theme.spacing(3),
+    marginBottom: theme.spacing(6),
+  },
+  activityItem: {
+    display: 'flex',
+    gap: theme.spacing(2),
+    padding: theme.spacing(2, 0),
+    borderBottom: '1px solid #f0f0f0',
+    '&:last-child': {
+      borderBottom: 'none',
+    },
+  },
+  avatar: {
+    width: 40,
+    height: 40,
+    borderRadius: '50%',
+    background: 'linear-gradient(135deg, #00A4EF 0%, #7FBA00 100%)',
+    flexShrink: 0,
+  },
+  footer: {
+    marginTop: theme.spacing(2),
+    borderTop: '1px solid #e8e8e8',
+    background: '#f5f5f5',
+    borderRadius: 8,
+    padding: theme.spacing(3),
+    textAlign: 'center',
+    color: '#999999',
+    fontSize: 13,
+  },
+  footerLinks: {
+    display: 'flex',
     justifyContent: 'center',
+    gap: theme.spacing(3),
+    marginBottom: theme.spacing(1.5),
+    flexWrap: 'wrap',
   },
-  horizonTag: {
-    fontSize: '0.65rem',
-    fontWeight: 700,
-    letterSpacing: 1.5,
-    textTransform: 'uppercase' as const,
-    opacity: 0.8,
+  footerLink: {
+    color: '#666666',
+    fontSize: 13,
+    '&:hover': {
+      color: '#00A4EF',
+      textDecoration: 'none',
+    },
   },
-  horizonTitle: {
-    fontWeight: 700,
-    fontSize: '1.1rem',
+  '@global': {
+    '::-webkit-scrollbar': {
+      width: 8,
+      height: 8,
+    },
+    '::-webkit-scrollbar-thumb': {
+      background: '#d0d0d0',
+      borderRadius: 4,
+    },
   },
-  horizonBody: {
-    padding: theme.spacing(2, 3, 3),
-  },
-  horizonFeature: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: theme.spacing(1),
-    padding: theme.spacing(0.6, 0),
-    color: theme.palette.text.secondary,
-    fontSize: '0.85rem',
-  },
-  horizonFeatureIcon: {
-    fontSize: 16,
-    color: theme.palette.primary.main,
-  },
-  sectionTitle: {
-    fontWeight: 700,
-    fontSize: '1.15rem',
-    marginBottom: theme.spacing(2),
-    display: 'flex',
-    alignItems: 'center',
-    gap: theme.spacing(1),
-  },
-  h1Gradient: { background: 'linear-gradient(135deg, #005A9E, #0078D4)' },
-  h2Gradient: { background: 'linear-gradient(135deg, #0078D4, #00B7C3)' },
-  h3Gradient: { background: 'linear-gradient(135deg, #5C2D91, #B4009E)' },
 }));
+
+const MicrosoftSquares = () => (
+  <svg viewBox="0 0 23 23" width="40" height="40" aria-hidden>
+    <rect x="1" y="1" width="10" height="10" fill="#FFFFFF" />
+    <rect x="12" y="1" width="10" height="10" fill="#FFFFFF" />
+    <rect x="1" y="12" width="10" height="10" fill="#FFFFFF" />
+    <rect x="12" y="12" width="10" height="10" fill="#FFFFFF" />
+  </svg>
+);
 
 const HomePage = () => {
   const classes = useStyles();
 
+  const quickAccessItems = [
+    {
+      title: 'Software Catalog',
+      desc: 'Discover all services and components',
+      icon: <CategoryIcon className={classes.quickIcon} />,
+      to: '/catalog',
+      extraClass: '',
+    },
+    {
+      title: 'Software Templates',
+      desc: 'Golden paths and starter projects',
+      icon: <ExtensionIcon className={classes.quickIcon} />,
+      to: '/create',
+      extraClass: classes.quickCardGreen,
+    },
+    {
+      title: 'API Explorer',
+      desc: 'Browse and test APIs',
+      icon: <LanguageIcon className={classes.quickIcon} />,
+      to: '/api-docs',
+      extraClass: classes.quickCardYellow,
+    },
+    {
+      title: 'TechDocs',
+      desc: 'Technical documentation hub',
+      icon: <DescriptionIcon className={classes.quickIcon} />,
+      to: '/docs',
+      extraClass: classes.quickCardRed,
+    },
+    {
+      title: 'GitHub Organization',
+      desc: 'Open organization repositories and workflows',
+      icon: <MemoryIcon className={classes.quickIcon} />,
+      href: 'https://github.com/paulanunes85',
+      extraClass: '',
+    },
+    {
+      title: 'Azure Portal',
+      desc: 'Open Azure resources and platform services',
+      icon: <AutorenewIcon className={classes.quickIcon} />,
+      href: 'https://portal.azure.com/',
+      extraClass: classes.quickCardGreen,
+    },
+  ];
+
+  const popularTemplates = [
+    ['Node.js', 'Express backend service', <CloudQueueIcon key="i1" />],
+    ['Python', 'FastAPI microservice', <CloudDoneIcon key="i2" />],
+    ['React', 'Modern web application', <FlashOnIcon key="i3" />],
+    ['.NET', 'C# service', <SecurityIcon key="i4" />],
+    ['Spring Boot', 'Java application', <MergeTypeIcon key="i5" />],
+    ['Terraform', 'Infrastructure as code', <AssessmentIcon key="i6" />],
+  ];
+
   return (
-    <Page themeId="home">
-      <Header title="Open Horizons" subtitle="Agentic DevOps Platform — Powered by Backstage" />
+    <Page themeId="home" className={classes.pageRoot}>
       <Content>
-        {/* Hero Section */}
-        <div className={classes.hero}>
-          <div className={classes.heroDecor} />
-          <div className={classes.heroDecor2} />
-          <Typography className={classes.heroTitle} variant="h3">
-            Your Developer Platform
-          </Typography>
-          <Typography className={classes.heroSub}>
-            Build, deploy, and manage services with Golden Path templates,
-            integrated documentation, and AI-powered developer experiences —
-            all from a single pane of glass.
-          </Typography>
-          <div className={classes.heroCta}>
-            <Button variant="contained" className={`${classes.ctaBtn} ${classes.ctaPrimary}`} href="/create" startIcon={<AddCircleOutlineIcon />}>
-              Create New Service
-            </Button>
-            <Button variant="outlined" className={`${classes.ctaBtn} ${classes.ctaSecondary}`} href="/catalog">
-              Explore Catalog
-            </Button>
-          </div>
-          <img className={classes.heroLogo} src={logoWhite} alt="Microsoft + GitHub" />
-          <div className={classes.statsRow}>
-            <div className={classes.stat}>
-              <Typography className={classes.statValue}>22</Typography>
-              <Typography className={classes.statLabel}>Templates</Typography>
+        <Box className={classes.hero}>
+          <div className={classes.heroContent}>
+            <div className={classes.heroBrand}>
+              <MicrosoftSquares />
+              <div className={classes.heroGithubBadge}>GH</div>
             </div>
-            <div className={classes.stat}>
-              <Typography className={classes.statValue}>3</Typography>
-              <Typography className={classes.statLabel}>Horizons</Typography>
-            </div>
-            <div className={classes.stat}>
-              <Typography className={classes.statValue}>13</Typography>
-              <Typography className={classes.statLabel}>Portal Pages</Typography>
-            </div>
-            <div className={classes.stat}>
-              <Typography className={classes.statValue}>99.9%</Typography>
-              <Typography className={classes.statLabel}>Uptime</Typography>
-            </div>
-          </div>
-        </div>
 
-        <Grid container spacing={3}>
-          {/* Three Horizons Cards */}
-          <Grid item xs={12}>
-            <Typography className={classes.sectionTitle}>
-              <BubbleChartIcon color="primary" /> The Three Horizons
+            <Typography component="h1" className={classes.heroTitle}>
+              Open Horizons
             </Typography>
-          </Grid>
-
-          <Grid item xs={12} md={4}>
-            <Card className={classes.horizonCard} variant="outlined">
-              <CardActionArea href="/catalog?filters[kind]=component&filters[user]=all">
-                <div className={`${classes.horizonHeader} ${classes.h1Gradient}`}>
-                  <div className={classes.horizonIcon}><StorageIcon /></div>
-                  <div>
-                    <Typography className={classes.horizonTag}>HORIZON 1</Typography>
-                    <Typography className={classes.horizonTitle}>Foundation</Typography>
-                  </div>
-                </div>
-                <CardContent className={classes.horizonBody}>
-                  <Typography variant="body2" color="textSecondary" gutterBottom>
-                    Core infrastructure and CI/CD foundations for everything you build.
-                  </Typography>
-                  <div className={classes.horizonFeature}><SecurityIcon className={classes.horizonFeatureIcon} /> AKS clusters & networking</div>
-                  <div className={classes.horizonFeature}><CodeIcon className={classes.horizonFeatureIcon} /> CI/CD pipelines & security scanning</div>
-                  <div className={classes.horizonFeature}><CloudIcon className={classes.horizonFeatureIcon} /> Infrastructure as Code (Terraform)</div>
-                  <div className={classes.horizonFeature}><SettingsEthernetIcon className={classes.horizonFeatureIcon} /> Identity & secrets management</div>
-                  <Box mt={1.5} display="flex" alignItems="center" style={{ color: '#0078D4', fontWeight: 600, fontSize: '0.85rem' }}>
-                    6 templates <ArrowForwardIcon style={{ fontSize: 16, marginLeft: 4 }} />
-                  </Box>
-                </CardContent>
-              </CardActionArea>
-            </Card>
-          </Grid>
-
-          <Grid item xs={12} md={4}>
-            <Card className={classes.horizonCard} variant="outlined">
-              <CardActionArea href="/create">
-                <div className={`${classes.horizonHeader} ${classes.h2Gradient}`}>
-                  <div className={classes.horizonIcon}><BuildIcon /></div>
-                  <div>
-                    <Typography className={classes.horizonTag}>HORIZON 2</Typography>
-                    <Typography className={classes.horizonTitle}>Enhancement</Typography>
-                  </div>
-                </div>
-                <CardContent className={classes.horizonBody}>
-                  <Typography variant="body2" color="textSecondary" gutterBottom>
-                    Platform services, GitOps, microservices, and developer experience.
-                  </Typography>
-                  <div className={classes.horizonFeature}><AutorenewIcon className={classes.horizonFeatureIcon} /> ArgoCD GitOps deployments</div>
-                  <div className={classes.horizonFeature}><ExtensionIcon className={classes.horizonFeatureIcon} /> API gateways & microservices</div>
-                  <div className={classes.horizonFeature}><TrendingUpIcon className={classes.horizonFeatureIcon} /> Observability & monitoring</div>
-                  <div className={classes.horizonFeature}><MenuBookIcon className={classes.horizonFeatureIcon} /> Golden Path templates</div>
-                  <Box mt={1.5} display="flex" alignItems="center" style={{ color: '#00B7C3', fontWeight: 600, fontSize: '0.85rem' }}>
-                    9 templates <ArrowForwardIcon style={{ fontSize: 16, marginLeft: 4 }} />
-                  </Box>
-                </CardContent>
-              </CardActionArea>
-            </Card>
-          </Grid>
-
-          <Grid item xs={12} md={4}>
-            <Card className={classes.horizonCard} variant="outlined">
-              <CardActionArea href="/create">
-                <div className={`${classes.horizonHeader} ${classes.h3Gradient}`}>
-                  <div className={classes.horizonIcon}><EmojiObjectsIcon /></div>
-                  <div>
-                    <Typography className={classes.horizonTag}>HORIZON 3</Typography>
-                    <Typography className={classes.horizonTitle}>Innovation</Typography>
-                  </div>
-                </div>
-                <CardContent className={classes.horizonBody}>
-                  <Typography variant="body2" color="textSecondary" gutterBottom>
-                    AI capabilities, intelligent agents, and next-gen workflows.
-                  </Typography>
-                  <div className={classes.horizonFeature}><BubbleChartIcon className={classes.horizonFeatureIcon} /> Azure AI Foundry agents</div>
-                  <div className={classes.horizonFeature}><CategoryIcon className={classes.horizonFeatureIcon} /> RAG applications</div>
-                  <div className={classes.horizonFeature}><AssessmentIcon className={classes.horizonFeatureIcon} /> MLOps & evaluation pipelines</div>
-                  <div className={classes.horizonFeature}><FavoriteIcon className={classes.horizonFeatureIcon} /> Multi-agent systems</div>
-                  <Box mt={1.5} display="flex" alignItems="center" style={{ color: '#B4009E', fontWeight: 600, fontSize: '0.85rem' }}>
-                    7 templates <ArrowForwardIcon style={{ fontSize: 16, marginLeft: 4 }} />
-                  </Box>
-                </CardContent>
-              </CardActionArea>
-            </Card>
-          </Grid>
-
-          {/* Quick Actions & Starred */}
-          <Grid item xs={12}>
-            <Typography className={classes.sectionTitle} style={{ marginTop: 8 }}>
-              <TrendingUpIcon color="primary" /> Quick Access
+            <Typography className={classes.heroSubtitle}>Agentic DevOps Platform</Typography>
+            <Typography className={classes.heroDesc}>
+              Build, deploy, and manage services with Golden Path templates, integrated
+              documentation, and AI-powered developer experiences.
             </Typography>
+
+            <div className={classes.heroButtons}>
+              <Button
+                component={RouterLink}
+                to="/create"
+                className={classes.createBtn}
+                variant="contained"
+                startIcon={<AddCircleOutlineIcon />}
+              >
+                Create New Service
+              </Button>
+              <Button
+                component={RouterLink}
+                to="/catalog"
+                className={classes.catalogBtn}
+                variant="outlined"
+                endIcon={<ArrowForwardIcon />}
+              >
+                Explore Catalog
+              </Button>
+            </div>
+
+            <div className={classes.stats}>
+              <div>
+                <div className={classes.statValue}>22</div>
+                <div className={classes.statLabel}>Templates</div>
+              </div>
+              <div>
+                <div className={classes.statValue}>3</div>
+                <div className={classes.statLabel}>Horizons</div>
+              </div>
+              <div>
+                <div className={classes.statValue}>13</div>
+                <div className={classes.statLabel}>Portal Pages</div>
+              </div>
+              <div>
+                <div className={classes.statValue}>99.9%</div>
+                <div className={classes.statLabel}>Uptime</div>
+              </div>
+            </div>
+          </div>
+        </Box>
+
+        <Box className={classes.contentWrap}>
+          <TextField
+            placeholder="Search components, APIs, templates, documentation..."
+            variant="outlined"
+            fullWidth
+            className={classes.searchField}
+          />
+
+          <Typography className={classes.sectionTitle}>The Three Horizons</Typography>
+          <Grid container spacing={3}>
+            <Grid item xs={12} md={4}>
+              <Card className={classes.horizonCard}>
+                <div className={`${classes.horizonHeader} ${classes.foundation}`}>
+                  <Typography variant="h6">Foundation</Typography>
+                  <Typography variant="body2">Core infrastructure and CI/CD foundations</Typography>
+                </div>
+                <div className={classes.horizonItems}>
+                  <div className={classes.horizonItem}>AKS Clusters</div>
+                  <div className={classes.horizonItem}>ACR Registry</div>
+                  <div className={classes.horizonItem}>Key Vault</div>
+                  <div className={classes.horizonItem}>GitHub Actions</div>
+                </div>
+              </Card>
+            </Grid>
+            <Grid item xs={12} md={4}>
+              <Card className={classes.horizonCard}>
+                <div className={`${classes.horizonHeader} ${classes.enhancement}`}>
+                  <Typography variant="h6">Enhancement</Typography>
+                  <Typography variant="body2">Platform services, GitOps, microservices</Typography>
+                </div>
+                <div className={classes.horizonItems}>
+                  <div className={classes.horizonItem}>Service Mesh</div>
+                  <div className={classes.horizonItem}>Helm Charts</div>
+                  <div className={classes.horizonItem}>ArgoCD</div>
+                  <div className={classes.horizonItem}>TechDocs</div>
+                </div>
+              </Card>
+            </Grid>
+            <Grid item xs={12} md={4}>
+              <Card className={classes.horizonCard}>
+                <div className={`${classes.horizonHeader} ${classes.innovation}`}>
+                  <Typography variant="h6">Innovation</Typography>
+                  <Typography variant="body2">AI capabilities, intelligent agents</Typography>
+                </div>
+                <div className={classes.horizonItems}>
+                  <div className={classes.horizonItem}>MCP Servers</div>
+                  <div className={classes.horizonItem}>Copilot</div>
+                  <div className={classes.horizonItem}>AI Foundry</div>
+                  <div className={classes.horizonItem}>Coding Agent</div>
+                </div>
+              </Card>
+            </Grid>
           </Grid>
 
-          <Grid item xs={12} md={6}>
-            <HomePageToolkit
-              title="Quick Actions"
-              tools={[
-                { url: '/create', label: 'Create', icon: <AddCircleOutlineIcon /> },
-                { url: '/catalog', label: 'Catalog', icon: <CategoryIcon /> },
-                { url: '/api-docs', label: 'APIs', icon: <ExtensionIcon /> },
-                { url: '/docs', label: 'Docs', icon: <MenuBookIcon /> },
-                { url: '/copilot-metrics', label: 'Copilot', icon: <AssessmentIcon /> },
-                { url: '/platform-status', label: 'Status', icon: <FavoriteIcon /> },
-                { url: '/catalog-graph', label: 'Graph', icon: <TrendingUpIcon /> },
-                { url: '/learning', label: 'Learn', icon: <CodeIcon /> },
-              ]}
-            />
+          <Typography className={classes.sectionTitle}>Quick Access</Typography>
+          <Grid container spacing={3}>
+            {quickAccessItems.map(item => (
+              <Grid item xs={12} sm={6} md={4} key={item.title}>
+                <Card className={`${classes.quickCard} ${item.extraClass}`}>
+                  {item.to ? (
+                    <CardActionArea component={RouterLink} to={item.to}>
+                      <CardContent>
+                        {item.icon}
+                        <Typography className={classes.quickTitle}>{item.title}</Typography>
+                        <Typography className={classes.quickDesc}>{item.desc}</Typography>
+                      </CardContent>
+                    </CardActionArea>
+                  ) : (
+                    <CardActionArea component="a" href={item.href} target="_blank" rel="noopener noreferrer">
+                      <CardContent>
+                        {item.icon}
+                        <Typography className={classes.quickTitle}>
+                          {item.title} <OpenInNewIcon style={{ fontSize: 14, verticalAlign: 'middle' }} />
+                        </Typography>
+                        <Typography className={classes.quickDesc}>{item.desc}</Typography>
+                      </CardContent>
+                    </CardActionArea>
+                  )}
+                </Card>
+              </Grid>
+            ))}
           </Grid>
 
-          <Grid item xs={12} md={6}>
-            <HomePageStarredEntities />
-          </Grid>
-        </Grid>
+          <Typography className={classes.sectionTitle}>Popular Templates</Typography>
+          <div className={classes.templatesRow}>
+            {popularTemplates.map(([name, desc, icon]) => (
+              <Card key={name as string} className={classes.templateCard}>
+                <CardActionArea component={RouterLink} to="/create">
+                  <CardContent>
+                    <div className={classes.templateIcon}>{icon}</div>
+                    <Typography variant="subtitle1">{name}</Typography>
+                    <Typography variant="body2" color="textSecondary">
+                      {desc}
+                    </Typography>
+                  </CardContent>
+                </CardActionArea>
+              </Card>
+            ))}
+          </div>
+
+          <Typography className={classes.sectionTitle}>Recent Activity</Typography>
+          <div className={classes.activityFeed}>
+            {[
+              ['New service deployed', 'payment-service v2.1.0 deployed to production', '2 hours ago'],
+              ['Template updated', 'Node.js template now includes OpenTelemetry', '4 hours ago'],
+              ['Documentation published', 'Kubernetes migration guide published in TechDocs', '1 day ago'],
+              ['New API available', 'Analytics API v1.0 is now available in API Explorer', '2 days ago'],
+            ].map(([title, message, time]) => (
+              <div key={title as string} className={classes.activityItem}>
+                <div className={classes.avatar} />
+                <div>
+                  <Typography variant="subtitle2">{title}</Typography>
+                  <Typography variant="body2" color="textSecondary">
+                    {message}
+                  </Typography>
+                  <Typography variant="caption" color="textSecondary">
+                    {time}
+                  </Typography>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className={classes.footer}>
+            <div className={classes.footerLinks}>
+              <MuiLink component={RouterLink} to="/docs" className={classes.footerLink}>Documentation</MuiLink>
+              <MuiLink component={RouterLink} to="/catalog" className={classes.footerLink}>Catalog</MuiLink>
+              <MuiLink component={RouterLink} to="/api-docs" className={classes.footerLink}>APIs</MuiLink>
+              <MuiLink component={RouterLink} to="/platform-status" className={classes.footerLink}>Status</MuiLink>
+            </div>
+            <Typography variant="body2">Microsoft · GitHub · Open Source · Open Horizons Developer Portal</Typography>
+          </div>
+        </Box>
       </Content>
     </Page>
   );

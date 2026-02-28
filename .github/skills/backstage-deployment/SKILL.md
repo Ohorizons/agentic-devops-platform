@@ -9,11 +9,62 @@ Deploys the upstream open-source Backstage developer portal on Azure AKS or loca
 | Aspect | Detail |
 |--------|--------|
 | **Platform** | Azure AKS (production) or Docker Desktop + kind (local) |
-| **Region** | Central US (`centralus`) or East US (`eastus`) only |
-| **Image** | Custom-built from `backstage/` directory |
+| **Region** | East US 2 (`eastus2`) — PostgreSQL in Central US (`centralus`) |
+| **Image** | Custom-built from `backstage/` directory, stored in ACR |
 | **Auth** | GitHub OAuth + Guest (dev only) |
 | **Catalog** | H1 Foundation + H2 Enhancement Golden Paths pre-loaded |
 | **Used by** | `@backstage-expert`, `@deploy`, `@platform` |
+
+---
+
+## Azure MVP Deployment (`rg-backstage-demo`)
+
+### Resources
+
+| Resource | Name | Type | Location |
+|----------|------|------|----------|
+| AKS | `aks-backstage-demo` | 2x Standard_B2s | eastus2 |
+| ACR | `acrbackstagedemo` | Basic | eastus2 |
+| Key Vault | `kv-backstage-demo` | RBAC-enabled | eastus2 |
+| PostgreSQL | `pgbackstagedemo` | Flexible B1ms v16 | centralus |
+| Redis | `redis-backstage-demo` | Azure Managed B0 | eastus2 |
+| AI Services | `ai-backstage-demo` | S0 (GPT-4o + Embeddings) | eastus2 |
+| Log Analytics | `law-backstage-demo` | PerGB2018 | eastus2 |
+| App Insights | `appi-backstage-demo` | Application Insights | eastus2 |
+| Managed Prometheus | `prometheus-backstage-demo` | Azure Monitor Workspace | eastus2 |
+| Managed Grafana | `grafana-backstage-demo` | Standard tier | eastus2 |
+| Monitor | Container Insights + Metrics | Enabled on AKS | eastus2 |
+| Defender | Containers + KV + OSS DB | Standard tier | subscription |
+| Action Group | `ag-backstage-sre` | Webhook → GitHub | eastus2 |
+| Metric Alerts | CPU > 85%, Memory > 85% | Severity 2 | global |
+
+### Service Principal
+
+| Name | Roles |
+|------|-------|
+| `sp-backstage-demo` | Contributor (RG), KV Secrets User, AI OpenAI User |
+
+### Kubernetes Components
+
+| Horizon | Namespace | Component |
+|---------|-----------|-----------|
+| H1 | `ingress-nginx` | NGINX Ingress + Azure LB |
+| H1 | `cert-manager` | cert-manager v1.14 |
+| H1 | `gatekeeper-system` | OPA Gatekeeper v3.14 |
+| H1 | `external-secrets` | ESO v2.0 → Key Vault |
+| H2 | `argocd` | ArgoCD v2.10 |
+| H2 | `monitoring` | Prometheus + Grafana + Alertmanager |
+| H2 | `backstage` | Backstage (custom ACR image v1.0.0) |
+
+### External URLs
+
+| Service | URL |
+|---------|-----|
+| Backstage | `http://backstage.<LB-IP>.sslip.io` |
+| ArgoCD | `http://argocd.<LB-IP>.sslip.io` |
+| Grafana | `http://grafana.<LB-IP>.sslip.io` |
+| Prometheus | `http://prometheus.<LB-IP>.sslip.io` |
+| Alertmanager | `http://alertmanager.<LB-IP>.sslip.io` |
 
 ---
 
@@ -43,66 +94,15 @@ az provider register -n Microsoft.Storage
 
 ---
 
-## 2. Local Deployment (Docker Desktop)
-
-### Quick Start
-```bash
-# Set portal type
-export PORTAL_TYPE="backstage"
-
-# Deploy full platform on kind
-make -C local up
-
-# Access portal
-make -C local portal   # http://localhost:7007
-```
-
-### Custom Image Build
-```bash
-cd backstage
-
-# Install dependencies
-yarn install
-
-# Build backend
-yarn tsc && yarn build:backend
-
-# Build Docker image
-docker build -t <portal-name>-backstage:local -f packages/backend/Dockerfile .
-
-# Load into kind
-kind load docker-image <portal-name>-backstage:local --name three-horizons-demo
-```
-
 ### Configuration Files
 | File | Purpose |
 |------|---------|
 | `backstage/app-config.yaml` | Development config |
 | `backstage/app-config.production.yaml` | Production config (baked into image) |
-| `local/values/backstage-local.yaml` | Helm values for local deployment |
-| `local/config/local.env` | Environment variables |
-
-### Key Helm Values (`local/values/backstage-local.yaml`)
-```yaml
-backstage:
-  image:
-    repository: <portal-name>-backstage
-    tag: local
-    pullPolicy: Never
-  command: ["node", "packages/backend", "--config", "app-config.yaml", "--config", "app-config.production.yaml"]
-  extraEnvVars:
-    - name: POSTGRES_HOST
-      value: "postgresql.databases.svc.cluster.local"
-    - name: GITHUB_APP_CLIENT_ID
-      valueFrom:
-        secretKeyRef:
-          name: paulasilvatech-backstage-github-app
-          key: client-id
-```
 
 ---
 
-## 3. Azure AKS Deployment
+## 2. Azure AKS Deployment
 
 ### Terraform
 ```bash

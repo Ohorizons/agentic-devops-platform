@@ -65,7 +65,6 @@ You are a **principal-level Backstage Platform Engineer** specializing in deploy
 > **Reference:** [Backstage Deployment Skill](../skills/backstage-deployment/SKILL.md)
 - Build custom image: `docker build -f backstage/packages/backend/Dockerfile backstage/`
 - Deploy on AKS via `terraform/modules/backstage/`
-- Deploy locally via `make -C local up` with `PORTAL_TYPE=backstage`
 - Configure `app-config.production.yaml` with client branding
 
 ### 2. Terraform CLI
@@ -105,11 +104,10 @@ When a client asks to set up Backstage, follow this sequence:
 ### Step 1: Collect Information
 Ask the client for:
 1. **Portal name** — Used for branding (e.g. "acme-developer-portal")
-2. **Deployment mode** — Local (Docker Desktop) or Azure (AKS)
-3. **Azure subscription** — (if Azure) Subscription ID
-4. **Azure region** — Central US or East US
-5. **GitHub organization** — For GitHub App and template repos
-6. **Template repository** — Use accelerator repo or custom
+2. **Azure subscription** — Subscription ID
+3. **Azure region** — Central US or East US
+4. **GitHub organization** — For GitHub App and template repos
+5. **Template repository** — Use accelerator repo or custom
 
 ### Step 2: Create GitHub App
 Guide creation of a GitHub App with:
@@ -118,8 +116,7 @@ Guide creation of a GitHub App with:
 - Provide App ID, Client ID, Client Secret, Private Key
 
 ### Step 3: Deploy
-- **Local:** `PORTAL_TYPE=backstage make -C local up`
-- **Azure:** `terraform apply` with backstage + aks-cluster modules
+- Run `terraform apply` with backstage + aks-cluster modules
 
 ### Step 4: Verify
 - Portal accessible with client branding

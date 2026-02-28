@@ -5,6 +5,11 @@ import {
   shapes,
 } from '@backstage/theme';
 
+const unifiedPageHeaderTemplate = () => ({
+  colors: ['#005A9E', '#00A4EF'],
+  shape: shapes.wave2,
+});
+
 export const microsoftLightTheme = createUnifiedTheme({
   palette: {
     ...palettes.light,
@@ -17,53 +22,26 @@ export const microsoftLightTheme = createUnifiedTheme({
       main: '#00B7C3',
     },
     navigation: {
-      background: '#1B1B1F',
+      background: '#FFFFFF',
       indicator: '#0078D4',
-      color: '#FFFFFF',
-      selectedColor: '#50E6FF',
+      color: '#666666',
+      selectedColor: '#00A4EF',
       navItem: {
-        hoverBackground: '#2D2D30',
+        hoverBackground: '#F5F5F5',
       },
     },
   },
   defaultPageTheme: 'home',
   pageTheme: {
-    home: genPageTheme({
-      colors: ['#0078D4', '#005A9E'],
-      shape: shapes.wave,
-    }),
-    documentation: genPageTheme({
-      colors: ['#00B7C3', '#006C6E'],
-      shape: shapes.wave2,
-    }),
-    tool: genPageTheme({
-      colors: ['#0078D4', '#00B7C3'],
-      shape: shapes.round,
-    }),
-    service: genPageTheme({
-      colors: ['#005A9E', '#0078D4'],
-      shape: shapes.wave,
-    }),
-    website: genPageTheme({
-      colors: ['#00B7C3', '#0078D4'],
-      shape: shapes.wave,
-    }),
-    library: genPageTheme({
-      colors: ['#005A9E', '#0078D4'],
-      shape: shapes.wave,
-    }),
-    other: genPageTheme({
-      colors: ['#0078D4', '#005A9E'],
-      shape: shapes.wave,
-    }),
-    app: genPageTheme({
-      colors: ['#0078D4', '#00B7C3'],
-      shape: shapes.wave,
-    }),
-    apis: genPageTheme({
-      colors: ['#005A9E', '#00B7C3'],
-      shape: shapes.wave2,
-    }),
+    home: genPageTheme(unifiedPageHeaderTemplate()),
+    documentation: genPageTheme(unifiedPageHeaderTemplate()),
+    tool: genPageTheme(unifiedPageHeaderTemplate()),
+    service: genPageTheme(unifiedPageHeaderTemplate()),
+    website: genPageTheme(unifiedPageHeaderTemplate()),
+    library: genPageTheme(unifiedPageHeaderTemplate()),
+    other: genPageTheme(unifiedPageHeaderTemplate()),
+    app: genPageTheme(unifiedPageHeaderTemplate()),
+    apis: genPageTheme(unifiedPageHeaderTemplate()),
   },
 });
 
@@ -79,52 +57,25 @@ export const microsoftDarkTheme = createUnifiedTheme({
       main: '#00B7C3',
     },
     navigation: {
-      background: '#1B1B1F',
-      indicator: '#50E6FF',
-      color: '#FFFFFF',
-      selectedColor: '#50E6FF',
+      background: '#FFFFFF',
+      indicator: '#0078D4',
+      color: '#666666',
+      selectedColor: '#00A4EF',
       navItem: {
-        hoverBackground: '#2D2D30',
+        hoverBackground: '#F5F5F5',
       },
     },
   },
   defaultPageTheme: 'home',
   pageTheme: {
-    home: genPageTheme({
-      colors: ['#0078D4', '#005A9E'],
-      shape: shapes.wave,
-    }),
-    documentation: genPageTheme({
-      colors: ['#00B7C3', '#006C6E'],
-      shape: shapes.wave2,
-    }),
-    tool: genPageTheme({
-      colors: ['#0078D4', '#00B7C3'],
-      shape: shapes.round,
-    }),
-    service: genPageTheme({
-      colors: ['#005A9E', '#0078D4'],
-      shape: shapes.wave,
-    }),
-    website: genPageTheme({
-      colors: ['#00B7C3', '#0078D4'],
-      shape: shapes.wave,
-    }),
-    library: genPageTheme({
-      colors: ['#005A9E', '#0078D4'],
-      shape: shapes.wave,
-    }),
-    other: genPageTheme({
-      colors: ['#0078D4', '#005A9E'],
-      shape: shapes.wave,
-    }),
-    app: genPageTheme({
-      colors: ['#0078D4', '#00B7C3'],
-      shape: shapes.wave,
-    }),
-    apis: genPageTheme({
-      colors: ['#005A9E', '#00B7C3'],
-      shape: shapes.wave2,
-    }),
+    home: genPageTheme(unifiedPageHeaderTemplate()),
+    documentation: genPageTheme(unifiedPageHeaderTemplate()),
+    tool: genPageTheme(unifiedPageHeaderTemplate()),
+    service: genPageTheme(unifiedPageHeaderTemplate()),
+    website: genPageTheme(unifiedPageHeaderTemplate()),
+    library: genPageTheme(unifiedPageHeaderTemplate()),
+    other: genPageTheme(unifiedPageHeaderTemplate()),
+    app: genPageTheme(unifiedPageHeaderTemplate()),
+    apis: genPageTheme(unifiedPageHeaderTemplate()),
   },
 });

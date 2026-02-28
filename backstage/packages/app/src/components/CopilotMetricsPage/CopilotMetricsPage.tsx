@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Content, Header, Page, InfoCard } from '@backstage/core-components';
+import { InfoCard } from '@backstage/core-components';
 import {
   Grid,
   makeStyles,
@@ -19,7 +19,8 @@ import TimerIcon from '@material-ui/icons/Timer';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import MergeTypeIcon from '@material-ui/icons/MergeType';
 import RateReviewIcon from '@material-ui/icons/RateReview';
-import { useApi, configApiRef, identityApiRef } from '@backstage/core-plugin-api';
+import { useApi, githubAuthApiRef, identityApiRef } from '@backstage/core-plugin-api';
+import { StandardPage } from '../layout/StandardPage';
 
 import copilotLogo from '../../assets/logo-github-copilot.png';
 
@@ -63,7 +64,7 @@ interface DevStats {
 }
 
 function useGitHubProductivity(): { data: DevStats; loading: boolean } {
-  const config = useApi(configApiRef);
+  const githubAuth = useApi(githubAuthApiRef);
   const identityApi = useApi(identityApiRef);
   const [data, setData] = useState<DevStats | null>(null);
   const [loading, setLoading] = useState(true);
@@ -73,16 +74,21 @@ function useGitHubProductivity(): { data: DevStats; loading: boolean } {
       try {
         const { userEntityRef } = await identityApi.getBackstageIdentity();
         const username = userEntityRef.split('/').pop() || 'guest';
-        const backendUrl = config.getString('backend.baseUrl');
-        const proxyBase = `${backendUrl}/api/proxy/github/api`;
+        const accessToken = await githubAuth.getAccessToken(['read:user']);
+        const headers = {
+          Authorization: `Bearer ${accessToken}`,
+          Accept: 'application/vnd.github+json',
+          'X-GitHub-Api-Version': '2022-11-28',
+        };
 
         // Fetch user events (last 100)
-        const eventsRes = await fetch(`${proxyBase}/users/${username}/events?per_page=100`);
+        const eventsRes = await fetch(`https://api.github.com/users/${username}/events?per_page=100`, { headers });
         if (!eventsRes.ok) throw new Error('GitHub API unavailable');
         const events: GitHubEvent[] = await eventsRes.json();
 
         // Fetch user repos
-        const reposRes = await fetch(`${proxyBase}/users/${username}/repos?per_page=100&sort=pushed`);
+        const reposRes = await fetch(`https://api.github.com/users/${username}/repos?per_page=100&sort=pushed`, { headers });
+        if (!reposRes.ok) throw new Error('GitHub repositories unavailable');
         const repos = await reposRes.json();
 
         // Calculate stats from events
@@ -156,7 +162,7 @@ function useGitHubProductivity(): { data: DevStats; loading: boolean } {
       }
     };
     fetchData();
-  }, [config, identityApi]);
+  }, [githubAuth, identityApi]);
 
   return { data: data!, loading };
 }
@@ -200,21 +206,16 @@ const CopilotMetricsPage = () => {
 
   if (loading) {
     return (
-      <Page themeId="tool">
-        <Header title="Developer Productivity" subtitle="Loading your data..." />
-        <Content>
+      <StandardPage title="Developer Productivity" subtitle="Loading your data..." themeId="home">
           <Box display="flex" justifyContent="center" alignItems="center" minHeight={400}>
             <CircularProgress />
           </Box>
-        </Content>
-      </Page>
+      </StandardPage>
     );
   }
 
   return (
-    <Page themeId="tool">
-      <Header title="Developer Productivity & Copilot Metrics" subtitle="Your GitHub activity + AI-powered productivity insights" />
-      <Content>
+    <StandardPage title="Developer Productivity & Copilot Metrics" subtitle="Your GitHub activity + AI-powered productivity insights" themeId="home">
         {/* Header Banner */}
         <div className={classes.headerBanner}>
           <div>
@@ -390,8 +391,7 @@ const CopilotMetricsPage = () => {
             </Grid>
           </Grid>
         </Box>
-      </Content>
-    </Page>
+    </StandardPage>
   );
 };
 
