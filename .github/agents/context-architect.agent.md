@@ -2,46 +2,7 @@
 name: context-architect
 description: "Multi-file change architect — plans and executes coordinated edits across the codebase by mapping context, tracing dependencies, and validating results."
 tools:
-  - vscode/getProjectSetupInfo
-  - vscode/installExtension
-  - vscode/memory
-  - vscode/newWorkspace
-  - vscode/runCommand
-  - vscode/vscodeAPI
-  - vscode/extensions
-  - vscode/askQuestions
-  - execute/runNotebookCell
-  - execute/testFailure
-  - execute/getTerminalOutput
-  - execute/awaitTerminal
-  - execute/killTerminal
-  - execute/createAndRunTask
-  - execute/runInTerminal
-  - execute/runTests
-  - read/getNotebookSummary
-  - read/problems
-  - read/readFile
-  - read/readNotebookCellOutput
-  - read/terminalSelection
-  - read/terminalLastCommand
-  - agent/runSubagent
-  - edit/createDirectory
-  - edit/createFile
-  - edit/createJupyterNotebook
-  - edit/editFiles
-  - edit/editNotebook
-  - edit/rename
-  - search/changes
-  - search/codebase
-  - search/fileSearch
-  - search/listDirectory
-  - search/textSearch
-  - search/searchSubagent
-  - search/usages
-  - web/fetch
-  - web/githubRepo
-  - browser/openBrowserPage
-  - todo
+[vscode/getProjectSetupInfo, vscode/installExtension, vscode/memory, vscode/newWorkspace, vscode/runCommand, vscode/vscodeAPI, vscode/extensions, vscode/askQuestions, execute/runNotebookCell, execute/testFailure, execute/getTerminalOutput, execute/awaitTerminal, execute/killTerminal, execute/createAndRunTask, execute/runInTerminal, execute/runTests, read/getNotebookSummary, read/problems, read/readFile, read/readNotebookCellOutput, read/terminalSelection, read/terminalLastCommand, agent/runSubagent, edit/createDirectory, edit/createFile, edit/createJupyterNotebook, edit/editFiles, edit/editNotebook, edit/rename, search/changes, search/codebase, search/fileSearch, search/listDirectory, search/textSearch, search/searchSubagent, search/usages, web/fetch, web/githubRepo, browser/openBrowserPage, browser/readPage, browser/screenshotPage, browser/navigatePage, browser/clickElement, browser/dragElement, browser/hoverElement, browser/typeInPage, browser/runPlaywrightCode, browser/handleDialog, com.microsoft/azure/acr, com.microsoft/azure/advisor, com.microsoft/azure/aks, com.microsoft/azure/appconfig, com.microsoft/azure/applens, com.microsoft/azure/applicationinsights, com.microsoft/azure/appservice, com.microsoft/azure/azd, com.microsoft/azure/azuremigrate, com.microsoft/azure/azureterraformbestpractices, com.microsoft/azure/bicepschema, com.microsoft/azure/cloudarchitect, com.microsoft/azure/communication, com.microsoft/azure/confidentialledger, com.microsoft/azure/cosmos, com.microsoft/azure/datadog, com.microsoft/azure/deploy, com.microsoft/azure/documentation, com.microsoft/azure/eventgrid, com.microsoft/azure/eventhubs, com.microsoft/azure/extension_azqr, com.microsoft/azure/extension_cli_generate, com.microsoft/azure/extension_cli_install, com.microsoft/azure/fileshares, com.microsoft/azure/foundry, com.microsoft/azure/functionapp, com.microsoft/azure/get_azure_bestpractices, com.microsoft/azure/grafana, com.microsoft/azure/group_list, com.microsoft/azure/keyvault, com.microsoft/azure/kusto, com.microsoft/azure/loadtesting, com.microsoft/azure/managedlustre, com.microsoft/azure/marketplace, com.microsoft/azure/monitor, com.microsoft/azure/mysql, com.microsoft/azure/policy, com.microsoft/azure/postgres, com.microsoft/azure/quota, com.microsoft/azure/redis, com.microsoft/azure/resourcehealth, com.microsoft/azure/role, com.microsoft/azure/search, com.microsoft/azure/servicebus, com.microsoft/azure/signalr, com.microsoft/azure/speech, com.microsoft/azure/sql, com.microsoft/azure/storage, com.microsoft/azure/storagesync, com.microsoft/azure/subscription_list, com.microsoft/azure/virtualdesktop, com.microsoft/azure/workbooks, azure-mcp/acr, azure-mcp/aks, azure-mcp/appconfig, azure-mcp/applens, azure-mcp/applicationinsights, azure-mcp/appservice, azure-mcp/azd, azure-mcp/azureterraformbestpractices, azure-mcp/bicepschema, azure-mcp/cloudarchitect, azure-mcp/communication, azure-mcp/confidentialledger, azure-mcp/cosmos, azure-mcp/datadog, azure-mcp/deploy, azure-mcp/documentation, azure-mcp/eventgrid, azure-mcp/eventhubs, azure-mcp/extension_azqr, azure-mcp/extension_cli_generate, azure-mcp/extension_cli_install, azure-mcp/foundry, azure-mcp/functionapp, azure-mcp/get_bestpractices, azure-mcp/grafana, azure-mcp/group_list, azure-mcp/keyvault, azure-mcp/kusto, azure-mcp/loadtesting, azure-mcp/managedlustre, azure-mcp/marketplace, azure-mcp/monitor, azure-mcp/mysql, azure-mcp/postgres, azure-mcp/quota, azure-mcp/redis, azure-mcp/resourcehealth, azure-mcp/role, azure-mcp/search, azure-mcp/servicebus, azure-mcp/signalr, azure-mcp/speech, azure-mcp/sql, azure-mcp/storage, azure-mcp/subscription_list, azure-mcp/virtualdesktop, azure-mcp/workbooks, todo]
 user-invocable: true
 handoffs:
   - label: "Architecture Design"
