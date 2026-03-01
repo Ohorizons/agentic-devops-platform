@@ -1,4 +1,4 @@
-# Three Horizons Accelerator - Agent Playbook
+# Open Horizons Accelerator - Agent Playbook
 
 > **Version:** 4.0.0
 > **Last Updated:** December 2025

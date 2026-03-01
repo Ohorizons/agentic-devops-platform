@@ -5,7 +5,7 @@ metadata:
   labels:
     app.kubernetes.io/name: ${{ values.name }}
     app.kubernetes.io/managed-by: backstage
-    app.kubernetes.io/part-of: three-horizons
+    app.kubernetes.io/part-of: open-horizons
 spec:
   replicas: ${{ values.minReplicas | default(2) }}
   selector:

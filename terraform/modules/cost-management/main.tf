@@ -1,5 +1,5 @@
 # =============================================================================
-# THREE HORIZONS ACCELERATOR - COST MANAGEMENT MODULE
+# OPEN HORIZONS ACCELERATOR - COST MANAGEMENT MODULE
 # =============================================================================
 #
 # Azure Cost Management configuration including:
@@ -27,7 +27,7 @@ locals {
 
   common_tags = {
     "app.kubernetes.io/managed-by" = "terraform"
-    "platform.three-horizons/tier" = "operations"
+    "platform.open-horizons/tier" = "operations"
     "cost-center"                  = var.cost_center
   }
 }

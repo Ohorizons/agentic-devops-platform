@@ -9,12 +9,12 @@ metadata:
   name: platform-backstage
   namespace: argocd
   labels:
-    app.kubernetes.io/part-of: three-horizons
-    three-horizons/horizon: h2
+    app.kubernetes.io/part-of: open-horizons
+    open-horizons/horizon: h2
 spec:
   project: default
   source:
-    repoURL: https://github.com/paulanunes85/three-horizons-accelerator
+    repoURL: https://github.com/paulanunes85/agentic-devops-platform
     targetRevision: demo
     path: deploy/helm
   destination:
@@ -31,12 +31,12 @@ metadata:
   name: platform-monitoring
   namespace: argocd
   labels:
-    app.kubernetes.io/part-of: three-horizons
-    three-horizons/horizon: h2
+    app.kubernetes.io/part-of: open-horizons
+    open-horizons/horizon: h2
 spec:
   project: default
   source:
-    repoURL: https://github.com/paulanunes85/three-horizons-accelerator
+    repoURL: https://github.com/paulanunes85/agentic-devops-platform
     targetRevision: demo
     path: prometheus
   destination:
@@ -53,12 +53,12 @@ metadata:
   name: platform-argocd-config
   namespace: argocd
   labels:
-    app.kubernetes.io/part-of: three-horizons
-    three-horizons/horizon: h2
+    app.kubernetes.io/part-of: open-horizons
+    open-horizons/horizon: h2
 spec:
   project: default
   source:
-    repoURL: https://github.com/paulanunes85/three-horizons-accelerator
+    repoURL: https://github.com/paulanunes85/agentic-devops-platform
     targetRevision: demo
     path: argocd
   destination:

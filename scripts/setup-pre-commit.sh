@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # =============================================================================
-# THREE HORIZONS ACCELERATOR - PRE-COMMIT SETUP SCRIPT
+# OPEN HORIZONS ACCELERATOR - PRE-COMMIT SETUP SCRIPT
 # =============================================================================
 #
 # This script sets up pre-commit hooks and all required dependencies for
@@ -54,7 +54,7 @@ log_error()   { echo -e "${RED}[ERROR]${NC} $1" >&2; }
 
 show_help() {
     cat << EOF
-Three Horizons Accelerator - Pre-commit Setup
+Open Horizons Accelerator - Pre-commit Setup
 
 Usage:
   ./scripts/setup-pre-commit.sh [OPTIONS]
@@ -375,7 +375,7 @@ main() {
 
     echo ""
     echo "============================================================"
-    echo "  Three Horizons Accelerator - Pre-commit Setup"
+    echo "  Open Horizons Accelerator - Pre-commit Setup"
     echo "============================================================"
     echo ""
 

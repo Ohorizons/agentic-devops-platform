@@ -1,4 +1,4 @@
-# Three Horizons Accelerator - Complete Deployment Guide
+# Open Horizons Accelerator - Complete Deployment Guide
 
 > **Version:** 4.0.0
 > **Last Updated:** December 2025
@@ -31,9 +31,9 @@
 
 ## 1. Introduction
 
-### What is the Three Horizons Accelerator
+### What is the Open Horizons Accelerator
 
-The Three Horizons Accelerator is a **complete platform engineering solution** that helps organizations build and manage cloud-native applications on Azure. Think of it as a "starter kit" that provides everything you need to run modern applications in production.
+The Open Horizons Accelerator is a **complete platform engineering solution** that helps organizations build and manage cloud-native applications on Azure. Think of it as a "starter kit" that provides everything you need to run modern applications in production.
 
 ### What Will You Learn
 
@@ -69,7 +69,7 @@ This guide is designed for:
 
 ## Choose Your Deployment Method
 
-There are **three ways** to deploy the Three Horizons platform. Choose the one that fits your experience level:
+There are **three ways** to deploy the Open Horizons platform. Choose the one that fits your experience level:
 
 ### Option A: Agent-Guided (Easiest — Interactive)
 
@@ -122,11 +122,11 @@ Follow the rest of this guide — 10 detailed steps with copy-paste commands, ex
 
 Before we start deploying, let's understand **what** we're building and **why**.
 
-### 2.1 The Three Horizons Model
+### 2.1 The Open Horizons Model
 
 The platform is organized into three "horizons" (layers), each building on the previous one:
 
-![Three Horizons Architecture](../assets/arch-three-horizons-framework.svg)
+![Open Horizons Architecture](../assets/arch-open-horizons-framework.svg)
 
 ### 2.2 What Each Horizon Contains
 
@@ -239,7 +239,7 @@ github:
 project:
   # Project name: lowercase, no spaces, max 12 characters
   # This will be used in all resource names
-  name: "threehorizons"
+  name: "openhorizons"
 
   # Environment: dev, staging, or prod
   environment: "dev"
@@ -532,7 +532,7 @@ SUBSCRIPTION_ID=$(az account show --query id -o tsv)
 
 # Choose a name for your Service Principal
 # Convention: sp-{project}-{purpose}
-SP_NAME="sp-threehorizons-terraform"
+SP_NAME="sp-openhorizons-terraform"
 
 # Display the values to confirm
 echo "Subscription ID: $SUBSCRIPTION_ID"
@@ -561,7 +561,7 @@ echo "========================================="
 
 | Parameter | Value | Explanation |
 |-----------|-------|-------------|
-| `--name` | sp-threehorizons-Terraform | Identifier for this Service Principal |
+| `--name` | sp-openhorizons-Terraform | Identifier for this Service Principal |
 | `--role` | Contributor | Permission level - can create and manage resources |
 | `--scopes` | /subscriptions/xxx | Limits access to only this subscription |
 | `--sdk-auth` | (flag) | Outputs in a format compatible with GitHub Actions |
@@ -713,8 +713,8 @@ gh auth login
 gh auth status
 
 # Test that you can access your organization
-# Replace YOUR_ORG_NAME with your actual organization name
-gh api /orgs/YOUR_ORG_NAME --jq '.login'
+# Replace Ohorizons_NAME with your actual organization name
+gh api /orgs/Ohorizons_NAME --jq '.login'
 ```
 
 **Expected output:**
@@ -724,7 +724,7 @@ github.com
   ✓ Logged in to github.com as your-username (oauth_token)
   ✓ Git operations for github.com configured to use https protocol.
 
-YOUR_ORG_NAME
+Ohorizons_NAME
 ```
 
 ### 2.2 Fork or Clone the Repository
@@ -740,14 +740,14 @@ YOUR_ORG_NAME
 
 ```bash
 # Fork the repository to your organization
-# Replace YOUR_ORG_NAME with your organization name
-gh repo fork paulanunes85/three-horizons-accelerator-v4 \
-  --org YOUR_ORG_NAME \
+# Replace Ohorizons_NAME with your organization name
+gh repo fork paulanunes85/agentic-devops-platform \
+  --org Ohorizons_NAME \
   --clone \
   --remote
 
 # Navigate into the repository
-cd three-horizons-accelerator-v4
+cd agentic-devops-platform
 
 # Verify you're in the right place
 pwd
@@ -758,10 +758,10 @@ ls -la
 
 ```bash
 # Clone the repository
-git clone https://github.com/paulanunes85/three-horizons-accelerator-v4.git
+git clone https://github.com/paulanunes85/agentic-devops-platform.git
 
 # Navigate into the repository
-cd three-horizons-accelerator-v4
+cd agentic-devops-platform
 ```
 
 ### 2.3 Configure Repository Secrets
@@ -777,7 +777,7 @@ cd three-horizons-accelerator-v4
 ```bash
 # Confirm you're in the right folder
 pwd
-# Should end with: /three-horizons-accelerator-v4
+# Should end with: /agentic-devops-platform
 
 # Check that azure-credentials.json is accessible
 ls -la azure-credentials.json 2>/dev/null || echo "File not found - make sure you're in the right directory and the file exists"
@@ -828,7 +828,7 @@ AZURE_CREDENTIALS    now
 
 > ⚠️ **If you get "no repository detected" error:**
 >
-> You're not in a git repository. Run `cd three-horizons-accelerator-v4` first.
+> You're not in a git repository. Run `cd agentic-devops-platform` first.
 >
 > **If you get "secrets are disabled" error:**
 >
@@ -845,7 +845,7 @@ AZURE_CREDENTIALS    now
 # Set project configuration variables
 # Replace values with your actual values!
 
-gh variable set PROJECT_NAME --body "threehorizons"
+gh variable set PROJECT_NAME --body "openhorizons"
 echo "✓ PROJECT_NAME set"
 
 gh variable set ENVIRONMENT --body "dev"
@@ -854,7 +854,7 @@ echo "✓ ENVIRONMENT set"
 gh variable set AZURE_LOCATION --body "brazilsouth"
 echo "✓ AZURE_LOCATION set"
 
-gh variable set GITHUB_ORG --body "YOUR_ORG_NAME"  # Replace with your org!
+gh variable set GITHUB_ORG --body "Ohorizons_NAME"  # Replace with your org!
 echo "✓ GITHUB_ORG set"
 
 echo ""
@@ -874,7 +874,7 @@ NAME            VALUE           UPDATED
 AZURE_LOCATION  brazilsouth     now
 ENVIRONMENT     dev             now
 GITHUB_ORG      your-org-name   now
-PROJECT_NAME    threehorizons   now
+PROJECT_NAME    openhorizons   now
 ```
 
 ### 2.5 Verify GitHub Actions is Enabled
@@ -921,7 +921,7 @@ Let's make sure you have all the files:
 ```bash
 # You should already be in the repository directory
 pwd
-# Should show: .../three-horizons-accelerator-v4
+# Should show: .../agentic-devops-platform
 
 # List the main directories
 ls -la
@@ -973,7 +973,7 @@ ls -la scripts/*.sh | head -5
 **Expected output:**
 
 ```
-=== Three Horizons Accelerator - Prerequisites Check ===
+=== Open Horizons Accelerator - Prerequisites Check ===
 
 [✓] Azure CLI: 2.55.0 (minimum: 2.50.0)
 [✓] Terraform: 1.6.6 (minimum: 1.5.0)
@@ -1014,7 +1014,7 @@ Here's the complete file with explanations for each setting:
 
 ```hcl
 # =============================================================================
-# THREE HORIZONS ACCELERATOR - TERRAFORM CONFIGURATION
+# OPEN HORIZONS ACCELERATOR - TERRAFORM CONFIGURATION
 # =============================================================================
 #
 # This file configures what resources Terraform will create in Azure.
@@ -1028,8 +1028,8 @@ Here's the complete file with explanations for each setting:
 
 # Project name: Used in all resource names
 # Rules: lowercase, no spaces, no special characters, max 12 characters
-# Example: "threehorizons" creates resources like "aks-threehorizons-dev"
-project_name = "threehorizons"
+# Example: "openhorizons" creates resources like "aks-openhorizons-dev"
+project_name = "openhorizons"
 
 # Environment: Determines naming and some configurations
 # Options: "dev", "staging", "prod"
@@ -1053,7 +1053,7 @@ tenant_id = "PASTE_YOUR_TENANT_ID_HERE"
 github_org = "YOUR_GITHUB_ORG_HERE"
 
 # The name of this repository (usually keep as-is)
-github_repo = "three-horizons-accelerator-v4"
+github_repo = "agentic-devops-platform"
 
 # -----------------------------------------------------------------------------
 # HORIZON ENABLEMENT - What layers to deploy
@@ -1145,7 +1145,7 @@ enable_private_cluster = false
 
 # Tags help you organize, track costs, and manage resources
 tags = {
-  Project     = "ThreeHorizons"
+  Project     = "OpenHorizons"
   Environment = "Development"
   Owner       = "platform-team@company.com"  # CHANGE THIS
   CostCenter  = "PLATFORM-001"
@@ -1263,16 +1263,16 @@ Terraform will perform the following actions:
 
   # module.networking.azurerm_virtual_network.main will be created
   + resource "azurerm_virtual_network" "main" {
-      + name                = "vnet-threehorizons-dev"
+      + name                = "vnet-openhorizons-dev"
       + address_space       = ["10.0.0.0/16"]
       + location            = "brazilsouth"
-      + resource_group_name = "rg-threehorizons-dev"
+      + resource_group_name = "rg-openhorizons-dev"
       ...
     }
 
   # module.aks.azurerm_kubernetes_cluster.main will be created
   + resource "azurerm_kubernetes_cluster" "main" {
-      + name                = "aks-threehorizons-dev"
+      + name                = "aks-openhorizons-dev"
       + kubernetes_version  = "1.29"
       ...
     }
@@ -1369,13 +1369,13 @@ terraform output
 ```
 Outputs:
 
-aks_cluster_name     = "aks-threehorizons-dev"
-aks_cluster_id       = "/subscriptions/.../managedClusters/aks-threehorizons-dev"
-acr_login_server     = "acrthreehorizonsdev.azurecr.io"
-key_vault_name       = "kv-threehorizons-dev"
-key_vault_uri        = "https://kv-threehorizons-dev.vault.azure.net/"
-resource_group_name  = "rg-threehorizons-dev"
-vnet_id              = "/subscriptions/.../virtualNetworks/vnet-threehorizons-dev"
+aks_cluster_name     = "aks-openhorizons-dev"
+aks_cluster_id       = "/subscriptions/.../managedClusters/aks-openhorizons-dev"
+acr_login_server     = "acropenhorizonsdev.azurecr.io"
+key_vault_name       = "kv-openhorizons-dev"
+key_vault_uri        = "https://kv-openhorizons-dev.vault.azure.net/"
+resource_group_name  = "rg-openhorizons-dev"
+vnet_id              = "/subscriptions/.../virtualNetworks/vnet-openhorizons-dev"
 ```
 
 **Save these values!** You'll need them for verification and debugging.
@@ -1420,7 +1420,7 @@ az aks get-credentials \
 **Expected output:**
 
 ```
-Merged "aks-threehorizons-dev" as current context in /Users/you/.kube/config
+Merged "aks-openhorizons-dev" as current context in /Users/you/.kube/config
 ```
 
 **Verify connection to cluster:**
@@ -1432,8 +1432,8 @@ kubectl cluster-info
 **Expected output:**
 
 ```
-Kubernetes control plane is running at https://aks-threehorizons-dev-abc123.hcp.brazilsouth.azmk8s.io:443
-CoreDNS is running at https://aks-threehorizons-dev-abc123.hcp.brazilsouth.azmk8s.io:443/api/v1/...
+Kubernetes control plane is running at https://aks-openhorizons-dev-abc123.hcp.brazilsouth.azmk8s.io:443
+CoreDNS is running at https://aks-openhorizons-dev-abc123.hcp.brazilsouth.azmk8s.io:443/api/v1/...
 
 To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
 ```
@@ -1505,12 +1505,12 @@ az resource list \
 
 | Name | Type | Purpose |
 |------|------|---------|
-| aks-threehorizons-dev | Microsoft.ContainerService/managedClusters | Kubernetes cluster |
-| acrthreehorizonsdev | Microsoft.ContainerRegistry/registries | Container images |
-| kv-threehorizons-dev | Microsoft.KeyVault/vaults | Secrets storage |
-| vnet-threehorizons-dev | Microsoft.Network/virtualNetworks | Network |
+| aks-openhorizons-dev | Microsoft.ContainerService/managedClusters | Kubernetes cluster |
+| acropenhorizonsdev | Microsoft.ContainerRegistry/registries | Container images |
+| kv-openhorizons-dev | Microsoft.KeyVault/vaults | Secrets storage |
+| vnet-openhorizons-dev | Microsoft.Network/virtualNetworks | Network |
 | nsg-aks-* | Microsoft.Network/networkSecurityGroups | Firewall rules |
-| id-threehorizons-* | Microsoft.ManagedIdentity/userAssignedIdentities | Identities |
+| id-openhorizons-* | Microsoft.ManagedIdentity/userAssignedIdentities | Identities |
 
 ### 5.5 Test Container Registry Access
 
@@ -2104,7 +2104,7 @@ Plan: 8 to add, 0 to change, 0 to destroy.
 
   # module.ai_foundry.azurerm_cognitive_account.main will be created
   + resource "azurerm_cognitive_account" "main" {
-      + name                = "oai-threehorizons-dev"
+      + name                = "oai-openhorizons-dev"
       + kind                = "OpenAI"
       ...
     }
@@ -2197,7 +2197,7 @@ Run this command to see overall platform status:
 ```bash
 echo ""
 echo "╔══════════════════════════════════════════════════════════════════╗"
-echo "║           THREE HORIZONS PLATFORM - STATUS DASHBOARD             ║"
+echo "║           OPEN HORIZONS PLATFORM - STATUS DASHBOARD             ║"
 echo "╚══════════════════════════════════════════════════════════════════╝"
 echo ""
 
@@ -2286,7 +2286,7 @@ Overall:
 
 > 🎉 **Congratulations!**
 >
-> You have successfully deployed the Three Horizons Accelerator!
+> You have successfully deployed the Open Horizons Accelerator!
 
 ---
 
@@ -2469,7 +2469,7 @@ az keyvault show --name <kv-name> --query "properties.accessPolicies"
 
 | Variable | Default | Description |
 |----------|---------|-------------|
-| PROJECT_NAME | threehorizons | Used in all resource names |
+| PROJECT_NAME | openhorizons | Used in all resource names |
 | ENVIRONMENT | dev | Environment (dev/staging/prod) |
 | Azure_LOCATION | brazilsouth | Azure region |
 | SIZING_PROFILE | small | Resource sizing (small/medium/large) |
@@ -2535,7 +2535,7 @@ The platform includes AI agents that can assist you at every deployment step:
 
 > **Tip:** Each agent will decompose your request into sub-tasks and walk you through step by step.
 
-- **GitHub Issues:** [Create an Issue](https://github.com/paulanunes85/three-horizons-accelerator-v4/issues)
+- **GitHub Issues:** [Create an Issue](https://github.com/paulanunes85/agentic-devops-platform/issues)
 - **Documentation:** Check other guides in `/docs/guides/`
 
 ---

@@ -1,6 +1,6 @@
 #!/bin/bash
 # =============================================================================
-# THREE HORIZONS ACCELERATOR - CONFIGURATION VALIDATOR
+# OPEN HORIZONS ACCELERATOR - CONFIGURATION VALIDATOR
 # =============================================================================
 #
 # Validates customer configuration before deployment.
@@ -63,7 +63,7 @@ declare -a RESULTS=()
 print_header() {
     echo ""
     echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-    echo -e "${BLUE}  THREE HORIZONS PLATFORM - Configuration Validator${NC}"
+    echo -e "${BLUE}  OPEN HORIZONS PLATFORM - Configuration Validator${NC}"
     echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
     echo ""
 }

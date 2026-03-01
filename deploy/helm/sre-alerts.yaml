@@ -1,12 +1,12 @@
 # =============================================================================
-# SRE PrometheusRule — Platform Alerts for Three Horizons
+# SRE PrometheusRule — Platform Alerts for Open Horizons
 # =============================================================================
 # Critical alerts for all platform components across H1, H2, H3
 # =============================================================================
 apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
 metadata:
-  name: three-horizons-sre-alerts
+  name: open-horizons-sre-alerts
   namespace: monitoring
   labels:
     release: monitoring

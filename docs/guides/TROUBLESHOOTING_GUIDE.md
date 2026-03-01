@@ -1,4 +1,4 @@
-# Three Horizons Accelerator - Troubleshooting Guide
+# Open Horizons Accelerator - Troubleshooting Guide
 
 > **Version:** 4.0.0
 > **Last Updated:** December 2025
@@ -69,7 +69,7 @@ Before investigating specific issues, run this quick check:
 # Save as: scripts/quick-check.sh
 
 echo "╔══════════════════════════════════════════════════════════════╗"
-echo "║          THREE HORIZONS - QUICK DIAGNOSTIC CHECK             ║"
+echo "║          OPEN HORIZONS - QUICK DIAGNOSTIC CHECK             ║"
 echo "╚══════════════════════════════════════════════════════════════╝"
 echo ""
 echo "Timestamp: $(date -u +"%Y-%m-%dT%H:%M:%SZ")"

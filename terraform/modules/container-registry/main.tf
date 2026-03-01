@@ -1,5 +1,5 @@
 # =============================================================================
-# THREE HORIZONS ACCELERATOR - CONTAINER REGISTRY TERRAFORM MODULE
+# OPEN HORIZONS ACCELERATOR - CONTAINER REGISTRY TERRAFORM MODULE
 # =============================================================================
 #
 # Deploys Azure Container Registry with enterprise features.
@@ -26,9 +26,9 @@ locals {
   acr_name = replace("cr${local.name_prefix}", "-", "")
 
   common_tags = merge(var.tags, {
-    "three-horizons/customer"    = var.customer_name
-    "three-horizons/environment" = var.environment
-    "three-horizons/component"   = "container-registry"
+    "open-horizons/customer"    = var.customer_name
+    "open-horizons/environment" = var.environment
+    "open-horizons/component"   = "container-registry"
   })
 }
 

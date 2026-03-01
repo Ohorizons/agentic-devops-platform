@@ -4,7 +4,7 @@ ${{values.description}}
 
 ## Overview
 
-Project migrated from Azure DevOps to GitHub using the Three Horizons migration template.
+Project migrated from Azure DevOps to GitHub using the Open Horizons migration template.
 
 | Property | Value |
 |----------|-------|

@@ -1,5 +1,5 @@
 # =============================================================================
-# THREE HORIZONS ACCELERATOR - ARGOCD APP-OF-APPS
+# OPEN HORIZONS ACCELERATOR - ARGOCD APP-OF-APPS
 # =============================================================================
 #
 # This is the root ArgoCD Application that bootstraps the entire platform.
@@ -18,12 +18,12 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: three-horizons-root
+  name: open-horizons-root
   namespace: argocd
   labels:
-    app.kubernetes.io/name: three-horizons
+    app.kubernetes.io/name: open-horizons
     app.kubernetes.io/component: root
-    app.kubernetes.io/part-of: three-horizons-platform
+    app.kubernetes.io/part-of: open-horizons-platform
   annotations:
     argocd.argoproj.io/sync-wave: "0"
   finalizers:
@@ -68,9 +68,9 @@ metadata:
   name: platform
   namespace: argocd
   labels:
-    app.kubernetes.io/part-of: three-horizons-platform
+    app.kubernetes.io/part-of: open-horizons-platform
 spec:
-  description: "Three Horizons Platform Components"
+  description: "Open Horizons Platform Components"
   
   # Source repositories
   sourceRepos:
@@ -242,7 +242,7 @@ spec:
           - service
           - ingress
           
-        txtOwnerId: three-horizons-${CUSTOMER_NAME}
+        txtOwnerId: open-horizons-${CUSTOMER_NAME}
         
         resources:
           requests:
@@ -621,7 +621,7 @@ spec:
       namespace: argocd
       labels:
         app.kubernetes.io/managed-by: argocd
-        three-horizons/team: '{{team.name}}'
+        open-horizons/team: '{{team.name}}'
     spec:
       project: platform
       
@@ -664,7 +664,7 @@ spec:
       namespace: argocd
       labels:
         app.kubernetes.io/managed-by: argocd
-        three-horizons/golden-path: 'true'
+        open-horizons/golden-path: 'true'
       annotations:
         argocd.argoproj.io/manifest-generate-paths: '{{path}}'
     spec:

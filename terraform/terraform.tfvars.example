@@ -1,5 +1,5 @@
 # =============================================================================
-# THREE HORIZONS ACCELERATOR — CONFIGURATION TEMPLATE
+# OPEN HORIZONS ACCELERATOR — CONFIGURATION TEMPLATE
 # =============================================================================
 #
 # Copy this file and fill in your values:
@@ -66,6 +66,6 @@ alert_emails  = []
 # --- TAGS ---------------------------------------------------------------------
 
 tags = {
-  Project   = "three-horizons"
+  Project   = "open-horizons"
   ManagedBy = "terraform"
 }

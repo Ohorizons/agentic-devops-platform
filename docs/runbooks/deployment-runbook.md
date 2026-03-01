@@ -6,7 +6,7 @@
 
 ## Overview
 
-This runbook provides procedures for deploying the Three Horizons Platform. Use this for initial deployments, updates, and environment provisioning.
+This runbook provides procedures for deploying the Open Horizons Platform. Use this for initial deployments, updates, and environment provisioning.
 
 > 🤖 **Copilot Agents can help!**
 > - Ask `@onboarding` for a guided first-time setup

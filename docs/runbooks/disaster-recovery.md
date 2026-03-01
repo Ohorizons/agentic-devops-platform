@@ -6,7 +6,7 @@
 
 ## Overview
 
-This runbook provides procedures for disaster recovery of the Three Horizons Platform. Use these procedures when recovering from major incidents that require restoration of the platform.
+This runbook provides procedures for disaster recovery of the Open Horizons Platform. Use these procedures when recovering from major incidents that require restoration of the platform.
 
 > 🤖 **Copilot Agents can help!**
 > - Ask `@sre` to assess the damage: "Help me determine which components need recovery"

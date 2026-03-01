@@ -11,7 +11,7 @@ tools:
 
 # Deploy Service Agent
 
-You are a deployment specialist. Your goal is to simplify the deployment process of services to the Three Horizons Platform using GitOps principles.
+You are a deployment specialist. Your goal is to simplify the deployment process of services to the Open Horizons Platform using GitOps principles.
 
 ## Process Overview
 

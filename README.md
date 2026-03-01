@@ -1,10 +1,10 @@
-# Three Horizons Implementation Accelerator
+# Open Horizons Implementation Accelerator
 
 > **A solution created in partnership with Microsoft, GitHub, and Red Hat**
 
 ## Overview
 
-The **Three Horizons Implementation Accelerator** is a complete kit of Infrastructure as Code (IaC), GitOps, and developer templates designed to implement the Three Horizons platform.
+The **Open Horizons Implementation Accelerator** is a complete kit of Infrastructure as Code (IaC), GitOps, and developer templates designed to implement the Open Horizons platform.
 
 ### What's Included
 
@@ -22,9 +22,9 @@ The **Three Horizons Implementation Accelerator** is a complete kit of Infrastru
 
 ---
 
-## Three Horizons Architecture
+## Open Horizons Architecture
 
-![Three Horizons Architecture](docs/assets/three-horizons-architecture.svg)
+![Open Horizons Architecture](docs/assets/open-horizons-architecture.svg)
 
 ---
 
@@ -63,8 +63,8 @@ The `@deploy` agent walks you through each step interactively.
 #### Option B: Automated Script (Recommended)
 ```bash
 # 1. Clone and prepare
-git clone https://github.com/YOUR_ORG/three-horizons-accelerator-v4.git
-cd three-horizons-accelerator-v4
+git clone https://github.com/Ohorizons/agentic-devops-platform.git
+cd agentic-devops-platform
 chmod +x scripts/*.sh
 
 # 2. Validate prerequisites
@@ -97,7 +97,7 @@ Follow the detailed **[Deployment Guide](docs/guides/DEPLOYMENT_GUIDE.md)** — 
 ## Directory Structure
 
 ```
-three-horizons-accelerator-v4/
+agentic-devops-platform/
 │
 ├── .github/agents/                 # 17 Copilot Chat Agents
 │   ├── ado-integration.agent.md     # Azure DevOps integration
@@ -161,7 +161,7 @@ three-horizons-accelerator-v4/
 | Guide | Description |
 |-------|-------------|
 | [Deployment Guide](./docs/guides/DEPLOYMENT_GUIDE.md) | Complete step-by-step deployment instructions |
-| [Architecture Guide](./docs/guides/ARCHITECTURE_GUIDE.md) | Three Horizons architecture explained |
+| [Architecture Guide](./docs/guides/ARCHITECTURE_GUIDE.md) | Open Horizons architecture explained |
 | [Administrator Guide](./docs/guides/ADMINISTRATOR_GUIDE.md) | Day-2 operations and maintenance |
 | [Module Reference](./docs/guides/MODULE_REFERENCE.md) | All Terraform modules with examples |
 | [Performance Tuning Guide](./docs/guides/PERFORMANCE_TUNING_GUIDE.md) | Performance optimization recommendations |
@@ -504,7 +504,7 @@ kubectl logs <pod-name> -n <namespace> --previous
 After reviewing this README:
 
 1. **First time deploying?**
-   - Read the [Architecture Guide](./docs/guides/ARCHITECTURE_GUIDE.md) to understand the Three Horizons model
+   - Read the [Architecture Guide](./docs/guides/ARCHITECTURE_GUIDE.md) to understand the Open Horizons model
    - Follow the [Deployment Guide](./docs/guides/DEPLOYMENT_GUIDE.md) step by step
 
 2. **Using AI agents?**
@@ -526,7 +526,7 @@ After reviewing this README:
 
 For questions, issues, or suggestions, open an issue on GitHub:
 
-- **GitHub Issues:** [Create Issue](https://github.com/paulanunes85/three-horizons-accelerator-v4/issues)
+- **GitHub Issues:** [Create Issue](https://github.com/paulanunes85/agentic-devops-platform/issues)
 
 ---
 

@@ -1,5 +1,5 @@
 # =============================================================================
-# THREE HORIZONS ACCELERATOR - PURVIEW MODULE VARIABLES
+# OPEN HORIZONS ACCELERATOR - PURVIEW MODULE VARIABLES
 # =============================================================================
 
 variable "customer_name" {

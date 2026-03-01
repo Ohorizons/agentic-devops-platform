@@ -1,5 +1,5 @@
 # =============================================================================
-# THREE HORIZONS ACCELERATOR - ARGOCD TERRAFORM MODULE
+# OPEN HORIZONS ACCELERATOR - ARGOCD TERRAFORM MODULE
 # =============================================================================
 #
 # Installs and configures ArgoCD on AKS for GitOps deployments.
@@ -28,8 +28,8 @@ locals {
 
   common_labels = {
     "app.kubernetes.io/managed-by" = "terraform"
-    "three-horizons/customer"      = var.customer_name
-    "three-horizons/environment"   = var.environment
+    "open-horizons/customer"      = var.customer_name
+    "open-horizons/environment"   = var.environment
   }
 }
 
@@ -512,7 +512,7 @@ resource "kubectl_manifest" "platform_project" {
       labels    = local.common_labels
     }
     spec = {
-      description = "Three Horizons Platform Components"
+      description = "Open Horizons Platform Components"
 
       sourceRepos = [
         "https://github.com/${var.github_org}/*",

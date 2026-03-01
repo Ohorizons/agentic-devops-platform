@@ -72,7 +72,7 @@ check_tool() {
 }
 
 echo -e "${BLUE}╔══════════════════════════════════════════════════════════════╗${NC}"
-echo -e "${BLUE}║       THREE HORIZONS — Prerequisites Validation            ║${NC}"
+echo -e "${BLUE}║       OPEN HORIZONS — Prerequisites Validation            ║${NC}"
 echo -e "${BLUE}╚══════════════════════════════════════════════════════════════╝${NC}"
 
 if [[ "$MODE" == "local" ]]; then

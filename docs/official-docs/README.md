@@ -1,6 +1,6 @@
 # Official Documentation Reference
 
-This directory contains official documentation for all technologies used in the Three Horizons Accelerator. PDFs are stored locally (not committed to Git) for offline reference.
+This directory contains official documentation for all technologies used in the Open Horizons Accelerator. PDFs are stored locally (not committed to Git) for offline reference.
 
 ## Structure
 

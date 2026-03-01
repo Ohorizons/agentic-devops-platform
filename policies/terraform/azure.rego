@@ -1,5 +1,5 @@
 # =============================================================================
-# THREE HORIZONS ACCELERATOR - TERRAFORM POLICIES
+# OPEN HORIZONS ACCELERATOR - TERRAFORM POLICIES
 # =============================================================================
 #
 # OPA/Conftest policies for validating Terraform configurations.

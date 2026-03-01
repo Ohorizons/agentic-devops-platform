@@ -37,7 +37,7 @@ Main customization files in this repository:
 |------|---------|-------------|
 | `backstage/packages/app/src/theme.ts` | Microsoft visual theme | Blue-first palette, white nav/sidebar, page themes |
 | `backstage/packages/app/src/components/SignInPage/CustomSignInPage.tsx` | Pre-login page | GitHub OAuth button, Microsoft branding, animated cards |
-| `backstage/packages/app/src/components/HomePage/HomePage.tsx` | Post-login homepage | Hero, Three Horizons, Quick Access, templates, activity |
+| `backstage/packages/app/src/components/HomePage/HomePage.tsx` | Post-login homepage | Hero, Open Horizons, Quick Access, templates, activity |
 | `backstage/packages/app/src/components/Root/Root.tsx` | Sidebar and global shell styling | Navigation items, top color bar, consistent sidebar styling |
 | `backstage/packages/app/src/App.tsx` | App wiring | Theme provider, SignInPage override, route registration |
 | `deploy/helm/backstage-aks-values.yaml` | AKS runtime config | Image tag, auth provider settings, backend/CSP/catalog config |
@@ -75,7 +75,7 @@ After login, users land on `/home` with:
 
 - Hero banner and portal branding
 - Search entry
-- Three Horizons cards
+- Open Horizons cards
 - Quick access cards
 - Template highlights
 - Activity list
@@ -156,7 +156,7 @@ In `deploy/helm/backstage-aks-values.yaml`, confirm:
 From repo root:
 
 ```bash
-helm upgrade --install paulasilvatech-backstage backstage/backstage \
+helm upgrade --install Ohorizons-backstage backstage/backstage \
   -n backstage \
   -f deploy/helm/backstage-aks-values.yaml \
   --wait --timeout 10m
@@ -166,7 +166,7 @@ helm upgrade --install paulasilvatech-backstage backstage/backstage \
 
 ```bash
 kubectl get pods -n backstage
-kubectl get deploy paulasilvatech-backstage -n backstage \
+kubectl get deploy Ohorizons-backstage -n backstage \
   -o jsonpath='{.spec.template.spec.containers[0].image}{"\n"}'
 
 curl -I -s http://backstage.20.62.35.83.sslip.io | head -n 1
@@ -226,7 +226,7 @@ Current sidebar items in `Root.tsx`:
 ### Rollback
 
 ```bash
-kubectl rollout undo deployment/paulasilvatech-backstage -n backstage
+kubectl rollout undo deployment/Ohorizons-backstage -n backstage
 ```
 
 ---

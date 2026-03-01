@@ -1,5 +1,5 @@
 // =============================================================================
-// THREE HORIZONS ACCELERATOR - DEFENDER MODULE TESTS
+// OPEN HORIZONS ACCELERATOR - DEFENDER MODULE TESTS
 // =============================================================================
 //
 // Unit and integration tests for the Terraform Microsoft Defender module.

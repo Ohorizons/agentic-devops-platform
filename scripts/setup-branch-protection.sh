@@ -1,6 +1,6 @@
 #!/bin/bash
 # =============================================================================
-# THREE HORIZONS ACCELERATOR - BRANCH PROTECTION SETUP
+# OPEN HORIZONS ACCELERATOR - BRANCH PROTECTION SETUP
 # =============================================================================
 #
 # This script configures branch protection rules for the repository.
@@ -10,7 +10,7 @@
 #   ./scripts/setup-branch-protection.sh [OWNER/REPO]
 #
 # Example:
-#   ./scripts/setup-branch-protection.sh myorg/three-horizons-accelerator
+#   ./scripts/setup-branch-protection.sh myorg/agentic-devops-platform
 #
 # =============================================================================
 

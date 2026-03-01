@@ -1,5 +1,5 @@
 # =============================================================================
-# THREE HORIZONS ACCELERATOR - OBSERVABILITY MODULE VARIABLES
+# OPEN HORIZONS ACCELERATOR - OBSERVABILITY MODULE VARIABLES
 # =============================================================================
 
 variable "customer_name" {

@@ -1,4 +1,4 @@
-# Three Horizons Accelerator - Terraform Environments
+# Open Horizons Accelerator - Terraform Environments
 
 > **Version:** 4.0.0
 > **Last Updated:** December 2025

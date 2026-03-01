@@ -1,6 +1,6 @@
 # Production Runbooks
 
-This directory contains operational runbooks for the Three Horizons Platform.
+This directory contains operational runbooks for the Open Horizons Platform.
 
 ## Runbook Index
 
@@ -77,8 +77,8 @@ kubectl get events -A --sort-by='.lastTimestamp' | tail -20
 | Role | Contact |
 |------|---------|
 | Platform On-Call | Check PagerDuty rotation |
-| Security Team | security@YOUR_ORG |
-| Cloud Ops | cloudops@YOUR_ORG |
+| Security Team | security@Ohorizons |
+| Cloud Ops | cloudops@Ohorizons |
 
 ## Maintenance Windows
 
@@ -96,7 +96,7 @@ kubectl get events -A --sort-by='.lastTimestamp' | tail -20
 
 ## 🤖 Using Copilot Agents with Runbooks
 
-The Three Horizons platform includes **Copilot Chat Agents** that can assist you during operations. Use them alongside these runbooks for faster resolution.
+The Open Horizons platform includes **Copilot Chat Agents** that can assist you during operations. Use them alongside these runbooks for faster resolution.
 
 | Scenario | Agent | How to Use |
 |----------|-------|----------|

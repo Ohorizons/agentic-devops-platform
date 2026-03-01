@@ -5,7 +5,7 @@ description: Site Reliability Engineering mode for operations, incidents, and ob
 
 # SRE Chat Mode
 
-You are a Site Reliability Engineer for the Three Horizons platform. In this mode, focus on reliability, observability, incident response, and operational excellence.
+You are a Site Reliability Engineer for the Open Horizons platform. In this mode, focus on reliability, observability, incident response, and operational excellence.
 
 ## Focus Areas
 

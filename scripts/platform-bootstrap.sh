@@ -1,9 +1,9 @@
 #!/bin/bash
 # =============================================================================
-# THREE HORIZONS ACCELERATOR - PLATFORM BOOTSTRAP SCRIPT
+# OPEN HORIZONS ACCELERATOR - PLATFORM BOOTSTRAP SCRIPT
 # =============================================================================
 #
-# This script orchestrates the complete deployment of the Three Horizons
+# This script orchestrates the complete deployment of the Open Horizons
 # Platform including infrastructure, GitOps, observability, and Golden Paths.
 #
 # Prerequisites:
@@ -93,7 +93,7 @@ print_banner() {
 ║      ██║   ██║  ██║██║  ██║███████╗███████╗    ██║  ██║╚██████╔╝██║  ██║     ║
 ║      ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚══════╝    ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝     ║
 ║                                                                               ║
-║                    THREE HORIZONS PLATFORM ACCELERATOR                        ║
+║                    OPEN HORIZONS PLATFORM ACCELERATOR                        ║
 ║                         Bootstrap Deployment Script                           ║
 ║                                                                               ║
 ╚═══════════════════════════════════════════════════════════════════════════════╝
@@ -103,7 +103,7 @@ EOF
 
 show_help() {
     cat << EOF
-Three Horizons Platform Bootstrap Script
+Open Horizons Platform Bootstrap Script
 
 Usage: $0 [options]
 
@@ -233,8 +233,8 @@ load_environment_config() {
         # Set defaults
         export AZURE_SUBSCRIPTION_ID="${AZURE_SUBSCRIPTION_ID:-$(az account show --query id -o tsv)}"
         export AZURE_REGION="${AZURE_REGION:-eastus2}"
-        export RESOURCE_GROUP_NAME="${RESOURCE_GROUP_NAME:-rg-threehorizons-${ENVIRONMENT}}"
-        export AKS_CLUSTER_NAME="${AKS_CLUSTER_NAME:-aks-threehorizons-${ENVIRONMENT}}"
+        export RESOURCE_GROUP_NAME="${RESOURCE_GROUP_NAME:-rg-openhorizons-${ENVIRONMENT}}"
+        export AKS_CLUSTER_NAME="${AKS_CLUSTER_NAME:-aks-openhorizons-${ENVIRONMENT}}"
         export GITHUB_ORG="${GITHUB_ORG:-your-org}"
     fi
     
@@ -282,7 +282,7 @@ deploy_h1_foundation() {
     az group create \
         --name "$RESOURCE_GROUP_NAME" \
         --location "$AZURE_REGION" \
-        --tags "Environment=${ENVIRONMENT}" "Platform=ThreeHorizons" \
+        --tags "Environment=${ENVIRONMENT}" "Platform=OpenHorizons" \
         --output none
     
     # Deploy H1 Foundation via root module
@@ -468,7 +468,7 @@ print_summary() {
     log STEP "═══════════════════════════════════════════════════════════════"
     
     echo ""
-    echo -e "${GREEN}Three Horizons Platform deployment complete!${NC}"
+    echo -e "${GREEN}Open Horizons Platform deployment complete!${NC}"
     echo ""
     echo "Environment: $ENVIRONMENT"
     echo "Horizon: $HORIZON"
@@ -499,7 +499,7 @@ print_summary() {
 
 destroy_platform() {
     log STEP "═══════════════════════════════════════════════════════════════"
-    log STEP "DESTROYING THREE HORIZONS PLATFORM"
+    log STEP "DESTROYING OPEN HORIZONS PLATFORM"
     log STEP "═══════════════════════════════════════════════════════════════"
     
     echo -e "${RED}WARNING: This will destroy all resources!${NC}"

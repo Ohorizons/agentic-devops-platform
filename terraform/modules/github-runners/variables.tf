@@ -1,5 +1,5 @@
 # =============================================================================
-# THREE HORIZONS ACCELERATOR - GITHUB RUNNERS MODULE VARIABLES
+# OPEN HORIZONS ACCELERATOR - GITHUB RUNNERS MODULE VARIABLES
 # =============================================================================
 
 variable "customer_name" {

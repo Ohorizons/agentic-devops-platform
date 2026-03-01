@@ -1,5 +1,5 @@
 # =============================================================================
-# THREE HORIZONS ACCELERATOR - MICROSOFT PURVIEW TERRAFORM MODULE
+# OPEN HORIZONS ACCELERATOR - MICROSOFT PURVIEW TERRAFORM MODULE
 # =============================================================================
 #
 # Deploys Microsoft Purview for enterprise data governance.
@@ -116,10 +116,10 @@ locals {
   }
 
   common_tags = merge(var.tags, {
-    "three-horizons/customer"    = var.customer_name
-    "three-horizons/environment" = var.environment
-    "three-horizons/component"   = "purview-governance"
-    "three-horizons/sizing"      = var.sizing_profile
+    "open-horizons/customer"    = var.customer_name
+    "open-horizons/environment" = var.environment
+    "open-horizons/component"   = "purview-governance"
+    "open-horizons/sizing"      = var.sizing_profile
   })
 }
 
@@ -334,13 +334,13 @@ resource "azapi_resource" "data_sources" {
 
 resource "azapi_resource" "scan_rule_set" {
   type      = "Microsoft.Purview/accounts/scanRuleSets@2022-02-01-preview"
-  name      = "ThreeHorizonsScanRuleSet"
+  name      = "OpenHorizonsScanRuleSet"
   parent_id = azurerm_purview_account.main.id
 
   body = jsonencode({
     kind = "AzureStorage"
     properties = {
-      description                           = "Three Horizons standard scan rule set with LATAM classifications"
+      description                           = "Open Horizons standard scan rule set with LATAM classifications"
       excludedSystemClassifications         = []
       includedCustomClassificationRuleNames = var.enable_latam_classifications ? keys(local.latam_classifications) : []
       scanningRule = {

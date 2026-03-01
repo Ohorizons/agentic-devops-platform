@@ -1,5 +1,5 @@
 # =============================================================================
-# THREE HORIZONS ACCELERATOR - NETWORKING MODULE VARIABLES
+# OPEN HORIZONS ACCELERATOR - NETWORKING MODULE VARIABLES
 # =============================================================================
 
 variable "customer_name" {

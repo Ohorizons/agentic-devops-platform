@@ -10,4 +10,4 @@ resources:
 
 commonLabels:
   app.kubernetes.io/name: ${{ values.name }}
-  app.kubernetes.io/part-of: three-horizons
+  app.kubernetes.io/part-of: open-horizons

@@ -6,7 +6,7 @@
 
 ## Overview
 
-This runbook provides procedures for responding to production incidents on the Three Horizons Platform.
+This runbook provides procedures for responding to production incidents on the Open Horizons Platform.
 
 > 🤖 **Copilot Agents can help!**
 > - Ask `@sre` to run diagnostics: "Analyze the failing pods in namespace X"

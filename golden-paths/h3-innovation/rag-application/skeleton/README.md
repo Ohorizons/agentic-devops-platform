@@ -4,7 +4,7 @@ ${{values.description}}
 
 ## Overview
 
-This RAG (Retrieval-Augmented Generation) application was created using the Three Horizons Accelerator - H3 Innovation template.
+This RAG (Retrieval-Augmented Generation) application was created using the Open Horizons Accelerator - H3 Innovation template.
 
 | Property | Value |
 |----------|-------|
@@ -123,6 +123,6 @@ Chunking strategy:
 
 ## Links
 
-- [Three Horizons Documentation](https://github.com/${{values.repoUrl | parseRepoUrl | pick('owner') }}/three-horizons-accelerator)
+- [Open Horizons Documentation](https://github.com/${{values.repoUrl | parseRepoUrl | pick('owner') }}/agentic-devops-platform)
 - [Azure OpenAI Documentation](https://docs.microsoft.com/azure/cognitive-services/openai/)
 - [LangChain Documentation](https://python.langchain.com/)

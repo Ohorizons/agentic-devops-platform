@@ -1,8 +1,8 @@
-# GitHub Copilot Instructions for Three Horizons Accelerator
+# GitHub Copilot Instructions for Open Horizons Accelerator
 
 ## Project Overview
 
-This is the Three Horizons Accelerator v4.0.0 - an enterprise-grade platform accelerator for Azure with AI capabilities. The platform is organized into three horizons:
+This is the Open Horizons Accelerator v4.0.0 - an enterprise-grade platform accelerator for Azure with AI capabilities. The platform is organized into open horizons:
 
 - **H1 Foundation**: Core infrastructure (AKS, networking, security, databases)
 - **H2 Enhancement**: Platform services (ArgoCD, Backstage, observability, Golden Paths)

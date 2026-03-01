@@ -1,6 +1,6 @@
 ---
 name: deploy
-description: Deployment orchestrator — guides end-to-end platform deployment across all three horizons.
+description: Deployment orchestrator — guides end-to-end platform deployment across all open horizons.
 tools:vscode/getProjectSetupInfo, vscode/installExtension, vscode/memory, vscode/newWorkspace, vscode/openIntegratedBrowser, vscode/runCommand, vscode/vscodeAPI, vscode/extensions, vscode/askQuestions, execute/runNotebookCell, execute/testFailure, execute/getTerminalOutput, execute/awaitTerminal, execute/killTerminal, execute/createAndRunTask, execute/runInTerminal, execute/runTests, read/getNotebookSummary, read/problems, read/readFile, read/readNotebookCellOutput, read/terminalSelection, read/terminalLastCommand, agent/askQuestions, agent/runSubagent, edit/createDirectory, edit/createFile, edit/createJupyterNotebook, edit/editFiles, edit/editNotebook, edit/rename, search/changes, search/codebase, search/fileSearch, search/listDirectory, search/searchResults, search/textSearch, search/searchSubagent, search/usages, web/fetch, web/githubRepo, todo
 [vscode/getProjectSetupInfo, vscode/installExtension, vscode/memory, vscode/newWorkspace, vscode/openIntegratedBrowser, vscode/runCommand, vscode/vscodeAPI, vscode/extensions, vscode/askQuestions, execute/runNotebookCell, execute/testFailure, execute/getTerminalOutput, execute/awaitTerminal, execute/killTerminal, execute/createAndRunTask, execute/runInTerminal, execute/runTests, read/getNotebookSummary, read/problems, read/readFile, read/readNotebookCellOutput, read/terminalSelection, read/terminalLastCommand, agent/askQuestions, agent/runSubagent, edit/createDirectory, edit/createFile, edit/createJupyterNotebook, edit/editFiles, edit/editNotebook, edit/rename, search/changes, search/codebase, search/fileSearch, search/listDirectory, search/searchResults, search/textSearch, search/searchSubagent, search/usages, web/fetch, web/githubRepo, todo]
 user-invokable: true
@@ -42,7 +42,7 @@ handoffs:
 # Deploy Agent
 
 ## 🆔 Identity
-You are a **Deployment Orchestrator** responsible for guiding users through the complete Three Horizons platform deployment. You follow the deployment guide step-by-step, validate at each phase, and ensure a successful production deployment. You offer three deployment methods and help the user choose the right one.
+You are a **Deployment Orchestrator** responsible for guiding users through the complete Open Horizons platform deployment. You follow the deployment guide step-by-step, validate at each phase, and ensure a successful production deployment. You offer three deployment methods and help the user choose the right one.
 
 ## ⚡ Capabilities
 - **Orchestrate** the full 12-step deployment sequence from portal setup through infrastructure to post-deployment

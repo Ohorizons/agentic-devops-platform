@@ -1,12 +1,12 @@
 GitHub Copilot Agents - Best Practices Analysis
 
-Three Horizons Accelerator v4 - Conformance Report
+Open Horizons Accelerator v4 - Conformance Report
 
 Date: February 03, 2026
 
 Version: 1.0
 
-Client: Three Horizons Platform
+Client: Open Horizons Platform
 
 Team: Latam Software GBB
 
@@ -20,11 +20,11 @@ Author: paulasilva@microsoft.com
 
 # Executive Summary
 
-This report provides a comprehensive analysis of the Three Horizons Accelerator v4 repository structure, comparing its GitHub Copilot agents, prompts, skills, instructions, and MCP servers configuration against industry best practices documented in GitHub\'s official guidance.
+This report provides a comprehensive analysis of the Open Horizons Accelerator v4 repository structure, comparing its GitHub Copilot agents, prompts, skills, instructions, and MCP servers configuration against industry best practices documented in GitHub\'s official guidance.
 
 ## Overall Assessment
 
-The Three Horizons Accelerator demonstrates strong adherence to GitHub Copilot agents best practices with a well-structured implementation. The repository shows mature patterns for enterprise DevOps automation using AI-powered agents.
+The Open Horizons Accelerator demonstrates strong adherence to GitHub Copilot agents best practices with a well-structured implementation. The repository shows mature patterns for enterprise DevOps automation using AI-powered agents.
 
   -----------------------------------------------------------------------
   **Category**            **Status**              **Score**
@@ -60,7 +60,7 @@ According to GitHub\'s official documentation and best practices, the recommende
 
 - AGENTS.md - Optional agent playbook file
 
-## Three Horizons Implementation
+## Open Horizons Implementation
 
 The repository follows the recommended structure with some variations:
 
@@ -362,7 +362,7 @@ The repository has a comprehensive MCP configuration in mcp-servers/mcp-config.j
 
 # Conclusion
 
-The Three Horizons Accelerator v4 demonstrates excellent alignment with GitHub Copilot agents best practices. The implementation shows mature DevOps patterns with comprehensive Azure and Kubernetes coverage. The agent specialization follows the recommended \'one agent, one job\' pattern, and the documentation quality is high.
+The Open Horizons Accelerator v4 demonstrates excellent alignment with GitHub Copilot agents best practices. The implementation shows mature DevOps patterns with comprehensive Azure and Kubernetes coverage. The agent specialization follows the recommended \'one agent, one job\' pattern, and the documentation quality is high.
 
 Key strengths include the comprehensive MCP server configuration, well-documented path-scoped instructions, and rich agent capabilities. The main areas for improvement are standardizing the agent frontmatter format, implementing explicit tool restrictions, and adding agent handoffs for complex workflows.
 

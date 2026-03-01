@@ -3,7 +3,7 @@ set -euo pipefail
 
 # =============================================================================
 # validate-docs.sh — Documentation Link Validator
-# Three Horizons Accelerator v4
+# Open Horizons Accelerator v4
 #
 # Scans all Markdown files for broken relative links (files and anchors).
 # Usage: ./scripts/validate-docs.sh [--verbose] [--fix-suggestions]
@@ -159,7 +159,7 @@ main() {
 
     echo "======================================"
     echo " Documentation Link Validator"
-    echo " Three Horizons Accelerator v4"
+    echo " Open Horizons Accelerator v4"
     echo "======================================"
     echo ""
 

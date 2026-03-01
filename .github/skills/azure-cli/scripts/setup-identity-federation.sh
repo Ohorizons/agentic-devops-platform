@@ -1,6 +1,6 @@
 #!/bin/bash
 # =============================================================================
-# THREE HORIZONS PLATFORM - IDENTITY FEDERATION SETUP
+# OPEN HORIZONS PLATFORM - IDENTITY FEDERATION SETUP
 # =============================================================================
 #
 # Configures Azure ↔ GitHub identity federation using OIDC
@@ -382,7 +382,7 @@ EOF
 main() {
     echo ""
     echo -e "${PURPLE}╔════════════════════════════════════════════════════════════╗${NC}"
-    echo -e "${PURPLE}║  THREE HORIZONS - IDENTITY FEDERATION SETUP                ║${NC}"
+    echo -e "${PURPLE}║  OPEN HORIZONS - IDENTITY FEDERATION SETUP                ║${NC}"
     echo -e "${PURPLE}╚════════════════════════════════════════════════════════════╝${NC}"
     echo ""
     

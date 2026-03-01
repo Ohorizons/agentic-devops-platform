@@ -1,5 +1,5 @@
 // =============================================================================
-// THREE HORIZONS ACCELERATOR - COST MANAGEMENT MODULE TESTS
+// OPEN HORIZONS ACCELERATOR - COST MANAGEMENT MODULE TESTS
 // =============================================================================
 //
 // Unit and integration tests for the Terraform Cost Management module.

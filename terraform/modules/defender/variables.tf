@@ -1,5 +1,5 @@
 # =============================================================================
-# THREE HORIZONS ACCELERATOR - DEFENDER MODULE VARIABLES
+# OPEN HORIZONS ACCELERATOR - DEFENDER MODULE VARIABLES
 # =============================================================================
 
 variable "subscription_id" {

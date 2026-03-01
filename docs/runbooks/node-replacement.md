@@ -6,7 +6,7 @@
 
 ## Overview
 
-This runbook describes the procedures for replacing AKS nodes in the Three Horizons platform, including planned replacements and emergency scenarios.
+This runbook describes the procedures for replacing AKS nodes in the Open Horizons platform, including planned replacements and emergency scenarios.
 
 > 🤖 **Copilot Agents can help!**
 > - Ask `@sre` to check node health: "Which nodes are NotReady and what are the events?"

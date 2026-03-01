@@ -1,5 +1,5 @@
 // =============================================================================
-// THREE HORIZONS ACCELERATOR - PURVIEW MODULE TESTS
+// OPEN HORIZONS ACCELERATOR - PURVIEW MODULE TESTS
 // =============================================================================
 //
 // Unit and integration tests for the Terraform Microsoft Purview module.

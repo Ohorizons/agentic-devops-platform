@@ -1,5 +1,5 @@
 // =============================================================================
-// THREE HORIZONS ACCELERATOR - INTEGRATION TESTS
+// OPEN HORIZONS ACCELERATOR - INTEGRATION TESTS
 // =============================================================================
 //
 // Cross-module integration tests to validate module interactions.

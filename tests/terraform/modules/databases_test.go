@@ -1,5 +1,5 @@
 // =============================================================================
-// THREE HORIZONS ACCELERATOR - DATABASES MODULE TESTS
+// OPEN HORIZONS ACCELERATOR - DATABASES MODULE TESTS
 // =============================================================================
 //
 // Unit and integration tests for the Terraform databases module.

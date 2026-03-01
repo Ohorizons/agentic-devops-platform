@@ -2,7 +2,7 @@
 
 > **A solution created in partnership with Microsoft, GitHub, and Red Hat**
 
-This directory contains the Terraform configuration for the Three Horizons Platform infrastructure.
+This directory contains the Terraform configuration for the Open Horizons Platform infrastructure.
 
 ## Directory Structure
 

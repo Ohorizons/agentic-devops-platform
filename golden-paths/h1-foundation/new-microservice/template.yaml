@@ -1,5 +1,5 @@
 # =============================================================================
-# THREE HORIZONS ACCELERATOR - H1 NEW MICROSERVICE GOLDEN PATH TEMPLATE
+# OPEN HORIZONS ACCELERATOR - H1 NEW MICROSERVICE GOLDEN PATH TEMPLATE
 # =============================================================================
 #
 # Backstage Software Template for creating new microservices.
@@ -30,8 +30,8 @@ metadata:
   links:
     - title: Node.js Best Practices
       url: https://github.com/goldbergyoni/nodebestpractices
-    - title: Three Horizons Guide
-      url: https://github.com/paulanunes85/three-horizons-accelerator
+    - title: Open Horizons Guide
+      url: https://github.com/paulanunes85/agentic-devops-platform
 
 spec:
   owner: platform-engineering

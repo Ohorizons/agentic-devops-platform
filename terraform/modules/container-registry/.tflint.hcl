@@ -1,4 +1,4 @@
-# TFLint configuration for Three Horizons Accelerator
+# TFLint configuration for Open Horizons Accelerator
 
 config {
   force = false

@@ -21,7 +21,7 @@
   </defs>
 
   <!-- Title -->
-  <text x="410" y="36" text-anchor="middle" font-size="20" font-weight="700" fill="#2c3e50">Three Horizons Architecture</text>
+  <text x="410" y="36" text-anchor="middle" font-size="20" font-weight="700" fill="#2c3e50">Open Horizons Architecture</text>
 
   <!-- H3: INNOVATION -->
   <g filter="url(#shadow)">

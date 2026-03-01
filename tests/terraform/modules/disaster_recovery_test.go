@@ -1,5 +1,5 @@
 // =============================================================================
-// THREE HORIZONS ACCELERATOR - DISASTER RECOVERY MODULE TESTS
+// OPEN HORIZONS ACCELERATOR - DISASTER RECOVERY MODULE TESTS
 // =============================================================================
 //
 // Unit and integration tests for the Terraform Disaster Recovery module.

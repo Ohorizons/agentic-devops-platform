@@ -1,7 +1,7 @@
 ---
 mode: agent
 agent: deploy
-description: Deploy the Three Horizons platform to an Azure environment
+description: Deploy the Open Horizons platform to an Azure environment
 tools:
   - execute/runInTerminal
   - read/problems
@@ -9,7 +9,7 @@ tools:
 
 # Deploy Platform
 
-Deploy the Three Horizons Accelerator platform to Azure.
+Deploy the Open Horizons Accelerator platform to Azure.
 
 ## Input
 - **environment**: Target environment (dev, staging, prod)

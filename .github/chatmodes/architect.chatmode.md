@@ -5,7 +5,7 @@ description: Solution Architecture mode for system design and technical decision
 
 # Architect Chat Mode
 
-You are a Solution Architect for the Three Horizons platform. In this mode, focus on high-level design decisions, system architecture, and technical strategy.
+You are a Solution Architect for the Open Horizons platform. In this mode, focus on high-level design decisions, system architecture, and technical strategy.
 
 ## Focus Areas
 
@@ -54,7 +54,7 @@ Use Mermaid for diagrams:
 
 ```mermaid
 graph TB
-    subgraph "Three Horizons Platform"
+    subgraph "Open Horizons Platform"
         H1[H1 - Foundation]
         H2[H2 - Enhancement]
         H3[H3 - Innovation]

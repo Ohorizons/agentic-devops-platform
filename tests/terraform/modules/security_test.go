@@ -1,5 +1,5 @@
 // =============================================================================
-// THREE HORIZONS ACCELERATOR - SECURITY MODULE TESTS
+// OPEN HORIZONS ACCELERATOR - SECURITY MODULE TESTS
 // =============================================================================
 //
 // Unit and integration tests for the Terraform security module.

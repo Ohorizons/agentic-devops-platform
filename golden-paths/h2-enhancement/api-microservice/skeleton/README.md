@@ -4,7 +4,7 @@ ${{values.description}}
 
 ## Overview
 
-This API microservice was created using the Three Horizons Accelerator - H2 Enhancement template.
+This API microservice was created using the Open Horizons Accelerator - H2 Enhancement template.
 
 | Property | Value |
 |----------|-------|
@@ -120,6 +120,6 @@ pytest tests/test_api.py -v
 
 ## Links
 
-- [Three Horizons Documentation](https://github.com/${{values.repoUrl | parseRepoUrl | pick('owner') }}/three-horizons-accelerator)
+- [Open Horizons Documentation](https://github.com/${{values.repoUrl | parseRepoUrl | pick('owner') }}/agentic-devops-platform)
 - [FastAPI Documentation](https://fastapi.tiangolo.com/)
 - [SQLAlchemy Documentation](https://docs.sqlalchemy.org/)

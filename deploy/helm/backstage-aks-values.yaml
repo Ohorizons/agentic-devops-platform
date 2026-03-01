@@ -106,19 +106,19 @@ backstage:
         - allow: [Component, System, API, Resource, Location, Domain, Template, User, Group]
       locations:
         - type: url
-          target: https://raw.githubusercontent.com/paulanunes85/three-horizons-accelerator/main/backstage/catalog-info.yaml
+          target: https://raw.githubusercontent.com/paulanunes85/agentic-devops-platform/main/backstage/catalog-info.yaml
           rules:
             - allow: [Component]
         - type: url
-          target: https://raw.githubusercontent.com/paulanunes85/three-horizons-accelerator/main/backstage/examples/org.yaml
+          target: https://raw.githubusercontent.com/paulanunes85/agentic-devops-platform/main/backstage/examples/org.yaml
           rules:
             - allow: [User, Group, Domain, System]
         - type: url
-          target: https://raw.githubusercontent.com/paulanunes85/three-horizons-accelerator/main/backstage/examples/entities.yaml
+          target: https://raw.githubusercontent.com/paulanunes85/agentic-devops-platform/main/backstage/examples/entities.yaml
           rules:
             - allow: [Component, API, System, Resource, Domain]
         - type: url
-          target: https://raw.githubusercontent.com/paulanunes85/three-horizons-accelerator/main/backstage/examples/demo-template.yaml
+          target: https://raw.githubusercontent.com/paulanunes85/agentic-devops-platform/main/backstage/examples/demo-template.yaml
           rules:
             - allow: [Template]
 

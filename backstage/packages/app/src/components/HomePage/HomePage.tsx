@@ -436,7 +436,7 @@ const HomePage = () => {
             className={classes.searchField}
           />
 
-          <Typography className={classes.sectionTitle}>The Three Horizons</Typography>
+          <Typography className={classes.sectionTitle}>The Open Horizons</Typography>
           <Grid container spacing={3}>
             <Grid item xs={12} md={4}>
               <Card className={classes.horizonCard}>

@@ -1,4 +1,4 @@
-# Three Horizons Accelerator - Platform Services
+# Open Horizons Accelerator - Platform Services
 
 > **Version:** 4.0.0
 > **Last Updated:** December 2025

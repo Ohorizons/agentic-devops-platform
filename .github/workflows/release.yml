@@ -1,5 +1,5 @@
 # .github/workflows/release.yml
-# Release workflow for Three Horizons Accelerator
+# Release workflow for Open Horizons Accelerator
 
 name: Release
 
@@ -73,7 +73,7 @@ jobs:
       - name: Create Release Archive
         run: |
           VERSION="${{ needs.validate.outputs.version }}"
-          ARCHIVE_NAME="three-horizons-accelerator-${VERSION}"
+          ARCHIVE_NAME="agentic-devops-platform-${VERSION}"
 
           # Create distribution folder
           mkdir -p dist
@@ -182,9 +182,9 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ needs.validate.outputs.version }}
-          name: Three Horizons Accelerator ${{ needs.validate.outputs.version }}
+          name: Open Horizons Accelerator ${{ needs.validate.outputs.version }}
           body: |
-            # Three Horizons Accelerator ${{ needs.validate.outputs.version }}
+            # Open Horizons Accelerator ${{ needs.validate.outputs.version }}
 
             Enterprise-grade platform accelerator for Azure with AI capabilities.
 
@@ -201,17 +201,17 @@ jobs:
             ```bash
             # Clone the repository
             git clone https://github.com/${{ github.repository }}.git
-            cd three-horizons-accelerator-v4
+            cd agentic-devops-platform
 
             # Or download the release
-            wget https://github.com/${{ github.repository }}/releases/download/${{ needs.validate.outputs.version }}/three-horizons-accelerator-${{ needs.validate.outputs.version }}.tar.gz
-            tar -xzf three-horizons-accelerator-${{ needs.validate.outputs.version }}.tar.gz
+            wget https://github.com/${{ github.repository }}/releases/download/${{ needs.validate.outputs.version }}/agentic-devops-platform-${{ needs.validate.outputs.version }}.tar.gz
+            tar -xzf agentic-devops-platform-${{ needs.validate.outputs.version }}.tar.gz
             ```
 
             ## Documentation
 
             - [Deployment Guide](docs/guides/DEPLOYMENT_GUIDE.md) - Step-by-step deployment instructions
-            - [Architecture Guide](docs/guides/ARCHITECTURE_GUIDE.md) - Three Horizons architecture
+            - [Architecture Guide](docs/guides/ARCHITECTURE_GUIDE.md) - Open Horizons architecture
             - [Agent Documentation](agents/README.md) - 23 AI agents for deployment automation
 
             ${{ needs.changelog.outputs.changelog }}

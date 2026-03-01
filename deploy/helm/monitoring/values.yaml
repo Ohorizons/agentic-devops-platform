@@ -1,5 +1,5 @@
 # =============================================================================
-# THREE HORIZONS ACCELERATOR - MONITORING HELM VALUES
+# OPEN HORIZONS ACCELERATOR - MONITORING HELM VALUES
 # =============================================================================
 #
 # Prometheus Stack configuration for observability.
@@ -152,18 +152,18 @@ grafana:
     dashboardproviders.yaml:
       apiVersion: 1
       providers:
-        - name: 'three-horizons'
+        - name: 'open-horizons'
           orgId: 1
-          folder: 'Three Horizons'
+          folder: 'Open Horizons'
           type: file
           disableDeletion: true
           editable: false
           options:
-            path: /var/lib/grafana/dashboards/three-horizons
+            path: /var/lib/grafana/dashboards/open-horizons
 
   # Dashboards from ConfigMaps
   dashboardsConfigMaps:
-    three-horizons: "grafana-dashboards"
+    open-horizons: "grafana-dashboards"
 
   # Sidecar for dashboard discovery
   sidecar:
@@ -305,11 +305,11 @@ prometheusOperator:
 # -----------------------------------------------------------------------------
 
 additionalPrometheusRulesMap:
-  three-horizons-rules:
+  open-horizons-rules:
     groups:
-      - name: three-horizons.rules
+      - name: open-horizons.rules
         rules:
-          - alert: ThreeHorizonsHighErrorRate
+          - alert: OpenHorizonsHighErrorRate
             expr: |
               sum(rate(http_requests_total{status=~"5.."}[5m]))
               / sum(rate(http_requests_total[5m])) > 0.05
@@ -321,7 +321,7 @@ additionalPrometheusRulesMap:
               summary: "High error rate detected"
               description: "Error rate is above 5% for the last 5 minutes"
 
-          - alert: ThreeHorizonsSlowResponse
+          - alert: OpenHorizonsSlowResponse
             expr: |
               histogram_quantile(0.99, sum(rate(http_request_duration_seconds_bucket[5m])) by (le)) > 1
             for: 10m

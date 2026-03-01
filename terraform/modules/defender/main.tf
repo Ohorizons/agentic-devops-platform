@@ -1,5 +1,5 @@
 # =============================================================================
-# THREE HORIZONS ACCELERATOR - DEFENDER FOR CLOUD TERRAFORM MODULE
+# OPEN HORIZONS ACCELERATOR - DEFENDER FOR CLOUD TERRAFORM MODULE
 # =============================================================================
 #
 # Deploys Microsoft Defender for Cloud with enterprise security posture.
@@ -107,10 +107,10 @@ locals {
   effective_compliance = length(var.regulatory_compliance_standards) > 0 ? var.regulatory_compliance_standards : local.compliance_by_profile[var.sizing_profile]
 
   common_tags = merge(var.tags, {
-    "three-horizons/customer"    = var.customer_name
-    "three-horizons/environment" = var.environment
-    "three-horizons/component"   = "defender-for-cloud"
-    "three-horizons/sizing"      = var.sizing_profile
+    "open-horizons/customer"    = var.customer_name
+    "open-horizons/environment" = var.environment
+    "open-horizons/component"   = "defender-for-cloud"
+    "open-horizons/sizing"      = var.sizing_profile
   })
 }
 

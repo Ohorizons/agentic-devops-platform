@@ -1,4 +1,4 @@
-# Three Horizons Accelerator - Configuration Files
+# Open Horizons Accelerator - Configuration Files
 
 > **Version:** 4.0.0
 > **Last Updated:** December 2025

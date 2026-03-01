@@ -1,5 +1,5 @@
 # =============================================================================
-# THREE HORIZONS ACCELERATOR - TERRAFORM MODULE TESTS
+# OPEN HORIZONS ACCELERATOR - TERRAFORM MODULE TESTS
 # =============================================================================
 #
 # Runs Terratest tests for Terraform modules.

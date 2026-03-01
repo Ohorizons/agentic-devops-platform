@@ -1,5 +1,5 @@
 // =============================================================================
-// THREE HORIZONS ACCELERATOR - NETWORKING MODULE TESTS
+// OPEN HORIZONS ACCELERATOR - NETWORKING MODULE TESTS
 // =============================================================================
 //
 // Unit and integration tests for the Terraform networking module.

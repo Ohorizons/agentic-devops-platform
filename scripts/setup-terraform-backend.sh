@@ -41,7 +41,7 @@ CONTAINER_NAME="tfstate"
 STATE_KEY="${CUSTOMER_NAME}.${ENVIRONMENT}.tfstate"
 
 echo -e "${BLUE}╔══════════════════════════════════════════════════════════════╗${NC}"
-echo -e "${BLUE}║       THREE HORIZONS — Terraform Backend Setup             ║${NC}"
+echo -e "${BLUE}║       OPEN HORIZONS — Terraform Backend Setup             ║${NC}"
 echo -e "${BLUE}╚══════════════════════════════════════════════════════════════╝${NC}"
 echo ""
 echo -e "  Customer:    ${YELLOW}${CUSTOMER_NAME}${NC}"

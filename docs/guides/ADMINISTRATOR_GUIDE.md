@@ -1,4 +1,4 @@
-# Three Horizons Accelerator - Administrator Guide
+# Open Horizons Accelerator - Administrator Guide
 
 > **Version:** 4.0.0
 > **Last Updated:** December 2025
@@ -28,7 +28,7 @@
 
 ### What is This Guide?
 
-This Administrator Guide provides everything you need to **operate and maintain** the Three Horizons platform on a day-to-day basis. It covers routine tasks, monitoring, troubleshooting, and incident response.
+This Administrator Guide provides everything you need to **operate and maintain** the Open Horizons platform on a day-to-day basis. It covers routine tasks, monitoring, troubleshooting, and incident response.
 
 > 💡 **Different from Other Guides**
 >
@@ -73,7 +73,7 @@ Keep this handy for daily operations:
 
 echo ""
 echo "╔══════════════════════════════════════════════════════════════════╗"
-echo "║           THREE HORIZONS DAILY HEALTH CHECK                       ║"
+echo "║           OPEN HORIZONS DAILY HEALTH CHECK                       ║"
 echo "║           $(date)                                                 ║"
 echo "╚══════════════════════════════════════════════════════════════════╝"
 echo ""
@@ -502,8 +502,8 @@ kubectl get nodes | wc -l
 
 # Scale the workload node pool
 az aks nodepool scale \
-  --resource-group rg-threehorizons-dev \
-  --cluster-name aks-threehorizons-dev \
+  --resource-group rg-openhorizons-dev \
+  --cluster-name aks-openhorizons-dev \
   --name workload \
   --node-count 5
 
@@ -685,13 +685,13 @@ velero restore describe <restore-name>
 ```bash
 # Set secret in Key Vault
 az keyvault secret set \
-  --vault-name kv-threehorizons-dev \
+  --vault-name kv-openhorizons-dev \
   --name "database-password" \
   --value "super-secret-password-123"
 
 # Verify secret was created
 az keyvault secret show \
-  --vault-name kv-threehorizons-dev \
+  --vault-name kv-openhorizons-dev \
   --name "database-password" \
   --query "value"
 ```
@@ -945,7 +945,7 @@ az consumption budget create \
   --time-grain Monthly \
   --start-date 2024-01-01 \
   --end-date 2025-12-31 \
-  --resource-group rg-threehorizons-dev \
+  --resource-group rg-openhorizons-dev \
   --notification-key-1 80Percent \
   --notification-threshold 80 \
   --notification-operator GreaterThan \

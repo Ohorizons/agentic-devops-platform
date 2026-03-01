@@ -1,4 +1,4 @@
-module github.com/three-horizons/accelerator/tests
+module github.com/Ohorizons/agentic-devops-platform/tests
 
 go 1.21
 

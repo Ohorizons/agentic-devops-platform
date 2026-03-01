@@ -1,4 +1,4 @@
-# Three Horizons Accelerator - Prometheus Rules
+# Open Horizons Accelerator - Prometheus Rules
 
 > **Version:** 4.0.0
 > **Last Updated:** December 2025

@@ -1,5 +1,5 @@
 # =============================================================================
-# THREE HORIZONS ACCELERATOR - GATEKEEPER ARGOCD APPLICATION
+# OPEN HORIZONS ACCELERATOR - GATEKEEPER ARGOCD APPLICATION
 # =============================================================================
 #
 # Deploys OPA Gatekeeper for Kubernetes policy enforcement.
@@ -22,8 +22,8 @@ metadata:
   labels:
     app.kubernetes.io/name: gatekeeper
     app.kubernetes.io/component: policy-enforcement
-    app.kubernetes.io/part-of: three-horizons-platform
-    platform.three-horizons/tier: h1-foundation
+    app.kubernetes.io/part-of: open-horizons-platform
+    platform.open-horizons/tier: h1-foundation
   annotations:
     argocd.argoproj.io/sync-wave: "-5"
   finalizers:
@@ -202,8 +202,8 @@ metadata:
   labels:
     app.kubernetes.io/name: gatekeeper-templates
     app.kubernetes.io/component: policy-templates
-    app.kubernetes.io/part-of: three-horizons-platform
-    platform.three-horizons/tier: h1-foundation
+    app.kubernetes.io/part-of: open-horizons-platform
+    platform.open-horizons/tier: h1-foundation
   annotations:
     argocd.argoproj.io/sync-wave: "-4"
   finalizers:
@@ -212,7 +212,7 @@ spec:
   project: platform-infrastructure
 
   source:
-    repoURL: https://github.com/${GITHUB_ORG}/three-horizons-accelerator.git
+    repoURL: https://github.com/${GITHUB_ORG}/agentic-devops-platform.git
     targetRevision: HEAD
     path: policies/kubernetes/constraint-templates
     directory:
@@ -253,8 +253,8 @@ metadata:
   labels:
     app.kubernetes.io/name: gatekeeper-constraints
     app.kubernetes.io/component: policy-constraints
-    app.kubernetes.io/part-of: three-horizons-platform
-    platform.three-horizons/tier: h1-foundation
+    app.kubernetes.io/part-of: open-horizons-platform
+    platform.open-horizons/tier: h1-foundation
   annotations:
     argocd.argoproj.io/sync-wave: "-3"
   finalizers:
@@ -263,7 +263,7 @@ spec:
   project: platform-infrastructure
 
   source:
-    repoURL: https://github.com/${GITHUB_ORG}/three-horizons-accelerator.git
+    repoURL: https://github.com/${GITHUB_ORG}/agentic-devops-platform.git
     targetRevision: HEAD
     path: policies/kubernetes/constraints
     directory:

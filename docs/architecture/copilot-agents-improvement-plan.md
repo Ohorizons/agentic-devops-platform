@@ -2,9 +2,9 @@
 
 ## Overview
 
-This document outlines the implementation plan to align the Three Horizons Accelerator v4 repository with GitHub Copilot Agents best practices. Execute each phase sequentially, validating results before proceeding.
+This document outlines the implementation plan to align the Open Horizons Accelerator v4 repository with GitHub Copilot Agents best practices. Execute each phase sequentially, validating results before proceeding.
 
-**Repository:** three-horizons-accelerator-v4
+**Repository:** agentic-devops-platform
 **Current Conformance:** 88%
 **Target Conformance:** 98%
 
@@ -670,7 +670,7 @@ Create a root-level AGENTS.md file as the agent playbook.
 Create `AGENTS.md` in repository root:
 
 ```markdown
-# Three Horizons Accelerator - Agent Playbook
+# Open Horizons Accelerator - Agent Playbook
 
 ## Overview
 

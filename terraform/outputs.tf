@@ -1,5 +1,5 @@
 # =============================================================================
-# THREE HORIZONS ACCELERATOR - OUTPUTS
+# OPEN HORIZONS ACCELERATOR - OUTPUTS
 # =============================================================================
 
 # -----------------------------------------------------------------------------
@@ -137,7 +137,7 @@ output "next_steps" {
   description = "Post-deployment instructions"
   value = <<-EOT
 
-    THREE HORIZONS PLATFORM DEPLOYED SUCCESSFULLY!
+    OPEN HORIZONS PLATFORM DEPLOYED SUCCESSFULLY!
 
     Next Steps:
 

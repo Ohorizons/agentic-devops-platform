@@ -26,7 +26,7 @@ while [[ $# -gt 0 ]]; do
 done
 
 echo -e "${BLUE}╔══════════════════════════════════════════════════════════════╗${NC}"
-echo -e "${BLUE}║       THREE HORIZONS — Deployment Validation               ║${NC}"
+echo -e "${BLUE}║       OPEN HORIZONS — Deployment Validation               ║${NC}"
 echo -e "${BLUE}╚══════════════════════════════════════════════════════════════╝${NC}"
 echo -e "  Environment: ${YELLOW}${ENVIRONMENT}${NC}  Phase: ${YELLOW}${PHASE}${NC}"
 

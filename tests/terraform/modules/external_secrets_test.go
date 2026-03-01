@@ -1,5 +1,5 @@
 // =============================================================================
-// THREE HORIZONS ACCELERATOR - EXTERNAL SECRETS MODULE TESTS
+// OPEN HORIZONS ACCELERATOR - EXTERNAL SECRETS MODULE TESTS
 // =============================================================================
 //
 // Unit and integration tests for the Terraform External Secrets Operator module.

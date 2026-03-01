@@ -136,16 +136,16 @@ function useGitHubProductivity(): { data: DevStats; loading: boolean } {
         // Fallback to mock data
         setData({
           totalCommits: 247, totalPRs: 38, mergedPRs: 31, reviewsDone: 52,
-          reposContributed: ['three-horizons-accelerator', 'platform-config', 'api-gateway', 'ml-pipeline', 'docs-site'],
+          reposContributed: ['agentic-devops-platform', 'platform-config', 'api-gateway', 'ml-pipeline', 'docs-site'],
           recentActivity: [
-            { type: 'Push', repo: 'three-horizons-accelerator', detail: 'feat: add copilot metrics page', date: '2/24/2026' },
-            { type: 'PullRequest', repo: 'three-horizons-accelerator', detail: 'opened: enterprise backstage upgrade', date: '2/24/2026' },
+            { type: 'Push', repo: 'agentic-devops-platform', detail: 'feat: add copilot metrics page', date: '2/24/2026' },
+            { type: 'PullRequest', repo: 'agentic-devops-platform', detail: 'opened: enterprise backstage upgrade', date: '2/24/2026' },
             { type: 'PullRequestReview', repo: 'platform-config', detail: 'review: approved', date: '2/23/2026' },
             { type: 'Push', repo: 'api-gateway', detail: 'fix: CORS config for production', date: '2/23/2026' },
             { type: 'PullRequest', repo: 'ml-pipeline', detail: 'merged: mlops training pipeline v2', date: '2/22/2026' },
             { type: 'Push', repo: 'docs-site', detail: 'docs: update architecture guide', date: '2/22/2026' },
             { type: 'PullRequestReview', repo: 'api-gateway', detail: 'review: changes_requested', date: '2/21/2026' },
-            { type: 'Push', repo: 'three-horizons-accelerator', detail: 'feat: golden path templates', date: '2/21/2026' },
+            { type: 'Push', repo: 'agentic-devops-platform', detail: 'feat: golden path templates', date: '2/21/2026' },
           ],
           languageBreakdown: [
             { name: 'TypeScript', pct: 35, color: '#3178c6' },

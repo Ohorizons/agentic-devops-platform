@@ -1,4 +1,4 @@
-# Three Horizons Accelerator - GitHub Copilot Agents Best Practices
+# Open Horizons Accelerator - GitHub Copilot Agents Best Practices
 
 > **Version:** 4.0.0
 > **Last Updated:** December 2025

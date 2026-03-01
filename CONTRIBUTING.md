@@ -1,6 +1,6 @@
-# Contributing to Three Horizons Accelerator
+# Contributing to Open Horizons Accelerator
 
-Thank you for your interest in contributing to the Three Horizons Accelerator! This document provides guidelines and instructions for contributing.
+Thank you for your interest in contributing to the Open Horizons Accelerator! This document provides guidelines and instructions for contributing.
 
 ## Table of Contents
 
@@ -37,14 +37,14 @@ This project follows a standard code of conduct. Please be respectful and constr
 2. Clone your fork:
 
    ```bash
-   git clone https://github.com/YOUR-USERNAME/three-horizons-accelerator-v4.git
-   cd three-horizons-accelerator-v4
+   git clone https://github.com/YOUR-USERNAME/agentic-devops-platform.git
+   cd agentic-devops-platform
    ```
 
 3. Add upstream remote:
 
    ```bash
-   git remote add upstream https://github.com/ORIGINAL-OWNER/three-horizons-accelerator-v4.git
+   git remote add upstream https://github.com/ORIGINAL-OWNER/agentic-devops-platform.git
    ```
 
 ## Development Setup
@@ -345,4 +345,4 @@ Contributors will be recognized in:
 - CONTRIBUTORS.md (for significant contributions)
 - Project documentation
 
-Thank you for contributing to the Three Horizons Accelerator!
+Thank you for contributing to the Open Horizons Accelerator!

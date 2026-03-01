@@ -8,7 +8,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        ## Three Horizons Platform Deployment Request
+        ## Open Horizons Platform Deployment Request
 
         This form will help configure your platform deployment. An AI agent will process this request.
 

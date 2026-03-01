@@ -1,5 +1,5 @@
 # =============================================================================
-# THREE HORIZONS ACCELERATOR - AI FOUNDRY MODULE VARIABLES
+# OPEN HORIZONS ACCELERATOR - AI FOUNDRY MODULE VARIABLES
 # =============================================================================
 
 variable "customer_name" {

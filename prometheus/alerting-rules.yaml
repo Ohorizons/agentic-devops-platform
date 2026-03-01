@@ -1,8 +1,8 @@
 # =============================================================================
-# THREE HORIZONS ACCELERATOR - PROMETHEUS ALERTING RULES
+# OPEN HORIZONS ACCELERATOR - PROMETHEUS ALERTING RULES
 # =============================================================================
 #
-# Comprehensive alerting rules for monitoring the Three Horizons Platform.
+# Comprehensive alerting rules for monitoring the Open Horizons Platform.
 # Covers infrastructure, applications, AI agents, and platform health.
 #
 # =============================================================================

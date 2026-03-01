@@ -1,5 +1,5 @@
 # =============================================================================
-# THREE HORIZONS ACCELERATOR - AKS CLUSTER MODULE VARIABLES
+# OPEN HORIZONS ACCELERATOR - AKS CLUSTER MODULE VARIABLES
 # =============================================================================
 
 variable "customer_name" {

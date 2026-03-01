@@ -1,5 +1,5 @@
 // =============================================================================
-// THREE HORIZONS ACCELERATOR - OBSERVABILITY MODULE TESTS
+// OPEN HORIZONS ACCELERATOR - OBSERVABILITY MODULE TESTS
 // =============================================================================
 //
 // Unit and integration tests for the Terraform observability module.

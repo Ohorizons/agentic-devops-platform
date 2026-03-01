@@ -1,5 +1,5 @@
 # =============================================================================
-# THREE HORIZONS ACCELERATOR - CONTAINER REGISTRY MODULE VARIABLES
+# OPEN HORIZONS ACCELERATOR - CONTAINER REGISTRY MODULE VARIABLES
 # =============================================================================
 
 variable "customer_name" {

@@ -1,6 +1,6 @@
 # Branching Strategy
 
-This document describes the Git branching strategy used in the Three Horizons Accelerator project.
+This document describes the Git branching strategy used in the Open Horizons Accelerator project.
 
 ## Branch Overview
 

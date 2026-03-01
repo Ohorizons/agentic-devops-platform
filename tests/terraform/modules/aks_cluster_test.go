@@ -1,5 +1,5 @@
 // =============================================================================
-// THREE HORIZONS ACCELERATOR - AKS CLUSTER MODULE TESTS
+// OPEN HORIZONS ACCELERATOR - AKS CLUSTER MODULE TESTS
 // =============================================================================
 //
 // Unit and integration tests for the Terraform AKS cluster module.

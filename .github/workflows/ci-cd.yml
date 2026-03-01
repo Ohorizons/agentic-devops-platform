@@ -1,5 +1,5 @@
 # =============================================================================
-# THREE HORIZONS ACCELERATOR - CI/CD PIPELINE
+# OPEN HORIZONS ACCELERATOR - CI/CD PIPELINE
 # =============================================================================
 #
 # Validates Terraform, runs security scans, and deploys to environments.
@@ -11,7 +11,7 @@
 #
 # =============================================================================
 
-name: Three Horizons CI/CD
+name: Open Horizons CI/CD
 
 on:
   push:

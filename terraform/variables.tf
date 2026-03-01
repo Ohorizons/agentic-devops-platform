@@ -1,5 +1,5 @@
 # =============================================================================
-# THREE HORIZONS ACCELERATOR - VARIABLES
+# OPEN HORIZONS ACCELERATOR - VARIABLES
 # =============================================================================
 #
 # All input variables for the platform. Use a .tfvars file to set values:

@@ -32,7 +32,7 @@ fi
 TFVARS_FILE="$TERRAFORM_DIR/environments/${ENVIRONMENT}.tfvars"
 
 echo -e "${BLUE}╔══════════════════════════════════════════════════════════════╗${NC}"
-echo -e "${BLUE}║       THREE HORIZONS — Configuration Validation            ║${NC}"
+echo -e "${BLUE}║       OPEN HORIZONS — Configuration Validation            ║${NC}"
 echo -e "${BLUE}╚══════════════════════════════════════════════════════════════╝${NC}"
 echo -e "  Environment: ${YELLOW}${ENVIRONMENT}${NC}"
 

@@ -1,5 +1,5 @@
 # =============================================================================
-# THREE HORIZONS ACCELERATOR - NETWORKING TERRAFORM MODULE
+# OPEN HORIZONS ACCELERATOR - NETWORKING TERRAFORM MODULE
 # =============================================================================
 #
 # Creates Azure networking infrastructure for the platform.
@@ -23,9 +23,9 @@ locals {
   name_prefix = "${var.customer_name}-${var.environment}"
 
   common_tags = merge(var.tags, {
-    "three-horizons/customer"    = var.customer_name
-    "three-horizons/environment" = var.environment
-    "three-horizons/component"   = "networking"
+    "open-horizons/customer"    = var.customer_name
+    "open-horizons/environment" = var.environment
+    "open-horizons/component"   = "networking"
   })
 
   # Private DNS zones for Azure services

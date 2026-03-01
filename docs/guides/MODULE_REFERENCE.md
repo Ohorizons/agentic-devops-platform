@@ -1,4 +1,4 @@
-# Three Horizons Accelerator - Module Reference
+# Open Horizons Accelerator - Module Reference
 
 > **Version:** 4.0.0
 > **Last Updated:** December 2025
@@ -82,7 +82,7 @@ Here's a decision guide for which modules to use:
 
 ### 2.2 Module Categories Explained
 
-> 💡 **Three Horizons Model**
+> 💡 **Open Horizons Model**
 >
 > The modules are organized into "horizons" based on their purpose:
 >

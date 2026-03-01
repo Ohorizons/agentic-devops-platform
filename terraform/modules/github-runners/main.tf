@@ -1,5 +1,5 @@
 # =============================================================================
-# THREE HORIZONS ACCELERATOR - GITHUB RUNNERS TERRAFORM MODULE
+# OPEN HORIZONS ACCELERATOR - GITHUB RUNNERS TERRAFORM MODULE
 # =============================================================================
 #
 # Deploys self-hosted GitHub Actions runners on AKS using Actions Runner Controller.
@@ -26,8 +26,8 @@ locals {
     "app.kubernetes.io/instance"   = local.name_prefix
     "app.kubernetes.io/component"  = "cicd"
     "app.kubernetes.io/managed-by" = "terraform"
-    "three-horizons/customer"      = var.customer_name
-    "three-horizons/environment"   = var.environment
+    "open-horizons/customer"      = var.customer_name
+    "open-horizons/environment"   = var.environment
   }
 }
 

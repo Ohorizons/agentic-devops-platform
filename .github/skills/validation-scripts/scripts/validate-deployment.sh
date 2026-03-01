@@ -1,9 +1,9 @@
 #!/bin/bash
 # =============================================================================
-# THREE HORIZONS ACCELERATOR - DEPLOYMENT VALIDATION SCRIPT
+# OPEN HORIZONS ACCELERATOR - DEPLOYMENT VALIDATION SCRIPT
 # =============================================================================
 #
-# Validates that a Three Horizons platform deployment is healthy and functional.
+# Validates that a Open Horizons platform deployment is healthy and functional.
 #
 # Usage:
 #   ./validate-deployment.sh [options]
@@ -81,7 +81,7 @@ log_verbose() {
 print_banner() {
     echo ""
     echo "============================================================"
-    echo "  THREE HORIZONS ACCELERATOR - DEPLOYMENT VALIDATION"
+    echo "  OPEN HORIZONS ACCELERATOR - DEPLOYMENT VALIDATION"
     echo "============================================================"
     echo ""
     echo "  Environment: $ENVIRONMENT"

@@ -1,5 +1,5 @@
 // =============================================================================
-// THREE HORIZONS ACCELERATOR - NAMING MODULE TESTS
+// OPEN HORIZONS ACCELERATOR - NAMING MODULE TESTS
 // =============================================================================
 //
 // Unit and integration tests for the Terraform naming module.

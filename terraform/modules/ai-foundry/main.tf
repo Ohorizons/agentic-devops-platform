@@ -1,5 +1,5 @@
 # =============================================================================
-# THREE HORIZONS ACCELERATOR - AI FOUNDRY TERRAFORM MODULE
+# OPEN HORIZONS ACCELERATOR - AI FOUNDRY TERRAFORM MODULE
 # =============================================================================
 #
 # Deploys Azure AI services for H3 Innovation workloads.
@@ -24,10 +24,10 @@ locals {
   name_prefix = "${var.customer_name}-${var.environment}"
 
   common_tags = merge(var.tags, {
-    "three-horizons/customer"    = var.customer_name
-    "three-horizons/environment" = var.environment
-    "three-horizons/component"   = "ai-foundry"
-    "three-horizons/horizon"     = "H3"
+    "open-horizons/customer"    = var.customer_name
+    "open-horizons/environment" = var.environment
+    "open-horizons/component"   = "ai-foundry"
+    "open-horizons/horizon"     = "H3"
   })
 }
 

@@ -1,5 +1,5 @@
 # =============================================================================
-# THREE HORIZONS ACCELERATOR - EXTERNAL SECRETS OPERATOR MODULE
+# OPEN HORIZONS ACCELERATOR - EXTERNAL SECRETS OPERATOR MODULE
 # =============================================================================
 #
 # Deploys External Secrets Operator with Azure Key Vault integration.
@@ -24,8 +24,8 @@ locals {
 
   common_labels = {
     "app.kubernetes.io/managed-by" = "terraform"
-    "app.kubernetes.io/part-of"    = "three-horizons-platform"
-    "platform.three-horizons/tier" = "security"
+    "app.kubernetes.io/part-of"    = "open-horizons-platform"
+    "platform.open-horizons/tier" = "security"
   }
 }
 

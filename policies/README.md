@@ -1,6 +1,6 @@
 # Policy as Code
 
-This directory contains policy definitions for enforcing security and compliance standards across the Three Horizons Platform.
+This directory contains policy definitions for enforcing security and compliance standards across the Open Horizons Platform.
 
 ## Overview
 
@@ -155,7 +155,7 @@ To exempt a resource from a policy:
 ```yaml
 metadata:
   annotations:
-    policies.three-horizons.io/exempt: "require-labels"
+    policies.open-horizons.io/exempt: "require-labels"
 ```
 
 ### Terraform

@@ -1,5 +1,5 @@
 // =============================================================================
-// THREE HORIZONS ACCELERATOR - ARGOCD MODULE TESTS
+// OPEN HORIZONS ACCELERATOR - ARGOCD MODULE TESTS
 // =============================================================================
 //
 // Unit and integration tests for the Terraform ArgoCD module.

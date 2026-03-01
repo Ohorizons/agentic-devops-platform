@@ -1,5 +1,5 @@
 # =============================================================================
-# THREE HORIZONS ACCELERATOR - OBSERVABILITY TERRAFORM MODULE
+# OPEN HORIZONS ACCELERATOR - OBSERVABILITY TERRAFORM MODULE
 # =============================================================================
 #
 # Deploys observability stack on AKS using Azure Managed services.
@@ -22,9 +22,9 @@ locals {
   name_prefix = "${var.customer_name}-${var.environment}"
 
   common_tags = merge(var.tags, {
-    "three-horizons/customer"    = var.customer_name
-    "three-horizons/environment" = var.environment
-    "three-horizons/component"   = "observability"
+    "open-horizons/customer"    = var.customer_name
+    "open-horizons/environment" = var.environment
+    "open-horizons/component"   = "observability"
   })
 }
 
@@ -421,14 +421,14 @@ resource "kubernetes_namespace" "grafana_dashboards" {
     name = "grafana-dashboards"
 
     labels = {
-      "three-horizons/component" = "observability"
+      "open-horizons/component" = "observability"
     }
   }
 }
 
 resource "kubernetes_config_map" "grafana_dashboards" {
   metadata {
-    name      = "three-horizons-dashboards"
+    name      = "open-horizons-dashboards"
     namespace = kubernetes_namespace.grafana_dashboards.metadata[0].name
 
     labels = {
@@ -491,11 +491,11 @@ resource "kubernetes_config_map" "grafana_dashboards" {
         }
       ]
       schemaVersion = 38
-      tags          = ["kubernetes", "three-horizons"]
+      tags          = ["kubernetes", "open-horizons"]
       templating    = { list = [] }
       time          = { from = "now-6h", to = "now" }
-      title         = "Three Horizons - Cluster Overview"
-      uid           = "three-horizons-cluster"
+      title         = "Open Horizons - Cluster Overview"
+      uid           = "open-horizons-cluster"
     })
 
     "golden-path-apps.json" = jsonencode({
@@ -542,7 +542,7 @@ resource "kubernetes_config_map" "grafana_dashboards" {
         }
       ]
       schemaVersion = 38
-      tags          = ["golden-path", "three-horizons"]
+      tags          = ["golden-path", "open-horizons"]
       templating = {
         list = [
           {
@@ -554,8 +554,8 @@ resource "kubernetes_config_map" "grafana_dashboards" {
         ]
       }
       time  = { from = "now-1h", to = "now" }
-      title = "Three Horizons - Golden Path Applications"
-      uid   = "three-horizons-apps"
+      title = "Open Horizons - Golden Path Applications"
+      uid   = "open-horizons-apps"
     })
   }
 }

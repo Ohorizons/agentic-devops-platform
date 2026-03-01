@@ -1,5 +1,5 @@
 // =============================================================================
-// THREE HORIZONS ACCELERATOR - AI FOUNDRY MODULE TESTS
+// OPEN HORIZONS ACCELERATOR - AI FOUNDRY MODULE TESTS
 // =============================================================================
 //
 // Unit and integration tests for the Terraform AI Foundry module.

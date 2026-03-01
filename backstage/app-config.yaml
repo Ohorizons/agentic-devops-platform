@@ -1,9 +1,9 @@
 app:
-  title: paulasilvatech — Agentic DevOps Platform (Open Horizons)
+  title: Ohorizons — Agentic DevOps Platform (Open Horizons)
   baseUrl: http://localhost:3000
 
 organization:
-  name: paulasilvatech
+  name: Ohorizons
 
 backend:
   # Used for enabling authentication, secret is shared by all backend plugins

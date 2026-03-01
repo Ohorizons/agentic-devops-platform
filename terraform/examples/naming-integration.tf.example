@@ -81,7 +81,7 @@ module "container_registry" {
   location            = var.location
 
   # Use naming module - automatically removes hyphens
-  acr_name = module.naming.container_registry # e.g., "crthreehorizonsprdbrs"
+  acr_name = module.naming.container_registry # e.g., "cropenhorizonsprdbrs"
 
   # ... other variables
   tags = module.naming.tags
@@ -93,7 +93,7 @@ module "container_registry" {
 
 resource "azurerm_storage_account" "main" {
   # Use naming module - automatically handles constraints
-  name                     = module.naming.storage_account # e.g., "stthreehorizonsprdbrs001"
+  name                     = module.naming.storage_account # e.g., "stopenhorizonsprdbrs001"
   resource_group_name      = azurerm_resource_group.main.name
   location                 = var.location
   account_tier             = "Standard"
@@ -113,7 +113,7 @@ module "security" {
   location            = var.location
 
   # Use naming module
-  key_vault_name = module.naming.key_vault # e.g., "kv-threehorizons-prd-brs"
+  key_vault_name = module.naming.key_vault # e.g., "kv-openhorizons-prd-brs"
   identity_name  = module.naming.managed_identity
 
   # ... other variables
@@ -131,7 +131,7 @@ module "databases" {
   location            = var.location
 
   # Use naming module
-  server_name   = module.naming.postgresql_server # e.g., "psql-threehorizons-prd-brs"
+  server_name   = module.naming.postgresql_server # e.g., "psql-openhorizons-prd-brs"
   database_name = module.naming.postgresql_database
 
   # ... other variables
@@ -208,7 +208,7 @@ module "defender" {
 # -----------------------------------------------------------------------------
 
 resource "azurerm_private_endpoint" "keyvault" {
-  name                = "${module.naming.private_endpoint}-kv" # pe-threehorizons-prd-brs-kv
+  name                = "${module.naming.private_endpoint}-kv" # pe-openhorizons-prd-brs-kv
   location            = var.location
   resource_group_name = azurerm_resource_group.main.name
   subnet_id           = module.networking.pe_subnet_id
@@ -224,7 +224,7 @@ resource "azurerm_private_endpoint" "keyvault" {
 }
 
 resource "azurerm_private_endpoint" "acr" {
-  name                = "${module.naming.private_endpoint}-acr" # pe-threehorizons-prd-brs-acr
+  name                = "${module.naming.private_endpoint}-acr" # pe-openhorizons-prd-brs-acr
   location            = var.location
   resource_group_name = azurerm_resource_group.main.name
   subnet_id           = module.networking.pe_subnet_id

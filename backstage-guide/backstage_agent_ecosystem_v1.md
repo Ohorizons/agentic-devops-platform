@@ -23,7 +23,7 @@ This repository contains the **Backstage upstream** accelerator. Everything here
 - **AKS deployment only** — no ARO, no OpenShift, no Operator
 
 **What is NOT in this repository:**
-- Red Hat Developer Hub (RHDH) — see `three-horizons-rhdh` repository
+- Red Hat Developer Hub (RHDH) — see `open-horizons-rhdh` repository
 - Dynamic plugins, Helm values, ConfigMaps, Operator CR, RBAC CSV, OpenShift Routes
 
 ---

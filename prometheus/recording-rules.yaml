@@ -1,5 +1,5 @@
 # =============================================================================
-# THREE HORIZONS ACCELERATOR - PROMETHEUS RECORDING RULES
+# OPEN HORIZONS ACCELERATOR - PROMETHEUS RECORDING RULES
 # =============================================================================
 #
 # Recording rules pre-compute frequently-used or expensive queries for

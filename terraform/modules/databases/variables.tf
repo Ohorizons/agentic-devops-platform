@@ -1,5 +1,5 @@
 # =============================================================================
-# THREE HORIZONS ACCELERATOR - DATABASES MODULE VARIABLES
+# OPEN HORIZONS ACCELERATOR - DATABASES MODULE VARIABLES
 # =============================================================================
 
 variable "customer_name" {

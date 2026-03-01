@@ -1,4 +1,4 @@
-# Three Horizons Accelerator - Grafana Dashboards
+# Open Horizons Accelerator - Grafana Dashboards
 
 > **Version:** 4.0.0
 > **Last Updated:** December 2025

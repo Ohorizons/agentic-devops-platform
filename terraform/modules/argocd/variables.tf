@@ -1,5 +1,5 @@
 # =============================================================================
-# THREE HORIZONS ACCELERATOR - ARGOCD MODULE VARIABLES
+# OPEN HORIZONS ACCELERATOR - ARGOCD MODULE VARIABLES
 # =============================================================================
 
 variable "customer_name" {

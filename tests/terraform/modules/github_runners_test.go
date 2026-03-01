@@ -1,5 +1,5 @@
 // =============================================================================
-// THREE HORIZONS ACCELERATOR - GITHUB RUNNERS MODULE TESTS
+// OPEN HORIZONS ACCELERATOR - GITHUB RUNNERS MODULE TESTS
 // =============================================================================
 //
 // Unit and integration tests for the Terraform GitHub Runners module.

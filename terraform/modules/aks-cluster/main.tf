@@ -1,9 +1,9 @@
 # =============================================================================
-# THREE HORIZONS ACCELERATOR - AKS CLUSTER MODULE
+# OPEN HORIZONS ACCELERATOR - AKS CLUSTER MODULE
 # =============================================================================
 # 
 # This module creates a production-ready Azure Kubernetes Service cluster
-# optimized for the Three Horizons Platform.
+# optimized for the Open Horizons Platform.
 #
 # Features:
 #   - Multi-zone deployment for high availability
@@ -30,7 +30,7 @@ locals {
 
   default_tags = merge(var.tags, {
     Component = "AKS"
-    Module    = "three-horizons-accelerator"
+    Module    = "agentic-devops-platform"
   })
 }
 

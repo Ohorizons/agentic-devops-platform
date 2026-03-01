@@ -1,5 +1,5 @@
 # =============================================================================
-# THREE HORIZONS ACCELERATOR - H2 GITOPS DEPLOYMENT GOLDEN PATH TEMPLATE
+# OPEN HORIZONS ACCELERATOR - H2 GITOPS DEPLOYMENT GOLDEN PATH TEMPLATE
 # =============================================================================
 #
 # Backstage Software Template for creating GitOps deployment configurations.
@@ -232,7 +232,7 @@ spec:
           title: Container Registry
           description: Container registry URL
           type: string
-          default: acrthreehorizons.azurecr.io
+          default: acropenhorizons.azurecr.io
 
         imageName:
           title: Image Name

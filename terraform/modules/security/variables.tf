@@ -1,5 +1,5 @@
 # =============================================================================
-# THREE HORIZONS ACCELERATOR - SECURITY MODULE VARIABLES
+# OPEN HORIZONS ACCELERATOR - SECURITY MODULE VARIABLES
 # =============================================================================
 
 variable "customer_name" {

@@ -1,5 +1,5 @@
 # .github/workflows/cd.yml
-# Continuous Deployment workflow for Three Horizons Accelerator
+# Continuous Deployment workflow for Open Horizons Accelerator
 
 name: CD
 
