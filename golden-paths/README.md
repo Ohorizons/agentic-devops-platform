@@ -1,6 +1,6 @@
 # Golden Paths Templates
 
-> **A solution created in partnership with Microsoft, GitHub, and Red Hat**
+> **A solution created in partnership with Microsoft and GitHub**
 
 This directory contains self-service templates for Backstage that enable developers to quickly scaffold new projects following platform standards.
 

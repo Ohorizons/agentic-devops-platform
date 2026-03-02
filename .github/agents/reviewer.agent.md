@@ -1,9 +1,7 @@
 ---
 name: reviewer
 description: Specialist in Code Quality, Best Practices, and Constructive Feedback.
-tools:
-  - search/codebase
-  - read/problems
+tools: [execute/runInTerminal, execute/getTerminalOutput, execute/awaitTerminal, execute/killTerminal, execute/runTests, read/problems, read/readFile, read/terminalLastCommand, read/terminalSelection, agent/askQuestions, agent/runSubagent, edit/createFile, edit/editFiles, edit/rename, search/codebase, search/fileSearch, search/textSearch, search/searchSubagent, search/listDirectory, search/usages, web/fetch, web/githubRepo, todo]
 user-invokable: true
 handoffs:
   - label: "Security Deep Dive"

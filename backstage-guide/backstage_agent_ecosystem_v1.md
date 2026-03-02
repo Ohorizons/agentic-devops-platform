@@ -23,8 +23,7 @@ This repository contains the **Backstage upstream** accelerator. Everything here
 - **AKS deployment only** — no ARO, no OpenShift, no Operator
 
 **What is NOT in this repository:**
-- Red Hat Developer Hub (RHDH) — see `open-horizons-rhdh` repository
-- Dynamic plugins, Helm values, ConfigMaps, Operator CR, RBAC CSV, OpenShift Routes
+- Dynamic plugins, Helm values for OpenShift, Operator CR, RBAC CSV, OpenShift Routes
 
 ---
 
@@ -219,7 +218,7 @@ Step 13: deploy           → Summary: Portal URL + credentials + template count
 - Merge code / auto-approve PRs
 - Expose secrets
 - Deploy outside Central US / East US
-- Deploy to ARO (use RHDH repo)
+- Deploy to ARO (use Backstage repo)
 - Disable auth in production
 
 ### Ask First Actions

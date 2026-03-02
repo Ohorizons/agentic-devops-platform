@@ -132,7 +132,7 @@ jobs:
 - Add tracing instrumentation
 
 ### 5. Register in Catalog
-Create catalog-info.yaml for RHDH:
+Create catalog-info.yaml for Backstage:
 ```yaml
 apiVersion: backstage.io/v1alpha1
 kind: Component
@@ -161,7 +161,7 @@ Created Files:
 - deploy/kubernetes/ - K8s manifests
 - .github/workflows/ - CI/CD pipeline
 - Dockerfile - Container build
-- catalog-info.yaml - RHDH registration
+- catalog-info.yaml - Backstage registration
 
 Next Steps:
 1. Review generated code

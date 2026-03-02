@@ -28,7 +28,7 @@ body:
     attributes:
       label: "Target Developer Portal"
       options:
-        - "RHDH (Red Hat Developer Hub)"
+        - "Backstage (Backstage)"
         - "Backstage OSS"
         - "GitHub Templates only"
     validations:

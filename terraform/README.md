@@ -1,6 +1,6 @@
 # Terraform Infrastructure
 
-> **A solution created in partnership with Microsoft, GitHub, and Red Hat**
+> **A solution created in partnership with Microsoft and GitHub**
 
 This directory contains the Terraform configuration for the Open Horizons Platform infrastructure.
 

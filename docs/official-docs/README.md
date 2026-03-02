@@ -12,7 +12,7 @@ official-docs/
 ├── kubernetes/         # Kubernetes / AKS
 ├── openshift/          # OpenShift / ARO
 ├── prometheus-grafana/ # Prometheus, Grafana, Alertmanager
-├── backstage/               # Red Hat Developer Hub
+├── backstage/               # Backstage
 └── terraform/          # Terraform / Azure Provider
 ```
 

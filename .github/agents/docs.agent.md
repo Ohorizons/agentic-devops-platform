@@ -1,10 +1,7 @@
 ---
 name: docs
 description: Specialist in Documentation, Technical Writing, and Knowledge Management.
-tools:
-  - search/codebase
-  - edit/editFiles
-  - read/problems
+tools: [execute/runInTerminal, execute/getTerminalOutput, execute/awaitTerminal, execute/killTerminal, execute/runTests, read/problems, read/readFile, read/terminalLastCommand, read/terminalSelection, agent/askQuestions, agent/runSubagent, edit/createFile, edit/editFiles, edit/rename, search/codebase, search/fileSearch, search/textSearch, search/searchSubagent, search/listDirectory, search/usages, web/fetch, web/githubRepo, todo]
   - web/githubRepo
 user-invokable: true
 handoffs:

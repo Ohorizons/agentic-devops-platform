@@ -6,11 +6,16 @@
 ingress:
   enabled: true
   className: nginx
-  host: backstage.20.62.35.83.sslip.io
+  host: devhub.ohorizons.ai
   path: /
   annotations:
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+  tls:
+    - hosts:
+        - devhub.ohorizons.ai
+      secretName: tls-ohorizons-devhub
 
 backstage:
   replicas: 1
@@ -45,7 +50,7 @@ backstage:
   appConfig:
     app:
       title: Open Horizons | Agentic DevOps Platform
-      baseUrl: https://backstage.20.62.35.83.sslip.io
+      baseUrl: https://devhub.ohorizons.ai
       branding:
         fullLogo:
           alt: Open Horizons — Agentic DevOps Platform
@@ -63,7 +68,7 @@ backstage:
     organization:
       name: Open Horizons — Agentic DevOps Platform
     backend:
-      baseUrl: https://backstage.20.62.35.83.sslip.io
+      baseUrl: https://devhub.ohorizons.ai
       listen:
         port: 7007
       reading:
@@ -73,7 +78,7 @@ backstage:
         img-src: ["'self'", 'data:', 'https:']
         upgrade-insecure-requests: false
       cors:
-        origin: https://backstage.20.62.35.83.sslip.io
+        origin: https://devhub.ohorizons.ai
         methods: [GET, HEAD, PATCH, POST, PUT, DELETE]
         credentials: true
 

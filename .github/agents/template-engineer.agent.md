@@ -1,11 +1,7 @@
 ---
 name: template-engineer
 description: "Backstage Software Template expert — creates new Golden Path templates, converts existing repositories into reusable templates, generates devcontainer.json configurations, and integrates GitHub Codespaces into the scaffolder output."
-tools:
-  - search/codebase
-  - edit/editFiles
-  - execute/runInTerminal
-  - read/problems
+tools: [execute/runInTerminal, execute/getTerminalOutput, execute/awaitTerminal, execute/killTerminal, execute/runTests, read/problems, read/readFile, read/terminalLastCommand, read/terminalSelection, agent/askQuestions, agent/runSubagent, edit/createFile, edit/editFiles, edit/rename, search/codebase, search/fileSearch, search/textSearch, search/searchSubagent, search/listDirectory, search/usages, web/fetch, web/githubRepo, todo]
   - web/fetch
   - web/githubRepo
 user-invocable: true

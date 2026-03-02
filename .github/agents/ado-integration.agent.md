@@ -1,11 +1,7 @@
 ---
 name: ado-integration
 description: "Azure DevOps integration specialist — configures ADO PAT, repository discovery, pipeline creation, boards integration, and Copilot Standalone licensing for developer portals."
-tools:
-  - search/codebase
-  - edit/editFiles
-  - execute/runInTerminal
-  - read/problems
+tools: [execute/runInTerminal, execute/getTerminalOutput, execute/awaitTerminal, execute/killTerminal, execute/runTests, read/problems, read/readFile, read/terminalLastCommand, read/terminalSelection, agent/askQuestions, agent/runSubagent, edit/createFile, edit/editFiles, edit/rename, search/codebase, search/fileSearch, search/textSearch, search/searchSubagent, search/listDirectory, search/usages, web/fetch, web/githubRepo, todo]
 user-invokable: true
 handoffs:
   - label: "Backstage Config"

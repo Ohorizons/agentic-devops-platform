@@ -1,6 +1,6 @@
 # Automation Scripts
 
-> **A solution created in partnership with Microsoft, GitHub, and Red Hat**
+> **A solution created in partnership with Microsoft and GitHub**
 
 This directory contains automation scripts for the Open Horizons Platform.
 

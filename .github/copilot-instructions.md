@@ -13,7 +13,7 @@ This is the Open Horizons Accelerator v4.0.0 - an enterprise-grade platform acce
 - **Infrastructure**: Terraform for Azure (AKS, networking, databases)
 - **Container Platform**: Azure Kubernetes Service (AKS)
 - **GitOps**: ArgoCD for continuous deployment
-- **IDP**: Red Hat Developer Hub (Backstage-based)
+- **IDP**: Backstage (open-source)
 - **Observability**: Prometheus, Grafana, Alertmanager, Loki
 - **AI**: Azure AI Foundry, OpenAI models
 

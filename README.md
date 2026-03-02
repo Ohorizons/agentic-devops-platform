@@ -1,6 +1,6 @@
 # Open Horizons Implementation Accelerator
 
-> **A solution created in partnership with Microsoft, GitHub, and Red Hat**
+> **A solution created in partnership with Microsoft and GitHub**
 
 ## Overview
 
@@ -221,7 +221,7 @@ terraform apply -var-file=environments/dev.tfvars -var="enable_h2=true"
 **Resources created in H2:**
 
 - ArgoCD with ApplicationSets
-- Red Hat Developer Hub
+- Backstage
 - Prometheus + Grafana + Loki
 - GitHub Actions Runners
 

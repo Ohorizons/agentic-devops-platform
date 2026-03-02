@@ -9,7 +9,7 @@ body:
     attributes:
       value: |
         ## 🔑 GitHub App / OAuth Setup
-        Configure GitHub Apps and OAuth Apps for RHDH, ArgoCD, and other integrations.
+        Configure GitHub Apps and OAuth Apps for Backstage, ArgoCD, and other integrations.
 
   - type: dropdown
     id: app_type
@@ -17,9 +17,9 @@ body:
       label: "Application Type"
       description: "What type of GitHub application?"
       options:
-        - "GitHub App (for RHDH/Backstage)"
+        - "GitHub App (for Backstage)"
         - "OAuth App (for ArgoCD SSO)"
-        - "OAuth App (for RHDH SSO)"
+        - "OAuth App (for Backstage SSO)"
         - "Both GitHub App + OAuth App"
     validations:
       required: true
@@ -46,7 +46,7 @@ body:
     id: homepage_url
     attributes:
       label: "Homepage URL"
-      description: "URL of the application (RHDH/ArgoCD)"
+      description: "URL of the application (Backstage/ArgoCD)"
       placeholder: "https://developer-hub.example.com"
     validations:
       required: true
@@ -104,7 +104,7 @@ body:
       label: "Target Integration"
       description: "What will use this app?"
       options:
-        - "Red Hat Developer Hub (RHDH)"
+        - "Backstage"
         - "ArgoCD"
         - "GitHub Actions Runners"
         - "Custom Integration"
