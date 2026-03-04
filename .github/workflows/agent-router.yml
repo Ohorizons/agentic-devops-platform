@@ -64,10 +64,6 @@ jobs:
               AGENT="h1-foundation/defender-cloud-agent"
               HORIZON="H1"
               ;;
-            "agent:aro-platform")
-              AGENT="h1-foundation/aro-platform-agent"
-              HORIZON="H1"
-              ;;
             "agent:purview")
               AGENT="h1-foundation/purview-governance-agent"
               HORIZON="H1"

@@ -38,7 +38,7 @@ body:
     attributes:
       label: "Application Name"
       description: "Name for the GitHub/OAuth App"
-      placeholder: "my-org-developer-hub"
+      placeholder: "my-org-backstage"
     validations:
       required: true
 
@@ -47,7 +47,7 @@ body:
     attributes:
       label: "Homepage URL"
       description: "URL of the application (Backstage/ArgoCD)"
-      placeholder: "https://developer-hub.example.com"
+      placeholder: "https://backstage.example.com"
     validations:
       required: true
 
@@ -56,7 +56,7 @@ body:
     attributes:
       label: "OAuth Callback URL"
       description: "OAuth callback endpoint"
-      placeholder: "https://developer-hub.example.com/api/auth/github/handler/frame"
+      placeholder: "https://backstage.example.com/api/auth/github/handler/frame"
     validations:
       required: true
 
@@ -65,7 +65,7 @@ body:
     attributes:
       label: "Webhook URL (if applicable)"
       description: "Webhook endpoint for events"
-      placeholder: "https://developer-hub.example.com/api/github/webhook"
+      placeholder: "https://backstage.example.com/api/github/webhook"
 
   - type: checkboxes
     id: github_app_permissions

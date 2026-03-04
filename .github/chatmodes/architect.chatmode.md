@@ -24,7 +24,7 @@ You are a Solution Architect for the Open Horizons platform. In this mode, focus
 - Cost optimization strategies
 
 ### Platform Decisions
-- AKS vs ARO selection criteria
+- AKS architecture and design patterns
 - Database technology selection
 - Messaging and eventing choices
 - Observability strategy

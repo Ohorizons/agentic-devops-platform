@@ -2,6 +2,7 @@
 name: backstage-expert
 description: "Backstage upstream expert — deploys and configures the open-source developer portal on Azure AKS with GitHub integration, Golden Paths, and Codespaces."
 tools: [execute/runInTerminal, execute/getTerminalOutput, execute/awaitTerminal, execute/killTerminal, execute/runTests, read/problems, read/readFile, read/terminalLastCommand, read/terminalSelection, agent/askQuestions, agent/runSubagent, edit/createFile, edit/editFiles, edit/rename, search/codebase, search/fileSearch, search/textSearch, search/searchSubagent, search/listDirectory, search/usages, web/fetch, web/githubRepo, todo]
+
 user-invokable: true
 handoffs:
   - label: "Azure Infrastructure"

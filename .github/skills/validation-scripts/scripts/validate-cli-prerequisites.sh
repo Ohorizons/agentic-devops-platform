@@ -37,8 +37,6 @@ declare -A CLI_TOOLS=(
     # GitHub
     ["gh"]="GitHub CLI|gh --version|brew install gh"
     
-    # OpenShift (ARO)
-    
     # Utilities
     ["jq"]="JSON Processor|jq --version|brew install jq"
     ["yq"]="YAML Processor|yq --version|brew install yq"

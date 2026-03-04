@@ -6,13 +6,10 @@ This directory contains official documentation for all technologies used in the 
 
 ```
 official-docs/
-├── ansible/            # Red Hat Ansible Automation Platform / AWX
 ├── argocd/             # ArgoCD GitOps
 ├── backstage/          # Backstage (upstream IDP)
 ├── kubernetes/         # Kubernetes / AKS
-├── openshift/          # OpenShift / ARO
 ├── prometheus-grafana/ # Prometheus, Grafana, Alertmanager
-├── backstage/               # Backstage
 └── terraform/          # Terraform / Azure Provider
 ```
 
@@ -22,15 +19,11 @@ PDFs are excluded from Git (`.gitignore`). Download from official sources:
 
 | Technology | Official Docs |
 |-----------|---------------|
-| **Ansible / AAP** | https://docs.redhat.com/en/documentation/red_hat_ansible_automation_platform/2.6 |
-| **AWX** | https://ansible.readthedocs.io/projects/awx/en/latest/ |
 | **ArgoCD** | https://argo-cd.readthedocs.io/en/stable/ |
 | **Backstage** | https://backstage.io/docs |
 | **Kubernetes** | https://kubernetes.io/docs/ |
 | **AKS** | https://learn.microsoft.com/en-us/azure/aks/ |
-| **OpenShift / ARO** | https://docs.openshift.com/ |
 | **Prometheus** | https://prometheus.io/docs/ |
 | **Grafana** | https://grafana.com/docs/ |
-| **Backstage** | https://docs.redhat.com/en/documentation/red_hat_developer_hub/1.8 |
 | **Terraform** | https://developer.hashicorp.com/terraform/docs |
 | **Azure Provider** | https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs |

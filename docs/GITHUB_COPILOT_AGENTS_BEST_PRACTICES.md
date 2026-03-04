@@ -1852,7 +1852,7 @@ Used by: @terraform, @infrastructure, @security, @validation
 ```markdown
 ---
 name: kubectl-cli
-description: Kubernetes CLI operations for AKS and ARO cluster management
+description: Kubernetes CLI operations for AKS cluster management
 version: "1.0.0"
 license: MIT
 tools_required: ["kubectl", "kubelogin"]
@@ -2038,11 +2038,8 @@ az acr repository show-tags -n <acr> --repository <repo> --orderby time_desc
 | 4 | ArgoCD-cli | ArgoCD operations | sync-status.sh, app-diff.sh | @gitops, @devops |
 | 5 | helm-cli | Helm chart operations | lint.sh, template.sh | @gitops, @platform |
 | 6 | GitHub-cli | GitHub API operations | pr-create.sh, workflow-trigger.sh | @devops, @migration |
-| 7 | kubectl-cli | OpenShift CLI | aro-operations.sh | @aro-platform |
-| 8 | validation-scripts | All validation scripts | 5 scripts from /scripts/ | @validation |
-| 9 | Azure-infrastructure | Azure IaC patterns | - | @infrastructure, @Terraform |
-| 10 | backstage-deployment | ARO provisioning | deploy-aro.sh | @aro-platform |
-| 11 | observability-stack | OpenShift admin | oc-admin.sh | @aro-platform |
+| 7 | validation-scripts | All validation scripts | 5 scripts from /scripts/ | @validation |
+| 8 | Azure-infrastructure | Azure IaC patterns | - | @infrastructure, @Terraform |
 | 12 | database-management | DB operations | db-health.sh | @database |
 | 13 | observability-stack | Prometheus/Grafana | prometheus-query.sh | @observability, @sre |
 | 14 | ai-foundry-operations | Azure AI operations | model-deploy.sh | @ai-foundry |
@@ -2569,29 +2566,7 @@ Every agent MUST include this section:
   - Mark threats as false positive without review
 ```
 
-**7. REMOVED**
-
-```markdown
-## Boundaries
-- ✅ **ALWAYS**:
-  - Check cluster status
-  - Verify operator health
-  - Review authentication config
-  - Monitor console access
-
-- ⚠️ **ASK FIRST**:
-  - Create ARO clusters
-  - Install/upgrade operators
-  - Modify OAuth providers
-  - Scale worker nodes
-  - Configure ingress
-
-- 🚫 **NEVER**:
-  - Delete ARO clusters
-  - Access kubeadmin directly in prod
-  - Disable OAuth
-  - Expose API server publicly
-```
+**7. REMOVED** — ARO Platform Agent (not applicable, platform is AKS-only)
 
 **8. Purview Governance Agent**
 
@@ -2948,7 +2923,7 @@ Every agent MUST include this section:
 | `validate-agents.sh` | `/scripts/` | validation-scripts | Map to skill |
 | `platform-bootstrap.sh` | `/scripts/` | Azure-infrastructure | Map to skill |
 | `bootstrap.sh` | `/scripts/` | Azure-infrastructure | Map to skill |
-| `deploy-aro.sh` | `/scripts/` | backstage-deployment | Map to skill |
+
 | `setup-github-app.sh` | `/scripts/` | GitHub-cli | Map to skill |
 | `setup-identity-federation.sh` | `/scripts/` | Azure-cli | Map to skill |
 | `setup-branch-protection.sh` | `/scripts/` | GitHub-cli | Map to skill |
@@ -2964,7 +2939,6 @@ mkdir -p .github/skills/{terraform-cli,kubectl-cli,azure-cli,argocd-cli,helm-cli
 
 # Copy existing scripts to appropriate skills
 cp scripts/validate-*.sh .github/skills/validation-scripts/scripts/
-cp scripts/deploy-aro.sh .github/skills/backstage-deployment/scripts/
 cp scripts/setup-github-app.sh .github/skills/github-cli/scripts/
 cp scripts/setup-identity-federation.sh .github/skills/azure-cli/scripts/
 cp scripts/validate-cli-prerequisites.sh .github/skills/prerequisites/scripts/

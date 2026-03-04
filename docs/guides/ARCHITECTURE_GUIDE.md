@@ -63,8 +63,8 @@ After reading this guide, you'll understand:
 
 > 💡 **Origin of the Model**
 >
-> The Open Horizons Accelerator is a solution created in partnership with **Microsoft**,
-> **GitHub**, and **Red Hat**. It helps organizations balance maintaining current operations
+> The Open Horizons Accelerator is a solution created in partnership with **Microsoft**
+> and **GitHub**. It helps organizations balance maintaining current operations
 > (H1) while developing improvements (H2) and exploring future opportunities (H3).
 
 The Open Horizons model organizes the platform into three layers with different purposes:
