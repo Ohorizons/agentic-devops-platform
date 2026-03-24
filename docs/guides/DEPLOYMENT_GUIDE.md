@@ -126,7 +126,7 @@ Before we start deploying, let's understand **what** we're building and **why**.
 
 The platform is organized into three "horizons" (layers), each building on the previous one:
 
-![Open Horizons Architecture](../assets/arch-open-horizons-framework.svg)
+![Open Horizons Architecture](../assets/arch-three-horizons-framework.svg)
 
 ### 2.2 What Each Horizon Contains
 

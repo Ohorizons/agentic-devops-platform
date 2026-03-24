@@ -69,7 +69,7 @@ After reading this guide, you'll understand:
 
 The Open Horizons model organizes the platform into three layers with different purposes:
 
-![Open Horizons Framework](../assets/arch-open-horizons-framework.svg)
+![Open Horizons Framework](../assets/arch-three-horizons-framework.svg)
 
 ### 2.2 Why Use Open Horizons?
 

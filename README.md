@@ -24,7 +24,7 @@ The **Open Horizons Implementation Accelerator** is a complete kit of Infrastruc
 
 ## Open Horizons Architecture
 
-![Open Horizons Architecture](docs/assets/open-horizons-architecture.svg)
+![Open Horizons Architecture](docs/assets/three-horizons-architecture.svg)
 
 ---
 
