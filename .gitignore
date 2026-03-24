@@ -285,4 +285,8 @@ argocd-credentials.txt
 # Generated files
 *.generated.*
 
+# Generated client configs (setup-portal.sh output)
+deploy/helm/backstage-values-*.yaml
+terraform/environments/*.auto.tfvars
+
 

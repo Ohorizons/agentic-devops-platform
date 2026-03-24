@@ -1,6 +1,8 @@
 # =============================================================================
-# Backstage AKS Deployment — Clean Install (v1.48.3)
-# GitHub App Auth + Catalog Sync (Ohorizons)
+# Backstage AKS Deployment — REFERENCE TEMPLATE (v1.48.3)
+# This file is the Open Horizons demo configuration.
+# For client deployments, run: ./scripts/setup-portal.sh
+# It generates: deploy/helm/backstage-values-<env>.yaml
 # =============================================================================
 
 ingress:
