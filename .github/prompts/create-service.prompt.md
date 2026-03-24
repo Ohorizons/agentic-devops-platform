@@ -123,7 +123,7 @@ jobs:
       - name: Test
         run: make test
       - name: Security Scan
-        uses: aquasecurity/trivy-action@master
+        uses: aquasecurity/trivy-action@0.35.0
 ```
 
 ### 4. Configure Observability

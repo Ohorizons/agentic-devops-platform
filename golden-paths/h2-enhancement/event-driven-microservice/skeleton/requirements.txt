@@ -1,4 +1,4 @@
-aiokafka>=0.9
-fastapi>=0.104
-uvicorn>=0.24
-pydantic>=2.0
+aiokafka>=0.11.0
+fastapi>=0.115.0
+uvicorn>=0.32.0
+pydantic>=2.10.0
