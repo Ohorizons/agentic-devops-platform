@@ -741,7 +741,7 @@ Ohorizons_NAME
 ```bash
 # Fork the repository to your organization
 # Replace Ohorizons_NAME with your organization name
-gh repo fork paulanunes85/agentic-devops-platform \
+gh repo fork ohorizons/agentic-devops-platform \
   --org Ohorizons_NAME \
   --clone \
   --remote
@@ -758,7 +758,7 @@ ls -la
 
 ```bash
 # Clone the repository
-git clone https://github.com/paulanunes85/agentic-devops-platform.git
+git clone https://github.com/ohorizons/agentic-devops-platform.git
 
 # Navigate into the repository
 cd agentic-devops-platform
@@ -2535,7 +2535,7 @@ The platform includes AI agents that can assist you at every deployment step:
 
 > **Tip:** Each agent will decompose your request into sub-tasks and walk you through step by step.
 
-- **GitHub Issues:** [Create an Issue](https://github.com/paulanunes85/agentic-devops-platform/issues)
+- **GitHub Issues:** [Create an Issue](https://github.com/ohorizons/agentic-devops-platform/issues)
 - **Documentation:** Check other guides in `/docs/guides/`
 
 ---

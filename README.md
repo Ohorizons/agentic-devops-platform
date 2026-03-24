@@ -526,7 +526,7 @@ After reviewing this README:
 
 For questions, issues, or suggestions, open an issue on GitHub:
 
-- **GitHub Issues:** [Create Issue](https://github.com/paulanunes85/agentic-devops-platform/issues)
+- **GitHub Issues:** [Create Issue](https://github.com/ohorizons/agentic-devops-platform/issues)
 
 ---
 

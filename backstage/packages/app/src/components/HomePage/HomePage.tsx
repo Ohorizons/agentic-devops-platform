@@ -346,7 +346,7 @@ const HomePage = () => {
       title: 'GitHub Organization',
       desc: 'Open organization repositories and workflows',
       icon: <MemoryIcon className={classes.quickIcon} />,
-      href: 'https://github.com/paulanunes85',
+      href: 'https://github.com/ohorizons',
       extraClass: '',
     },
     {

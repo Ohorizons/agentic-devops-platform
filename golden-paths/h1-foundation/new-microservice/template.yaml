@@ -31,7 +31,7 @@ metadata:
     - title: Node.js Best Practices
       url: https://github.com/goldbergyoni/nodebestpractices
     - title: Open Horizons Guide
-      url: https://github.com/paulanunes85/agentic-devops-platform
+      url: https://github.com/ohorizons/agentic-devops-platform
 
 spec:
   owner: platform-engineering
