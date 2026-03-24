@@ -134,13 +134,15 @@ yarn build:backend
 
 ### Step 3 - Build and Push Image
 
+> Replace `<ACR_NAME>` and `<PORTAL_NAME>` with your values from `setup-portal.sh`.
+
 ```bash
 docker build -f packages/backend/Dockerfile --platform linux/amd64 \
-  -t acrbackstagedemo.azurecr.io/backstage/open-horizons:v1.48.3-r15 .
+  -t <ACR_NAME>.azurecr.io/backstage/<PORTAL_NAME>:v1.48.3 .
 
-az acr login --name acrbackstagedemo
+az acr login --name <ACR_NAME>
 
-docker push acrbackstagedemo.azurecr.io/backstage/open-horizons:v1.48.3-r15
+docker push <ACR_NAME>.azurecr.io/backstage/<PORTAL_NAME>:v1.48.3
 ```
 
 ### Step 4 - Update Helm Values
@@ -221,7 +223,7 @@ Current sidebar items in `Root.tsx`:
 | Theme not applied | Theme not wired in `App.tsx` | Check `themes` config and providers |
 | Sidebar inconsistent | Root wrapper/styles missing | Re-apply `Root.tsx` global/sidebar styles |
 | Image not updated | Old tag in Helm values | Update `backstage.image.tag` and run Helm upgrade |
-| ACR push auth error | Missing ACR login | Run `az acr login --name acrbackstagedemo` |
+| ACR push auth error | Missing ACR login | Run `az acr login --name <ACR_NAME>` |
 
 ### Rollback
 
