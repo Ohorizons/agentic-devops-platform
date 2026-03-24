@@ -1,0 +1,4 @@
+azure-identity>=1.19.0
+azure-ai-evaluation>=1.0.0b1
+openai>=1.60.0
+pandas>=2.2.0

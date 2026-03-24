@@ -1,0 +1,6 @@
+azure-identity>=1.19.0
+azure-monitor-query>=1.4.0
+openai>=1.60.0
+fastapi>=0.115.0
+uvicorn>=0.32.0
+pydantic>=2.10.0

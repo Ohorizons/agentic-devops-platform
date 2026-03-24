@@ -1,0 +1,561 @@
+# Open Horizons Implementation Accelerator
+
+> **A solution created in partnership with Microsoft and GitHub**
+
+## Overview
+
+The **Open Horizons Implementation Accelerator** is a complete kit of Infrastructure as Code (IaC), GitOps, and developer templates designed to implement the Open Horizons platform.
+
+### What's Included
+
+| Component | Quantity | Description |
+|-----------|----------|-------------|
+| **Terraform Modules** | 16 | Complete Azure infrastructure |
+| **AI Agents** | 11 | **[Copilot Chat Agents](./AGENTS.md)** (VS Code) |
+| **Golden Path Templates** | 22 | Self-service templates for Backstage |
+| **Issue Templates** | 28 | GitHub Issues templates |
+| **Automation Scripts** | 14 | Bootstrap and operations |
+| **MCP Servers** | 15 | MCP server configurations |
+| **Observability** | 4 | Dashboards and alerts |
+
+**Total: 120+ files | ~20,000 lines of production-ready code**
+
+---
+
+## Open Horizons Architecture
+
+![Open Horizons Architecture](docs/assets/three-horizons-architecture.svg)
+
+---
+
+## Quick Start
+
+### Prerequisites
+
+```bash
+# Required tools
+az version        # >= 2.50.0
+terraform version # >= 1.5.0
+kubectl version   # >= 1.28
+helm version      # >= 3.12
+gh --version      # >= 2.30
+
+# Authentication
+# Authentication
+az login
+gh auth login
+```
+
+> 📘 **New to this accelerator?**
+> We strongly recommend following the **[Step-by-Step Deployment Guide](docs/guides/DEPLOYMENT_GUIDE.md)** for a detailed walkthrough.
+
+### Quick Deploy — 3 Options
+
+Choose the deployment method that fits your experience level:
+
+#### Option A: Agent-Guided (Easiest — Interactive)
+```
+# In VS Code with GitHub Copilot Chat:
+@deploy Deploy the platform to dev environment
+```
+The `@deploy` agent walks you through each step interactively.
+
+#### Option B: Automated Script (Recommended)
+```bash
+# 1. Clone and prepare
+git clone https://github.com/Ohorizons/agentic-devops-platform.git
+cd agentic-devops-platform
+chmod +x scripts/*.sh
+
+# 2. Validate prerequisites
+./scripts/validate-prerequisites.sh
+
+# 3. Configure environment
+cp terraform/terraform.tfvars.example terraform/environments/dev.tfvars
+# Edit dev.tfvars with your values
+
+# 4. Set sensitive variables
+export TF_VAR_azure_subscription_id="$(az account show --query id -o tsv)"
+export TF_VAR_azure_tenant_id="$(az account show --query tenantId -o tsv)"
+export TF_VAR_github_token="ghp_your_token"
+export TF_VAR_admin_group_id="your-aad-group-id"
+export TF_VAR_github_org="your-org"
+
+# 5. Deploy (dry-run first!)
+./scripts/deploy-full.sh --environment dev --dry-run
+./scripts/deploy-full.sh --environment dev
+
+# 6. Validate
+./scripts/validate-deployment.sh --environment dev
+```
+
+#### Option C: Manual Step-by-Step (Full Control)
+Follow the detailed **[Deployment Guide](docs/guides/DEPLOYMENT_GUIDE.md)** — 10 steps with copy-paste commands for each phase.
+
+---
+
+## Directory Structure
+
+```
+agentic-devops-platform/
+│
+├── .github/agents/                 # 17 Copilot Chat Agents
+│   ├── ado-integration.agent.md     # Azure DevOps integration
+│   ├── architect.agent.md          # System architecture, AI Foundry
+│   ├── azure-portal-deploy.agent.md # Azure AKS portal deployment
+│   ├── backstage-expert.agent.md   # Backstage portal on AKS
+│   ├── deploy.agent.md             # Deployment orchestration
+│   ├── devops.agent.md             # CI/CD, GitOps, MLOps, pipelines
+│   ├── docs.agent.md               # Documentation generation
+│   ├── github-integration.agent.md  # GitHub platform integration
+│   ├── hybrid-scenarios.agent.md    # GitHub + ADO hybrid scenarios
+│   ├── onboarding.agent.md         # Team onboarding guidance
+│   ├── platform.agent.md           # Backstage portal, platform services
+│   ├── reviewer.agent.md           # Code review, quality checks
+│   ├── security.agent.md           # Security policies, compliance
+│   ├── sre.agent.md                # Reliability, incident response
+│   ├── terraform.agent.md          # Infrastructure as Code
+│   └── test.agent.md               # Testing, validation
+│
+├── terraform/                      # 18 Infrastructure as Code modules
+│   ├── main.tf                     # Root module
+│   └── modules/
+│       ├── aks-cluster/            # Azure Kubernetes Service
+│       ├── ai-foundry/             # Azure AI Foundry
+│       ├── argocd/                 # ArgoCD GitOps
+│       ├── backstage/              # Backstage Developer Portal
+│       ├── container-registry/     # ACR
+│       ├── cost-management/        # Cost analysis and budgets
+│       ├── databases/              # PostgreSQL, Redis, Cosmos
+│       ├── defender/               # Defender for Cloud
+│       ├── disaster-recovery/      # Backup and DR
+│       ├── external-secrets/       # External Secrets Operator
+│       ├── github-runners/         # Self-hosted runners
+│       ├── naming/                 # Naming conventions
+│       ├── networking/             # VNet, Subnets, NSGs
+│       ├── observability/          # Prometheus, Grafana, Loki
+│       ├── purview/                # Microsoft Purview
+│       └── security/               # Key Vault, Identities
+│
+├── golden-paths/                   # 22 Backstage templates
+│   ├── h1-foundation/              # 6 basic templates
+│   ├── h2-enhancement/             # 9 advanced templates (incl. ADO migration)
+│   └── h3-innovation/              # 7 AI/Agent templates
+│
+├── .github/ISSUE_TEMPLATE/         # 28 issue templates
+├── argocd/                         # GitOps configurations
+├── config/                         # Sizing profiles and regions
+├── mcp-servers/                    # 15 MCP configurations
+├── scripts/                        # 16 automation scripts
+├── grafana/dashboards/             # Dashboards
+├── prometheus/                     # Alerts
+└── docs/                           # Documentation
+```
+
+---
+
+## Documentation
+
+### Comprehensive Guides
+
+| Guide | Description |
+|-------|-------------|
+| [Deployment Guide](./docs/guides/DEPLOYMENT_GUIDE.md) | Complete step-by-step deployment instructions |
+| [Architecture Guide](./docs/guides/ARCHITECTURE_GUIDE.md) | Open Horizons architecture explained |
+| [Administrator Guide](./docs/guides/ADMINISTRATOR_GUIDE.md) | Day-2 operations and maintenance |
+| [Module Reference](./docs/guides/MODULE_REFERENCE.md) | All Terraform modules with examples |
+| [Performance Tuning Guide](./docs/guides/PERFORMANCE_TUNING_GUIDE.md) | Performance optimization recommendations |
+| [Troubleshooting Guide](./docs/guides/TROUBLESHOOTING_GUIDE.md) | Problem diagnosis and resolution |
+
+### Agent Documentation
+
+| Document | Description |
+|----------|-------------|
+| [Agent System](./AGENTS.md) | Copilot Chat Agents (17 agents) |
+| [MCP Servers Guide](./mcp-servers/USAGE.md) | Model Context Protocol server setup |
+| [Agent Best Practices](./docs/guides/copilot-agents-best-practices.md) | Copilot agents usage guide |
+
+### Reference
+
+- [Sizing Profiles](./config/sizing-profiles.yaml) - Cost estimation by environment
+- [Branching Strategy](./docs/BRANCHING_STRATEGY.md) - Git workflow and branch protection
+
+---
+
+## Detailed Usage Guide
+
+### Step 1: Deploy Base Infrastructure (H1)
+
+```bash
+cd terraform
+
+# Initialize Terraform
+terraform init
+
+# Create plan
+terraform plan -var-file=environments/dev.tfvars -out=tfplan
+
+# Apply (H1 Foundation)
+terraform apply tfplan
+```
+
+**Resources created in H1:**
+
+- AKS Cluster (3 nodes)
+- VNet with 3 subnets
+- Azure Container Registry
+- Key Vault
+- Managed Identities
+- NSGs and Private Endpoints
+
+### Step 2: Deploy ArgoCD and Backstage (H2)
+
+```bash
+# After H1 is complete, apply H2
+terraform apply -var-file=environments/dev.tfvars -var="enable_h2=true"
+
+# Or via script
+./scripts/platform-bootstrap.sh --horizon h2 --environment dev
+```
+
+**Resources created in H2:**
+
+- ArgoCD with ApplicationSets
+- Backstage
+- Prometheus + Grafana + Loki
+- GitHub Actions Runners
+
+### Step 3: Deploy AI Foundry (H3)
+
+```bash
+# Requires H1 and H2
+terraform apply -var-file=environments/dev.tfvars -var="enable_h3=true"
+```
+
+**Resources created in H3:**
+
+- Azure AI Foundry
+- Azure OpenAI (GPT-4o, o1)
+- AI Search (Vector)
+- Cosmos DB (Vector Store)
+
+---
+
+## Golden Paths
+
+### Register Templates in Backstage
+
+```bash
+# Register all templates
+./scripts/bootstrap.sh --register-templates
+
+# Or register individually
+kubectl apply -f golden-paths/h1-foundation/basic-cicd/template.yaml
+```
+
+### Create Application via Backstage
+
+1. Access the portal: `https://backstage.your-domain.com`
+2. Navigate to **Create** → **Choose Template**
+3. Select the template (e.g., "H2: Create Microservice")
+4. Fill in the parameters:
+   - Component name
+   - Description
+   - Owner (team)
+   - Language/Framework
+   - Deployment type
+5. Click **Create**
+6. Monitor in ArgoCD
+
+### Available Templates by Horizon
+
+#### H1 Foundation (Getting Started)
+
+| Template | Use Case |
+|----------|----------|
+| `basic-cicd` | Simple CI/CD pipeline |
+| `security-baseline` | Security configuration |
+| `documentation-site` | Documentation sites |
+| `web-application` | Full-stack web applications |
+| `new-microservice` | Basic microservice |
+| `infrastructure-provisioning` | Terraform modules |
+
+#### H2 Enhancement (Production)
+
+| Template | Use Case |
+|----------|----------|
+| `ado-to-github-migration` | Azure DevOps migration |
+| `api-gateway` | API Management |
+| `api-microservice` | API microservices |
+| `batch-job` | Scheduled jobs |
+| `data-pipeline` | ETL with Databricks |
+| `event-driven-microservice` | Event Hubs/Service Bus |
+| `gitops-deployment` | ArgoCD applications |
+| `microservice` | Complete microservice |
+| `reusable-workflows` | GitHub workflows |
+
+#### H3 Innovation (AI/Agents)
+
+| Template | Use Case |
+|----------|----------|
+| `foundry-agent` | AI Foundry agents |
+| `sre-agent-integration` | SRE automation |
+| `mlops-pipeline` | Complete ML pipeline |
+| `multi-agent-system` | Multi-agent orchestration |
+| `copilot-extension` | GitHub Copilot extensions |
+| `rag-application` | RAG applications |
+| `ai-evaluation-pipeline` | Model evaluation |
+
+---
+
+## ArgoCD Configuration
+
+### ApplicationSets
+
+The accelerator uses ApplicationSets for dynamic application generation:
+
+```yaml
+# Monorepo - apps/* becomes an Application
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: monorepo-apps
+spec:
+  generators:
+    - git:
+        repoURL: https://github.com/org/platform-gitops.git
+        directories:
+          - path: apps/*
+```
+
+### Projects by Environment
+
+- **Dev** - auto-sync enabled
+- **Staging** - auto-sync with approval
+- **Prod** - manual sync, maintenance windows
+
+### RBAC and Roles
+
+| Role | Permissions |
+|------|-------------|
+| `admin` | Full access |
+| `platform-engineer` | Full access + exec |
+| `sre` | Sync + actions, no delete |
+| `developer` | Full dev, sync staging, view prod |
+| `qa` | Full staging, view others |
+| `release-manager` | Can sync prod |
+| `ci-bot` | Deploy dev/staging/previews |
+
+### Notifications
+
+Configured to send to:
+
+- **Microsoft Teams** - Formatted cards
+- **Slack** - Colored attachments
+- **Email** - HTML templates
+- **PagerDuty** - Critical incidents
+
+---
+
+## Observability
+
+### Grafana Dashboards
+
+1. **Platform Overview** - Infrastructure health
+2. **Golden Path Application** - RED/USE metrics
+3. **AI Agent Metrics** - Agent observability
+
+### Prometheus Alerts
+
+| Category | Alerts | Examples |
+|----------|--------|----------|
+| Infrastructure | 8 | CPU, Memory, Disk, Node |
+| Applications | 10 | Error rate, Latency, Availability |
+| AI & Agents | 8 | Token usage, Latency, Errors |
+| GitOps | 5 | Sync failures, App health |
+| Security | 4 | Certificate expiration, Secrets |
+
+---
+
+## Security
+
+### Secrets Management
+
+The accelerator uses **External Secrets Operator** with **Azure Key Vault**:
+
+```yaml
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: app-secrets
+spec:
+  secretStoreRef:
+    name: azure-keyvault
+  target:
+    name: app-secrets
+  data:
+    - secretKey: database-password
+      remoteRef:
+        key: prod-database-password
+```
+
+### Workload Identity
+
+All applications use **Azure Workload Identity** (no static secrets):
+
+```yaml
+serviceAccountName: my-app
+metadata:
+  annotations:
+    azure.workload.identity/client-id: "<managed-identity-client-id>"
+```
+
+---
+
+## ADO to GitHub Migration
+
+### Migration Script
+
+```bash
+# Migrate repositories from Azure DevOps to GitHub
+./scripts/migration/ado-to-github-migration.sh \
+  --ado-org "contoso" \
+  --ado-project "MyProject" \
+  --github-org "contoso-github" \
+  --repos "repo1,repo2,repo3"
+```
+
+### What's Migrated
+
+| Item | Status |
+|------|--------|
+| Source code and Git history | Fully migrated |
+| Branches and tags | Fully migrated |
+| Pull requests | Migrated as issues |
+| Wiki | Migrated as separate repository |
+| Pipelines | Requires manual conversion |
+| Work items | Via Azure Boards integration |
+
+---
+
+
+## Deploy Times
+
+| Phase | Dev | Staging | Production |
+|-------|-----|---------|------------|
+| H1 Foundation | 25-35 min | 35-45 min | 45-60 min |
+| H2 Enhancement | 30-40 min | 40-50 min | 50-70 min |
+| H3 Innovation | 20-30 min | 25-35 min | 35-45 min |
+| **Total** | **75-105 min** | **100-130 min** | **130-175 min** |
+
+---
+
+## Troubleshooting
+
+### Terraform Errors
+
+```bash
+# Clean corrupted state
+terraform state list
+terraform state rm <resource>
+
+# Refresh state
+terraform refresh
+
+# Import existing resource
+terraform import azurerm_resource_group.main /subscriptions/.../resourceGroups/...
+```
+
+### ArgoCD Issues
+
+```bash
+# Check sync status
+argocd app list
+argocd app get <app-name>
+
+# Force sync
+argocd app sync <app-name> --force
+
+# View logs
+argocd app logs <app-name>
+
+# Hard refresh
+argocd app get <app-name> --hard-refresh
+```
+
+### AKS Issues
+
+```bash
+# Check nodes
+kubectl get nodes
+kubectl describe node <node-name>
+
+# View problematic pods
+kubectl get pods --all-namespaces | grep -v Running
+
+# Pod logs
+kubectl logs <pod-name> -n <namespace> --previous
+```
+
+---
+
+## Next Steps
+
+After reviewing this README:
+
+1. **First time deploying?**
+   - Read the [Architecture Guide](./docs/guides/ARCHITECTURE_GUIDE.md) to understand the Open Horizons model
+   - Follow the [Deployment Guide](./docs/guides/DEPLOYMENT_GUIDE.md) step by step
+
+2. **Using AI agents?**
+   - Start with the [Agent System](./AGENTS.md) overview
+   - See [MCP Servers Usage](./mcp-servers/USAGE.md) for tool access
+   - Read [Agent Best Practices](./docs/guides/copilot-agents-best-practices.md)
+
+3. **Operating the platform?**
+   - Use the [Administrator Guide](./docs/guides/ADMINISTRATOR_GUIDE.md) for day-2 operations
+   - Reference [Troubleshooting Guide](./docs/guides/TROUBLESHOOTING_GUIDE.md) for issues
+
+4. **Contributing?**
+   - Read [CONTRIBUTING.md](./CONTRIBUTING.md)
+   - Follow the [Branching Strategy](./docs/BRANCHING_STRATEGY.md)
+
+---
+
+## Support
+
+For questions, issues, or suggestions, open an issue on GitHub:
+
+- **GitHub Issues:** [Create Issue](https://github.com/ohorizons/agentic-devops-platform/issues)
+
+---
+
+## References
+
+### Official Documentation
+
+- [Azure AKS](https://docs.microsoft.com/azure/aks/)
+- [ArgoCD](https://argo-cd.readthedocs.io/)
+- [Azure AI Foundry](https://azure.microsoft.com/products/ai-foundry/)
+- [GitHub Actions](https://docs.github.com/actions)
+- [External Secrets Operator](https://external-secrets.io/)
+
+---
+
+## Version History
+
+### v4.0.0 (December 2025)
+
+- 18 Terraform modules (including Defender, Purview, Naming, Disaster Recovery)
+- 17 Copilot Chat Agents for interactive development assistance
+- 28 GitHub Issues templates
+- 22 Golden Path templates for Backstage (including ADO to GitHub migration)
+- 16 automation scripts
+- 15 MCP Server configurations
+- Complete observability stack
+
+---
+
+**Version:** 4.0.0
+**Last Updated:** December 2025
+**License:** MIT
