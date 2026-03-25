@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This is the Agentic DevOps Platform v4.0.0 - an enterprise-grade platform accelerator for Azure with AI capabilities. The platform is organized into open horizons:
+This is the Agentic DevOps Platform v4.0.0 - an enterprise-grade platform accelerator for Azure with AI capabilities. The platform is organized into three horizons:
 
 - **H1 Foundation**: Core infrastructure (AKS, networking, security, databases)
 - **H2 Enhancement**: Platform services (ArgoCD, Backstage, observability, Golden Paths)

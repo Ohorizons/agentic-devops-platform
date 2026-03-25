@@ -1,6 +1,6 @@
 ---
 name: deploy
-description: Deployment orchestrator — guides end-to-end platform deployment across all open horizons.
+description: Deployment orchestrator — guides end-to-end platform deployment across all horizons.
 
 argument-hint: "Deploy the platform to [environment]"
 

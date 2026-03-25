@@ -27,12 +27,12 @@ Deploys the upstream open-source Backstage developer portal on Azure AKS or loca
 | ACR | `${ACR_NAME}` | Basic | eastus2 |
 | Key Vault | `${KEYVAULT_NAME}` | RBAC-enabled | eastus2 |
 | PostgreSQL | `${POSTGRES_NAME}` | Flexible B1ms v16 | centralus |
-| Redis | `redis-backstage-demo` | Azure Managed B0 | eastus2 |
-| AI Services | `ai-backstage-demo` | S0 (GPT-4o + Embeddings) | eastus2 |
-| Log Analytics | `law-backstage-demo` | PerGB2018 | eastus2 |
-| App Insights | `appi-backstage-demo` | Application Insights | eastus2 |
-| Managed Prometheus | `prometheus-backstage-demo` | Azure Monitor Workspace | eastus2 |
-| Managed Grafana | `grafana-backstage-demo` | Standard tier | eastus2 |
+| Redis | `${REDIS_NAME}` | Azure Managed B0 | eastus2 |
+| AI Services | `${AI_SERVICES_NAME}` | S0 (GPT-4o + Embeddings) | eastus2 |
+| Log Analytics | `${LOG_ANALYTICS_NAME}` | PerGB2018 | eastus2 |
+| App Insights | `${APP_INSIGHTS_NAME}` | Application Insights | eastus2 |
+| Managed Prometheus | `${PROMETHEUS_NAME}` | Azure Monitor Workspace | eastus2 |
+| Managed Grafana | `${GRAFANA_NAME}` | Standard tier | eastus2 |
 | Monitor | Container Insights + Metrics | Enabled on AKS | eastus2 |
 | Defender | Containers + KV + OSS DB | Standard tier | subscription |
 | Action Group | `ag-backstage-sre` | Webhook → GitHub | eastus2 |
@@ -42,7 +42,7 @@ Deploys the upstream open-source Backstage developer portal on Azure AKS or loca
 
 | Name | Roles |
 |------|-------|
-| `sp-backstage-demo` | Contributor (RG), KV Secrets User, AI OpenAI User |
+| `${SERVICE_PRINCIPAL_NAME}` | Contributor (RG), KV Secrets User, AI OpenAI User |
 
 ### Kubernetes Components
 

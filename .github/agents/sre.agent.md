@@ -37,10 +37,10 @@ You are a **Site Reliability Engineer (SRE)**. You focus on **SLOs**, **Error Bu
 
 ### 3. Azure Monitor (Full Stack)
 - **Container Insights** enabled on AKS `${AKS_CLUSTER_NAME}`.
-- **Log Analytics Workspace:** `law-backstage-demo` (eastus2).
-- **Application Insights:** `appi-backstage-demo` — tracks HTTP requests, dependencies, exceptions.
-- **Azure Managed Prometheus:** `prometheus-backstage-demo` — stores AKS metrics long-term.
-- **Azure Managed Grafana:** `grafana-backstage-demo` — `https://grafana-backstage-demo-dhazhmaeeyeph0cq.eus2.grafana.azure.com`
+- **Log Analytics Workspace:** `${LOG_ANALYTICS_NAME}` (eastus2).
+- **Application Insights:** `${APP_INSIGHTS_NAME}` — tracks HTTP requests, dependencies, exceptions.
+- **Azure Managed Prometheus:** `${PROMETHEUS_NAME}` — stores AKS metrics long-term.
+- **Azure Managed Grafana:** `${GRAFANA_NAME}` — `https://${GRAFANA_URL}`
   - Data sources: Azure Managed Prometheus, Azure Monitor (App Insights + Log Analytics).
 - **Metric Alerts:** CPU > 85%, Memory > 85% (Severity 2).
 - **Action Group:** `ag-backstage-sre` → GitHub webhook for SRE issue creation.
