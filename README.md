@@ -2,9 +2,64 @@
 
 > **A solution created in partnership with Microsoft and GitHub**
 
+## Using This Template
+
+This repository is a **reusable template** for deploying enterprise developer portals on Azure. All configuration uses template variables — no hardcoded values.
+
+### 1. Create Your Repository
+
+```bash
+# Option A: Use as GitHub Template (recommended)
+# Click "Use this template" on GitHub, then clone your new repo
+
+# Option B: Fork
+gh repo fork ${GITHUB_ORG}/agentic-devops-platform --org YOUR_ORG --clone
+```
+
+### 2. Run the Setup Wizard
+
+```bash
+./scripts/setup-portal.sh
+```
+
+The wizard collects your configuration and generates:
+- `terraform/environments/<env>.auto.tfvars` — Terraform variables
+- `deploy/helm/backstage-values-<env>.yaml` — Helm values for Backstage
+
+### 3. Template Variables Reference
+
+These variables appear throughout the codebase. The setup wizard handles most of them automatically.
+
+| Variable | Description | Example |
+|----------|-------------|---------|
+| `${GITHUB_ORG}` | GitHub organization name | `my-company` |
+| `${GITHUB_REPO}` | Repository name | `agentic-devops-platform` |
+| `${PORTAL_NAME}` | Display name for the portal | `Acme Developer Portal` |
+| `${BACKSTAGE_DOMAIN}` | Portal domain (FQDN) | `devhub.acme.com` |
+| `${ACR_REGISTRY}` | Azure Container Registry URL | `acrmyproject.azurecr.io` |
+| `${ACR_IMAGE_REPOSITORY}` | Container image repository path | `backstage/my-portal` |
+| `${IMAGE_TAG}` | Container image tag | `v1.48.3` |
+| `${TLS_SECRET_NAME}` | TLS certificate secret name | `tls-acme-devhub` |
+| `${AKS_CLUSTER_NAME}` | AKS cluster name | `aks-myproject-prod-eastus2` |
+| `${RESOURCE_GROUP}` | Azure Resource Group | `rg-myproject-prod-eastus2` |
+| `${KEYVAULT_NAME}` | Azure Key Vault name | `kv-myproject-prod-eus2` |
+| `${POSTGRES_HOST}` | PostgreSQL hostname | `pgmyproject.postgres.database.azure.com` |
+| `${PLATFORM_ID}` | Platform identifier (k8s labels) | `agentic-devops-platform` |
+| `${ORG_DOMAIN}` | Organization email domain | `acme.com` |
+
+### 4. Deploy
+
+After running the wizard, follow the [Deployment Guide](docs/guides/DEPLOYMENT_GUIDE.md) or use the agent-guided approach:
+
+```
+@deploy Deploy the platform to dev environment
+```
+
+---
+
 ## Overview
 
-The **Agentic DevOps Platform Implementation Accelerator** is a complete kit of Infrastructure as Code (IaC), GitOps, and developer templates designed to implement the Agentic DevOps Platform platform.
+The **Agentic DevOps Platform Implementation Accelerator** is a complete kit of Infrastructure as Code (IaC), GitOps, and developer templates designed to deploy enterprise developer portals on Azure.
 
 ### What's Included
 
@@ -166,6 +221,7 @@ agentic-devops-platform/
 | [Module Reference](./docs/guides/MODULE_REFERENCE.md) | All Terraform modules with examples |
 | [Performance Tuning Guide](./docs/guides/PERFORMANCE_TUNING_GUIDE.md) | Performance optimization recommendations |
 | [Troubleshooting Guide](./docs/guides/TROUBLESHOOTING_GUIDE.md) | Problem diagnosis and resolution |
+| [Backstage Customization](./docs/guides/BACKSTAGE_CUSTOMIZATION_GUIDE.md) | UI theme, branding, and deployment customization |
 
 ### Agent Documentation
 

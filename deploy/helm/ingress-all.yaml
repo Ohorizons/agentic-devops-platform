@@ -9,7 +9,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: prometheus.128.85.226.112.sslip.io
+    - host: prometheus.${LOAD_BALANCER_IP}.sslip.io
       http:
         paths:
           - path: /
@@ -28,7 +28,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: alertmanager.128.85.226.112.sslip.io
+    - host: alertmanager.${LOAD_BALANCER_IP}.sslip.io
       http:
         paths:
           - path: /

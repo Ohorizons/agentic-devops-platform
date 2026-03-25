@@ -1,7 +1,7 @@
 # Agentic DevOps Platform Backstage — Deployment and Customization Guide
 
 Platform: Backstage (Open Source)
-Target: `backstage.20.62.35.83.sslip.io`
+Target: `${BACKSTAGE_DOMAIN}`
 Auth: GitHub OAuth (Backstage auth provider)
 Branding: Microsoft 4-color palette with white-first UI
 Version: 1.0
@@ -25,7 +25,7 @@ Unlike YAML-only customization models, this setup requires code edits for major 
 | Database | PostgreSQL | Catalog and backend persistence |
 | Container | Docker | Built from Backstage source (`packages/backend/Dockerfile`) |
 | Orchestration | AKS | Kubernetes deployment in namespace `backstage` |
-| Ingress | NGINX | Public host `backstage.20.62.35.83.sslip.io` |
+| Ingress | NGINX | Public host `${BACKSTAGE_DOMAIN}` |
 
 ---
 
@@ -98,8 +98,8 @@ After login, users land on `/home` with:
 ### GitHub OAuth App Setup
 
 1. Go to GitHub Developer Settings and create OAuth App.
-2. Homepage URL: `http://backstage.20.62.35.83.sslip.io`
-3. Callback URL: `http://backstage.20.62.35.83.sslip.io/api/auth/github/handler/frame`
+2. Homepage URL: `http://${BACKSTAGE_DOMAIN}`
+3. Callback URL: `http://${BACKSTAGE_DOMAIN}/api/auth/github/handler/frame`
 4. Save Client ID and Client Secret.
 5. Ensure Kubernetes secret values used by Helm map to:
    - `GITHUB_APP_CLIENT_ID`
@@ -171,8 +171,8 @@ kubectl get pods -n backstage
 kubectl get deploy ${RELEASE_NAME} -n backstage \
   -o jsonpath='{.spec.template.spec.containers[0].image}{"\n"}'
 
-curl -I -s http://backstage.20.62.35.83.sslip.io | head -n 1
-curl -I -s "http://backstage.20.62.35.83.sslip.io/api/auth/github/start?env=development" | head -n 3
+curl -I -s http://${BACKSTAGE_DOMAIN} | head -n 1
+curl -I -s "http://${BACKSTAGE_DOMAIN}/api/auth/github/start?env=development" | head -n 3
 ```
 
 Expected:
@@ -207,7 +207,7 @@ Current sidebar items in `Root.tsx`:
 
 ### Post-Deploy Verification
 
-1. Open `http://backstage.20.62.35.83.sslip.io`
+1. Open `http://${BACKSTAGE_DOMAIN}`
 2. Confirm Microsoft-branded custom sign-in page.
 3. Sign in with GitHub.
 4. Confirm post-login landing and sidebar routes.

@@ -24,7 +24,7 @@ ingress:
       location = /apple-touch-icon.png {
         return 302 https://learn.microsoft.com/favicon.ico;
       }
-  host: backstage.128.85.226.112.sslip.io
+  host: ${BACKSTAGE_DOMAIN}
   path: /
 
 backstage:
@@ -57,7 +57,7 @@ backstage:
   appConfig:
     app:
       title: "Agentic DevOps Platform | Agentic DevOps Platform"
-      baseUrl: http://backstage.128.85.226.112.sslip.io
+      baseUrl: http://${BACKSTAGE_DOMAIN}
       branding:
         fullLogo:
           src: https://img.icons8.com/fluency/96/microsoft.png
@@ -75,11 +75,11 @@ backstage:
     organization:
       name: "Agentic DevOps Platform — Agentic DevOps Platform"
     backend:
-      baseUrl: http://backstage.128.85.226.112.sslip.io
+      baseUrl: http://${BACKSTAGE_DOMAIN}
       listen:
         port: 7007
       cors:
-        origin: http://backstage.128.85.226.112.sslip.io
+        origin: http://${BACKSTAGE_DOMAIN}
         methods: [GET, HEAD, PATCH, POST, PUT, DELETE]
         credentials: true
     auth:
