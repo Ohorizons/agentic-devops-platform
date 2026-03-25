@@ -77,8 +77,8 @@ kubectl get events -A --sort-by='.lastTimestamp' | tail -20
 | Role | Contact |
 |------|---------|
 | Platform On-Call | Check PagerDuty rotation |
-| Security Team | security@Ohorizons |
-| Cloud Ops | cloudops@Ohorizons |
+| Security Team | security@${ORG_DOMAIN} |
+| Cloud Ops | cloudops@${ORG_DOMAIN} |
 
 ## Maintenance Windows
 

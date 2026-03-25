@@ -90,15 +90,15 @@ All environment values are **client-specific** and collected by `./scripts/setup
 | Component | Convention | Reference (Agentic DevOps Platform) |
 |-----------|-----------|---------------------------|
 | **Portal URL** | `https://<client-domain>` | `https://${BACKSTAGE_DOMAIN}` |
-| **AKS Cluster** | `aks-<project>-<env>-<region>` | `aks-backstage-demo` |
-| **Resource Group** | `rg-<project>-<env>-<region>` | `rg-backstage-demo` |
+| **AKS Cluster** | `aks-<project>-<env>-<region>` | `${AKS_CLUSTER_NAME}` |
+| **Resource Group** | `rg-<project>-<env>-<region>` | `${RESOURCE_GROUP}` |
 | **Region** | `centralus` or `eastus` | `eastus2` |
 | **ACR** | `acr<project><env>` | `${ACR_REGISTRY}` |
 | **Image** | `backstage/<project>:v1.48.3` | `backstage/agentic-devops-platform:v1.48.3` |
 | **Namespace** | `backstage` | `backstage` |
-| **PostgreSQL** | `pg<project><env>.postgres.database.azure.com` | `pgbackstagedemo.postgres.database.azure.com` |
-| **Key Vault** | `kv-<project>-<env>` | `kv-backstage-demo` |
-| **GitHub App** | Created per client org | App ID: 2969893 (Ohorizons) |
+| **PostgreSQL** | `pg<project><env>.postgres.database.azure.com` | `${POSTGRES_HOST}` |
+| **Key Vault** | `kv-<project>-<env>` | `${KEYVAULT_NAME}` |
+| **GitHub App** | Created per client org | App ID: (per client org) |
 | **TLS** | Let's Encrypt via cert-manager | Let's Encrypt via cert-manager |
 
 > **How it works:** Client runs `setup-portal.sh` → fills in their values → script generates `terraform/environments/<env>.auto.tfvars` + `deploy/helm/backstage-values-<env>.yaml` → `@deploy` agent uses generated configs.

@@ -158,7 +158,7 @@ In `deploy/helm/backstage-aks-values.yaml`, confirm:
 From repo root:
 
 ```bash
-helm upgrade --install Ohorizons-backstage backstage/backstage \
+helm upgrade --install ${RELEASE_NAME} backstage/backstage \
   -n backstage \
   -f deploy/helm/backstage-aks-values.yaml \
   --wait --timeout 10m
@@ -168,7 +168,7 @@ helm upgrade --install Ohorizons-backstage backstage/backstage \
 
 ```bash
 kubectl get pods -n backstage
-kubectl get deploy Ohorizons-backstage -n backstage \
+kubectl get deploy ${RELEASE_NAME} -n backstage \
   -o jsonpath='{.spec.template.spec.containers[0].image}{"\n"}'
 
 curl -I -s http://backstage.20.62.35.83.sslip.io | head -n 1
@@ -228,7 +228,7 @@ Current sidebar items in `Root.tsx`:
 ### Rollback
 
 ```bash
-kubectl rollout undo deployment/Ohorizons-backstage -n backstage
+kubectl rollout undo deployment/${RELEASE_NAME} -n backstage
 ```
 
 ---

@@ -1,4 +1,4 @@
-module github.com/Ohorizons/agentic-devops-platform/tests
+module github.com/${GITHUB_ORG}/${GITHUB_REPO}/tests
 
 go 1.21
 

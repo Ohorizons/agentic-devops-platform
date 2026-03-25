@@ -36,7 +36,7 @@ You are a **Site Reliability Engineer (SRE)**. You focus on **SLOs**, **Error Bu
 - Use `kubectl top`, `logs`, and `events`.
 
 ### 3. Azure Monitor (Full Stack)
-- **Container Insights** enabled on AKS `aks-backstage-demo`.
+- **Container Insights** enabled on AKS `${AKS_CLUSTER_NAME}`.
 - **Log Analytics Workspace:** `law-backstage-demo` (eastus2).
 - **Application Insights:** `appi-backstage-demo` — tracks HTTP requests, dependencies, exceptions.
 - **Azure Managed Prometheus:** `prometheus-backstage-demo` — stores AKS metrics long-term.

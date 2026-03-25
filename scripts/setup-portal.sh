@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # =============================================================================
-# Ohorizons - Portal Setup Wizard
+# Agentic DevOps Platform - Portal Setup Wizard
 # =============================================================================
 # Interactive wizard that collects all configuration needed to deploy
 # a developer portal (Backstage) on Azure or locally.
@@ -53,7 +53,7 @@ done
 banner() {
   echo -e "\n${PURPLE}${BOLD}"
   echo "  ============================================================"
-  echo "    Ohorizons - Agentic DevOps Platform Setup Wizard"
+  echo "    Agentic DevOps Platform - Setup Wizard"
   echo "  ============================================================"
   echo -e "${NC}\n"
 }

@@ -713,8 +713,8 @@ gh auth login
 gh auth status
 
 # Test that you can access your organization
-# Replace Ohorizons_NAME with your actual organization name
-gh api /orgs/Ohorizons_NAME --jq '.login'
+# Replace YOUR_ORG with your actual organization name
+gh api /orgs/YOUR_ORG --jq '.login'
 ```
 
 **Expected output:**
@@ -724,7 +724,7 @@ github.com
   ✓ Logged in to github.com as your-username (oauth_token)
   ✓ Git operations for github.com configured to use https protocol.
 
-Ohorizons_NAME
+YOUR_ORG
 ```
 
 ### 2.2 Fork or Clone the Repository
@@ -854,7 +854,7 @@ echo "✓ ENVIRONMENT set"
 gh variable set AZURE_LOCATION --body "brazilsouth"
 echo "✓ AZURE_LOCATION set"
 
-gh variable set GITHUB_ORG --body "Ohorizons_NAME"  # Replace with your org!
+gh variable set GITHUB_ORG --body "YOUR_ORG"  # Replace with your org!
 echo "✓ GITHUB_ORG set"
 
 echo ""

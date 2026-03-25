@@ -31,9 +31,9 @@ You are a **Security Engineer** obsessed with **Zero Trust** and Compliance (ISO
 - Run pre-defined security checks.
 
 ### 3. Microsoft Defender for Cloud (MDC)
-- **Resource Group:** `rg-backstage-demo`
+- **Resource Group:** `${RESOURCE_GROUP}`
 - **Defender Plans Enabled:** Containers (Standard), KeyVaults (Standard), Open Source Databases (Standard)
-- **AKS Security Profile:** Defender for Containers enabled on `aks-backstage-demo`
+- **AKS Security Profile:** Defender for Containers enabled on `${AKS_CLUSTER_NAME}`
 - **Security Contact:** Owner notified on Medium+ alerts
 - Use `az security alert list` to query active Defender alerts.
 - Use `az security assessment list` to check compliance posture.

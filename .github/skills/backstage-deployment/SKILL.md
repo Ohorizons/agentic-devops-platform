@@ -17,16 +17,16 @@ Deploys the upstream open-source Backstage developer portal on Azure AKS or loca
 
 ---
 
-## Azure MVP Deployment (`rg-backstage-demo`)
+## Azure MVP Deployment (`${RESOURCE_GROUP}`)
 
 ### Resources
 
 | Resource | Name | Type | Location |
 |----------|------|------|----------|
-| AKS | `aks-backstage-demo` | 2x Standard_B2s | eastus2 |
+| AKS | `${AKS_CLUSTER_NAME}` | 2x Standard_B2s | eastus2 |
 | ACR | `${ACR_NAME}` | Basic | eastus2 |
-| Key Vault | `kv-backstage-demo` | RBAC-enabled | eastus2 |
-| PostgreSQL | `pgbackstagedemo` | Flexible B1ms v16 | centralus |
+| Key Vault | `${KEYVAULT_NAME}` | RBAC-enabled | eastus2 |
+| PostgreSQL | `${POSTGRES_NAME}` | Flexible B1ms v16 | centralus |
 | Redis | `redis-backstage-demo` | Azure Managed B0 | eastus2 |
 | AI Services | `ai-backstage-demo` | S0 (GPT-4o + Embeddings) | eastus2 |
 | Log Analytics | `law-backstage-demo` | PerGB2018 | eastus2 |

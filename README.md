@@ -63,7 +63,7 @@ The `@deploy` agent walks you through each step interactively.
 #### Option B: Automated Script (Recommended)
 ```bash
 # 1. Clone and prepare
-git clone https://github.com/Ohorizons/agentic-devops-platform.git
+git clone https://github.com/${GITHUB_ORG}/${GITHUB_REPO}.git
 cd agentic-devops-platform
 chmod +x scripts/*.sh
 
