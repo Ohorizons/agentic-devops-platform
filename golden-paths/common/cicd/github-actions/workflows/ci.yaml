@@ -46,7 +46,7 @@ jobs:
 
       - name: Build container image
         run: |
-          docker build -t ghcr.io/ohorizons/${{ values.name }}:${{ '${{ github.sha }}' }} .
+          docker build -t ghcr.io/${{ values.githubOrg }}/${{ values.name }}:${{ '${{ github.sha }}' }} .
 
   test:
     runs-on: ubuntu-latest

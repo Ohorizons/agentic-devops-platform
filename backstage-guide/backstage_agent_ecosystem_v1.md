@@ -1,8 +1,8 @@
-# Open Horizons — Backstage Accelerator — Agent Ecosystem
+# Agentic DevOps Platform — Backstage Accelerator — Agent Ecosystem
 
 | Field | Value |
 |-------|-------|
-| **Repository** | `open-horizons-backstage` |
+| **Repository** | `agentic-devops-platform-backstage` |
 | **Portal Technology** | Backstage (upstream open-source) |
 | **Cluster** | Azure AKS only |
 | **Date** | February 26, 2026 |

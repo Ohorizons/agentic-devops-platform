@@ -1,5 +1,5 @@
 // =============================================================================
-// OPEN HORIZONS ACCELERATOR - OBSERVABILITY MODULE TESTS
+// AGENTIC DEVOPS PLATFORM - OBSERVABILITY MODULE TESTS
 // =============================================================================
 //
 // Unit and integration tests for the Terraform observability module.

@@ -1,4 +1,4 @@
-# Open Horizons Accelerator - Architecture Guide
+# Agentic DevOps Platform - Architecture Guide
 
 > **Version:** 4.0.0
 > **Last Updated:** December 2025
@@ -9,7 +9,7 @@
 ## Table of Contents
 
 1. [Introduction](#1-introduction)
-2. [Understanding the Open Horizons Model](#2-understanding-the-open-horizons-model)
+2. [Understanding the Agentic DevOps Platform Model](#2-understanding-the-agentic-devops-platform-model)
 3. [High-Level Platform Architecture](#3-high-level-platform-architecture)
 4. [Infrastructure Architecture](#4-infrastructure-architecture)
 5. [Network Architecture](#5-network-architecture)
@@ -27,7 +27,7 @@
 
 ### What is This Guide?
 
-This Architecture Guide explains **how** the Open Horizons Accelerator is designed and **why** specific technology choices were made. It's intended for architects and engineers who need to understand the platform's internal workings.
+This Architecture Guide explains **how** the Agentic DevOps Platform is designed and **why** specific technology choices were made. It's intended for architects and engineers who need to understand the platform's internal workings.
 
 > 💡 **Different from the Deployment Guide**
 >
@@ -48,7 +48,7 @@ This Architecture Guide explains **how** the Open Horizons Accelerator is design
 
 After reading this guide, you'll understand:
 
-1. Why we use the "Open Horizons" organizational model
+1. Why we use the "Agentic DevOps Platform" organizational model
 2. How Azure services are integrated together
 3. How network isolation and security work
 4. How GitOps enables declarative infrastructure
@@ -57,21 +57,21 @@ After reading this guide, you'll understand:
 
 ---
 
-## 2. Understanding the Open Horizons Model
+## 2. Understanding the Agentic DevOps Platform Model
 
-### 2.1 What is the Open Horizons Framework?
+### 2.1 What is the Agentic DevOps Platform Framework?
 
 > 💡 **Origin of the Model**
 >
-> The Open Horizons Accelerator is a solution created in partnership with **Microsoft**
+> The Agentic DevOps Platform is a solution created in partnership with **Microsoft**
 > and **GitHub**. It helps organizations balance maintaining current operations
 > (H1) while developing improvements (H2) and exploring future opportunities (H3).
 
-The Open Horizons model organizes the platform into three layers with different purposes:
+The Agentic DevOps Platform model organizes the platform into three layers with different purposes:
 
-![Open Horizons Framework](../assets/arch-three-horizons-framework.svg)
+![Agentic DevOps Platform Framework](../assets/arch-three-horizons-framework.svg)
 
-### 2.2 Why Use Open Horizons?
+### 2.2 Why Use Agentic DevOps Platform?
 
 | Benefit | Explanation |
 |---------|-------------|
@@ -434,7 +434,7 @@ The platform includes 23 pre-defined agents organized by horizon:
 
 This Architecture Guide covered:
 
-1. **Open Horizons Model:** How the platform is organized into Foundation, Enhancement, and Innovation layers
+1. **Agentic DevOps Platform Model:** How the platform is organized into Foundation, Enhancement, and Innovation layers
 2. **Platform Architecture:** High-level view of all components
 3. **Infrastructure:** AKS cluster design and node pools
 4. **Networking:** VNet topology, subnets, and private endpoints

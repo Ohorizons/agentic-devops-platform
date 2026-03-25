@@ -3,7 +3,7 @@ set -euo pipefail
 
 # =============================================================================
 # validate-docs.sh — Documentation Link Validator
-# Open Horizons Accelerator v4
+# Agentic DevOps Platform v4
 #
 # Scans all Markdown files for broken relative links (files and anchors).
 # Usage: ./scripts/validate-docs.sh [--verbose] [--fix-suggestions]
@@ -159,7 +159,7 @@ main() {
 
     echo "======================================"
     echo " Documentation Link Validator"
-    echo " Open Horizons Accelerator v4"
+    echo " Agentic DevOps Platform v4"
     echo "======================================"
     echo ""
 

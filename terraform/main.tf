@@ -1,5 +1,5 @@
 # =============================================================================
-# OPEN HORIZONS ACCELERATOR - ROOT TERRAFORM CONFIGURATION
+# AGENTIC DEVOPS PLATFORM - ROOT TERRAFORM CONFIGURATION
 # =============================================================================
 #
 # This is the main entry point that orchestrates all platform modules.
@@ -58,7 +58,7 @@ terraform {
   #   resource_group_name  = "rg-terraform-state"
   #   storage_account_name = "stterraformstate"
   #   container_name       = "tfstate"
-  #   key                  = "open-horizons.tfstate"
+  #   key                  = "agentic-devops-platform.tfstate"
   # }
 }
 
@@ -125,11 +125,11 @@ locals {
   name_prefix = "${var.customer_name}-${var.environment}"
 
   common_tags = merge(var.tags, {
-    "open-horizons/customer"        = var.customer_name
-    "open-horizons/environment"     = var.environment
-    "open-horizons/deployment-mode" = var.deployment_mode
-    "open-horizons/managed-by"      = "terraform"
-    "open-horizons/version"         = "1.0.0"
+    "agentic-devops-platform/customer"        = var.customer_name
+    "agentic-devops-platform/environment"     = var.environment
+    "agentic-devops-platform/deployment-mode" = var.deployment_mode
+    "agentic-devops-platform/managed-by"      = "terraform"
+    "agentic-devops-platform/version"         = "1.0.0"
   })
 
   # Deployment mode configurations

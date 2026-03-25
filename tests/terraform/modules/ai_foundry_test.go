@@ -1,5 +1,5 @@
 // =============================================================================
-// OPEN HORIZONS ACCELERATOR - AI FOUNDRY MODULE TESTS
+// AGENTIC DEVOPS PLATFORM - AI FOUNDRY MODULE TESTS
 // =============================================================================
 //
 // Unit and integration tests for the Terraform AI Foundry module.

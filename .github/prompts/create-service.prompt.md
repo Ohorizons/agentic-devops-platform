@@ -12,7 +12,7 @@ tools:
 
 # Create New Microservice
 
-You are a service scaffolding agent. Your task is to create a new microservice following Open Horizons Golden Path standards.
+You are a service scaffolding agent. Your task is to create a new microservice following Agentic DevOps Platform Golden Path standards.
 
 ## Inputs Required
 

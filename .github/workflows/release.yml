@@ -1,5 +1,5 @@
 # .github/workflows/release.yml
-# Release workflow for Open Horizons Accelerator
+# Release workflow for Agentic DevOps Platform
 
 name: Release
 
@@ -182,9 +182,9 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ needs.validate.outputs.version }}
-          name: Open Horizons Accelerator ${{ needs.validate.outputs.version }}
+          name: Agentic DevOps Platform ${{ needs.validate.outputs.version }}
           body: |
-            # Open Horizons Accelerator ${{ needs.validate.outputs.version }}
+            # Agentic DevOps Platform ${{ needs.validate.outputs.version }}
 
             Enterprise-grade platform accelerator for Azure with AI capabilities.
 
@@ -211,7 +211,7 @@ jobs:
             ## Documentation
 
             - [Deployment Guide](docs/guides/DEPLOYMENT_GUIDE.md) - Step-by-step deployment instructions
-            - [Architecture Guide](docs/guides/ARCHITECTURE_GUIDE.md) - Open Horizons architecture
+            - [Architecture Guide](docs/guides/ARCHITECTURE_GUIDE.md) - Agentic DevOps Platform architecture
             - [Agent Documentation](agents/README.md) - 23 AI agents for deployment automation
 
             ${{ needs.changelog.outputs.changelog }}

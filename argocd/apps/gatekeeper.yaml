@@ -1,5 +1,5 @@
 # =============================================================================
-# OPEN HORIZONS ACCELERATOR - GATEKEEPER ARGOCD APPLICATION
+# AGENTIC DEVOPS PLATFORM - GATEKEEPER ARGOCD APPLICATION
 # =============================================================================
 #
 # Deploys OPA Gatekeeper for Kubernetes policy enforcement.
@@ -22,8 +22,8 @@ metadata:
   labels:
     app.kubernetes.io/name: gatekeeper
     app.kubernetes.io/component: policy-enforcement
-    app.kubernetes.io/part-of: open-horizons-platform
-    platform.open-horizons/tier: h1-foundation
+    app.kubernetes.io/part-of: agentic-devops-platform-platform
+    platform.agentic-devops-platform/tier: h1-foundation
   annotations:
     argocd.argoproj.io/sync-wave: "-5"
   finalizers:
@@ -202,8 +202,8 @@ metadata:
   labels:
     app.kubernetes.io/name: gatekeeper-templates
     app.kubernetes.io/component: policy-templates
-    app.kubernetes.io/part-of: open-horizons-platform
-    platform.open-horizons/tier: h1-foundation
+    app.kubernetes.io/part-of: agentic-devops-platform-platform
+    platform.agentic-devops-platform/tier: h1-foundation
   annotations:
     argocd.argoproj.io/sync-wave: "-4"
   finalizers:
@@ -253,8 +253,8 @@ metadata:
   labels:
     app.kubernetes.io/name: gatekeeper-constraints
     app.kubernetes.io/component: policy-constraints
-    app.kubernetes.io/part-of: open-horizons-platform
-    platform.open-horizons/tier: h1-foundation
+    app.kubernetes.io/part-of: agentic-devops-platform-platform
+    platform.agentic-devops-platform/tier: h1-foundation
   annotations:
     argocd.argoproj.io/sync-wave: "-3"
   finalizers:

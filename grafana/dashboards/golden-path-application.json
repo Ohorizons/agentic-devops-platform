@@ -1,5 +1,5 @@
 {
-  "__comment": "OPEN HORIZONS ACCELERATOR - GOLDEN PATH APPLICATION DASHBOARD",
+  "__comment": "AGENTIC DEVOPS PLATFORM - GOLDEN PATH APPLICATION DASHBOARD",
   "annotations": {
     "list": [
       {
@@ -41,7 +41,7 @@
       }
     ]
   },
-  "description": "Comprehensive dashboard for Golden Path applications deployed via Open Horizons Accelerator",
+  "description": "Comprehensive dashboard for Golden Path applications deployed via Agentic DevOps Platform",
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 1,
@@ -52,7 +52,7 @@
       "icon": "external link",
       "includeVars": true,
       "keepTime": true,
-      "tags": ["open-horizons"],
+      "tags": ["agentic-devops-platform"],
       "targetBlank": true,
       "title": "Related Dashboards",
       "type": "dashboards"
@@ -1243,7 +1243,7 @@
   "refresh": "30s",
   "schemaVersion": 38,
   "style": "dark",
-  "tags": ["open-horizons", "golden-path", "kubernetes", "application"],
+  "tags": ["agentic-devops-platform", "golden-path", "kubernetes", "application"],
   "templating": {
     "list": [
       {

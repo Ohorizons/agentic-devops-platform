@@ -1,5 +1,5 @@
 # =============================================================================
-# OPEN HORIZONS ACCELERATOR - CONTAINER REGISTRY MODULE VARIABLES
+# AGENTIC DEVOPS PLATFORM - CONTAINER REGISTRY MODULE VARIABLES
 # =============================================================================
 
 variable "customer_name" {

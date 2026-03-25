@@ -1,9 +1,9 @@
 #!/bin/bash
 # =============================================================================
-# OPEN HORIZONS ACCELERATOR - DEPLOYMENT VALIDATION SCRIPT
+# AGENTIC DEVOPS PLATFORM - DEPLOYMENT VALIDATION SCRIPT
 # =============================================================================
 #
-# Validates that a Open Horizons platform deployment is healthy and functional.
+# Validates that a Agentic DevOps Platform platform deployment is healthy and functional.
 #
 # Usage:
 #   ./validate-deployment.sh [options]
@@ -81,7 +81,7 @@ log_verbose() {
 print_banner() {
     echo ""
     echo "============================================================"
-    echo "  OPEN HORIZONS ACCELERATOR - DEPLOYMENT VALIDATION"
+    echo "  AGENTIC DEVOPS PLATFORM - DEPLOYMENT VALIDATION"
     echo "============================================================"
     echo ""
     echo "  Environment: $ENVIRONMENT"

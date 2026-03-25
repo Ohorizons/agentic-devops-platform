@@ -24,7 +24,7 @@ Deploys the upstream open-source Backstage developer portal on Azure AKS or loca
 | Resource | Name | Type | Location |
 |----------|------|------|----------|
 | AKS | `aks-backstage-demo` | 2x Standard_B2s | eastus2 |
-| ACR | `acrbackstagedemo` | Basic | eastus2 |
+| ACR | `${ACR_NAME}` | Basic | eastus2 |
 | Key Vault | `kv-backstage-demo` | RBAC-enabled | eastus2 |
 | PostgreSQL | `pgbackstagedemo` | Flexible B1ms v16 | centralus |
 | Redis | `redis-backstage-demo` | Azure Managed B0 | eastus2 |

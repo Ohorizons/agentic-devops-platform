@@ -1,10 +1,10 @@
-# Open Horizons — Backstage Custom Homepage Deployment
+# Agentic DevOps Platform — Backstage Custom Homepage Deployment
 
-This directory contains the deployment configuration and React components for the Open Horizons Backstage custom homepage with GitHub-only authentication.
+This directory contains the deployment configuration and React components for the Agentic DevOps Platform Backstage custom homepage with GitHub-only authentication.
 
 ## Overview
 
-The Open Horizons homepage provides a modern landing page for your Backstage instance with:
+The Agentic DevOps Platform homepage provides a modern landing page for your Backstage instance with:
 - **GitHub OAuth authentication** (only auth provider)
 - **Hero section** with platform branding
 - **Quick access links** to common features
@@ -36,7 +36,7 @@ The Open Horizons homepage provides a modern landing page for your Backstage ins
 1. Go to https://github.com/settings/developers
 2. Click **New OAuth App**
 3. Fill in the application details:
-   - **Application Name:** `Open Horizons`
+   - **Application Name:** `Agentic DevOps Platform`
    - **Homepage URL:** `https://your-backstage-domain.com`
    - **Authorization callback URL:** `https://your-backstage-domain.com/auth/github/handler/frame`
 4. Click **Register application**
@@ -121,7 +121,7 @@ const signInPage = featureFlags.isEnabled('github-auth') ? 'github' : 'guest';
 
 ```bash
 # Build the Docker image
-docker build -t open-horizons-backstage .
+docker build -t agentic-devops-platform-backstage .
 
 # Run with environment variables
 docker run -d \
@@ -131,7 +131,7 @@ docker run -d \
   -e BACKSTAGE_BASE_URL="${BACKSTAGE_BASE_URL}" \
   -e BACKEND_SECRET="${BACKEND_SECRET}" \
   -p 7007:7007 \
-  open-horizons-backstage
+  agentic-devops-platform-backstage
 ```
 
 ### Kubernetes Deployment
@@ -171,7 +171,7 @@ spec:
     spec:
       containers:
       - name: backstage
-        image: open-horizons-backstage:latest
+        image: agentic-devops-platform-backstage:latest
         ports:
         - containerPort: 7007
         env:
@@ -234,7 +234,7 @@ catalog:
       catalogPath: /catalog-info.yaml
       filters:
         branch: main
-        repository: '^(open-horizons|platform-.*)'
+        repository: '^(agentic-devops-platform|platform-.*)'
 ```
 
 #### Homepage Settings
@@ -332,4 +332,4 @@ Example custom link:
 
 ## License
 
-Open Horizons is licensed under the Apache License 2.0. See LICENSE file for details.
+Agentic DevOps Platform is licensed under the Apache License 2.0. See LICENSE file for details.

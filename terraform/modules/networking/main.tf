@@ -1,5 +1,5 @@
 # =============================================================================
-# OPEN HORIZONS ACCELERATOR - NETWORKING TERRAFORM MODULE
+# AGENTIC DEVOPS PLATFORM - NETWORKING TERRAFORM MODULE
 # =============================================================================
 #
 # Creates Azure networking infrastructure for the platform.
@@ -23,9 +23,9 @@ locals {
   name_prefix = "${var.customer_name}-${var.environment}"
 
   common_tags = merge(var.tags, {
-    "open-horizons/customer"    = var.customer_name
-    "open-horizons/environment" = var.environment
-    "open-horizons/component"   = "networking"
+    "agentic-devops-platform/customer"    = var.customer_name
+    "agentic-devops-platform/environment" = var.environment
+    "agentic-devops-platform/component"   = "networking"
   })
 
   # Private DNS zones for Azure services

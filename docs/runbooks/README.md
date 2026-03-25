@@ -1,6 +1,6 @@
 # Production Runbooks
 
-This directory contains operational runbooks for the Open Horizons Platform.
+This directory contains operational runbooks for the Agentic DevOps Platform Platform.
 
 ## Runbook Index
 
@@ -96,7 +96,7 @@ kubectl get events -A --sort-by='.lastTimestamp' | tail -20
 
 ## 🤖 Using Copilot Agents with Runbooks
 
-The Open Horizons platform includes **Copilot Chat Agents** that can assist you during operations. Use them alongside these runbooks for faster resolution.
+The Agentic DevOps Platform platform includes **Copilot Chat Agents** that can assist you during operations. Use them alongside these runbooks for faster resolution.
 
 | Scenario | Agent | How to Use |
 |----------|-------|----------|

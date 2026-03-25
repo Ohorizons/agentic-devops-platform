@@ -1,5 +1,5 @@
 # =============================================================================
-# OPEN HORIZONS ACCELERATOR - ARGOCD TERRAFORM MODULE
+# AGENTIC DEVOPS PLATFORM - ARGOCD TERRAFORM MODULE
 # =============================================================================
 #
 # Installs and configures ArgoCD on AKS for GitOps deployments.
@@ -28,8 +28,8 @@ locals {
 
   common_labels = {
     "app.kubernetes.io/managed-by" = "terraform"
-    "open-horizons/customer"      = var.customer_name
-    "open-horizons/environment"   = var.environment
+    "agentic-devops-platform/customer"      = var.customer_name
+    "agentic-devops-platform/environment"   = var.environment
   }
 }
 
@@ -512,7 +512,7 @@ resource "kubectl_manifest" "platform_project" {
       labels    = local.common_labels
     }
     spec = {
-      description = "Open Horizons Platform Components"
+      description = "Agentic DevOps Platform Platform Components"
 
       sourceRepos = [
         "https://github.com/${var.github_org}/*",

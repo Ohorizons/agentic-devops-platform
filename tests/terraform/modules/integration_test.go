@@ -1,5 +1,5 @@
 // =============================================================================
-// OPEN HORIZONS ACCELERATOR - INTEGRATION TESTS
+// AGENTIC DEVOPS PLATFORM - INTEGRATION TESTS
 // =============================================================================
 //
 // Cross-module integration tests to validate module interactions.

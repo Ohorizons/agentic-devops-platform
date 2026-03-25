@@ -1,5 +1,5 @@
 # =============================================================================
-# OPEN HORIZONS ACCELERATOR - AKS CLUSTER MODULE VARIABLES
+# AGENTIC DEVOPS PLATFORM - AKS CLUSTER MODULE VARIABLES
 # =============================================================================
 
 variable "customer_name" {

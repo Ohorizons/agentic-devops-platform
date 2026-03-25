@@ -1,5 +1,5 @@
 // =============================================================================
-// OPEN HORIZONS ACCELERATOR - EXTERNAL SECRETS MODULE TESTS
+// AGENTIC DEVOPS PLATFORM - EXTERNAL SECRETS MODULE TESTS
 // =============================================================================
 //
 // Unit and integration tests for the Terraform External Secrets Operator module.

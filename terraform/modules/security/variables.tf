@@ -1,5 +1,5 @@
 # =============================================================================
-# OPEN HORIZONS ACCELERATOR - SECURITY MODULE VARIABLES
+# AGENTIC DEVOPS PLATFORM - SECURITY MODULE VARIABLES
 # =============================================================================
 
 variable "customer_name" {

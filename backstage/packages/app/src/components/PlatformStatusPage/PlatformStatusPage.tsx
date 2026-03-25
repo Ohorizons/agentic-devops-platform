@@ -27,7 +27,7 @@ const services = [
 ];
 
 const argoApps = [
-  { name: 'open-horizons-portal', sync: 'Synced', health: 'Healthy' },
+  { name: 'agentic-devops-platform-portal', sync: 'Synced', health: 'Healthy' },
   { name: 'monitoring-stack', sync: 'Synced', health: 'Healthy' },
   { name: 'argocd', sync: 'Synced', health: 'Healthy' },
   { name: 'gatekeeper', sync: 'Synced', health: 'Healthy' },

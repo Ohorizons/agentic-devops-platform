@@ -1,9 +1,9 @@
 # =============================================================================
-# OPEN HORIZONS ACCELERATOR - AKS CLUSTER MODULE
+# AGENTIC DEVOPS PLATFORM - AKS CLUSTER MODULE
 # =============================================================================
 # 
 # This module creates a production-ready Azure Kubernetes Service cluster
-# optimized for the Open Horizons Platform.
+# optimized for the Agentic DevOps Platform Platform.
 #
 # Features:
 #   - Multi-zone deployment for high availability

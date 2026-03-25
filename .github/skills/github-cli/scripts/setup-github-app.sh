@@ -1,6 +1,6 @@
 #!/bin/bash
 # =============================================================================
-# OPEN HORIZONS PLATFORM - GITHUB APP SETUP
+# AGENTIC DEVOPS PLATFORM PLATFORM - GITHUB APP SETUP
 # =============================================================================
 #
 # Creates and configures GitHub Apps and OAuth Apps for platform integrations
@@ -429,7 +429,7 @@ EOF
 main() {
     echo ""
     echo -e "${PURPLE}╔════════════════════════════════════════════════════════════╗${NC}"
-    echo -e "${PURPLE}║  OPEN HORIZONS - GITHUB APP SETUP                         ║${NC}"
+    echo -e "${PURPLE}║  AGENTIC DEVOPS PLATFORM - GITHUB APP SETUP                         ║${NC}"
     echo -e "${PURPLE}╚════════════════════════════════════════════════════════════╝${NC}"
     echo ""
     

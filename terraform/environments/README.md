@@ -1,4 +1,4 @@
-# Open Horizons Accelerator - Terraform Environments
+# Agentic DevOps Platform - Terraform Environments
 
 > **Version:** 4.0.0
 > **Last Updated:** December 2025

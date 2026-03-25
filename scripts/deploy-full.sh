@@ -74,7 +74,7 @@ TFVARS_FILE="$TERRAFORM_DIR/environments/${ENVIRONMENT}.tfvars"
 banner() {
   echo ""
   echo -e "${BLUE}╔══════════════════════════════════════════════════════════════╗${NC}"
-  echo -e "${BLUE}║  ${BOLD}OPEN HORIZONS ACCELERATOR — Deployment${NC}${BLUE}                    ║${NC}"
+  echo -e "${BLUE}║  ${BOLD}AGENTIC DEVOPS PLATFORM — Deployment${NC}${BLUE}                    ║${NC}"
   echo -e "${BLUE}╚══════════════════════════════════════════════════════════════╝${NC}"
   echo -e "  Environment: ${YELLOW}${ENVIRONMENT}${NC}"
   echo -e "  Horizons:    ${YELLOW}${HORIZON}${NC}"

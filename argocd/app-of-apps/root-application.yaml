@@ -1,5 +1,5 @@
 # =============================================================================
-# OPEN HORIZONS ACCELERATOR - ARGOCD APP-OF-APPS
+# AGENTIC DEVOPS PLATFORM - ARGOCD APP-OF-APPS
 # =============================================================================
 #
 # This is the root ArgoCD Application that bootstraps the entire platform.
@@ -18,12 +18,12 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: open-horizons-root
+  name: agentic-devops-platform-root
   namespace: argocd
   labels:
-    app.kubernetes.io/name: open-horizons
+    app.kubernetes.io/name: agentic-devops-platform
     app.kubernetes.io/component: root
-    app.kubernetes.io/part-of: open-horizons-platform
+    app.kubernetes.io/part-of: agentic-devops-platform-platform
   annotations:
     argocd.argoproj.io/sync-wave: "0"
   finalizers:
@@ -68,9 +68,9 @@ metadata:
   name: platform
   namespace: argocd
   labels:
-    app.kubernetes.io/part-of: open-horizons-platform
+    app.kubernetes.io/part-of: agentic-devops-platform-platform
 spec:
-  description: "Open Horizons Platform Components"
+  description: "Agentic DevOps Platform Platform Components"
   
   # Source repositories
   sourceRepos:
@@ -242,7 +242,7 @@ spec:
           - service
           - ingress
           
-        txtOwnerId: open-horizons-${CUSTOMER_NAME}
+        txtOwnerId: agentic-devops-platform-${CUSTOMER_NAME}
         
         resources:
           requests:
@@ -621,7 +621,7 @@ spec:
       namespace: argocd
       labels:
         app.kubernetes.io/managed-by: argocd
-        open-horizons/team: '{{team.name}}'
+        agentic-devops-platform/team: '{{team.name}}'
     spec:
       project: platform
       
@@ -664,7 +664,7 @@ spec:
       namespace: argocd
       labels:
         app.kubernetes.io/managed-by: argocd
-        open-horizons/golden-path: 'true'
+        agentic-devops-platform/golden-path: 'true'
       annotations:
         argocd.argoproj.io/manifest-generate-paths: '{{path}}'
     spec:

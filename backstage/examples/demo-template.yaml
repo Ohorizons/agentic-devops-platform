@@ -1,8 +1,8 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: open-horizons-demo-service
-  title: Open Horizons Demo Service
+  name: agentic-devops-platform-demo-service
+  title: Agentic DevOps Platform Demo Service
   description: Minimal working template for end-to-end demo flows.
   tags:
     - demo
@@ -24,7 +24,7 @@ spec:
       name: Validate Demo Input
       action: debug:log
       input:
-        message: "Open Horizons demo template executed for: ${{ parameters.serviceName }}"
+        message: "Agentic DevOps Platform demo template executed for: ${{ parameters.serviceName }}"
   output:
     links:
       - title: Back to Catalog

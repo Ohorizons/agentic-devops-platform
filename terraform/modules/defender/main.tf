@@ -1,5 +1,5 @@
 # =============================================================================
-# OPEN HORIZONS ACCELERATOR - DEFENDER FOR CLOUD TERRAFORM MODULE
+# AGENTIC DEVOPS PLATFORM - DEFENDER FOR CLOUD TERRAFORM MODULE
 # =============================================================================
 #
 # Deploys Microsoft Defender for Cloud with enterprise security posture.
@@ -107,10 +107,10 @@ locals {
   effective_compliance = length(var.regulatory_compliance_standards) > 0 ? var.regulatory_compliance_standards : local.compliance_by_profile[var.sizing_profile]
 
   common_tags = merge(var.tags, {
-    "open-horizons/customer"    = var.customer_name
-    "open-horizons/environment" = var.environment
-    "open-horizons/component"   = "defender-for-cloud"
-    "open-horizons/sizing"      = var.sizing_profile
+    "agentic-devops-platform/customer"    = var.customer_name
+    "agentic-devops-platform/environment" = var.environment
+    "agentic-devops-platform/component"   = "defender-for-cloud"
+    "agentic-devops-platform/sizing"      = var.sizing_profile
   })
 }
 

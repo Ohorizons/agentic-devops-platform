@@ -6,7 +6,7 @@
 
 ## Overview
 
-This runbook provides procedures for rolling back deployments on the Open Horizons Platform. Use these procedures when a deployment causes issues that require reverting to a previous state.
+This runbook provides procedures for rolling back deployments on the Agentic DevOps Platform Platform. Use these procedures when a deployment causes issues that require reverting to a previous state.
 
 > 🤖 **Copilot Agents can help!**
 > - Ask `@devops` for ArgoCD rollback: "Help me rollback app-name to its previous version"

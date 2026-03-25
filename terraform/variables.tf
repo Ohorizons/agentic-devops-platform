@@ -1,5 +1,5 @@
 # =============================================================================
-# OPEN HORIZONS ACCELERATOR - VARIABLES
+# AGENTIC DEVOPS PLATFORM - VARIABLES
 # =============================================================================
 #
 # All input variables for the platform. Use a .tfvars file to set values:

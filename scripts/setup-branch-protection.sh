@@ -1,6 +1,6 @@
 #!/bin/bash
 # =============================================================================
-# OPEN HORIZONS ACCELERATOR - BRANCH PROTECTION SETUP
+# AGENTIC DEVOPS PLATFORM - BRANCH PROTECTION SETUP
 # =============================================================================
 #
 # This script configures branch protection rules for the repository.

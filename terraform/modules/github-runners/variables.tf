@@ -1,5 +1,5 @@
 # =============================================================================
-# OPEN HORIZONS ACCELERATOR - GITHUB RUNNERS MODULE VARIABLES
+# AGENTIC DEVOPS PLATFORM - GITHUB RUNNERS MODULE VARIABLES
 # =============================================================================
 
 variable "customer_name" {

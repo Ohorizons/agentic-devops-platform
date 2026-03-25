@@ -1,4 +1,4 @@
-# Open Horizons Accelerator - GitHub Copilot Agents Complete Guide
+# Agentic DevOps Platform - GitHub Copilot Agents Complete Guide
 
 > **Version:** 4.0.0
 > **Last Updated:** December 2025

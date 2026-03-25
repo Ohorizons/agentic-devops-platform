@@ -6,7 +6,7 @@
 
 ## Overview
 
-This runbook contains critical emergency procedures for the Open Horizons Platform. Use these procedures when immediate action is required to protect the platform, data, or users.
+This runbook contains critical emergency procedures for the Agentic DevOps Platform Platform. Use these procedures when immediate action is required to protect the platform, data, or users.
 
 > 🤖 **Copilot Agents can help during emergencies!**
 > - Ask `@sre` for rapid diagnostics: "All pods are crashing, help me triage"

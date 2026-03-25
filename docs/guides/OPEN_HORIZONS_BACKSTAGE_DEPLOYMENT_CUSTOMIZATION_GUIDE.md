@@ -1,4 +1,4 @@
-# Open Horizons Backstage — Deployment and Customization Guide
+# Agentic DevOps Platform Backstage — Deployment and Customization Guide
 
 Platform: Backstage (Open Source)
 Target: `backstage.20.62.35.83.sslip.io`
@@ -11,7 +11,7 @@ Author: Paula Silva - Microsoft Latam GBB
 
 ## 1. Architecture Overview
 
-Backstage in Open Horizons runs on AKS and is customized through React and TypeScript source code that is compiled into the container image.
+Backstage in Agentic DevOps Platform runs on AKS and is customized through React and TypeScript source code that is compiled into the container image.
 
 Unlike YAML-only customization models, this setup requires code edits for major UI changes (theme, sign-in, homepage, sidebar), followed by image build and Helm rollout.
 
@@ -37,7 +37,7 @@ Main customization files in this repository:
 |------|---------|-------------|
 | `backstage/packages/app/src/theme.ts` | Microsoft visual theme | Blue-first palette, white nav/sidebar, page themes |
 | `backstage/packages/app/src/components/SignInPage/CustomSignInPage.tsx` | Pre-login page | GitHub OAuth button, Microsoft branding, animated cards |
-| `backstage/packages/app/src/components/HomePage/HomePage.tsx` | Post-login homepage | Hero, Open Horizons, Quick Access, templates, activity |
+| `backstage/packages/app/src/components/HomePage/HomePage.tsx` | Post-login homepage | Hero, Agentic DevOps Platform, Quick Access, templates, activity |
 | `backstage/packages/app/src/components/Root/Root.tsx` | Sidebar and global shell styling | Navigation items, top color bar, consistent sidebar styling |
 | `backstage/packages/app/src/App.tsx` | App wiring | Theme provider, SignInPage override, route registration |
 | `deploy/helm/backstage-aks-values.yaml` | AKS runtime config | Image tag, auth provider settings, backend/CSP/catalog config |
@@ -75,7 +75,7 @@ After login, users land on `/home` with:
 
 - Hero banner and portal branding
 - Search entry
-- Open Horizons cards
+- Agentic DevOps Platform cards
 - Quick access cards
 - Template highlights
 - Activity list

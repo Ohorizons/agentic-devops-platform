@@ -1,8 +1,8 @@
 /**
  * HomePage.tsx
- * Backstage Open Horizons — Custom Homepage Component
+ * Backstage Agentic DevOps Platform — Custom Homepage Component
  *
- * This component provides the landing page for Open Horizons with:
+ * This component provides the landing page for Agentic DevOps Platform with:
  * - Hero section with platform branding
  * - Search bar for catalog discovery
  * - Quick access links to key features
@@ -160,7 +160,7 @@ interface QuickAccessLink {
 
 /**
  * OpenHorizonsHomePage Component
- * Main landing page for Open Horizons platform
+ * Main landing page for Agentic DevOps Platform platform
  */
 export const OpenHorizonsHomePage: React.FC = () => {
   const classes = useStyles();
@@ -205,7 +205,7 @@ export const OpenHorizonsHomePage: React.FC = () => {
   const quickAccessLinks: QuickAccessLink[] = [
     {
       title: 'Getting Started',
-      description: 'Learn how to use Open Horizons and get up to speed quickly',
+      description: 'Learn how to use Agentic DevOps Platform and get up to speed quickly',
       icon: <HelpIcon className={classes.quickAccessIcon} />,
       url: '/docs/getting-started',
     },
@@ -246,9 +246,9 @@ export const OpenHorizonsHomePage: React.FC = () => {
       {/* Hero Section */}
       <Box className={classes.heroSection}>
         <Container maxWidth="lg">
-          <HomePageCompanyLogo logo={<img src="/logo.svg" alt="Open Horizons" style={{ height: 60 }} />} />
+          <HomePageCompanyLogo logo={<img src="/logo.svg" alt="Agentic DevOps Platform" style={{ height: 60 }} />} />
           <Typography variant="h3" className={classes.heroTitle}>
-            Welcome to Open Horizons
+            Welcome to Agentic DevOps Platform
           </Typography>
           <Typography variant="body1" className={classes.heroSubtitle}>
             Your comprehensive platform for managing microservices, APIs, and developer resources
@@ -385,7 +385,7 @@ export const OpenHorizonsHomePage: React.FC = () => {
               <Box>
                 <MuiLink href="/docs/intro" className={classes.resourceLink}>
                   <BookIcon className={classes.resourceIcon} />
-                  Introduction to Open Horizons
+                  Introduction to Agentic DevOps Platform
                 </MuiLink>
                 <MuiLink href="/docs/installation" className={classes.resourceLink}>
                   <BookIcon className={classes.resourceIcon} />
@@ -440,7 +440,7 @@ export const OpenHorizonsHomePage: React.FC = () => {
                 Community
               </Typography>
               <Box>
-                <MuiLink href="https://github.com/open-horizons" target="_blank" rel="noopener" className={classes.resourceLink}>
+                <MuiLink href="https://github.com/agentic-devops-platform" target="_blank" rel="noopener" className={classes.resourceLink}>
                   <GitHubIcon className={classes.resourceIcon} />
                   GitHub Repository
                 </MuiLink>
@@ -460,7 +460,7 @@ export const OpenHorizonsHomePage: React.FC = () => {
         {/* Footer Info */}
         <Box my={6} textAlign="center">
           <Typography variant="body2" color="textSecondary">
-            Open Horizons — Your platform for modern software development
+            Agentic DevOps Platform — Your platform for modern software development
           </Typography>
         </Box>
       </Container>

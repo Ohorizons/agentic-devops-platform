@@ -1,6 +1,6 @@
 # =============================================================================
-# Open Horizons — Agentic DevOps Platform (Backstage v1.48.0)
-# Branding: Open Horizons | devcentral.ai | Microsoft favicon
+# Agentic DevOps Platform — Agentic DevOps Platform (Backstage v1.48.0)
+# Branding: Agentic DevOps Platform | devcentral.ai | Microsoft favicon
 # =============================================================================
 
 ingress:
@@ -56,24 +56,24 @@ backstage:
 
   appConfig:
     app:
-      title: "Open Horizons | Agentic DevOps Platform"
+      title: "Agentic DevOps Platform | Agentic DevOps Platform"
       baseUrl: http://backstage.128.85.226.112.sslip.io
       branding:
         fullLogo:
           src: https://img.icons8.com/fluency/96/microsoft.png
           width: 40
-          alt: "Open Horizons — Agentic DevOps Platform"
+          alt: "Agentic DevOps Platform — Agentic DevOps Platform"
         iconLogo:
           src: https://img.icons8.com/fluency/48/microsoft.png
           width: 28
-          alt: "Open Horizons"
+          alt: "Agentic DevOps Platform"
         theme:
           light:
             primaryColor: '#0078D4'
           dark:
             primaryColor: '#4CC2FF'
     organization:
-      name: "Open Horizons — Agentic DevOps Platform"
+      name: "Agentic DevOps Platform — Agentic DevOps Platform"
     backend:
       baseUrl: http://backstage.128.85.226.112.sslip.io
       listen:

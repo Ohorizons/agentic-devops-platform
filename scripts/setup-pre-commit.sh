@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # =============================================================================
-# OPEN HORIZONS ACCELERATOR - PRE-COMMIT SETUP SCRIPT
+# AGENTIC DEVOPS PLATFORM - PRE-COMMIT SETUP SCRIPT
 # =============================================================================
 #
 # This script sets up pre-commit hooks and all required dependencies for
@@ -54,7 +54,7 @@ log_error()   { echo -e "${RED}[ERROR]${NC} $1" >&2; }
 
 show_help() {
     cat << EOF
-Open Horizons Accelerator - Pre-commit Setup
+Agentic DevOps Platform - Pre-commit Setup
 
 Usage:
   ./scripts/setup-pre-commit.sh [OPTIONS]
@@ -375,7 +375,7 @@ main() {
 
     echo ""
     echo "============================================================"
-    echo "  Open Horizons Accelerator - Pre-commit Setup"
+    echo "  Agentic DevOps Platform - Pre-commit Setup"
     echo "============================================================"
     echo ""
 

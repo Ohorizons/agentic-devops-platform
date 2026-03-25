@@ -1,4 +1,4 @@
-# Open Horizons Accelerator - Platform Services
+# Agentic DevOps Platform - Platform Services
 
 > **Version:** 4.0.0
 > **Last Updated:** December 2025

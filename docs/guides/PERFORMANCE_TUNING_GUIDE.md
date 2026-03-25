@@ -1,4 +1,4 @@
-# Open Horizons Accelerator - Performance Tuning Guide
+# Agentic DevOps Platform - Performance Tuning Guide
 
 > **Version:** 4.0.0
 > **Last Updated:** December 2025
@@ -24,7 +24,7 @@
 
 ## Overview
 
-This guide provides recommendations for optimizing the performance of the Open Horizons Platform across all components.
+This guide provides recommendations for optimizing the performance of the Agentic DevOps Platform Platform across all components.
 
 ---
 

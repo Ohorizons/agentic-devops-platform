@@ -1,5 +1,5 @@
 // =============================================================================
-// OPEN HORIZONS ACCELERATOR - COST MANAGEMENT MODULE TESTS
+// AGENTIC DEVOPS PLATFORM - COST MANAGEMENT MODULE TESTS
 // =============================================================================
 //
 // Unit and integration tests for the Terraform Cost Management module.

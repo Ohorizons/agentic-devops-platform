@@ -1,4 +1,4 @@
-# TFLint configuration for Open Horizons Accelerator
+# TFLint configuration for Agentic DevOps Platform
 
 config {
   force = false

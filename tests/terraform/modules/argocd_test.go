@@ -1,5 +1,5 @@
 // =============================================================================
-// OPEN HORIZONS ACCELERATOR - ARGOCD MODULE TESTS
+// AGENTIC DEVOPS PLATFORM - ARGOCD MODULE TESTS
 // =============================================================================
 //
 // Unit and integration tests for the Terraform ArgoCD module.

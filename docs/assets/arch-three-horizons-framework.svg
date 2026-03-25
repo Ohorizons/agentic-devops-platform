@@ -7,7 +7,7 @@
   </defs>
   <!-- Background -->
   <rect width="860" height="620" rx="12" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1"/>
-  <text x="430" y="35" text-anchor="middle" font-size="18" font-weight="700" fill="#2c3e50">Open Horizons Framework</text>
+  <text x="430" y="35" text-anchor="middle" font-size="18" font-weight="700" fill="#2c3e50">Agentic DevOps Platform Framework</text>
 
   <!-- H3 Innovation -->
   <rect x="40" y="55" width="780" height="160" rx="10" fill="url(#h3g)" filter="url(#ds)" opacity="0.9"/>

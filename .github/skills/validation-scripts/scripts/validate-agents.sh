@@ -296,7 +296,7 @@ print_summary() {
 
 # Main execution
 main() {
-    print_header "Open Horizons Agent Validator"
+    print_header "Agentic DevOps Platform Agent Validator"
 
     echo "Project Root: $PROJECT_ROOT"
     echo "Agents Dir:   $AGENTS_DIR"

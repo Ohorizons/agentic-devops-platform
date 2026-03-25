@@ -2,7 +2,7 @@
 # =============================================================================
 # AGENTIC DEVOPS PLATFORM — Platform Entities
 # =============================================================================
-# Components, APIs, and resources shared across Open Horizons and Open Horizons.
+# Components, APIs, and resources for the Service Catalog.
 # =============================================================================
 # Real platform components, APIs, and resources for the Service Catalog.
 # =============================================================================
@@ -66,7 +66,7 @@ metadata:
     - scaffolder
     - templates
   links:
-    - url: https://devhub.ohorizons.ai/create
+    - url: https://${BACKSTAGE_DOMAIN}/create
       title: Browse Templates
       icon: scaffolder
 spec:
@@ -86,7 +86,7 @@ metadata:
     - documentation
     - techdocs
   links:
-    - url: https://devhub.ohorizons.ai/docs
+    - url: https://${BACKSTAGE_DOMAIN}/docs
       title: TechDocs
       icon: docs
 spec:

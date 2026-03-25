@@ -19,25 +19,25 @@ description: Azure infrastructure patterns and best practices
 ### Resource Group Naming
 ```
 rg-<project>-<environment>-<region>
-Example: rg-ohorizons-prod-eastus2
+Example: rg-myproject-prod-eastus2
 ```
 
 ### AKS Cluster Naming
 ```
 aks-<project>-<environment>-<region>
-Example: aks-ohorizons-prod-eastus2
+Example: aks-myproject-prod-eastus2
 ```
 
 ### Key Vault Naming
 ```
 kv-<project>-<environment>-<region>
-Example: kv-ohorizons-prod-eus2
+Example: kv-myproject-prod-eus2
 ```
 
 ### Storage Account Naming
 ```
 st<project><environment><region>
-Example: stohorizonsprodeus2
+Example: stmyprojectprodeus2
 ```
 
 ## Required Tags

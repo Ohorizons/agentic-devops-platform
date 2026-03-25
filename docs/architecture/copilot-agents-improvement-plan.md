@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document outlines the implementation plan to align the Open Horizons Accelerator v4 repository with GitHub Copilot Agents best practices. Execute each phase sequentially, validating results before proceeding.
+This document outlines the implementation plan to align the Agentic DevOps Platform v4 repository with GitHub Copilot Agents best practices. Execute each phase sequentially, validating results before proceeding.
 
 **Repository:** agentic-devops-platform
 **Current Conformance:** 88%
@@ -670,7 +670,7 @@ Create a root-level AGENTS.md file as the agent playbook.
 Create `AGENTS.md` in repository root:
 
 ```markdown
-# Open Horizons Accelerator - Agent Playbook
+# Agentic DevOps Platform - Agent Playbook
 
 ## Overview
 

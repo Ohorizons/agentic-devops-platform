@@ -1,5 +1,5 @@
 // =============================================================================
-// OPEN HORIZONS ACCELERATOR - AKS CLUSTER MODULE TESTS
+// AGENTIC DEVOPS PLATFORM - AKS CLUSTER MODULE TESTS
 // =============================================================================
 //
 // Unit and integration tests for the Terraform AKS cluster module.

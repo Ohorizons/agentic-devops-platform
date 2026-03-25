@@ -1,9 +1,9 @@
 #!/bin/bash
 # =============================================================================
-# OPEN HORIZONS ACCELERATOR - PLATFORM BOOTSTRAP SCRIPT
+# AGENTIC DEVOPS PLATFORM - PLATFORM BOOTSTRAP SCRIPT
 # =============================================================================
 #
-# This script orchestrates the complete deployment of the Open Horizons
+# This script orchestrates the complete deployment of the Agentic DevOps Platform
 # Platform including infrastructure, GitOps, observability, and Golden Paths.
 #
 # Prerequisites:
@@ -93,7 +93,7 @@ print_banner() {
 ║      ██║   ██║  ██║██║  ██║███████╗███████╗    ██║  ██║╚██████╔╝██║  ██║     ║
 ║      ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚══════╝    ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝     ║
 ║                                                                               ║
-║                    OPEN HORIZONS PLATFORM ACCELERATOR                        ║
+║                    AGENTIC DEVOPS PLATFORM PLATFORM ACCELERATOR                        ║
 ║                         Bootstrap Deployment Script                           ║
 ║                                                                               ║
 ╚═══════════════════════════════════════════════════════════════════════════════╝
@@ -103,7 +103,7 @@ EOF
 
 show_help() {
     cat << EOF
-Open Horizons Platform Bootstrap Script
+Agentic DevOps Platform Platform Bootstrap Script
 
 Usage: $0 [options]
 
@@ -521,7 +521,7 @@ print_summary() {
     log STEP "═══════════════════════════════════════════════════════════════"
     
     echo ""
-    echo -e "${GREEN}Open Horizons Platform deployment complete!${NC}"
+    echo -e "${GREEN}Agentic DevOps Platform Platform deployment complete!${NC}"
     echo ""
     echo "Environment: $ENVIRONMENT"
     echo "Horizon: $HORIZON"
@@ -552,7 +552,7 @@ print_summary() {
 
 destroy_platform() {
     log STEP "═══════════════════════════════════════════════════════════════"
-    log STEP "DESTROYING OPEN HORIZONS PLATFORM"
+    log STEP "DESTROYING AGENTIC DEVOPS PLATFORM PLATFORM"
     log STEP "═══════════════════════════════════════════════════════════════"
     
     echo -e "${RED}WARNING: This will destroy all resources!${NC}"

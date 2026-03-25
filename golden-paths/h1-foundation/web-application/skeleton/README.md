@@ -4,7 +4,7 @@ ${{values.description}}
 
 ## Overview
 
-This web application was created using the Open Horizons Accelerator - H1 Foundation template.
+This web application was created using the Agentic DevOps Platform - H1 Foundation template.
 
 | Property | Value |
 |----------|-------|
@@ -85,5 +85,5 @@ This application is deployed via ArgoCD. Changes to the `main` branch automatica
 
 ## Links
 
-- [Open Horizons Documentation](https://github.com/${{values.repoUrl | parseRepoUrl | pick('owner') }}/agentic-devops-platform)
+- [Agentic DevOps Platform Documentation](https://github.com/${{values.repoUrl | parseRepoUrl | pick('owner') }}/agentic-devops-platform)
 - [Component Library](https://design.example.com)

@@ -9,13 +9,13 @@ metadata:
   name: platform-backstage
   namespace: argocd
   labels:
-    app.kubernetes.io/part-of: open-horizons
-    open-horizons/horizon: h2
+    app.kubernetes.io/part-of: ${PLATFORM_ID}
+    ${PLATFORM_ID}/horizon: h2
 spec:
   project: default
   source:
-    repoURL: https://github.com/ohorizons/agentic-devops-platform
-    targetRevision: demo
+    repoURL: https://github.com/${GITHUB_ORG}/${GITHUB_REPO}
+    targetRevision: main
     path: deploy/helm
   destination:
     server: https://kubernetes.default.svc
@@ -31,13 +31,13 @@ metadata:
   name: platform-monitoring
   namespace: argocd
   labels:
-    app.kubernetes.io/part-of: open-horizons
-    open-horizons/horizon: h2
+    app.kubernetes.io/part-of: ${PLATFORM_ID}
+    ${PLATFORM_ID}/horizon: h2
 spec:
   project: default
   source:
-    repoURL: https://github.com/ohorizons/agentic-devops-platform
-    targetRevision: demo
+    repoURL: https://github.com/${GITHUB_ORG}/${GITHUB_REPO}
+    targetRevision: main
     path: prometheus
   destination:
     server: https://kubernetes.default.svc
@@ -53,13 +53,13 @@ metadata:
   name: platform-argocd-config
   namespace: argocd
   labels:
-    app.kubernetes.io/part-of: open-horizons
-    open-horizons/horizon: h2
+    app.kubernetes.io/part-of: ${PLATFORM_ID}
+    ${PLATFORM_ID}/horizon: h2
 spec:
   project: default
   source:
-    repoURL: https://github.com/ohorizons/agentic-devops-platform
-    targetRevision: demo
+    repoURL: https://github.com/${GITHUB_ORG}/${GITHUB_REPO}
+    targetRevision: main
     path: argocd
   destination:
     server: https://kubernetes.default.svc

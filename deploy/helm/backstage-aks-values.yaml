@@ -1,6 +1,5 @@
 # =============================================================================
-# Backstage AKS Deployment — REFERENCE TEMPLATE (v1.48.3)
-# This file is the Open Horizons demo configuration.
+# Backstage AKS Deployment — REFERENCE TEMPLATE
 # For client deployments, run: ./scripts/setup-portal.sh
 # It generates: deploy/helm/backstage-values-<env>.yaml
 # =============================================================================
@@ -8,7 +7,7 @@
 ingress:
   enabled: true
   className: nginx
-  host: devhub.ohorizons.ai
+  host: ${BACKSTAGE_DOMAIN}
   path: /
   annotations:
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
@@ -16,16 +15,16 @@ ingress:
     cert-manager.io/cluster-issuer: letsencrypt-prod
   tls:
     - hosts:
-        - devhub.ohorizons.ai
-      secretName: tls-ohorizons-devhub
+        - ${BACKSTAGE_DOMAIN}
+      secretName: ${TLS_SECRET_NAME}
 
 backstage:
   replicas: 1
 
   image:
-    registry: acrbackstagedemo.azurecr.io
-    repository: backstage/open-horizons
-    tag: "v1.48.3-r19"
+    registry: ${ACR_REGISTRY}
+    repository: ${ACR_IMAGE_REPOSITORY}
+    tag: "${IMAGE_TAG}"
     pullPolicy: IfNotPresent
 
   resources:
@@ -51,15 +50,15 @@ backstage:
 
   appConfig:
     app:
-      title: Open Horizons | Agentic DevOps Platform
-      baseUrl: https://devhub.ohorizons.ai
+      title: ${PORTAL_NAME} | Agentic DevOps Platform
+      baseUrl: https://${BACKSTAGE_DOMAIN}
       branding:
         fullLogo:
-          alt: Open Horizons — Agentic DevOps Platform
+          alt: ${PORTAL_NAME} — Agentic DevOps Platform
           src: https://img.icons8.com/fluency/96/microsoft.png
           width: 40
         iconLogo:
-          alt: Open Horizons
+          alt: ${PORTAL_NAME}
           src: https://img.icons8.com/fluency/48/microsoft.png
           width: 28
         theme:
@@ -68,9 +67,9 @@ backstage:
           light:
             primaryColor: '#0078D4'
     organization:
-      name: Open Horizons — Agentic DevOps Platform
+      name: ${PORTAL_NAME} — Agentic DevOps Platform
     backend:
-      baseUrl: https://devhub.ohorizons.ai
+      baseUrl: https://${BACKSTAGE_DOMAIN}
       listen:
         port: 7007
       reading:
@@ -80,7 +79,7 @@ backstage:
         img-src: ["'self'", 'data:', 'https:']
         upgrade-insecure-requests: false
       cors:
-        origin: https://devhub.ohorizons.ai
+        origin: https://${BACKSTAGE_DOMAIN}
         methods: [GET, HEAD, PATCH, POST, PUT, DELETE]
         credentials: true
 
@@ -113,19 +112,19 @@ backstage:
         - allow: [Component, System, API, Resource, Location, Domain, Template, User, Group]
       locations:
         - type: url
-          target: https://raw.githubusercontent.com/ohorizons/agentic-devops-platform/main/backstage/catalog-info.yaml
+          target: https://raw.githubusercontent.com/${GITHUB_ORG}/${GITHUB_REPO}/main/backstage/catalog-info.yaml
           rules:
             - allow: [Component]
         - type: url
-          target: https://raw.githubusercontent.com/ohorizons/agentic-devops-platform/main/backstage/examples/org.yaml
+          target: https://raw.githubusercontent.com/${GITHUB_ORG}/${GITHUB_REPO}/main/backstage/examples/org.yaml
           rules:
             - allow: [User, Group, Domain, System]
         - type: url
-          target: https://raw.githubusercontent.com/ohorizons/agentic-devops-platform/main/backstage/examples/entities.yaml
+          target: https://raw.githubusercontent.com/${GITHUB_ORG}/${GITHUB_REPO}/main/backstage/examples/entities.yaml
           rules:
             - allow: [Component, API, System, Resource, Domain]
         - type: url
-          target: https://raw.githubusercontent.com/ohorizons/agentic-devops-platform/main/backstage/examples/demo-template.yaml
+          target: https://raw.githubusercontent.com/${GITHUB_ORG}/${GITHUB_REPO}/main/backstage/examples/demo-template.yaml
           rules:
             - allow: [Template]
 

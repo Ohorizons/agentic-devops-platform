@@ -212,7 +212,7 @@ const CustomSignInPage = ({ onSignInSuccess }: SignInPageProps) => {
         </div>
 
         <Typography component="h1" className={classes.title}>
-          Open Horizons
+          Agentic DevOps Platform
         </Typography>
         <Typography className={classes.subtitle}>Agentic DevOps Platform</Typography>
         <Typography className={classes.tagline}>Powered by Backstage</Typography>

@@ -1,4 +1,4 @@
-# Open Horizons Accelerator - Administrator Guide
+# Agentic DevOps Platform - Administrator Guide
 
 > **Version:** 4.0.0
 > **Last Updated:** December 2025
@@ -28,7 +28,7 @@
 
 ### What is This Guide?
 
-This Administrator Guide provides everything you need to **operate and maintain** the Open Horizons platform on a day-to-day basis. It covers routine tasks, monitoring, troubleshooting, and incident response.
+This Administrator Guide provides everything you need to **operate and maintain** the Agentic DevOps Platform platform on a day-to-day basis. It covers routine tasks, monitoring, troubleshooting, and incident response.
 
 > 💡 **Different from Other Guides**
 >
@@ -73,7 +73,7 @@ Keep this handy for daily operations:
 
 echo ""
 echo "╔══════════════════════════════════════════════════════════════════╗"
-echo "║           OPEN HORIZONS DAILY HEALTH CHECK                       ║"
+echo "║           AGENTIC DEVOPS PLATFORM DAILY HEALTH CHECK                       ║"
 echo "║           $(date)                                                 ║"
 echo "╚══════════════════════════════════════════════════════════════════╝"
 echo ""

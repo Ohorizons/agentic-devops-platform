@@ -1,5 +1,5 @@
 # =============================================================================
-# OPEN HORIZONS ACCELERATOR - CI/CD PIPELINE
+# AGENTIC DEVOPS PLATFORM - CI/CD PIPELINE
 # =============================================================================
 #
 # Validates Terraform, runs security scans, and deploys to environments.
@@ -11,7 +11,7 @@
 #
 # =============================================================================
 
-name: Open Horizons CI/CD
+name: Agentic DevOps Platform CI/CD
 
 on:
   push:

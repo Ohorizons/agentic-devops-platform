@@ -1,5 +1,5 @@
 # =============================================================================
-# OPEN HORIZONS ACCELERATOR - DATABASES MODULE VARIABLES
+# AGENTIC DEVOPS PLATFORM - DATABASES MODULE VARIABLES
 # =============================================================================
 
 variable "customer_name" {

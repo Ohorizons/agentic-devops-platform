@@ -1,4 +1,4 @@
-# Open Horizons Accelerator - Module Reference
+# Agentic DevOps Platform - Module Reference
 
 > **Version:** 4.0.0
 > **Last Updated:** December 2025
@@ -82,7 +82,7 @@ Here's a decision guide for which modules to use:
 
 ### 2.2 Module Categories Explained
 
-> 💡 **Open Horizons Model**
+> 💡 **Agentic DevOps Platform Model**
 >
 > The modules are organized into "horizons" based on their purpose:
 >

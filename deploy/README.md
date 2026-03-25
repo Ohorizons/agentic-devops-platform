@@ -1,4 +1,4 @@
-# Open Horizons Accelerator - Deployment Manifests
+# Agentic DevOps Platform - Deployment Manifests
 
 > **Version:** 4.0.0
 > **Last Updated:** December 2025

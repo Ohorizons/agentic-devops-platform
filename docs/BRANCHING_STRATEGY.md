@@ -1,6 +1,6 @@
 # Branching Strategy
 
-This document describes the Git branching strategy used in the Open Horizons Accelerator project.
+This document describes the Git branching strategy used in the Agentic DevOps Platform project.
 
 ## Branch Overview
 

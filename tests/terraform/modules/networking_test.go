@@ -1,5 +1,5 @@
 // =============================================================================
-// OPEN HORIZONS ACCELERATOR - NETWORKING MODULE TESTS
+// AGENTIC DEVOPS PLATFORM - NETWORKING MODULE TESTS
 // =============================================================================
 //
 // Unit and integration tests for the Terraform networking module.

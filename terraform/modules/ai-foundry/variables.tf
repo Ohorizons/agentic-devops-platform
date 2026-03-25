@@ -1,5 +1,5 @@
 # =============================================================================
-# OPEN HORIZONS ACCELERATOR - AI FOUNDRY MODULE VARIABLES
+# AGENTIC DEVOPS PLATFORM - AI FOUNDRY MODULE VARIABLES
 # =============================================================================
 
 variable "customer_name" {

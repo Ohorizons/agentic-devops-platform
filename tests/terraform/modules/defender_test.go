@@ -1,5 +1,5 @@
 // =============================================================================
-// OPEN HORIZONS ACCELERATOR - DEFENDER MODULE TESTS
+// AGENTIC DEVOPS PLATFORM - DEFENDER MODULE TESTS
 // =============================================================================
 //
 // Unit and integration tests for the Terraform Microsoft Defender module.

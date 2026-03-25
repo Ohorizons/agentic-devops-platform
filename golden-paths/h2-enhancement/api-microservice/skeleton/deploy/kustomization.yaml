@@ -13,7 +13,7 @@ commonLabels:
   app.kubernetes.io/name: ${{values.name}}
   app.kubernetes.io/part-of: ${{values.system}}
   app.kubernetes.io/managed-by: argocd
-  open-horizons/horizon: h2
+  agentic-devops-platform/horizon: h2
 
 images:
   - name: app-image

@@ -10,7 +10,7 @@
 
 ## Security Standards
 
-The Open Horizons Accelerator follows enterprise security best practices:
+The Agentic DevOps Platform follows enterprise security best practices:
 
 ### Authentication & Authorization
 - **Workload Identity**: All AKS workloads use Azure Workload Identity

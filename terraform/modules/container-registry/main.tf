@@ -1,5 +1,5 @@
 # =============================================================================
-# OPEN HORIZONS ACCELERATOR - CONTAINER REGISTRY TERRAFORM MODULE
+# AGENTIC DEVOPS PLATFORM - CONTAINER REGISTRY TERRAFORM MODULE
 # =============================================================================
 #
 # Deploys Azure Container Registry with enterprise features.
@@ -26,9 +26,9 @@ locals {
   acr_name = replace("cr${local.name_prefix}", "-", "")
 
   common_tags = merge(var.tags, {
-    "open-horizons/customer"    = var.customer_name
-    "open-horizons/environment" = var.environment
-    "open-horizons/component"   = "container-registry"
+    "agentic-devops-platform/customer"    = var.customer_name
+    "agentic-devops-platform/environment" = var.environment
+    "agentic-devops-platform/component"   = "container-registry"
   })
 }
 

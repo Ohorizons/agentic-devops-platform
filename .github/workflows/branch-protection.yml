@@ -1,5 +1,5 @@
 # =============================================================================
-# OPEN HORIZONS ACCELERATOR - BRANCH PROTECTION WORKFLOW
+# AGENTIC DEVOPS PLATFORM - BRANCH PROTECTION WORKFLOW
 # =============================================================================
 #
 # Enforces branch protection rules and validates PRs from develop to main.

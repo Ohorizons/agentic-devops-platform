@@ -1,5 +1,5 @@
 # =============================================================================
-# OPEN HORIZONS ACCELERATOR - AI FOUNDRY TERRAFORM MODULE
+# AGENTIC DEVOPS PLATFORM - AI FOUNDRY TERRAFORM MODULE
 # =============================================================================
 #
 # Deploys Azure AI services for H3 Innovation workloads.
@@ -24,10 +24,10 @@ locals {
   name_prefix = "${var.customer_name}-${var.environment}"
 
   common_tags = merge(var.tags, {
-    "open-horizons/customer"    = var.customer_name
-    "open-horizons/environment" = var.environment
-    "open-horizons/component"   = "ai-foundry"
-    "open-horizons/horizon"     = "H3"
+    "agentic-devops-platform/customer"    = var.customer_name
+    "agentic-devops-platform/environment" = var.environment
+    "agentic-devops-platform/component"   = "ai-foundry"
+    "agentic-devops-platform/horizon"     = "H3"
   })
 }
 

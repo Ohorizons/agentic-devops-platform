@@ -1,5 +1,5 @@
 # =============================================================================
-# OPEN HORIZONS ACCELERATOR - OBSERVABILITY MODULE VARIABLES
+# AGENTIC DEVOPS PLATFORM - OBSERVABILITY MODULE VARIABLES
 # =============================================================================
 
 variable "customer_name" {

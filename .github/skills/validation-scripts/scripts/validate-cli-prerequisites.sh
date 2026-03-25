@@ -1,10 +1,10 @@
 #!/bin/bash
 # =============================================================================
-# OPEN HORIZONS PLATFORM - CLI PREREQUISITES VALIDATION
+# AGENTIC DEVOPS PLATFORM PLATFORM - CLI PREREQUISITES VALIDATION
 # =============================================================================
 #
 # Validates all required CLI tools are installed and authenticated
-# for the Open Horizons Accelerator v4.0.0
+# for the Agentic DevOps Platform v4.0.0
 #
 # Usage: ./scripts/validate-cli-prerequisites.sh [--install]
 #
@@ -205,7 +205,7 @@ generate_summary() {
 main() {
     echo ""
     echo -e "${PURPLE}╔════════════════════════════════════════════════════════════╗${NC}"
-    echo -e "${PURPLE}║  OPEN HORIZONS ACCELERATOR v4.0.0 - CLI VALIDATION        ║${NC}"
+    echo -e "${PURPLE}║  AGENTIC DEVOPS PLATFORM v4.0.0 - CLI VALIDATION        ║${NC}"
     echo -e "${PURPLE}╚════════════════════════════════════════════════════════════╝${NC}"
     
     local required_missing=0

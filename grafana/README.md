@@ -1,4 +1,4 @@
-# Open Horizons Accelerator - Grafana Dashboards
+# Agentic DevOps Platform - Grafana Dashboards
 
 > **Version:** 4.0.0
 > **Last Updated:** December 2025

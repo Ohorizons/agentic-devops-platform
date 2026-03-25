@@ -85,16 +85,16 @@ Before planning, proposing, or executing any Backstage-related action, you **MUS
 
 ## 🌐 Environment Configuration
 
-All environment values are **client-specific** and collected by `./scripts/setup-portal.sh`. The table below shows the naming convention and the reference implementation (Open Horizons demo):
+All environment values are **client-specific** and collected by `./scripts/setup-portal.sh`. The table below shows the naming convention and the reference implementation (Agentic DevOps Platform demo):
 
-| Component | Convention | Reference (Open Horizons) |
+| Component | Convention | Reference (Agentic DevOps Platform) |
 |-----------|-----------|---------------------------|
-| **Portal URL** | `https://<client-domain>` | `https://ohorizons.ai` |
+| **Portal URL** | `https://<client-domain>` | `https://${BACKSTAGE_DOMAIN}` |
 | **AKS Cluster** | `aks-<project>-<env>-<region>` | `aks-backstage-demo` |
 | **Resource Group** | `rg-<project>-<env>-<region>` | `rg-backstage-demo` |
 | **Region** | `centralus` or `eastus` | `eastus2` |
-| **ACR** | `acr<project><env>` | `acrbackstagedemo.azurecr.io` |
-| **Image** | `backstage/<project>:v1.48.3` | `backstage/open-horizons:v1.48.3` |
+| **ACR** | `acr<project><env>` | `${ACR_REGISTRY}` |
+| **Image** | `backstage/<project>:v1.48.3` | `backstage/agentic-devops-platform:v1.48.3` |
 | **Namespace** | `backstage` | `backstage` |
 | **PostgreSQL** | `pg<project><env>.postgres.database.azure.com` | `pgbackstagedemo.postgres.database.azure.com` |
 | **Key Vault** | `kv-<project>-<env>` | `kv-backstage-demo` |
@@ -195,4 +195,4 @@ Guide creation of a GitHub App with:
 - **Always fetch:** Use `web/fetch` for backstage.io docs before proposing changes
 - **Use client values:** Read from `terraform/environments/<env>.auto.tfvars` for portal name, domain, org
 - **Never reference:** localhost for production, RHDH, Red Hat Developer Hub, OpenShift
-- **Never hardcode:** Demo values (`ohorizons.ai`, `acrbackstagedemo`) in client deployments
+- **Never hardcode:** Demo values (domains, ACR names) in client deployments

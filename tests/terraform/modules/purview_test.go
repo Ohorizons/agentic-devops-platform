@@ -1,5 +1,5 @@
 // =============================================================================
-// OPEN HORIZONS ACCELERATOR - PURVIEW MODULE TESTS
+// AGENTIC DEVOPS PLATFORM - PURVIEW MODULE TESTS
 // =============================================================================
 //
 // Unit and integration tests for the Terraform Microsoft Purview module.

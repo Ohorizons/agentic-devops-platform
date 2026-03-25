@@ -5,7 +5,7 @@ metadata:
   labels:
     app.kubernetes.io/name: ${{ values.name }}
     app.kubernetes.io/managed-by: backstage
-    app.kubernetes.io/part-of: open-horizons
+    app.kubernetes.io/part-of: agentic-devops-platform
 spec:
   replicas: ${{ values.minReplicas | default(2) }}
   selector:
@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: ${{ values.name }}
-          image: ghcr.io/ohorizons/${{ values.name }}:latest
+          image: ghcr.io/${{ values.githubOrg }}/${{ values.name }}:latest
           ports:
             - containerPort: 8000
               name: http

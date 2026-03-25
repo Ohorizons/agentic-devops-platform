@@ -1,5 +1,5 @@
 # =============================================================================
-# OPEN HORIZONS ACCELERATOR - DEFENDER MODULE VARIABLES
+# AGENTIC DEVOPS PLATFORM - DEFENDER MODULE VARIABLES
 # =============================================================================
 
 variable "subscription_id" {

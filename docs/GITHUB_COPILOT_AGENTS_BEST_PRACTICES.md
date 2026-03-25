@@ -1,6 +1,6 @@
 # GitHub Copilot Agents - Complete Best Practices & Implementation Guide
 
-> **Consolidated Document** combining research from 25+ official sources, conformance analysis, and complete implementation specifications for the Open Horizons Accelerator v4.
+> **Consolidated Document** combining research from 25+ official sources, conformance analysis, and complete implementation specifications for the Agentic DevOps Platform v4.
 
 ---
 
@@ -47,7 +47,7 @@
 11. [AGENTS.md Playbook](#agentsmd-playbook)
 12. [Security & Governance](#security--governance)
 13. [Templates](#templates)
-14. [Open Horizons Accelerator Examples](#agentic-devops-platform-examples)
+14. [Agentic DevOps Platform Examples](#agentic-devops-platform-examples)
 15. [Implementation Checklist](#implementation-checklist)
 16. [Sources & References](#sources--references)
 
@@ -68,7 +68,7 @@ GitHub Copilot Agents represent a paradigm shift in AI-assisted development, mov
 | **Stack Specificity** | State technology with versions |
 | **Progressive Loading** | Load context only when relevant |
 
-### Current Conformance: Open Horizons Accelerator
+### Current Conformance: Agentic DevOps Platform
 
 | Category | Score | Status |
 |----------|-------|--------|
@@ -109,7 +109,7 @@ When Copilot processes a request, context is loaded in this order:
 
 ### Layered Usage Pattern (Full-Stack Example)
 
-For a full-stack project like the Open Horizons Accelerator, layer usage follows this pattern:
+For a full-stack project like the Agentic DevOps Platform, layer usage follows this pattern:
 
 ![Layered Usage Pattern](assets/copilot-layered-usage.svg)
 
@@ -144,7 +144,7 @@ This file applies to ALL Copilot chat requests when enabled. It should cover six
 #### Example: Repository-Wide Instructions
 
 ```markdown
-# Project: Open Horizons Accelerator v4
+# Project: Agentic DevOps Platform v4
 
 ## Tech Stack
 - Terraform ~> 1.9.0 with Azure Provider ~> 4.14
@@ -1586,11 +1586,11 @@ tools: ["read", "search", "edit"]
 
 ---
 
-## Open Horizons Accelerator Examples
+## Agentic DevOps Platform Examples
 
 ### Project Context
 
-The Open Horizons Accelerator v4 is an enterprise platform accelerator featuring:
+The Agentic DevOps Platform v4 is an enterprise platform accelerator featuring:
 
 - **Azure** cloud infrastructure
 - **Kubernetes** (AKS)
@@ -2972,7 +2972,7 @@ The project already has a well-structured `.github/copilot-instructions.md` (114
 
 | Section | Coverage | Status |
 |---------|----------|--------|
-| Project Overview (Open Horizons) | ✅ Complete | H1, H2, H3 explained |
+| Project Overview (Agentic DevOps Platform) | ✅ Complete | H1, H2, H3 explained |
 | Technology Stack | ✅ Complete | All tools with versions |
 | Code Standards | ✅ Complete | Terraform, K8s, Python, Shell |
 | File Locations | ✅ Complete | Directory mapping |

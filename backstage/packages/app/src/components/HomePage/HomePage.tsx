@@ -346,7 +346,7 @@ const HomePage = () => {
       title: 'GitHub Organization',
       desc: 'Open organization repositories and workflows',
       icon: <MemoryIcon className={classes.quickIcon} />,
-      href: 'https://github.com/ohorizons',
+      href: 'https://github.com/${GITHUB_ORG}',
       extraClass: '',
     },
     {
@@ -378,7 +378,7 @@ const HomePage = () => {
             </div>
 
             <Typography component="h1" className={classes.heroTitle}>
-              Open Horizons
+              Agentic DevOps Platform
             </Typography>
             <Typography className={classes.heroSubtitle}>Agentic DevOps Platform</Typography>
             <Typography className={classes.heroDesc}>
@@ -436,7 +436,7 @@ const HomePage = () => {
             className={classes.searchField}
           />
 
-          <Typography className={classes.sectionTitle}>The Open Horizons</Typography>
+          <Typography className={classes.sectionTitle}>The Agentic DevOps Platform</Typography>
           <Grid container spacing={3}>
             <Grid item xs={12} md={4}>
               <Card className={classes.horizonCard}>
@@ -558,7 +558,7 @@ const HomePage = () => {
               <MuiLink component={RouterLink} to="/api-docs" className={classes.footerLink}>APIs</MuiLink>
               <MuiLink component={RouterLink} to="/platform-status" className={classes.footerLink}>Status</MuiLink>
             </div>
-            <Typography variant="body2">Microsoft · GitHub · Open Source · Open Horizons Developer Portal</Typography>
+            <Typography variant="body2">Microsoft · GitHub · Open Source · Agentic DevOps Platform Developer Portal</Typography>
           </div>
         </Box>
       </Content>

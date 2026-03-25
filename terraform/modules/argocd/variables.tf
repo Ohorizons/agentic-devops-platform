@@ -1,5 +1,5 @@
 # =============================================================================
-# OPEN HORIZONS ACCELERATOR - ARGOCD MODULE VARIABLES
+# AGENTIC DEVOPS PLATFORM - ARGOCD MODULE VARIABLES
 # =============================================================================
 
 variable "customer_name" {

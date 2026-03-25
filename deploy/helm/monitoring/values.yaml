@@ -1,5 +1,5 @@
 # =============================================================================
-# OPEN HORIZONS ACCELERATOR - MONITORING HELM VALUES
+# AGENTIC DEVOPS PLATFORM - MONITORING HELM VALUES
 # =============================================================================
 #
 # Prometheus Stack configuration for observability.
@@ -152,18 +152,18 @@ grafana:
     dashboardproviders.yaml:
       apiVersion: 1
       providers:
-        - name: 'open-horizons'
+        - name: 'agentic-devops-platform'
           orgId: 1
-          folder: 'Open Horizons'
+          folder: 'Agentic DevOps Platform'
           type: file
           disableDeletion: true
           editable: false
           options:
-            path: /var/lib/grafana/dashboards/open-horizons
+            path: /var/lib/grafana/dashboards/agentic-devops-platform
 
   # Dashboards from ConfigMaps
   dashboardsConfigMaps:
-    open-horizons: "grafana-dashboards"
+    agentic-devops-platform: "grafana-dashboards"
 
   # Sidecar for dashboard discovery
   sidecar:
@@ -305,9 +305,9 @@ prometheusOperator:
 # -----------------------------------------------------------------------------
 
 additionalPrometheusRulesMap:
-  open-horizons-rules:
+  agentic-devops-platform-rules:
     groups:
-      - name: open-horizons.rules
+      - name: agentic-devops-platform.rules
         rules:
           - alert: OpenHorizonsHighErrorRate
             expr: |

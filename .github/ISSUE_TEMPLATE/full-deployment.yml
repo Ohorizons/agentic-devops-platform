@@ -1,5 +1,5 @@
 name: "🚀 Full Platform Deployment"
-description: "Deploy complete Open Horizons platform (all horizons)"
+description: "Deploy complete Agentic DevOps Platform platform (all horizons)"
 title: "[FULL] Platform Deployment - "
 labels: ["full-deployment", "horizon:h1", "horizon:h2", "horizon:h3"]
 body:
@@ -8,7 +8,7 @@ body:
       value: |
         ## 🚀 Full Platform Deployment
         
-        This issue orchestrates a **complete Open Horizons platform deployment**
+        This issue orchestrates a **complete Agentic DevOps Platform platform deployment**
         across all horizons, executing agents in the correct dependency order.
         
         ---

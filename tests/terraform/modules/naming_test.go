@@ -1,5 +1,5 @@
 // =============================================================================
-// OPEN HORIZONS ACCELERATOR - NAMING MODULE TESTS
+// AGENTIC DEVOPS PLATFORM - NAMING MODULE TESTS
 // =============================================================================
 //
 // Unit and integration tests for the Terraform naming module.

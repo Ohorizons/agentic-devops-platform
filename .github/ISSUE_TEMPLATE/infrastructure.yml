@@ -152,7 +152,7 @@ body:
       placeholder: |
         CostCenter: "IT-Platform"
         Owner: "platform-team@company.com"
-        Project: "Open Horizons"
+        Project: "Agentic DevOps Platform"
       render: yaml
 
   - type: markdown

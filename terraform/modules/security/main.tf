@@ -1,5 +1,5 @@
 # =============================================================================
-# OPEN HORIZONS ACCELERATOR - SECURITY TERRAFORM MODULE
+# AGENTIC DEVOPS PLATFORM - SECURITY TERRAFORM MODULE
 # =============================================================================
 #
 # Deploys security infrastructure for the platform.
@@ -22,9 +22,9 @@ locals {
   name_prefix = "${var.customer_name}-${var.environment}"
 
   common_tags = merge(var.tags, {
-    "open-horizons/customer"    = var.customer_name
-    "open-horizons/environment" = var.environment
-    "open-horizons/component"   = "security"
+    "agentic-devops-platform/customer"    = var.customer_name
+    "agentic-devops-platform/environment" = var.environment
+    "agentic-devops-platform/component"   = "security"
   })
 }
 
@@ -226,7 +226,7 @@ resource "azuread_application" "github_sso" {
     }
   }
 
-  tags = ["open-horizons", var.environment]
+  tags = ["agentic-devops-platform", var.environment]
 }
 
 resource "azuread_service_principal" "github_sso" {
@@ -234,7 +234,7 @@ resource "azuread_service_principal" "github_sso" {
 
   app_role_assignment_required = false
 
-  tags = ["open-horizons", var.environment]
+  tags = ["agentic-devops-platform", var.environment]
 }
 
 resource "azuread_application_password" "github_sso" {

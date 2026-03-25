@@ -1,12 +1,12 @@
 # =============================================================================
-# SRE PrometheusRule — Platform Alerts for Open Horizons
+# SRE PrometheusRule — Platform Alerts for Agentic DevOps Platform
 # =============================================================================
 # Critical alerts for all platform components across H1, H2, H3
 # =============================================================================
 apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
 metadata:
-  name: open-horizons-sre-alerts
+  name: agentic-devops-platform-sre-alerts
   namespace: monitoring
   labels:
     release: monitoring

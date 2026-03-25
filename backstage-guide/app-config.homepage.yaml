@@ -1,9 +1,9 @@
 # app-config.homepage.yaml
-# Backstage Open Horizons — Homepage & GitHub Auth Configuration
+# Backstage Agentic DevOps Platform — Homepage & GitHub Auth Configuration
 # This configuration enables the custom homepage plugin with GitHub-only authentication
 
 app:
-  title: Open Horizons
+  title: Agentic DevOps Platform
   baseUrl: ${BACKSTAGE_BASE_URL}
   analytics:
     ga4:
@@ -64,7 +64,7 @@ catalog:
       catalogPath: /catalog-info.yaml
       filters:
         branch: main
-        repository: '^(open-horizons|platform-.*)'
+        repository: '^(agentic-devops-platform|platform-.*)'
       schedule:
         frequency:
           minutes: 30
@@ -135,7 +135,7 @@ homepage:
     enabled: true
     links:
       - title: Getting Started
-        description: Begin your journey with Open Horizons
+        description: Begin your journey with Agentic DevOps Platform
         url: /docs/getting-started
         icon: help
       - title: Software Catalog
@@ -170,7 +170,7 @@ homepage:
 
 # Organization configuration
 organization:
-  name: Open Horizons
+  name: Agentic DevOps Platform
 
 # Logging configuration
 logger:

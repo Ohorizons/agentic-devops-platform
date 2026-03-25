@@ -1,5 +1,5 @@
 # =============================================================================
-# OPEN HORIZONS ACCELERATOR - OUTPUTS
+# AGENTIC DEVOPS PLATFORM - OUTPUTS
 # =============================================================================
 
 # -----------------------------------------------------------------------------
@@ -137,7 +137,7 @@ output "next_steps" {
   description = "Post-deployment instructions"
   value = <<-EOT
 
-    OPEN HORIZONS PLATFORM DEPLOYED SUCCESSFULLY!
+    AGENTIC DEVOPS PLATFORM PLATFORM DEPLOYED SUCCESSFULLY!
 
     Next Steps:
 

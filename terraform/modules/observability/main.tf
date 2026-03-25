@@ -1,5 +1,5 @@
 # =============================================================================
-# OPEN HORIZONS ACCELERATOR - OBSERVABILITY TERRAFORM MODULE
+# AGENTIC DEVOPS PLATFORM - OBSERVABILITY TERRAFORM MODULE
 # =============================================================================
 #
 # Deploys observability stack on AKS using Azure Managed services.
@@ -22,9 +22,9 @@ locals {
   name_prefix = "${var.customer_name}-${var.environment}"
 
   common_tags = merge(var.tags, {
-    "open-horizons/customer"    = var.customer_name
-    "open-horizons/environment" = var.environment
-    "open-horizons/component"   = "observability"
+    "agentic-devops-platform/customer"    = var.customer_name
+    "agentic-devops-platform/environment" = var.environment
+    "agentic-devops-platform/component"   = "observability"
   })
 }
 
@@ -421,14 +421,14 @@ resource "kubernetes_namespace" "grafana_dashboards" {
     name = "grafana-dashboards"
 
     labels = {
-      "open-horizons/component" = "observability"
+      "agentic-devops-platform/component" = "observability"
     }
   }
 }
 
 resource "kubernetes_config_map" "grafana_dashboards" {
   metadata {
-    name      = "open-horizons-dashboards"
+    name      = "agentic-devops-platform-dashboards"
     namespace = kubernetes_namespace.grafana_dashboards.metadata[0].name
 
     labels = {
@@ -491,11 +491,11 @@ resource "kubernetes_config_map" "grafana_dashboards" {
         }
       ]
       schemaVersion = 38
-      tags          = ["kubernetes", "open-horizons"]
+      tags          = ["kubernetes", "agentic-devops-platform"]
       templating    = { list = [] }
       time          = { from = "now-6h", to = "now" }
-      title         = "Open Horizons - Cluster Overview"
-      uid           = "open-horizons-cluster"
+      title         = "Agentic DevOps Platform - Cluster Overview"
+      uid           = "agentic-devops-platform-cluster"
     })
 
     "golden-path-apps.json" = jsonencode({
@@ -542,7 +542,7 @@ resource "kubernetes_config_map" "grafana_dashboards" {
         }
       ]
       schemaVersion = 38
-      tags          = ["golden-path", "open-horizons"]
+      tags          = ["golden-path", "agentic-devops-platform"]
       templating = {
         list = [
           {
@@ -554,8 +554,8 @@ resource "kubernetes_config_map" "grafana_dashboards" {
         ]
       }
       time  = { from = "now-1h", to = "now" }
-      title = "Open Horizons - Golden Path Applications"
-      uid   = "open-horizons-apps"
+      title = "Agentic DevOps Platform - Golden Path Applications"
+      uid   = "agentic-devops-platform-apps"
     })
   }
 }

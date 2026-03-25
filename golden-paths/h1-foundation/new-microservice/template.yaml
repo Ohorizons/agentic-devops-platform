@@ -1,5 +1,5 @@
 # =============================================================================
-# OPEN HORIZONS ACCELERATOR - H1 NEW MICROSERVICE GOLDEN PATH TEMPLATE
+# AGENTIC DEVOPS PLATFORM - H1 NEW MICROSERVICE GOLDEN PATH TEMPLATE
 # =============================================================================
 #
 # Backstage Software Template for creating new microservices.
@@ -30,8 +30,8 @@ metadata:
   links:
     - title: Node.js Best Practices
       url: https://github.com/goldbergyoni/nodebestpractices
-    - title: Open Horizons Guide
-      url: https://github.com/ohorizons/agentic-devops-platform
+    - title: Platform Guide
+      url: https://github.com/${GITHUB_ORG}/agentic-devops-platform
 
 spec:
   owner: platform-engineering

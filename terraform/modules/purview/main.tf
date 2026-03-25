@@ -1,5 +1,5 @@
 # =============================================================================
-# OPEN HORIZONS ACCELERATOR - MICROSOFT PURVIEW TERRAFORM MODULE
+# AGENTIC DEVOPS PLATFORM - MICROSOFT PURVIEW TERRAFORM MODULE
 # =============================================================================
 #
 # Deploys Microsoft Purview for enterprise data governance.
@@ -116,10 +116,10 @@ locals {
   }
 
   common_tags = merge(var.tags, {
-    "open-horizons/customer"    = var.customer_name
-    "open-horizons/environment" = var.environment
-    "open-horizons/component"   = "purview-governance"
-    "open-horizons/sizing"      = var.sizing_profile
+    "agentic-devops-platform/customer"    = var.customer_name
+    "agentic-devops-platform/environment" = var.environment
+    "agentic-devops-platform/component"   = "purview-governance"
+    "agentic-devops-platform/sizing"      = var.sizing_profile
   })
 }
 
@@ -340,7 +340,7 @@ resource "azapi_resource" "scan_rule_set" {
   body = jsonencode({
     kind = "AzureStorage"
     properties = {
-      description                           = "Open Horizons standard scan rule set with LATAM classifications"
+      description                           = "Agentic DevOps Platform standard scan rule set with LATAM classifications"
       excludedSystemClassifications         = []
       includedCustomClassificationRuleNames = var.enable_latam_classifications ? keys(local.latam_classifications) : []
       scanningRule = {

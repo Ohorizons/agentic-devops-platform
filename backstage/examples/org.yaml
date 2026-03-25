@@ -14,7 +14,7 @@
 apiVersion: backstage.io/v1alpha1
 kind: Domain
 metadata:
-  name: open-horizons-platform
+  name: agentic-devops-platform-platform
   title: Agentic DevOps Platform
   description: Enterprise platform accelerator spanning Foundation (H1), Enhancement (H2), and Innovation (H3) horizons. Deploys as Backstage developer portal.
 spec:
@@ -35,7 +35,7 @@ metadata:
     - portal
 spec:
   owner: group:default/platform-engineering
-  domain: open-horizons-platform
+  domain: agentic-devops-platform-platform
 
 ---
 apiVersion: backstage.io/v1alpha1
@@ -50,7 +50,7 @@ metadata:
     - foundation
 spec:
   owner: group:default/platform-engineering
-  domain: open-horizons-platform
+  domain: agentic-devops-platform-platform
 
 ---
 apiVersion: backstage.io/v1alpha1
@@ -65,7 +65,7 @@ metadata:
     - enhancement
 spec:
   owner: group:default/platform-engineering
-  domain: open-horizons-platform
+  domain: agentic-devops-platform-platform
 
 ---
 apiVersion: backstage.io/v1alpha1
@@ -80,7 +80,7 @@ metadata:
     - innovation
 spec:
   owner: group:default/platform-engineering
-  domain: open-horizons-platform
+  domain: agentic-devops-platform-platform
 
 ---
 # -----------------------------------------------------------------------------

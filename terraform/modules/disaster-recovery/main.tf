@@ -1,5 +1,5 @@
 # =============================================================================
-# OPEN HORIZONS ACCELERATOR - DISASTER RECOVERY MODULE
+# AGENTIC DEVOPS PLATFORM - DISASTER RECOVERY MODULE
 # =============================================================================
 #
 # Azure Disaster Recovery configuration including:
@@ -20,7 +20,7 @@ locals {
 
   common_tags = merge(var.tags, {
     "app.kubernetes.io/managed-by" = "terraform"
-    "platform.open-horizons/tier" = "disaster-recovery"
+    "platform.agentic-devops-platform/tier" = "disaster-recovery"
     "disaster-recovery/rpo"        = var.recovery_point_objective
     "disaster-recovery/rto"        = var.recovery_time_objective
   })

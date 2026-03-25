@@ -1,5 +1,5 @@
 // =============================================================================
-// OPEN HORIZONS ACCELERATOR - SECURITY MODULE TESTS
+// AGENTIC DEVOPS PLATFORM - SECURITY MODULE TESTS
 // =============================================================================
 //
 // Unit and integration tests for the Terraform security module.

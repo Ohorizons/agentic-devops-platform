@@ -1,6 +1,6 @@
 #!/bin/bash
 # =============================================================================
-# OPEN HORIZONS PLATFORM - AZURE NAMING VALIDATION
+# AGENTIC DEVOPS PLATFORM PLATFORM - AZURE NAMING VALIDATION
 # =============================================================================
 #
 # Validates Azure resource names against naming rules

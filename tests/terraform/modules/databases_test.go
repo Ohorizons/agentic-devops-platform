@@ -1,5 +1,5 @@
 // =============================================================================
-// OPEN HORIZONS ACCELERATOR - DATABASES MODULE TESTS
+// AGENTIC DEVOPS PLATFORM - DATABASES MODULE TESTS
 // =============================================================================
 //
 // Unit and integration tests for the Terraform databases module.

@@ -1,7 +1,7 @@
-# Azure Region Availability Matrix for Open Horizons Accelerator
+# Azure Region Availability Matrix for Agentic DevOps Platform
 #
 # Overview:
-# This document defines which Azure regions support all services required by the Open Horizons Accelerator, with focus on LATAM deployment options.
+# This document defines which Azure regions support all services required by the Agentic DevOps Platform, with focus on LATAM deployment options.
 #
 # Required Services Checklist:
 # - AKS (Standard)

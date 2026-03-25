@@ -1,11 +1,11 @@
 #!/bin/bash
 # =============================================================================
-# OPEN HORIZONS PLATFORM - BOOTSTRAP SCRIPT
+# AGENTIC DEVOPS PLATFORM PLATFORM - BOOTSTRAP SCRIPT
 # =============================================================================
 # 
 # Usage: ./scripts/bootstrap.sh [express|standard|enterprise]
 #
-# This script deploys the complete Open Horizons Platform including:
+# This script deploys the complete Agentic DevOps Platform Platform including:
 #   - Azure infrastructure (AKS, databases, networking)
 #   - GitOps (ArgoCD)
 #   - Developer Portal (Backstage)
@@ -533,7 +533,7 @@ print_summary() {
     
     echo ""
     echo -e "${GREEN}╔════════════════════════════════════════════════════════════╗${NC}"
-    echo -e "${GREEN}║         OPEN HORIZONS PLATFORM DEPLOYED SUCCESSFULLY!     ║${NC}"
+    echo -e "${GREEN}║         AGENTIC DEVOPS PLATFORM PLATFORM DEPLOYED SUCCESSFULLY!     ║${NC}"
     echo -e "${GREEN}╚════════════════════════════════════════════════════════════╝${NC}"
     echo ""
     echo "Deployment completed in: $elapsed"
@@ -564,7 +564,7 @@ print_summary() {
 # =============================================================================
 
 main() {
-    header "OPEN HORIZONS PLATFORM BOOTSTRAP"
+    header "AGENTIC DEVOPS PLATFORM PLATFORM BOOTSTRAP"
     
     echo ""
     echo "Starting deployment with:"

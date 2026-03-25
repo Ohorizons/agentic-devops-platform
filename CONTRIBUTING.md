@@ -1,6 +1,6 @@
-# Contributing to Open Horizons Accelerator
+# Contributing to Agentic DevOps Platform
 
-Thank you for your interest in contributing to the Open Horizons Accelerator! This document provides guidelines and instructions for contributing.
+Thank you for your interest in contributing to the Agentic DevOps Platform! This document provides guidelines and instructions for contributing.
 
 ## Table of Contents
 
@@ -345,4 +345,4 @@ Contributors will be recognized in:
 - CONTRIBUTORS.md (for significant contributions)
 - Project documentation
 
-Thank you for contributing to the Open Horizons Accelerator!
+Thank you for contributing to the Agentic DevOps Platform!

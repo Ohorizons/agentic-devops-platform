@@ -37,7 +37,7 @@ fail()   { echo -e "  ${RED}✗${NC} $1"; ERRORS=$((ERRORS + 1)); }
 warn()   { echo -e "  ${YELLOW}!${NC} $1"; WARNINGS=$((WARNINGS + 1)); }
 
 echo -e "${BLUE}╔══════════════════════════════════════════════════════════════╗${NC}"
-echo -e "${BLUE}║       OPEN HORIZONS — Variable Substitution Validation     ║${NC}"
+echo -e "${BLUE}║       AGENTIC DEVOPS PLATFORM — Variable Substitution Validation     ║${NC}"
 echo -e "${BLUE}╚══════════════════════════════════════════════════════════════╝${NC}"
 
 # Files to check for unresolved variables

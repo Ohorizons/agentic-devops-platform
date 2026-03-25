@@ -1,5 +1,5 @@
 # =============================================================================
-# OPEN HORIZONS ACCELERATOR - NETWORKING MODULE VARIABLES
+# AGENTIC DEVOPS PLATFORM - NETWORKING MODULE VARIABLES
 # =============================================================================
 
 variable "customer_name" {

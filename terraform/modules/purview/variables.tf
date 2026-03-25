@@ -1,5 +1,5 @@
 # =============================================================================
-# OPEN HORIZONS ACCELERATOR - PURVIEW MODULE VARIABLES
+# AGENTIC DEVOPS PLATFORM - PURVIEW MODULE VARIABLES
 # =============================================================================
 
 variable "customer_name" {

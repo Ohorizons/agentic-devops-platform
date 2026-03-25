@@ -1,5 +1,5 @@
 // =============================================================================
-// OPEN HORIZONS ACCELERATOR - GITHUB RUNNERS MODULE TESTS
+// AGENTIC DEVOPS PLATFORM - GITHUB RUNNERS MODULE TESTS
 // =============================================================================
 //
 // Unit and integration tests for the Terraform GitHub Runners module.

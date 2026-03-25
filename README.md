@@ -1,10 +1,10 @@
-# Open Horizons Implementation Accelerator
+# Agentic DevOps Platform Implementation Accelerator
 
 > **A solution created in partnership with Microsoft and GitHub**
 
 ## Overview
 
-The **Open Horizons Implementation Accelerator** is a complete kit of Infrastructure as Code (IaC), GitOps, and developer templates designed to implement the Open Horizons platform.
+The **Agentic DevOps Platform Implementation Accelerator** is a complete kit of Infrastructure as Code (IaC), GitOps, and developer templates designed to implement the Agentic DevOps Platform platform.
 
 ### What's Included
 
@@ -22,9 +22,9 @@ The **Open Horizons Implementation Accelerator** is a complete kit of Infrastruc
 
 ---
 
-## Open Horizons Architecture
+## Agentic DevOps Platform Architecture
 
-![Open Horizons Architecture](docs/assets/three-horizons-architecture.svg)
+![Agentic DevOps Platform Architecture](docs/assets/three-horizons-architecture.svg)
 
 ---
 
@@ -161,7 +161,7 @@ agentic-devops-platform/
 | Guide | Description |
 |-------|-------------|
 | [Deployment Guide](./docs/guides/DEPLOYMENT_GUIDE.md) | Complete step-by-step deployment instructions |
-| [Architecture Guide](./docs/guides/ARCHITECTURE_GUIDE.md) | Open Horizons architecture explained |
+| [Architecture Guide](./docs/guides/ARCHITECTURE_GUIDE.md) | Agentic DevOps Platform architecture explained |
 | [Administrator Guide](./docs/guides/ADMINISTRATOR_GUIDE.md) | Day-2 operations and maintenance |
 | [Module Reference](./docs/guides/MODULE_REFERENCE.md) | All Terraform modules with examples |
 | [Performance Tuning Guide](./docs/guides/PERFORMANCE_TUNING_GUIDE.md) | Performance optimization recommendations |
@@ -504,7 +504,7 @@ kubectl logs <pod-name> -n <namespace> --previous
 After reviewing this README:
 
 1. **First time deploying?**
-   - Read the [Architecture Guide](./docs/guides/ARCHITECTURE_GUIDE.md) to understand the Open Horizons model
+   - Read the [Architecture Guide](./docs/guides/ARCHITECTURE_GUIDE.md) to understand the Agentic DevOps Platform model
    - Follow the [Deployment Guide](./docs/guides/DEPLOYMENT_GUIDE.md) step by step
 
 2. **Using AI agents?**
@@ -526,7 +526,7 @@ After reviewing this README:
 
 For questions, issues, or suggestions, open an issue on GitHub:
 
-- **GitHub Issues:** [Create Issue](https://github.com/ohorizons/agentic-devops-platform/issues)
+- **GitHub Issues:** [Create Issue](https://github.com/${GITHUB_ORG}/${GITHUB_REPO}/issues)
 
 ---
 

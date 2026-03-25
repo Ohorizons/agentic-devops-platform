@@ -2,7 +2,7 @@
 
 > **A solution created in partnership with Microsoft and GitHub**
 
-This directory contains automation scripts for the Open Horizons Platform.
+This directory contains automation scripts for the Agentic DevOps Platform Platform.
 
 ## Script Inventory
 

@@ -1,4 +1,4 @@
-# Open Horizons Accelerator - Prometheus Rules
+# Agentic DevOps Platform - Prometheus Rules
 
 > **Version:** 4.0.0
 > **Last Updated:** December 2025

@@ -1,4 +1,4 @@
-# Open Horizons Accelerator - Troubleshooting Guide
+# Agentic DevOps Platform - Troubleshooting Guide
 
 > **Version:** 4.0.0
 > **Last Updated:** December 2025
@@ -69,7 +69,7 @@ Before investigating specific issues, run this quick check:
 # Save as: scripts/quick-check.sh
 
 echo "╔══════════════════════════════════════════════════════════════╗"
-echo "║          OPEN HORIZONS - QUICK DIAGNOSTIC CHECK             ║"
+echo "║          AGENTIC DEVOPS PLATFORM - QUICK DIAGNOSTIC CHECK             ║"
 echo "╚══════════════════════════════════════════════════════════════╝"
 echo ""
 echo "Timestamp: $(date -u +"%Y-%m-%dT%H:%M:%SZ")"

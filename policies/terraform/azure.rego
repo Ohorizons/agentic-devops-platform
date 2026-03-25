@@ -1,5 +1,5 @@
 # =============================================================================
-# OPEN HORIZONS ACCELERATOR - TERRAFORM POLICIES
+# AGENTIC DEVOPS PLATFORM - TERRAFORM POLICIES
 # =============================================================================
 #
 # OPA/Conftest policies for validating Terraform configurations.

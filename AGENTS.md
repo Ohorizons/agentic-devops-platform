@@ -1,8 +1,8 @@
-# Agent System — Open Horizons Accelerator
+# Agent System — Agentic DevOps Platform
 
 ## Overview
 
-The Open Horizons Accelerator uses **GitHub Copilot Chat Agents** — a role-based AI assistant system that operates directly within VS Code / GitHub Copilot Chat. The platform includes 16 specialized agents for interactive development assistance.
+The Agentic DevOps Platform uses **GitHub Copilot Chat Agents** — a role-based AI assistant system that operates directly within VS Code / GitHub Copilot Chat. The platform includes 16 specialized agents for interactive development assistance.
 
 ## Architecture
 
@@ -62,7 +62,7 @@ In VS Code with GitHub Copilot Chat, mention an agent by name:
 
 | Prompt | File | Purpose |
 |--------|------|---------|
-| **Deploy Platform** | [deploy-platform.prompt.md](.github/prompts/deploy-platform.prompt.md) | **Deploy the Open Horizons platform** |
+| **Deploy Platform** | [deploy-platform.prompt.md](.github/prompts/deploy-platform.prompt.md) | **Deploy the Agentic DevOps Platform platform** |
 | Create Service | [create-service.prompt.md](.github/prompts/create-service.prompt.md) | Scaffold a new microservice |
 | Deploy Service | [deploy-service.prompt.md](.github/prompts/deploy-service.prompt.md) | Deploy a service to AKS |
 | Generate Docs | [generate-docs.prompt.md](.github/prompts/generate-docs.prompt.md) | Generate documentation |

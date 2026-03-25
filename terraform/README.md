@@ -2,7 +2,7 @@
 
 > **A solution created in partnership with Microsoft and GitHub**
 
-This directory contains the Terraform configuration for the Open Horizons Platform infrastructure.
+This directory contains the Terraform configuration for the Agentic DevOps Platform Platform infrastructure.
 
 ## Directory Structure
 

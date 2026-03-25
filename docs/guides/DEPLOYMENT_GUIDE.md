@@ -1,4 +1,4 @@
-# Open Horizons Accelerator - Complete Deployment Guide
+# Agentic DevOps Platform - Complete Deployment Guide
 
 > **Version:** 4.0.0
 > **Last Updated:** December 2025
@@ -31,9 +31,9 @@
 
 ## 1. Introduction
 
-### What is the Open Horizons Accelerator
+### What is the Agentic DevOps Platform
 
-The Open Horizons Accelerator is a **complete platform engineering solution** that helps organizations build and manage cloud-native applications on Azure. Think of it as a "starter kit" that provides everything you need to run modern applications in production.
+The Agentic DevOps Platform is a **complete platform engineering solution** that helps organizations build and manage cloud-native applications on Azure. Think of it as a "starter kit" that provides everything you need to run modern applications in production.
 
 ### What Will You Learn
 
@@ -69,7 +69,7 @@ This guide is designed for:
 
 ## Choose Your Deployment Method
 
-There are **three ways** to deploy the Open Horizons platform. Choose the one that fits your experience level:
+There are **three ways** to deploy the Agentic DevOps Platform platform. Choose the one that fits your experience level:
 
 ### Option A: Agent-Guided (Easiest — Interactive)
 
@@ -122,11 +122,11 @@ Follow the rest of this guide — 10 detailed steps with copy-paste commands, ex
 
 Before we start deploying, let's understand **what** we're building and **why**.
 
-### 2.1 The Open Horizons Model
+### 2.1 The Agentic DevOps Platform Model
 
 The platform is organized into three "horizons" (layers), each building on the previous one:
 
-![Open Horizons Architecture](../assets/arch-three-horizons-framework.svg)
+![Agentic DevOps Platform Architecture](../assets/arch-three-horizons-framework.svg)
 
 ### 2.2 What Each Horizon Contains
 
@@ -740,9 +740,9 @@ Ohorizons_NAME
 
 ```bash
 # Fork the repository to your organization
-# Replace Ohorizons_NAME with your organization name
-gh repo fork ohorizons/agentic-devops-platform \
-  --org Ohorizons_NAME \
+# Replace YOUR_ORG with your organization name
+gh repo fork ${GITHUB_ORG}/agentic-devops-platform \
+  --org YOUR_ORG \
   --clone \
   --remote
 
@@ -758,7 +758,7 @@ ls -la
 
 ```bash
 # Clone the repository
-git clone https://github.com/ohorizons/agentic-devops-platform.git
+git clone https://github.com/${GITHUB_ORG}/${GITHUB_REPO}.git
 
 # Navigate into the repository
 cd agentic-devops-platform
@@ -973,7 +973,7 @@ ls -la scripts/*.sh | head -5
 **Expected output:**
 
 ```
-=== Open Horizons Accelerator - Prerequisites Check ===
+=== Agentic DevOps Platform - Prerequisites Check ===
 
 [✓] Azure CLI: 2.55.0 (minimum: 2.50.0)
 [✓] Terraform: 1.6.6 (minimum: 1.5.0)
@@ -1014,7 +1014,7 @@ Here's the complete file with explanations for each setting:
 
 ```hcl
 # =============================================================================
-# OPEN HORIZONS ACCELERATOR - TERRAFORM CONFIGURATION
+# AGENTIC DEVOPS PLATFORM - TERRAFORM CONFIGURATION
 # =============================================================================
 #
 # This file configures what resources Terraform will create in Azure.
@@ -2197,7 +2197,7 @@ Run this command to see overall platform status:
 ```bash
 echo ""
 echo "╔══════════════════════════════════════════════════════════════════╗"
-echo "║           OPEN HORIZONS PLATFORM - STATUS DASHBOARD             ║"
+echo "║           AGENTIC DEVOPS PLATFORM PLATFORM - STATUS DASHBOARD             ║"
 echo "╚══════════════════════════════════════════════════════════════════╝"
 echo ""
 
@@ -2286,7 +2286,7 @@ Overall:
 
 > 🎉 **Congratulations!**
 >
-> You have successfully deployed the Open Horizons Accelerator!
+> You have successfully deployed the Agentic DevOps Platform!
 
 ---
 
@@ -2535,7 +2535,7 @@ The platform includes AI agents that can assist you at every deployment step:
 
 > **Tip:** Each agent will decompose your request into sub-tasks and walk you through step by step.
 
-- **GitHub Issues:** [Create an Issue](https://github.com/ohorizons/agentic-devops-platform/issues)
+- **GitHub Issues:** [Create an Issue](https://github.com/${GITHUB_ORG}/${GITHUB_REPO}/issues)
 - **Documentation:** Check other guides in `/docs/guides/`
 
 ---

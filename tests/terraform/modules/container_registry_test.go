@@ -1,5 +1,5 @@
 // =============================================================================
-// OPEN HORIZONS ACCELERATOR - CONTAINER REGISTRY MODULE TESTS
+// AGENTIC DEVOPS PLATFORM - CONTAINER REGISTRY MODULE TESTS
 // =============================================================================
 //
 // Unit and integration tests for the Terraform container registry module.

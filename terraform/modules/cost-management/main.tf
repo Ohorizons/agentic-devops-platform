@@ -1,5 +1,5 @@
 # =============================================================================
-# OPEN HORIZONS ACCELERATOR - COST MANAGEMENT MODULE
+# AGENTIC DEVOPS PLATFORM - COST MANAGEMENT MODULE
 # =============================================================================
 #
 # Azure Cost Management configuration including:
@@ -27,7 +27,7 @@ locals {
 
   common_tags = {
     "app.kubernetes.io/managed-by" = "terraform"
-    "platform.open-horizons/tier" = "operations"
+    "platform.agentic-devops-platform/tier" = "operations"
     "cost-center"                  = var.cost_center
   }
 }

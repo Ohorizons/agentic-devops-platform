@@ -4,7 +4,7 @@ ${{values.description}}
 
 ## Overview
 
-This microservice was created using the Open Horizons Accelerator - H1 Foundation template.
+This microservice was created using the Agentic DevOps Platform - H1 Foundation template.
 
 | Property | Value |
 |----------|-------|
@@ -88,6 +88,6 @@ src/
 
 ## Links
 
-- [Open Horizons Documentation](https://github.com/${{values.repoUrl | parseRepoUrl | pick('owner') }}/agentic-devops-platform)
+- [Agentic DevOps Platform Documentation](https://github.com/${{values.repoUrl | parseRepoUrl | pick('owner') }}/agentic-devops-platform)
 - [ArgoCD Dashboard](https://argocd.example.com)
 - [Grafana Dashboard](https://grafana.example.com)

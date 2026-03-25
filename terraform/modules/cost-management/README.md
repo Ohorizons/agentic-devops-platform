@@ -48,7 +48,7 @@ module "cost_management" {
 
   budget_filter_tags = {
     Environment = ["prod"]
-    Project     = ["open-horizons"]
+    Project     = ["agentic-devops-platform"]
   }
 
   tags = module.naming.tags

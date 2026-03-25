@@ -1,4 +1,4 @@
-# Open Horizons Accelerator - Agent Playbook
+# Agentic DevOps Platform - Agent Playbook
 
 > **Version:** 4.0.0
 > **Last Updated:** December 2025
